@@ -50,7 +50,7 @@ namespace CxTitan
         #endregion
 
         #region // status variables
-        
+        public static clsUser CurrentUser;// current User
         #endregion
 
     }

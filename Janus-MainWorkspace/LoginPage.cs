@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,16 @@ namespace CxTitan
 
         private void cmdOK_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            SystemGlobals.objMain.Show();// Main page show
+            if (IsUserInformationCorrect())
+            {
+                this.Hide();
+                SystemGlobals.objMain.Show();// Main page show
+            }
+            else
+            {
+                MessageBox.Show("Wrong user information, please make sure the username and password are all correct!!");
+                txtPassword.Focus();
+            }
         }
 
         private void cmdClear_Click(object sender, EventArgs e)
@@ -48,6 +57,70 @@ namespace CxTitan
         private void LoginPage_Load(object sender, EventArgs e)
         {
             SystemGlobals.loginReturn = this;
+        }
+
+        private bool IsUserInformationCorrect()
+        {
+            bool bFound = false;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = SystemGlobals.ConnectionString;
+            string cmdText = "SELECT name, password FROM Users";
+            SqlCommand command = new SqlCommand(cmdText, conn);
+            try
+            {
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                foreach (DataRow dRow in dataTable.Rows)
+                {
+                    if ((dRow["name"].ToString() == txtUserName.Text) &&
+                        (dRow["password"].ToString() == txtPassword.Text))
+                    {
+                        bFound = true;
+                        LoadCurrentUserInfo();
+                        break;
+                    }
+                }
+                return bFound;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot get information about Users. Check database integrity", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+                return false;
+            }
+        }
+
+        private void LoadCurrentUserInfo()
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = SystemGlobals.ConnectionString;
+            string cmdText = string.Format("SELECT * FROM Users WHERE name = '{0}' and password = '{1}'", 
+                txtUserName.Text, txtPassword.Text);
+            SqlCommand command = new SqlCommand(cmdText, conn);
+            conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    SystemGlobals.CurrentUser.UserName = reader["name"].ToString();
+                    SystemGlobals.CurrentUser.PassWord = reader["password"].ToString();
+                    SystemGlobals.CurrentUser.Level = Convert.ToInt16(reader["level"].ToString());
+                }
+            }
+            catch (Exception ex)
+            { }
+            conn.Close();
+            reader.Close();
+        }
+
+        private void AccessLevels()
+        {
+            
         }
     }
 }

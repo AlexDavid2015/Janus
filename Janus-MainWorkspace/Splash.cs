@@ -60,6 +60,7 @@ namespace CxTitan
             PBar.Value = 40;
             Thread.Sleep(20);
 
+            SystemGlobals.CurrentUser = new clsUser();// Defines Current User
             PBar.Value = 50;
             Thread.Sleep(20);
 
