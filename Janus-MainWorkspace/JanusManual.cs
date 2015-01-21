@@ -52,7 +52,8 @@ namespace CxTitan
             AvantechAIs.FreeResource();
             AvantechDIOs.FreeResource();
 
-            System.Environment.Exit(0);
+            //System.Environment.Exit(0);
+            SystemGlobals.objMain.Show();
         }
 
         private void JanusManual_Load(object sender, EventArgs e)

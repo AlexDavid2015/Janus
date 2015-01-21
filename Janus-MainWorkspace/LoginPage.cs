@@ -19,6 +19,7 @@ namespace CxTitan
 
         private void cmdOK_Click(object sender, EventArgs e)
         {
+            this.Hide();
             SystemGlobals.objMain.Show();// Main page show
         }
 
@@ -42,6 +43,11 @@ namespace CxTitan
         private void cmdOP_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void LoginPage_Load(object sender, EventArgs e)
+        {
+            SystemGlobals.loginReturn = this;
         }
     }
 }

@@ -32,6 +32,7 @@ namespace CxTitan
         public static ConnectPage objConnectPage = new ConnectPage();
         public static MagazinePage objMagazinePage = new MagazinePage();
         public static Main objMain = new Main();
+        public static Form loginReturn;// Login form return
 
         public static string LanguageCode = "English";
 
@@ -40,7 +41,7 @@ namespace CxTitan
         {
             Splash splash = new Splash();
             splash.StartPosition = FormStartPosition.CenterScreen;
-            splash.SetWaitTime(20);
+            splash.SetWaitTime(15);
             splash.ShowDialog();
             splash.Close();
             splash.Dispose();
