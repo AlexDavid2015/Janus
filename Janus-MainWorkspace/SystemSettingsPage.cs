@@ -43,6 +43,11 @@ namespace CxTitan
         private void SystemSettingsPage_Load(object sender, EventArgs e)
         {
             AvantechTableAdapter.Fill(AvantechDataSet.Avantech);
+            if (SystemGlobals.CurrentUser.Level != 255)
+            {
+                gpbSystemSettings.Enabled = false;
+                cmdSave.Enabled = false;
+            }
         }
     }
 }

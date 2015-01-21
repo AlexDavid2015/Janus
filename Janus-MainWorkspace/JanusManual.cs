@@ -53,6 +53,7 @@ namespace CxTitan
             AvantechDIOs.FreeResource();
 
             //System.Environment.Exit(0);
+            this.Hide();
             SystemGlobals.objMain.Show();
         }
 

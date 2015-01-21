@@ -32,7 +32,6 @@
             this.cmdExit = new System.Windows.Forms.Button();
             this.gpbSystemSettings = new System.Windows.Forms.GroupBox();
             this.txtDIO_DOindex = new System.Windows.Forms.TextBox();
-            this.SystemSettingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.AvantechDataSet = new CxTitan.AvantechDataSet();
             this.txtDIO_DIindex = new System.Windows.Forms.TextBox();
             this.txtDISlotNum = new System.Windows.Forms.TextBox();
@@ -59,9 +58,10 @@
             this.lblIP = new System.Windows.Forms.Label();
             this.cmdSave = new System.Windows.Forms.Button();
             this.AvantechTableAdapter = new CxTitan.AvantechDataSetTableAdapters.AvantechTableAdapter();
+            this.SystemSettingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gpbSystemSettings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SystemSettingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AvantechDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SystemSettingsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cmdExit
@@ -109,17 +109,12 @@
             // 
             // txtDIO_DOindex
             // 
-            this.txtDIO_DOindex.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingBindingSource, "DIO_DOindex", true));
+            this.txtDIO_DOindex.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingsBindingSource, "DIO_DOindex", true));
             this.txtDIO_DOindex.Enabled = false;
             this.txtDIO_DOindex.Location = new System.Drawing.Point(483, 335);
             this.txtDIO_DOindex.Name = "txtDIO_DOindex";
             this.txtDIO_DOindex.Size = new System.Drawing.Size(94, 20);
             this.txtDIO_DOindex.TabIndex = 136;
-            // 
-            // SystemSettingBindingSource
-            // 
-            this.SystemSettingBindingSource.DataMember = "Avantech";
-            this.SystemSettingBindingSource.DataSource = this.AvantechDataSet;
             // 
             // AvantechDataSet
             // 
@@ -128,7 +123,7 @@
             // 
             // txtDIO_DIindex
             // 
-            this.txtDIO_DIindex.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingBindingSource, "DIO_DIindex", true));
+            this.txtDIO_DIindex.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingsBindingSource, "DIO_DIindex", true));
             this.txtDIO_DIindex.Enabled = false;
             this.txtDIO_DIindex.Location = new System.Drawing.Point(483, 281);
             this.txtDIO_DIindex.Name = "txtDIO_DIindex";
@@ -137,7 +132,7 @@
             // 
             // txtDISlotNum
             // 
-            this.txtDISlotNum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingBindingSource, "DISlotNum", true));
+            this.txtDISlotNum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingsBindingSource, "DISlotNum", true));
             this.txtDISlotNum.Location = new System.Drawing.Point(483, 226);
             this.txtDISlotNum.Name = "txtDISlotNum";
             this.txtDISlotNum.Size = new System.Drawing.Size(94, 20);
@@ -145,7 +140,7 @@
             // 
             // txtDIOSlotNum
             // 
-            this.txtDIOSlotNum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingBindingSource, "DIOSlotNum", true));
+            this.txtDIOSlotNum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingsBindingSource, "DIOSlotNum", true));
             this.txtDIOSlotNum.Location = new System.Drawing.Point(483, 175);
             this.txtDIOSlotNum.Name = "txtDIOSlotNum";
             this.txtDIOSlotNum.Size = new System.Drawing.Size(94, 20);
@@ -153,7 +148,7 @@
             // 
             // txtAISlotNum
             // 
-            this.txtAISlotNum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingBindingSource, "AISlotNum", true));
+            this.txtAISlotNum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingsBindingSource, "AISlotNum", true));
             this.txtAISlotNum.Location = new System.Drawing.Point(483, 126);
             this.txtAISlotNum.Name = "txtAISlotNum";
             this.txtAISlotNum.Size = new System.Drawing.Size(94, 20);
@@ -161,7 +156,7 @@
             // 
             // txtAOSlotNum
             // 
-            this.txtAOSlotNum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingBindingSource, "AOSlotNum", true));
+            this.txtAOSlotNum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingsBindingSource, "AOSlotNum", true));
             this.txtAOSlotNum.Location = new System.Drawing.Point(483, 79);
             this.txtAOSlotNum.Name = "txtAOSlotNum";
             this.txtAOSlotNum.Size = new System.Drawing.Size(94, 20);
@@ -169,7 +164,7 @@
             // 
             // txtDOSlotNum
             // 
-            this.txtDOSlotNum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingBindingSource, "DOSlotNum", true));
+            this.txtDOSlotNum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingsBindingSource, "DOSlotNum", true));
             this.txtDOSlotNum.Location = new System.Drawing.Point(483, 33);
             this.txtDOSlotNum.Name = "txtDOSlotNum";
             this.txtDOSlotNum.Size = new System.Drawing.Size(94, 20);
@@ -177,7 +172,7 @@
             // 
             // txtReceiveTimeOut
             // 
-            this.txtReceiveTimeOut.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingBindingSource, "ReceiveTimeOut", true));
+            this.txtReceiveTimeOut.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingsBindingSource, "ReceiveTimeOut", true));
             this.txtReceiveTimeOut.Location = new System.Drawing.Point(171, 226);
             this.txtReceiveTimeOut.Name = "txtReceiveTimeOut";
             this.txtReceiveTimeOut.Size = new System.Drawing.Size(94, 20);
@@ -185,7 +180,7 @@
             // 
             // txtSendTimeOut
             // 
-            this.txtSendTimeOut.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingBindingSource, "SendTimeOut", true));
+            this.txtSendTimeOut.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingsBindingSource, "SendTimeOut", true));
             this.txtSendTimeOut.Location = new System.Drawing.Point(171, 175);
             this.txtSendTimeOut.Name = "txtSendTimeOut";
             this.txtSendTimeOut.Size = new System.Drawing.Size(94, 20);
@@ -193,7 +188,7 @@
             // 
             // txtConnectionTimeOut
             // 
-            this.txtConnectionTimeOut.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingBindingSource, "ConnectionTimeOut", true));
+            this.txtConnectionTimeOut.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingsBindingSource, "ConnectionTimeOut", true));
             this.txtConnectionTimeOut.Location = new System.Drawing.Point(171, 126);
             this.txtConnectionTimeOut.Name = "txtConnectionTimeOut";
             this.txtConnectionTimeOut.Size = new System.Drawing.Size(94, 20);
@@ -201,7 +196,7 @@
             // 
             // txtScanTime
             // 
-            this.txtScanTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingBindingSource, "ScanTime", true));
+            this.txtScanTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingsBindingSource, "ScanTime", true));
             this.txtScanTime.Location = new System.Drawing.Point(171, 79);
             this.txtScanTime.Name = "txtScanTime";
             this.txtScanTime.Size = new System.Drawing.Size(94, 20);
@@ -209,7 +204,7 @@
             // 
             // txtIP
             // 
-            this.txtIP.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingBindingSource, "IP", true));
+            this.txtIP.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemSettingsBindingSource, "IP", true));
             this.txtIP.Location = new System.Drawing.Point(171, 33);
             this.txtIP.Name = "txtIP";
             this.txtIP.Size = new System.Drawing.Size(94, 20);
@@ -325,6 +320,11 @@
             // 
             this.AvantechTableAdapter.ClearBeforeFill = true;
             // 
+            // SystemSettingsBindingSource
+            // 
+            this.SystemSettingsBindingSource.DataMember = "Avantech";
+            this.SystemSettingsBindingSource.DataSource = this.AvantechDataSet;
+            // 
             // SystemSettingsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -342,8 +342,8 @@
             this.Load += new System.EventHandler(this.SystemSettingsPage_Load);
             this.gpbSystemSettings.ResumeLayout(false);
             this.gpbSystemSettings.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SystemSettingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AvantechDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SystemSettingsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -367,7 +367,6 @@
         internal System.Windows.Forms.Button cmdSave;
         internal AvantechDataSet AvantechDataSet;
         internal AvantechDataSetTableAdapters.AvantechTableAdapter AvantechTableAdapter;
-        internal System.Windows.Forms.BindingSource SystemSettingBindingSource;
         internal System.Windows.Forms.TextBox txtIP;
         internal System.Windows.Forms.TextBox txtScanTime;
         internal System.Windows.Forms.TextBox txtConnectionTimeOut;
@@ -380,5 +379,6 @@
         protected internal System.Windows.Forms.TextBox txtDISlotNum;
         internal System.Windows.Forms.TextBox txtDIO_DIindex;
         internal System.Windows.Forms.TextBox txtDIO_DOindex;
+        private System.Windows.Forms.BindingSource SystemSettingsBindingSource;
     }
 }

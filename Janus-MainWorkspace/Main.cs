@@ -37,9 +37,20 @@ namespace CxTitan
 
         private void cmdShutDown_Click(object sender, EventArgs e)
         {
-            this.Close();
-            this.Dispose();
-            System.Environment.Exit(1);
+            if (MessageBox.Show("Are you sure to shut down?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) ==
+                DialogResult.OK)
+            {
+                this.Close();
+                this.Dispose();
+                System.Environment.Exit(1);
+            }
+        }
+
+        private void cmdUsers_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UsersPage usersPage = new UsersPage();
+            usersPage.Show();
         }
     }
 }

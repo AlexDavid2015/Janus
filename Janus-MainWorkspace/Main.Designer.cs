@@ -32,6 +32,7 @@
             this.cmdManual = new System.Windows.Forms.Button();
             this.cmdLogOut = new System.Windows.Forms.Button();
             this.cmdShutDown = new System.Windows.Forms.Button();
+            this.cmdUsers = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmdAuto
@@ -74,12 +75,23 @@
             this.cmdShutDown.UseVisualStyleBackColor = true;
             this.cmdShutDown.Click += new System.EventHandler(this.cmdShutDown_Click);
             // 
+            // cmdUsers
+            // 
+            this.cmdUsers.Location = new System.Drawing.Point(736, 30);
+            this.cmdUsers.Name = "cmdUsers";
+            this.cmdUsers.Size = new System.Drawing.Size(75, 63);
+            this.cmdUsers.TabIndex = 4;
+            this.cmdUsers.Text = "Users";
+            this.cmdUsers.UseVisualStyleBackColor = true;
+            this.cmdUsers.Click += new System.EventHandler(this.cmdUsers_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1124, 555);
             this.ControlBox = false;
+            this.Controls.Add(this.cmdUsers);
             this.Controls.Add(this.cmdShutDown);
             this.Controls.Add(this.cmdLogOut);
             this.Controls.Add(this.cmdManual);
@@ -87,6 +99,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
             this.ResumeLayout(false);
 
@@ -98,5 +111,6 @@
         private System.Windows.Forms.Button cmdManual;
         private System.Windows.Forms.Button cmdLogOut;
         private System.Windows.Forms.Button cmdShutDown;
+        private System.Windows.Forms.Button cmdUsers;
     }
 }
