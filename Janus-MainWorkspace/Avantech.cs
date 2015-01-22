@@ -107,7 +107,7 @@ namespace CxTitan
 
             // scan timer init
             m_ScanTime_LocalSys = new int[1];
-            m_ScanTime_LocalSys[0] = SystemGlobals.ScanTime;
+            m_ScanTime_LocalSys[0] = SystemGlobals.ScanTime;// assign the Database Scantime to the member variable(later after this, m_ScanTime_LocalSys[0] can directly use)
             m_adamModbusSocket = null;
             m_iTimeout = new int[3];
             m_iTimeout[0] = SystemGlobals.ConnectionTimeOut;// Connection Timeout

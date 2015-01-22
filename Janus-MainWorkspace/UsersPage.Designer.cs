@@ -157,7 +157,7 @@
             // chkPrograms
             // 
             this.chkPrograms.AutoSize = true;
-            this.chkPrograms.Location = new System.Drawing.Point(634, 105);
+            this.chkPrograms.Location = new System.Drawing.Point(634, 107);
             this.chkPrograms.Name = "chkPrograms";
             this.chkPrograms.Size = new System.Drawing.Size(70, 17);
             this.chkPrograms.TabIndex = 13;
