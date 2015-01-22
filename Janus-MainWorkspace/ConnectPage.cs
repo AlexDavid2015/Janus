@@ -1628,7 +1628,6 @@ namespace CxTitan
 
         private void cmdStartProgram_Click(object sender, EventArgs e) 
         {
-            //CxTitan.Class1.Connected = true;
             //this.Hide();
             //CxTitan.Manual objManual = new CxTitan.Manual();
             //objManual.Hide();

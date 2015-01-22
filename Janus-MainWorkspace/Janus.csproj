@@ -128,7 +128,6 @@
     <Compile Include="AvantechDIOs.cs" />
     <Compile Include="AvantechDIs.cs" />
     <Compile Include="AvantechDOs.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="clsUser.cs" />
     <Compile Include="ConnectPage.cs">
       <SubType>Form</SubType>
