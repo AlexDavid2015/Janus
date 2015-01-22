@@ -56,7 +56,8 @@ namespace CxTitan
             SystemGlobals.CurrentUser.Level = 1;
 
             this.Hide();
-            SystemGlobals.objMain.Show();// Main page show
+            SystemGlobals.objMain.MainUI_AccessLevels();// update UI according to Access Levels
+            SystemGlobals.objMain.Show();// Main page show?? or directly show Auto Page?
         }
 
         private void LoginPage_Load(object sender, EventArgs e)

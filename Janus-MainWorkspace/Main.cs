@@ -12,9 +12,11 @@ namespace CxTitan
 {
     public partial class Main : Form
     {
+        private Button[] Main_Buttons = new Button[7];// group the access level buttons of Main Page( 7 == MainUiSections)
         public Main()
         {
             InitializeComponent();
+            UI_Arrays_Assign();
         }
 
         private void cmdAuto_Click(object sender, EventArgs e)
@@ -51,6 +53,39 @@ namespace CxTitan
             this.Hide();
             UsersPage usersPage = new UsersPage();
             usersPage.Show();
+        }
+
+        public void MainUI_AccessLevels()
+        {
+            bool[] a = new bool[SystemGlobals.MainUiSections];
+            for (int i = 0; i < SystemGlobals.MainUiSections; i++)
+            {
+                if (((Convert.ToInt32(SystemGlobals.CurrentUser.Level)) & (Convert.ToInt32(Math.Pow(2, i)))) == Convert.ToInt32(Math.Pow(2, i)))
+                {
+                    a[i] = true;
+                }
+                else
+                {
+                    a[i] = false;
+                }
+                Main_Buttons[i].Enabled = a[i];
+            }
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void UI_Arrays_Assign()
+        {
+            //Assign the UI Button Arrays
+            Main_Buttons[0] = cmdAuto;
+            Main_Buttons[1] = cmdManual;
+            Main_Buttons[2] = cmdPrograms;
+            Main_Buttons[3] = cmdLog;
+            Main_Buttons[4] = cmdSetup;
+            Main_Buttons[5] = cmdUtilities;
+            Main_Buttons[6] = cmdUsers;
         }
     }
 }

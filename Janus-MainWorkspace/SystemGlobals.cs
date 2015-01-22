@@ -53,5 +53,9 @@ namespace CxTitan
         public static clsUser CurrentUser;// current User
         #endregion
 
+        #region // UI access levels
+        public const int MainUiSections = 7;
+        #endregion
+
     }
 }
