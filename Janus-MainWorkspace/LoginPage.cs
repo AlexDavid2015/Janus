@@ -51,7 +51,12 @@ namespace CxTitan
 
         private void cmdOP_Click(object sender, EventArgs e)
         {
+            // Set Current User info
+            SystemGlobals.CurrentUser.UserName = "op";
+            SystemGlobals.CurrentUser.Level = 1;
 
+            this.Hide();
+            SystemGlobals.objMain.Show();// Main page show
         }
 
         private void LoginPage_Load(object sender, EventArgs e)
@@ -77,7 +82,7 @@ namespace CxTitan
                         (dRow["password"].ToString() == txtPassword.Text))
                     {
                         bFound = true;
-                        LoadCurrentUserInfo();
+                        LoadCurrentUserInfoDB();
                         break;
                     }
                 }
@@ -94,7 +99,7 @@ namespace CxTitan
             }
         }
 
-        private void LoadCurrentUserInfo()
+        private void LoadCurrentUserInfoDB()
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = SystemGlobals.ConnectionString;
