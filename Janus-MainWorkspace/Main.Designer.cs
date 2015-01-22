@@ -33,6 +33,10 @@
             this.cmdLogOut = new System.Windows.Forms.Button();
             this.cmdShutDown = new System.Windows.Forms.Button();
             this.cmdUsers = new System.Windows.Forms.Button();
+            this.cmdPrograms = new System.Windows.Forms.Button();
+            this.cmdLog = new System.Windows.Forms.Button();
+            this.cmdSetup = new System.Windows.Forms.Button();
+            this.cmdUtilities = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmdAuto
@@ -47,7 +51,7 @@
             // 
             // cmdManual
             // 
-            this.cmdManual.Location = new System.Drawing.Point(132, 30);
+            this.cmdManual.Location = new System.Drawing.Point(142, 30);
             this.cmdManual.Name = "cmdManual";
             this.cmdManual.Size = new System.Drawing.Size(75, 63);
             this.cmdManual.TabIndex = 1;
@@ -57,7 +61,7 @@
             // 
             // cmdLogOut
             // 
-            this.cmdLogOut.Location = new System.Drawing.Point(849, 30);
+            this.cmdLogOut.Location = new System.Drawing.Point(856, 30);
             this.cmdLogOut.Name = "cmdLogOut";
             this.cmdLogOut.Size = new System.Drawing.Size(75, 63);
             this.cmdLogOut.TabIndex = 2;
@@ -67,7 +71,7 @@
             // 
             // cmdShutDown
             // 
-            this.cmdShutDown.Location = new System.Drawing.Point(962, 30);
+            this.cmdShutDown.Location = new System.Drawing.Point(974, 30);
             this.cmdShutDown.Name = "cmdShutDown";
             this.cmdShutDown.Size = new System.Drawing.Size(75, 63);
             this.cmdShutDown.TabIndex = 3;
@@ -77,7 +81,7 @@
             // 
             // cmdUsers
             // 
-            this.cmdUsers.Location = new System.Drawing.Point(736, 30);
+            this.cmdUsers.Location = new System.Drawing.Point(738, 30);
             this.cmdUsers.Name = "cmdUsers";
             this.cmdUsers.Size = new System.Drawing.Size(75, 63);
             this.cmdUsers.TabIndex = 4;
@@ -85,12 +89,52 @@
             this.cmdUsers.UseVisualStyleBackColor = true;
             this.cmdUsers.Click += new System.EventHandler(this.cmdUsers_Click);
             // 
+            // cmdPrograms
+            // 
+            this.cmdPrograms.Location = new System.Drawing.Point(262, 30);
+            this.cmdPrograms.Name = "cmdPrograms";
+            this.cmdPrograms.Size = new System.Drawing.Size(75, 63);
+            this.cmdPrograms.TabIndex = 5;
+            this.cmdPrograms.Text = "Programs";
+            this.cmdPrograms.UseVisualStyleBackColor = true;
+            // 
+            // cmdLog
+            // 
+            this.cmdLog.Location = new System.Drawing.Point(381, 30);
+            this.cmdLog.Name = "cmdLog";
+            this.cmdLog.Size = new System.Drawing.Size(75, 63);
+            this.cmdLog.TabIndex = 6;
+            this.cmdLog.Text = "Log";
+            this.cmdLog.UseVisualStyleBackColor = true;
+            // 
+            // cmdSetup
+            // 
+            this.cmdSetup.Location = new System.Drawing.Point(500, 30);
+            this.cmdSetup.Name = "cmdSetup";
+            this.cmdSetup.Size = new System.Drawing.Size(75, 63);
+            this.cmdSetup.TabIndex = 7;
+            this.cmdSetup.Text = "Setup";
+            this.cmdSetup.UseVisualStyleBackColor = true;
+            // 
+            // cmdUtilities
+            // 
+            this.cmdUtilities.Location = new System.Drawing.Point(619, 30);
+            this.cmdUtilities.Name = "cmdUtilities";
+            this.cmdUtilities.Size = new System.Drawing.Size(75, 63);
+            this.cmdUtilities.TabIndex = 8;
+            this.cmdUtilities.Text = "Utilities";
+            this.cmdUtilities.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1124, 555);
             this.ControlBox = false;
+            this.Controls.Add(this.cmdUtilities);
+            this.Controls.Add(this.cmdSetup);
+            this.Controls.Add(this.cmdLog);
+            this.Controls.Add(this.cmdPrograms);
             this.Controls.Add(this.cmdUsers);
             this.Controls.Add(this.cmdShutDown);
             this.Controls.Add(this.cmdLogOut);
@@ -101,6 +145,7 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
 
         }
@@ -112,5 +157,9 @@
         private System.Windows.Forms.Button cmdLogOut;
         private System.Windows.Forms.Button cmdShutDown;
         private System.Windows.Forms.Button cmdUsers;
+        private System.Windows.Forms.Button cmdPrograms;
+        private System.Windows.Forms.Button cmdLog;
+        private System.Windows.Forms.Button cmdSetup;
+        private System.Windows.Forms.Button cmdUtilities;
     }
 }

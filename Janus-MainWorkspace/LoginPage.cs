@@ -23,6 +23,7 @@ namespace CxTitan
             if (IsUserInformationCorrect())
             {
                 this.Hide();
+                SystemGlobals.objMain.MainUI_AccessLevels();// update UI according to Access Levels
                 SystemGlobals.objMain.Show();// Main page show
             }
             else
