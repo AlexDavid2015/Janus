@@ -42,7 +42,10 @@
             this.chkAuto = new System.Windows.Forms.CheckBox();
             this.chkManual = new System.Windows.Forms.CheckBox();
             this.chkPrograms = new System.Windows.Forms.CheckBox();
-            this.chkSystemSettings = new System.Windows.Forms.CheckBox();
+            this.chkLog = new System.Windows.Forms.CheckBox();
+            this.chkSetup = new System.Windows.Forms.CheckBox();
+            this.chkUtilities = new System.Windows.Forms.CheckBox();
+            this.chkUserManagement = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lstUsers
@@ -52,6 +55,7 @@
             this.lstUsers.Name = "lstUsers";
             this.lstUsers.Size = new System.Drawing.Size(182, 290);
             this.lstUsers.TabIndex = 0;
+            this.lstUsers.Click += new System.EventHandler(this.lstUsers_Click);
             // 
             // cmdExit
             // 
@@ -61,6 +65,7 @@
             this.cmdExit.TabIndex = 1;
             this.cmdExit.Text = "Exit";
             this.cmdExit.UseVisualStyleBackColor = true;
+            this.cmdExit.Click += new System.EventHandler(this.cmdExit_Click);
             // 
             // label1
             // 
@@ -115,6 +120,7 @@
             this.cmdAdd.TabIndex = 8;
             this.cmdAdd.Text = "Add";
             this.cmdAdd.UseVisualStyleBackColor = true;
+            this.cmdAdd.Click += new System.EventHandler(this.cmdAdd_Click);
             // 
             // cmdModify
             // 
@@ -124,6 +130,7 @@
             this.cmdModify.TabIndex = 9;
             this.cmdModify.Text = "Modify";
             this.cmdModify.UseVisualStyleBackColor = true;
+            this.cmdModify.Click += new System.EventHandler(this.cmdModify_Click);
             // 
             // cmdDelete
             // 
@@ -133,6 +140,7 @@
             this.cmdDelete.TabIndex = 10;
             this.cmdDelete.Text = "Delete";
             this.cmdDelete.UseVisualStyleBackColor = true;
+            this.cmdDelete.Click += new System.EventHandler(this.cmdDelete_Click);
             // 
             // chkAuto
             // 
@@ -164,15 +172,45 @@
             this.chkPrograms.Text = "Programs";
             this.chkPrograms.UseVisualStyleBackColor = true;
             // 
-            // chkSystemSettings
+            // chkLog
             // 
-            this.chkSystemSettings.AutoSize = true;
-            this.chkSystemSettings.Location = new System.Drawing.Point(634, 141);
-            this.chkSystemSettings.Name = "chkSystemSettings";
-            this.chkSystemSettings.Size = new System.Drawing.Size(101, 17);
-            this.chkSystemSettings.TabIndex = 15;
-            this.chkSystemSettings.Text = "System Settings";
-            this.chkSystemSettings.UseVisualStyleBackColor = true;
+            this.chkLog.AutoSize = true;
+            this.chkLog.Location = new System.Drawing.Point(634, 141);
+            this.chkLog.Name = "chkLog";
+            this.chkLog.Size = new System.Drawing.Size(44, 17);
+            this.chkLog.TabIndex = 15;
+            this.chkLog.Text = "Log";
+            this.chkLog.UseVisualStyleBackColor = true;
+            // 
+            // chkSetup
+            // 
+            this.chkSetup.AutoSize = true;
+            this.chkSetup.Location = new System.Drawing.Point(634, 174);
+            this.chkSetup.Name = "chkSetup";
+            this.chkSetup.Size = new System.Drawing.Size(54, 17);
+            this.chkSetup.TabIndex = 16;
+            this.chkSetup.Text = "Setup";
+            this.chkSetup.UseVisualStyleBackColor = true;
+            // 
+            // chkUtilities
+            // 
+            this.chkUtilities.AutoSize = true;
+            this.chkUtilities.Location = new System.Drawing.Point(634, 206);
+            this.chkUtilities.Name = "chkUtilities";
+            this.chkUtilities.Size = new System.Drawing.Size(59, 17);
+            this.chkUtilities.TabIndex = 17;
+            this.chkUtilities.Text = "Utilities";
+            this.chkUtilities.UseVisualStyleBackColor = true;
+            // 
+            // chkUserManagement
+            // 
+            this.chkUserManagement.AutoSize = true;
+            this.chkUserManagement.Location = new System.Drawing.Point(634, 239);
+            this.chkUserManagement.Name = "chkUserManagement";
+            this.chkUserManagement.Size = new System.Drawing.Size(113, 17);
+            this.chkUserManagement.TabIndex = 18;
+            this.chkUserManagement.Text = "User Management";
+            this.chkUserManagement.UseVisualStyleBackColor = true;
             // 
             // UsersPage
             // 
@@ -180,7 +218,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 478);
             this.ControlBox = false;
-            this.Controls.Add(this.chkSystemSettings);
+            this.Controls.Add(this.chkUserManagement);
+            this.Controls.Add(this.chkUtilities);
+            this.Controls.Add(this.chkSetup);
+            this.Controls.Add(this.chkLog);
             this.Controls.Add(this.chkPrograms);
             this.Controls.Add(this.chkManual);
             this.Controls.Add(this.chkAuto);
@@ -200,6 +241,7 @@
             this.Name = "UsersPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UsersPage";
+            this.Load += new System.EventHandler(this.UsersPage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,6 +263,9 @@
         private System.Windows.Forms.CheckBox chkAuto;
         private System.Windows.Forms.CheckBox chkManual;
         private System.Windows.Forms.CheckBox chkPrograms;
-        private System.Windows.Forms.CheckBox chkSystemSettings;
+        private System.Windows.Forms.CheckBox chkLog;
+        private System.Windows.Forms.CheckBox chkSetup;
+        private System.Windows.Forms.CheckBox chkUtilities;
+        private System.Windows.Forms.CheckBox chkUserManagement;
     }
 }

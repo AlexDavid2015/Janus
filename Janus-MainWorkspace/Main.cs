@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace CxTitan
 {
@@ -16,7 +17,7 @@ namespace CxTitan
         public Main()
         {
             InitializeComponent();
-            UI_Arrays_Assign();
+            UI_Arrays_Assign();// Main_Buttons group
         }
 
         private void cmdAuto_Click(object sender, EventArgs e)
@@ -57,18 +58,18 @@ namespace CxTitan
 
         public void MainUI_AccessLevels()
         {
-            bool[] a = new bool[SystemGlobals.MainUiSections];
+            //bool[] a = new bool[SystemGlobals.MainUiSections];
             for (int i = 0; i < SystemGlobals.MainUiSections; i++)
             {
                 if (((Convert.ToInt32(SystemGlobals.CurrentUser.Level)) & (Convert.ToInt32(Math.Pow(2, i)))) == Convert.ToInt32(Math.Pow(2, i)))
                 {
-                    a[i] = true;
+                    Main_Buttons[i].Enabled = true; //a[i] = true;
                 }
                 else
                 {
-                    a[i] = false;
+                    Main_Buttons[i].Enabled = false; //a[i] = false;
                 }
-                Main_Buttons[i].Enabled = a[i];
+                //Main_Buttons[i].Enabled = a[i];
             }
         }
 

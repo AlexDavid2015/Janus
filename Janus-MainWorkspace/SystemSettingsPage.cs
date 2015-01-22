@@ -43,7 +43,7 @@ namespace CxTitan
         private void SystemSettingsPage_Load(object sender, EventArgs e)
         {
             AvantechTableAdapter.Fill(AvantechDataSet.Avantech);
-            if (SystemGlobals.CurrentUser.Level != 255)
+            if (SystemGlobals.CurrentUser.Level != 127)// 255 or 127 is the full control user, so only full control user can use SystemSettings page and modify settings
             {
                 gpbSystemSettings.Enabled = false;
                 cmdSave.Enabled = false;
