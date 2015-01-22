@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -51,6 +52,7 @@ namespace CxTitan
             PBar.Value = 10;
             Thread.Sleep(20);
 
+            LoadCycleDB();// Collect cycles info and last recipe id
             PBar.Value = 20;
             Thread.Sleep(20);
 
@@ -95,6 +97,37 @@ namespace CxTitan
                 this.Close();
                 this.Dispose();
             }
+        }
+
+        private void LoadCycleDB()
+        {
+            // read one record row from Machine cycle table
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = SystemGlobals.ConnectionString;
+            SqlCommand command = new SqlCommand("SELECT Cycles, ShiftCycles, ServiceCycles, LastRecipe FROM MachineCycles", conn);
+            conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    SystemGlobals.Cycles = Convert.ToInt64(reader["Cycles"].ToString());
+                    SystemGlobals.ShiftCycles = Convert.ToInt64(reader["ShiftCycles"].ToString());
+                    SystemGlobals.ServiceCycles = Convert.ToInt64(reader["ServiceCycles"].ToString());
+                    SystemGlobals.IDLastRecipe = reader["LastRecipe"].ToString();// last recipe ID
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot get information about MachineCylces. Check database integrity", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+                return;
+            }
+            conn.Close();
+            reader.Close();
         }
     }
 }

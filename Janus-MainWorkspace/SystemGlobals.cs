@@ -57,5 +57,12 @@ namespace CxTitan
         public const int MainUiSections = 7;
         #endregion
 
+        #region // Last Cycles and Last recipe id
+        public static long Cycles;// Cycles
+        public static long ShiftCycles;// ShiftCycles
+        public static long ServiceCycles;//ServiceCycles
+        public static string IDLastRecipe;// ID of LastRecipe
+        #endregion
+
     }
 }

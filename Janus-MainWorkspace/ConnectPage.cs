@@ -674,8 +674,15 @@ namespace CxTitan
                     SystemGlobals.DIO_DOindex = Convert.ToInt32(reader["DIO_DOindex"].ToString());
                 }
             }
-            catch(Exception ex)
-            {}
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot get information about Avantech. Check database integrity", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+                return;
+            }
             conn.Close();
             reader.Close();
         }
