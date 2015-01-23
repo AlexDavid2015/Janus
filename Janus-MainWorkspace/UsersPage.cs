@@ -36,10 +36,17 @@ namespace CxTitan
 
         private void cmdAdd_Click(object sender, EventArgs e)
         {
+            string strExistingUser = string.Format("Already have an existing user [{0}], please use another user name", txtName.Text);
+            // check whether username is exist or not so that there will be no two same user names inside DB
+            if (CheckExistingUser(txtName.Text))
+            {
+                MessageBox.Show(strExistingUser, "Information!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             int totalPermissionLevel = 0;
             totalPermissionLevel = CalculatePermissionLevels();
             string strNewUserAdded = string.Format("New User {0} has been added!", txtName.Text);
-            // check whether username is exist or not
             if ((!string.IsNullOrEmpty(txtName.Text)) && (txtPassword1.Text == txtPassword2.Text))
             {
                 try
@@ -53,6 +60,7 @@ namespace CxTitan
                     return;
                 }
                 UpdateUserInfo();
+                ClearUserPageInfo();
             }
             else
             {
@@ -66,6 +74,39 @@ namespace CxTitan
                     MessageBox.Show("Please make sure the two passwords are the same.", "Information!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+            }
+        }
+
+        private bool CheckExistingUser(string name)
+        {
+            bool bFound = false;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = SystemGlobals.ConnectionString;
+            string cmdText = "SELECT * FROM Users";
+            SqlCommand command = new SqlCommand(cmdText, conn);
+            try
+            {
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                foreach (DataRow dRow in dataTable.Rows)
+                {
+                    if (dRow["name"].ToString() == name)
+                    {
+                        bFound = true;
+                        break;
+                    }
+                }
+                return bFound;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot get information about Users. Check database integrity", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+                return false;
             }
         }
 
@@ -93,7 +134,7 @@ namespace CxTitan
         {
             int totalPermissionLevel = 0;
             totalPermissionLevel = CalculatePermissionLevels();
-            string strNewUserModified = string.Format("User {0} information have been modified!", txtName.Text);
+            string strNewUserModified = string.Format("User [{0}] information have been modified!", txtName.Text);
             if (lstUsers.Text == "op")
             {
                 MessageBox.Show("This user cannot be deleted or modified!");
@@ -110,12 +151,13 @@ namespace CxTitan
                 try
                 {
                     //UsersAobj.Update(txtName.Text, txtPassword1.Text, Convert.ToInt16(totalPermissionLevel), Convert.ToInt32(txtID.Text));
-                    //UsersAobj.UpdateUsers_id(txtName.Text, txtPassword1.Text, Convert.ToInt16(totalPermissionLevel),
-                    //    Convert.ToInt32(txtID.Text));
+                    UpdateUsers(txtName.Text, txtPassword1.Text, Convert.ToInt16(totalPermissionLevel),
+                        Convert.ToInt32(txtID.Text));
                     MessageBox.Show(strNewUserModified);
                 }
                 catch (Exception ex)
                 {
+                    MessageBox.Show(ex.ToString());
                     MessageBox.Show("Cannot modify user information. Check username or database integrity", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -134,6 +176,25 @@ namespace CxTitan
                     return;
                 }
             }
+        }
+
+        private void UpdateUsers(string name, string password, short permissionlevel, int id)
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = SystemGlobals.ConnectionString;
+            using (SqlConnection connection = new SqlConnection(conn.ConnectionString))
+                 using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE Users SET name = @name, password = @password, level = @level WHERE (id = @id)";
+
+                command.Parameters.AddWithValue("@name", name);
+                command.Parameters.AddWithValue("@password", password);
+                command.Parameters.AddWithValue("@level", permissionlevel);
+                command.Parameters.AddWithValue("@id", id);
+               connection.Open();
+               command.ExecuteNonQuery();
+               connection.Close();
+            } 
         }
 
         private void cmdDelete_Click(object sender, EventArgs e)
@@ -163,6 +224,7 @@ namespace CxTitan
                         return;
                     }
                     UpdateUserInfo();
+                    ClearUserPageInfo();
                 }
                 else
                 {
@@ -170,6 +232,14 @@ namespace CxTitan
                     return;
                 }
             }
+        }
+
+        private void ClearUserPageInfo()
+        {
+            txtID.Text = "";
+            txtName.Text = "";
+            txtPassword1.Text = "";
+            txtPassword2.Text = "";
         }
 
         private void lstUsers_Click(object sender, EventArgs e)
