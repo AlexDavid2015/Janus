@@ -52,7 +52,7 @@ namespace CxTitan
 
         private void cmdOP_Click(object sender, EventArgs e)
         {
-            // Set Current User info
+            // Set Current User info as "op" in DB
             SystemGlobals.CurrentUser.UserName = "op";
             SystemGlobals.CurrentUser.Level = 1;
 
