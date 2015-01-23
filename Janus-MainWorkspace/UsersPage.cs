@@ -8,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CxTitan.AvantechDataSetTableAdapters;
 
 namespace CxTitan
 {
     public partial class UsersPage : Form
     {
+        UsersTableAdapter UsersAobj = new UsersTableAdapter();
         private CheckBox[] UserPage_CheckBoxes = new CheckBox[7];// group the access level buttons of Main Page( 7 == MainUiSections)
         public UsersPage()
         {
@@ -34,7 +36,28 @@ namespace CxTitan
 
         private void cmdAdd_Click(object sender, EventArgs e)
         {
+            int i = 0;
+            i = CalculatePermissionLevels();
+        }
 
+        private int CalculatePermissionLevels()
+        {
+            int[] Permissions = new int[SystemGlobals.MainUiSections];
+            int TotalPermissionLevel = 0;
+            try
+            {
+                for (int i = 0; i < SystemGlobals.MainUiSections; i++)
+                {
+                    Permissions[i] = UserPage_CheckBoxes[i].Checked ? 1 : 0;
+                    TotalPermissionLevel = TotalPermissionLevel + (Permissions[i]*Convert.ToInt32(Math.Pow(2, i)));
+                }
+                return TotalPermissionLevel;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in CalculatePermissionLevels()", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
         }
 
         private void cmdModify_Click(object sender, EventArgs e)
@@ -44,7 +67,33 @@ namespace CxTitan
 
         private void cmdDelete_Click(object sender, EventArgs e)
         {
-
+            if (lstUsers.Text == "op")
+            {
+	            MessageBox.Show("This user cannot be deleted or modified!");
+	            return;
+            }
+            if (lstUsers.Text == "admin")
+            {
+	            MessageBox.Show("This user cannot be deleted or modified!");
+                return;
+            }
+            if (MessageBox.Show("Are you sure you want to delete this record?", string.Empty, MessageBoxButtons.OKCancel) ==
+                DialogResult.OK)
+            {
+                if (lstUsers.SelectedIndex > -1)
+                {
+                    try
+                    {
+                        UsersAobj.DeleteUsers_name(lstUsers.SelectedItem.ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Cannot delete from Users table. Please check database integrity", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    UpdateUserInfo();
+                }
+            }
         }
 
         private void lstUsers_Click(object sender, EventArgs e)

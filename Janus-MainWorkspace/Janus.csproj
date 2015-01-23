@@ -228,7 +228,6 @@
     </None>
     <None Include="AvantechDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AvantechDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="AvantechDataSet.xss">
