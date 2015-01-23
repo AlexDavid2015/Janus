@@ -132,7 +132,7 @@ namespace CxTitan
 
         private void cmdModify_Click(object sender, EventArgs e)
         {
-            string strNonExistingUser = string.Format("No existing user \"{0}\", please choose another user name to modify", txtName.Text);
+            string strNonExistingUser = string.Format("No existing user \"{0}\", please add this user first or choose another user name to modify", txtName.Text);
             // check whether username is exist or not so that there will be no two same user names inside DB
             if (!CheckExistingUser(txtName.Text))
             {
@@ -170,6 +170,7 @@ namespace CxTitan
                     return;
                 }
                 //UpdateUserInfo();
+                ClearUserPageInfo();
             }
             else
             {
