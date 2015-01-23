@@ -36,7 +36,7 @@ namespace CxTitan
 
         private void cmdAdd_Click(object sender, EventArgs e)
         {
-            string strExistingUser = string.Format("Already have an existing user [{0}], please use another user name", txtName.Text);
+            string strExistingUser = string.Format("Already have an existing user \"{0}\", please use another user name", txtName.Text);
             // check whether username is exist or not so that there will be no two same user names inside DB
             if (CheckExistingUser(txtName.Text))
             {
@@ -46,7 +46,7 @@ namespace CxTitan
 
             int totalPermissionLevel = 0;
             totalPermissionLevel = CalculatePermissionLevels();
-            string strNewUserAdded = string.Format("New User {0} has been added!", txtName.Text);
+            string strNewUserAdded = string.Format("New User \"{0}\" has been added!", txtName.Text);
             if ((!string.IsNullOrEmpty(txtName.Text)) && (txtPassword1.Text == txtPassword2.Text))
             {
                 try
@@ -132,9 +132,17 @@ namespace CxTitan
 
         private void cmdModify_Click(object sender, EventArgs e)
         {
+            string strNonExistingUser = string.Format("No existing user \"{0}\", please choose another user name to modify", txtName.Text);
+            // check whether username is exist or not so that there will be no two same user names inside DB
+            if (!CheckExistingUser(txtName.Text))
+            {
+                MessageBox.Show(strNonExistingUser, "Information!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             int totalPermissionLevel = 0;
             totalPermissionLevel = CalculatePermissionLevels();
-            string strNewUserModified = string.Format("User [{0}] information have been modified!", txtName.Text);
+            string strNewUserModified = string.Format("User \"{0}\" information have been modified!", txtName.Text);
             if (lstUsers.Text == "op")
             {
                 MessageBox.Show("This user cannot be deleted or modified!");
