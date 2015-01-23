@@ -120,6 +120,10 @@
     <Compile Include="Avantech.cs" />
     <Compile Include="AvantechAIs.cs" />
     <Compile Include="AvantechAOs.cs" />
+    <Compile Include="AvantechDataSet.cs">
+      <DependentUpon>AvantechDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="AvantechDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -229,6 +233,7 @@
     <None Include="AvantechDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>AvantechDataSet1.Designer.cs</LastGenOutput>
     </None>
     <None Include="AvantechDataSet.xss">
       <DependentUpon>AvantechDataSet.xsd</DependentUpon>

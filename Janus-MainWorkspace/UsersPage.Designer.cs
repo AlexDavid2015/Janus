@@ -46,6 +46,7 @@
             this.chkSetup = new System.Windows.Forms.CheckBox();
             this.chkUtilities = new System.Windows.Forms.CheckBox();
             this.chkUserManagement = new System.Windows.Forms.CheckBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lstUsers
@@ -94,6 +95,7 @@
             // 
             this.txtPassword1.Location = new System.Drawing.Point(262, 125);
             this.txtPassword1.Name = "txtPassword1";
+            this.txtPassword1.PasswordChar = '*';
             this.txtPassword1.Size = new System.Drawing.Size(249, 20);
             this.txtPassword1.TabIndex = 5;
             // 
@@ -109,6 +111,7 @@
             // 
             this.txtPassword2.Location = new System.Drawing.Point(262, 194);
             this.txtPassword2.Name = "txtPassword2";
+            this.txtPassword2.PasswordChar = '*';
             this.txtPassword2.Size = new System.Drawing.Size(249, 20);
             this.txtPassword2.TabIndex = 7;
             // 
@@ -212,12 +215,21 @@
             this.chkUserManagement.Text = "User Management";
             this.chkUserManagement.UseVisualStyleBackColor = true;
             // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(473, 30);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(38, 20);
+            this.txtID.TabIndex = 19;
+            this.txtID.Visible = false;
+            // 
             // UsersPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 478);
             this.ControlBox = false;
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.chkUserManagement);
             this.Controls.Add(this.chkUtilities);
             this.Controls.Add(this.chkSetup);
@@ -267,5 +279,6 @@
         private System.Windows.Forms.CheckBox chkSetup;
         private System.Windows.Forms.CheckBox chkUtilities;
         private System.Windows.Forms.CheckBox chkUserManagement;
+        private System.Windows.Forms.TextBox txtID;
     }
 }

@@ -36,8 +36,37 @@ namespace CxTitan
 
         private void cmdAdd_Click(object sender, EventArgs e)
         {
-            int i = 0;
-            i = CalculatePermissionLevels();
+            int totalPermissionLevel = 0;
+            totalPermissionLevel = CalculatePermissionLevels();
+            string strNewUserAdded = string.Format("New User {0} has been added!", txtName.Text);
+            // check whether username is exist or not
+            if ((!string.IsNullOrEmpty(txtName.Text)) && (txtPassword1.Text == txtPassword2.Text))
+            {
+                try
+                {
+                    UsersAobj.InsertUsers(txtName.Text, txtPassword1.Text, Convert.ToInt16(totalPermissionLevel));
+                    MessageBox.Show(strNewUserAdded);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Cannot add user. Check username or database integrity", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                UpdateUserInfo();
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(txtName.Text))
+                {
+                    MessageBox.Show("Cannot add user with an empty name.", "Information!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (txtPassword1.Text != txtPassword2.Text)
+                {
+                    MessageBox.Show("Please make sure the two passwords are the same.", "Information!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
         }
 
         private int CalculatePermissionLevels()
@@ -62,7 +91,49 @@ namespace CxTitan
 
         private void cmdModify_Click(object sender, EventArgs e)
         {
+            int totalPermissionLevel = 0;
+            totalPermissionLevel = CalculatePermissionLevels();
+            string strNewUserModified = string.Format("User {0} information have been modified!", txtName.Text);
+            if (lstUsers.Text == "op")
+            {
+                MessageBox.Show("This user cannot be deleted or modified!");
+                return;
+            }
+            if (lstUsers.Text == "admin")
+            {
+                MessageBox.Show("This user cannot be deleted or modified!");
+                return;
+            }
 
+            if ((!string.IsNullOrEmpty(txtName.Text)) && (txtPassword1.Text == txtPassword2.Text))
+            {
+                try
+                {
+                    //UsersAobj.Update(txtName.Text, txtPassword1.Text, Convert.ToInt16(totalPermissionLevel), Convert.ToInt32(txtID.Text));
+                    //UsersAobj.UpdateUsers_id(txtName.Text, txtPassword1.Text, Convert.ToInt16(totalPermissionLevel),
+                    //    Convert.ToInt32(txtID.Text));
+                    MessageBox.Show(strNewUserModified);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Cannot modify user information. Check username or database integrity", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                //UpdateUserInfo();
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(txtName.Text))
+                {
+                    MessageBox.Show("Cannot modify user with an empty name.", "Information!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (txtPassword1.Text != txtPassword2.Text)
+                {
+                    MessageBox.Show("Please make sure the two passwords are the same.", "Information!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
         }
 
         private void cmdDelete_Click(object sender, EventArgs e)
@@ -93,13 +164,20 @@ namespace CxTitan
                     }
                     UpdateUserInfo();
                 }
+                else
+                {
+                    MessageBox.Show("User not selected, cannot delete user information from DB");
+                    return;
+                }
             }
         }
 
         private void lstUsers_Click(object sender, EventArgs e)
         {
-            short level = 0;
+            string id = "";
             string name = "";
+            //string password = "";
+            short level = 0;
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = SystemGlobals.ConnectionString;
             string cmdText = string.Format("SELECT * FROM Users WHERE name = '{0}'", lstUsers.SelectedItem);
@@ -110,7 +188,9 @@ namespace CxTitan
             {
                 while (reader.Read())
                 {
+                    id = reader["id"].ToString();
                     name = reader["name"].ToString();
+                    //password = reader["password"].ToString();
                     level = Convert.ToInt16(reader["level"].ToString());
                 }
             }
@@ -119,6 +199,7 @@ namespace CxTitan
             conn.Close();
             reader.Close();
 
+            txtID.Text = id;
             txtName.Text = name;
             txtPassword1.Text = "";
             txtPassword2.Text = "";
