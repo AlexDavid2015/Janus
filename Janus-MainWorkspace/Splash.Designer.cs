@@ -29,20 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblVersion = new System.Windows.Forms.Label();
             this.PBar = new System.Windows.Forms.ProgressBar();
             this.WaitTime = new System.Windows.Forms.Timer(this.components);
+            this.PictureBox2 = new System.Windows.Forms.PictureBox();
+            this.PictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // PictureBox1
-            // 
-            this.PictureBox1.Location = new System.Drawing.Point(521, 12);
-            this.PictureBox1.Name = "PictureBox1";
-            this.PictureBox1.Size = new System.Drawing.Size(326, 482);
-            this.PictureBox1.TabIndex = 0;
-            this.PictureBox1.TabStop = false;
             // 
             // lblVersion
             // 
@@ -70,12 +64,30 @@
             // 
             this.WaitTime.Tick += new System.EventHandler(this.WaitTime_Tick);
             // 
+            // PictureBox2
+            // 
+            this.PictureBox2.Image = global::CxTitan.Properties.Resources.Janus2;
+            this.PictureBox2.Location = new System.Drawing.Point(30, 12);
+            this.PictureBox2.Name = "PictureBox2";
+            this.PictureBox2.Size = new System.Drawing.Size(309, 79);
+            this.PictureBox2.TabIndex = 4;
+            this.PictureBox2.TabStop = false;
+            // 
+            // PictureBox1
+            // 
+            this.PictureBox1.Location = new System.Drawing.Point(521, 12);
+            this.PictureBox1.Name = "PictureBox1";
+            this.PictureBox1.Size = new System.Drawing.Size(326, 482);
+            this.PictureBox1.TabIndex = 0;
+            this.PictureBox1.TabStop = false;
+            // 
             // Splash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 636);
             this.ControlBox = false;
+            this.Controls.Add(this.PictureBox2);
             this.Controls.Add(this.PBar);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.PictureBox1);
@@ -85,6 +97,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SCI Automation JANUS";
             this.Load += new System.EventHandler(this.Splash_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -96,5 +109,6 @@
         private System.Windows.Forms.Label lblVersion;
         internal System.Windows.Forms.ProgressBar PBar;
         internal System.Windows.Forms.Timer WaitTime;
+        private System.Windows.Forms.PictureBox PictureBox2;
     }
 }
