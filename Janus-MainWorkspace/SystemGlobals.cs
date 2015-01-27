@@ -27,12 +27,12 @@ namespace CxTitan
         public static int DIO_DIindex = 0;
         public static int DIO_DOindex = 1;
 
-        #region // UI related
-        public static Form JanusPageReturn;
+        #region // UI related        
         public static ConnectPage objConnectPage = new ConnectPage();
         public static MagazinePage objMagazinePage = new MagazinePage();
         public static Main objMain = new Main();
-        public static Form loginReturn;// Login form return
+        public static Form loginPageReturn;// Login form return
+        public static Form JanusManualPageReturn;// Janus Manual page
 
         public static string LanguageCode = "English";
 

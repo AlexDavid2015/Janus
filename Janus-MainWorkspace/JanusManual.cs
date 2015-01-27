@@ -59,7 +59,7 @@ namespace CxTitan
 
         private void JanusManual_Load(object sender, EventArgs e)
         {
-            SystemGlobals.JanusPageReturn = this;
+            SystemGlobals.JanusManualPageReturn = this;
             LanguageInitialize();// load default language and update UI
         }
 
@@ -148,7 +148,7 @@ namespace CxTitan
         private void cbxLanguageSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
             SystemGlobals.LanguageCode = cbxLanguageSelection.Text;
-            LanguageUIUpdate();
+            //LanguageUIUpdate();
         }
 
         //public void SetAIRangeComboBox(string[] strRanges)

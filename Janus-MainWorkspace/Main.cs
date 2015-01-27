@@ -35,7 +35,7 @@ namespace CxTitan
         private void cmdLogOut_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SystemGlobals.loginReturn.Show();
+            SystemGlobals.loginPageReturn.Show();
         }
 
         private void cmdShutDown_Click(object sender, EventArgs e)

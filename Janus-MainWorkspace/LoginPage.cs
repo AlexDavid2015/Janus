@@ -63,7 +63,7 @@ namespace CxTitan
 
         private void LoginPage_Load(object sender, EventArgs e)
         {
-            SystemGlobals.loginReturn = this;
+            SystemGlobals.loginPageReturn = this;
         }
 
         private bool IsUserInformationCorrect()
