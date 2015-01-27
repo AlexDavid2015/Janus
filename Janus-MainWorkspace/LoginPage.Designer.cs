@@ -36,21 +36,22 @@
             this.cmdClear = new System.Windows.Forms.Button();
             this.cmdShutDown = new System.Windows.Forms.Button();
             this.cmdOP = new System.Windows.Forms.Button();
+            this.cbxLanguageSelection = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblUserName
             // 
             this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.Location = new System.Drawing.Point(24, 38);
+            this.lblUserName.Location = new System.Drawing.Point(48, 40);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(116, 23);
             this.lblUserName.TabIndex = 0;
-            this.lblUserName.Text = "User Name:";
+            this.lblUserName.Text = "UserName:";
             // 
             // lblPassword
             // 
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(24, 91);
+            this.lblPassword.Location = new System.Drawing.Point(48, 93);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(101, 23);
             this.lblPassword.TabIndex = 1;
@@ -74,7 +75,7 @@
             // cmdOK
             // 
             this.cmdOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdOK.Location = new System.Drawing.Point(28, 236);
+            this.cmdOK.Location = new System.Drawing.Point(52, 236);
             this.cmdOK.Name = "cmdOK";
             this.cmdOK.Size = new System.Drawing.Size(97, 92);
             this.cmdOK.TabIndex = 4;
@@ -96,7 +97,7 @@
             // cmdShutDown
             // 
             this.cmdShutDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdShutDown.Location = new System.Drawing.Point(28, 377);
+            this.cmdShutDown.Location = new System.Drawing.Point(52, 377);
             this.cmdShutDown.Name = "cmdShutDown";
             this.cmdShutDown.Size = new System.Drawing.Size(97, 92);
             this.cmdShutDown.TabIndex = 6;
@@ -115,12 +116,21 @@
             this.cmdOP.UseVisualStyleBackColor = true;
             this.cmdOP.Click += new System.EventHandler(this.cmdOP_Click);
             // 
+            // cbxLanguageSelection
+            // 
+            this.cbxLanguageSelection.Location = new System.Drawing.Point(410, 1);
+            this.cbxLanguageSelection.Name = "cbxLanguageSelection";
+            this.cbxLanguageSelection.Size = new System.Drawing.Size(63, 21);
+            this.cbxLanguageSelection.TabIndex = 72;
+            this.cbxLanguageSelection.SelectedIndexChanged += new System.EventHandler(this.cbxLanguageSelection_SelectedIndexChanged);
+            // 
             // LoginPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 498);
+            this.ClientSize = new System.Drawing.Size(485, 498);
             this.ControlBox = false;
+            this.Controls.Add(this.cbxLanguageSelection);
             this.Controls.Add(this.cmdOP);
             this.Controls.Add(this.cmdShutDown);
             this.Controls.Add(this.cmdClear);
@@ -142,13 +152,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblUserName;
-        private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Button cmdOK;
-        private System.Windows.Forms.Button cmdClear;
-        private System.Windows.Forms.Button cmdShutDown;
-        private System.Windows.Forms.Button cmdOP;
+        internal System.Windows.Forms.Label lblUserName;
+        internal System.Windows.Forms.Label lblPassword;
+        internal System.Windows.Forms.Button cmdOK;
+        internal System.Windows.Forms.Button cmdOP;
+        internal System.Windows.Forms.Button cmdShutDown;
+        internal System.Windows.Forms.Button cmdClear;
+        private System.Windows.Forms.ComboBox cbxLanguageSelection;
     }
 }

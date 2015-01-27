@@ -20,7 +20,7 @@ namespace CxTitan
         private void cmdExit_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SystemGlobals.JanusManualPageReturn.Show();//System.Environment.Exit(0);
+            SystemGlobals.objJanusManual.Show();//SystemGlobals.JanusManualPageReturn.Show();//System.Environment.Exit(0);
         }
     }
 }

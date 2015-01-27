@@ -32,9 +32,9 @@ namespace CxTitan
         public static MagazinePage objMagazinePage = new MagazinePage();
         public static Main objMain = new Main();
         public static Form loginPageReturn;// Login form return
-        public static Form JanusManualPageReturn;// Janus Manual page
+        public static JanusManual objJanusManual = new JanusManual();//public static Form JanusManualPageReturn;// Janus Manual page
 
-        public static string LanguageCode = "English";
+        public static string LanguageCode = "English";// default is English
 
         // Show Splash
         public static void ShowSplash()

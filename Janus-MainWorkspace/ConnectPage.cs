@@ -1666,7 +1666,7 @@ namespace CxTitan
             //AvantechDIOs.FreeResource();
 
             this.Hide();
-            SystemGlobals.JanusManualPageReturn.Show();//System.Environment.Exit(0);
+            SystemGlobals.objJanusManual.Show();//SystemGlobals.JanusManualPageReturn.Show();//System.Environment.Exit(0);
         }
 
         public void cmdDisconnect_Click(object sender, EventArgs e)

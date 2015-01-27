@@ -31,8 +31,6 @@
             this.cmdMagazine = new System.Windows.Forms.Button();
             this.cmdController = new System.Windows.Forms.Button();
             this.cmdExit = new System.Windows.Forms.Button();
-            this.cbxLanguageSelection = new System.Windows.Forms.ComboBox();
-            this.lblLanguage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmdMagazine
@@ -65,29 +63,11 @@
             this.cmdExit.UseVisualStyleBackColor = true;
             this.cmdExit.Click += new System.EventHandler(this.cmdExit_Click);
             // 
-            // cbxLanguageSelection
-            // 
-            this.cbxLanguageSelection.Location = new System.Drawing.Point(755, 27);
-            this.cbxLanguageSelection.Name = "cbxLanguageSelection";
-            this.cbxLanguageSelection.Size = new System.Drawing.Size(75, 21);
-            this.cbxLanguageSelection.TabIndex = 69;
-            this.cbxLanguageSelection.SelectedIndexChanged += new System.EventHandler(this.cbxLanguageSelection_SelectedIndexChanged);
-            // 
-            // lblLanguage
-            // 
-            this.lblLanguage.Location = new System.Drawing.Point(752, 9);
-            this.lblLanguage.Name = "lblLanguage";
-            this.lblLanguage.Size = new System.Drawing.Size(64, 15);
-            this.lblLanguage.TabIndex = 70;
-            this.lblLanguage.Text = "Language:";
-            // 
             // JanusManual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(871, 578);
-            this.Controls.Add(this.lblLanguage);
-            this.Controls.Add(this.cbxLanguageSelection);
             this.Controls.Add(this.cmdExit);
             this.Controls.Add(this.cmdMagazine);
             this.Controls.Add(this.cmdController);
@@ -103,10 +83,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button cmdMagazine;
         internal System.Windows.Forms.Button cmdController;
         internal System.Windows.Forms.Button cmdExit;
-        private System.Windows.Forms.ComboBox cbxLanguageSelection;
-        private System.Windows.Forms.Label lblLanguage;
+        internal System.Windows.Forms.Button cmdMagazine;
     }
 }

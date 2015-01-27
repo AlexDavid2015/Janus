@@ -64,6 +64,7 @@ namespace CxTitan
         private void LoginPage_Load(object sender, EventArgs e)
         {
             SystemGlobals.loginPageReturn = this;
+            LanguageInitialize();
         }
 
         private bool IsUserInformationCorrect()
@@ -125,9 +126,117 @@ namespace CxTitan
             reader.Close();
         }
 
-        private void AccessLevels()
+        private void cbxLanguageSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            SystemGlobals.LanguageCode = cbxLanguageSelection.Text;
+            LanguageUIUpdate();
+        }
+
+        private void LanguageInitialize()
+        {
+            //int LanguageNum = Convert.ToInt32(LanguageTableAobj.LanguageCount());
+            //string[] strLanguages = new string[LanguageNum];
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = SystemGlobals.ConnectionString;
+            string cmdText = "SELECT * FROM Language";
+            SqlCommand command = new SqlCommand(cmdText, conn);
+
+            try
+            {
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                foreach (DataRow dRow in dataTable.Rows)
+                {
+                    cbxLanguageSelection.Items.Add(dRow["languageType"].ToString());
+                    //if (dRow["languageType"].ToString() == SystemGlobals.LanguageCode)
+                    //{
+                    //    cmdController.Text = dRow["Item0"].ToString();
+                    //    cmdMagazine.Text = dRow["Item1"].ToString();
+                    //    cmdExit.Text = dRow["Item2"].ToString();
+                    //}
+                }
+                if (cbxLanguageSelection.Items.Count > 0)
+                    cbxLanguageSelection.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot get information about Language. Check database integrity", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+                return;
+            }
+            if (conn != null)
+            {
+                conn.Close();
+            }
+        }
+
+        private void LanguageUIUpdate()
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = SystemGlobals.ConnectionString;
+            string cmdText = "SELECT * FROM Language";
+            SqlCommand command = new SqlCommand(cmdText, conn);
+
+            try
+            {
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                foreach (DataRow dRow in dataTable.Rows)
+                {
+                    if (dRow["languageType"].ToString() == SystemGlobals.LanguageCode)
+                    {
+                        // JanusManual Page
+                        SystemGlobals.objJanusManual.cmdController.Text = dRow["ItemJanusManual0"].ToString();
+                        SystemGlobals.objJanusManual.cmdMagazine.Text = dRow["ItemJanusManual1"].ToString();
+                        SystemGlobals.objJanusManual.cmdExit.Text = dRow["ItemJanusManual2"].ToString();
+
+                        // Login Page
+                        lblUserName.Text = dRow["ItemLogin0"].ToString();
+                        lblPassword.Text = dRow["ItemLogin1"].ToString();
+                        cmdOK.Text = dRow["ItemLogin2"].ToString();
+                        cmdOP.Text = dRow["ItemLogin3"].ToString();
+                        cmdShutDown.Text = dRow["ItemLogin4"].ToString();
+                        cmdClear.Text = dRow["ItemLogin5"].ToString();
+
+                        // Main Page
+                        SystemGlobals.objMain.cmdAuto.Text = dRow["ItemMain0"].ToString();
+                        SystemGlobals.objMain.cmdManual.Text = dRow["ItemMain1"].ToString();
+                        SystemGlobals.objMain.cmdPrograms.Text = dRow["ItemMain2"].ToString();
+                        SystemGlobals.objMain.cmdLog.Text = dRow["ItemMain3"].ToString();
+                        SystemGlobals.objMain.cmdSetup.Text = dRow["ItemMain4"].ToString();
+                        SystemGlobals.objMain.cmdUtilities.Text = dRow["ItemMain5"].ToString();
+                        SystemGlobals.objMain.cmdUsers.Text = dRow["ItemMain6"].ToString();
+                        SystemGlobals.objMain.cmdLogOut.Text = dRow["ItemMain7"].ToString();
+                        SystemGlobals.objMain.cmdShutDown.Text = dRow["ItemMain8"].ToString();
+
+                        // User Page
+
+                        //// Connection Page
+                        //SystemGlobals.objConnectPage.cmdConnect.Text = dRow["Item3"].ToString();
+
+                        // Magazine Page
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot get information about Language. Check database integrity", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+                return;
+            }
+            if (conn != null)
+            {
+                conn.Close();
+            }
         }
     }
 }

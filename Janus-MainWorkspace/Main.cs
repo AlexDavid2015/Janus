@@ -28,14 +28,15 @@ namespace CxTitan
         private void cmdManual_Click(object sender, EventArgs e)
         {
             this.Hide();
-            JanusManual janusManual = new JanusManual();
-            janusManual.Show();
+            //JanusManual janusManual = new JanusManual();
+            //janusManual.Show();
+            SystemGlobals.objJanusManual.Show();
         }
 
         private void cmdLogOut_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SystemGlobals.loginPageReturn.Show();
+            SystemGlobals.loginPageReturn.Show();//SystemGlobals.objLoginPage.Show();//SystemGlobals.loginPageReturn.Show();
         }
 
         private void cmdShutDown_Click(object sender, EventArgs e)

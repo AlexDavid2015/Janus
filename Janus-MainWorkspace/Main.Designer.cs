@@ -41,7 +41,7 @@
             // 
             // cmdAuto
             // 
-            this.cmdAuto.Location = new System.Drawing.Point(24, 30);
+            this.cmdAuto.Location = new System.Drawing.Point(23, 50);
             this.cmdAuto.Name = "cmdAuto";
             this.cmdAuto.Size = new System.Drawing.Size(75, 63);
             this.cmdAuto.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             // cmdManual
             // 
-            this.cmdManual.Location = new System.Drawing.Point(142, 30);
+            this.cmdManual.Location = new System.Drawing.Point(136, 50);
             this.cmdManual.Name = "cmdManual";
             this.cmdManual.Size = new System.Drawing.Size(75, 63);
             this.cmdManual.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             // cmdLogOut
             // 
-            this.cmdLogOut.Location = new System.Drawing.Point(856, 30);
+            this.cmdLogOut.Location = new System.Drawing.Point(802, 50);
             this.cmdLogOut.Name = "cmdLogOut";
             this.cmdLogOut.Size = new System.Drawing.Size(75, 63);
             this.cmdLogOut.TabIndex = 2;
@@ -71,7 +71,7 @@
             // 
             // cmdShutDown
             // 
-            this.cmdShutDown.Location = new System.Drawing.Point(974, 30);
+            this.cmdShutDown.Location = new System.Drawing.Point(911, 50);
             this.cmdShutDown.Name = "cmdShutDown";
             this.cmdShutDown.Size = new System.Drawing.Size(75, 63);
             this.cmdShutDown.TabIndex = 3;
@@ -81,7 +81,7 @@
             // 
             // cmdUsers
             // 
-            this.cmdUsers.Location = new System.Drawing.Point(738, 30);
+            this.cmdUsers.Location = new System.Drawing.Point(694, 50);
             this.cmdUsers.Name = "cmdUsers";
             this.cmdUsers.Size = new System.Drawing.Size(75, 63);
             this.cmdUsers.TabIndex = 4;
@@ -91,7 +91,7 @@
             // 
             // cmdPrograms
             // 
-            this.cmdPrograms.Location = new System.Drawing.Point(262, 30);
+            this.cmdPrograms.Location = new System.Drawing.Point(251, 50);
             this.cmdPrograms.Name = "cmdPrograms";
             this.cmdPrograms.Size = new System.Drawing.Size(75, 63);
             this.cmdPrograms.TabIndex = 5;
@@ -100,7 +100,7 @@
             // 
             // cmdLog
             // 
-            this.cmdLog.Location = new System.Drawing.Point(381, 30);
+            this.cmdLog.Location = new System.Drawing.Point(366, 50);
             this.cmdLog.Name = "cmdLog";
             this.cmdLog.Size = new System.Drawing.Size(75, 63);
             this.cmdLog.TabIndex = 6;
@@ -109,7 +109,7 @@
             // 
             // cmdSetup
             // 
-            this.cmdSetup.Location = new System.Drawing.Point(500, 30);
+            this.cmdSetup.Location = new System.Drawing.Point(473, 50);
             this.cmdSetup.Name = "cmdSetup";
             this.cmdSetup.Size = new System.Drawing.Size(75, 63);
             this.cmdSetup.TabIndex = 7;
@@ -118,7 +118,7 @@
             // 
             // cmdUtilities
             // 
-            this.cmdUtilities.Location = new System.Drawing.Point(619, 30);
+            this.cmdUtilities.Location = new System.Drawing.Point(584, 50);
             this.cmdUtilities.Name = "cmdUtilities";
             this.cmdUtilities.Size = new System.Drawing.Size(75, 63);
             this.cmdUtilities.TabIndex = 8;
@@ -152,14 +152,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button cmdAuto;
-        private System.Windows.Forms.Button cmdManual;
-        private System.Windows.Forms.Button cmdLogOut;
-        private System.Windows.Forms.Button cmdShutDown;
-        private System.Windows.Forms.Button cmdUsers;
-        private System.Windows.Forms.Button cmdPrograms;
-        private System.Windows.Forms.Button cmdLog;
-        private System.Windows.Forms.Button cmdSetup;
-        private System.Windows.Forms.Button cmdUtilities;
+        internal System.Windows.Forms.Button cmdAuto;
+        internal System.Windows.Forms.Button cmdManual;
+        internal System.Windows.Forms.Button cmdPrograms;
+        internal System.Windows.Forms.Button cmdLog;
+        internal System.Windows.Forms.Button cmdSetup;
+        internal System.Windows.Forms.Button cmdUtilities;
+        internal System.Windows.Forms.Button cmdUsers;
+        internal System.Windows.Forms.Button cmdLogOut;
+        internal System.Windows.Forms.Button cmdShutDown;
     }
 }
