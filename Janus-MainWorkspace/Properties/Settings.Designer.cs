@@ -36,7 +36,7 @@ namespace CxTitan.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SW2\\SQLEXPRESS;Initial Catalog=Avantech;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SW2\\SQLEXPRESS;Initial Catalog=Janus;Integrated Security=True")]
         public string AvantechConnectionString {
             get {
                 return ((string)(this["AvantechConnectionString"]));
