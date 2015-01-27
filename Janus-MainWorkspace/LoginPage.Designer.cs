@@ -118,7 +118,7 @@
             // 
             // cbxLanguageSelection
             // 
-            this.cbxLanguageSelection.Location = new System.Drawing.Point(410, 1);
+            this.cbxLanguageSelection.Location = new System.Drawing.Point(410, 7);
             this.cbxLanguageSelection.Name = "cbxLanguageSelection";
             this.cbxLanguageSelection.Size = new System.Drawing.Size(63, 21);
             this.cbxLanguageSelection.TabIndex = 72;

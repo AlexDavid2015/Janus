@@ -139,6 +139,12 @@
     <Compile Include="ConnectPage.Designer.cs">
       <DependentUpon>ConnectPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="JanusAutomatic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JanusAutomatic.Designer.cs">
+      <DependentUpon>JanusAutomatic.cs</DependentUpon>
+    </Compile>
     <Compile Include="JanusManual.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,7 +170,19 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Programs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Programs.Designer.cs">
+      <DependentUpon>Programs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Setup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setup.Designer.cs">
+      <DependentUpon>Setup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Splash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +214,9 @@
     <EmbeddedResource Include="ConnectPage.resx">
       <DependentUpon>ConnectPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="JanusAutomatic.resx">
+      <DependentUpon>JanusAutomatic.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="JanusManual.resx">
       <DependentUpon>JanusManual.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +229,9 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Programs.resx">
+      <DependentUpon>Programs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -218,6 +242,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Setup.resx">
+      <DependentUpon>Setup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>

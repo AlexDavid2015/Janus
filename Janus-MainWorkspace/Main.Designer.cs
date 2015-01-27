@@ -41,7 +41,7 @@
             // 
             // cmdAuto
             // 
-            this.cmdAuto.Location = new System.Drawing.Point(23, 50);
+            this.cmdAuto.Location = new System.Drawing.Point(36, 27);
             this.cmdAuto.Name = "cmdAuto";
             this.cmdAuto.Size = new System.Drawing.Size(75, 63);
             this.cmdAuto.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             // cmdManual
             // 
-            this.cmdManual.Location = new System.Drawing.Point(136, 50);
+            this.cmdManual.Location = new System.Drawing.Point(152, 27);
             this.cmdManual.Name = "cmdManual";
             this.cmdManual.Size = new System.Drawing.Size(75, 63);
             this.cmdManual.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             // cmdLogOut
             // 
-            this.cmdLogOut.Location = new System.Drawing.Point(802, 50);
+            this.cmdLogOut.Location = new System.Drawing.Point(879, 27);
             this.cmdLogOut.Name = "cmdLogOut";
             this.cmdLogOut.Size = new System.Drawing.Size(75, 63);
             this.cmdLogOut.TabIndex = 2;
@@ -71,7 +71,7 @@
             // 
             // cmdShutDown
             // 
-            this.cmdShutDown.Location = new System.Drawing.Point(911, 50);
+            this.cmdShutDown.Location = new System.Drawing.Point(998, 27);
             this.cmdShutDown.Name = "cmdShutDown";
             this.cmdShutDown.Size = new System.Drawing.Size(75, 63);
             this.cmdShutDown.TabIndex = 3;
@@ -81,7 +81,7 @@
             // 
             // cmdUsers
             // 
-            this.cmdUsers.Location = new System.Drawing.Point(694, 50);
+            this.cmdUsers.Location = new System.Drawing.Point(756, 27);
             this.cmdUsers.Name = "cmdUsers";
             this.cmdUsers.Size = new System.Drawing.Size(75, 63);
             this.cmdUsers.TabIndex = 4;
@@ -91,7 +91,7 @@
             // 
             // cmdPrograms
             // 
-            this.cmdPrograms.Location = new System.Drawing.Point(251, 50);
+            this.cmdPrograms.Location = new System.Drawing.Point(272, 27);
             this.cmdPrograms.Name = "cmdPrograms";
             this.cmdPrograms.Size = new System.Drawing.Size(75, 63);
             this.cmdPrograms.TabIndex = 5;
@@ -100,7 +100,7 @@
             // 
             // cmdLog
             // 
-            this.cmdLog.Location = new System.Drawing.Point(366, 50);
+            this.cmdLog.Location = new System.Drawing.Point(392, 27);
             this.cmdLog.Name = "cmdLog";
             this.cmdLog.Size = new System.Drawing.Size(75, 63);
             this.cmdLog.TabIndex = 6;
@@ -109,7 +109,7 @@
             // 
             // cmdSetup
             // 
-            this.cmdSetup.Location = new System.Drawing.Point(473, 50);
+            this.cmdSetup.Location = new System.Drawing.Point(514, 27);
             this.cmdSetup.Name = "cmdSetup";
             this.cmdSetup.Size = new System.Drawing.Size(75, 63);
             this.cmdSetup.TabIndex = 7;
@@ -118,7 +118,7 @@
             // 
             // cmdUtilities
             // 
-            this.cmdUtilities.Location = new System.Drawing.Point(584, 50);
+            this.cmdUtilities.Location = new System.Drawing.Point(636, 27);
             this.cmdUtilities.Name = "cmdUtilities";
             this.cmdUtilities.Size = new System.Drawing.Size(75, 63);
             this.cmdUtilities.TabIndex = 8;
