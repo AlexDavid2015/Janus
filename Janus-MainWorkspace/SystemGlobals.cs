@@ -27,14 +27,12 @@ namespace CxTitan
         public static int DIO_DIindex = 0;
         public static int DIO_DOindex = 1;
 
-        #region // UI related        
+        #region // UI related     
+        public static Form loginPageReturn;// Login form return
         public static ConnectPage objConnectPage = new ConnectPage();
         public static MagazinePage objMagazinePage = new MagazinePage();
-        public static Main objMain = new Main();
-        public static Form loginPageReturn;// Login form return
+        public static Main objMain = new Main();        
         public static JanusManual objJanusManual = new JanusManual();//public static Form JanusManualPageReturn;// Janus Manual page
-
-        public static string LanguageCode = "English";// default is English
 
         // Show Splash
         public static void ShowSplash()
@@ -64,5 +62,8 @@ namespace CxTitan
         public static string IDLastRecipe;// ID of LastRecipe
         #endregion
 
+        #region // Language
+        public static string LanguageCode = "English";// default is English
+        #endregion
     }
 }

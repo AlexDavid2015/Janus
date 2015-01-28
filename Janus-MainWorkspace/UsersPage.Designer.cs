@@ -30,11 +30,11 @@
         {
             this.lstUsers = new System.Windows.Forms.ListBox();
             this.cmdExit = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblPassword1 = new System.Windows.Forms.Label();
             this.txtPassword1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblPassword2 = new System.Windows.Forms.Label();
             this.txtPassword2 = new System.Windows.Forms.TextBox();
             this.cmdAdd = new System.Windows.Forms.Button();
             this.cmdModify = new System.Windows.Forms.Button();
@@ -68,13 +68,13 @@
             this.cmdExit.UseVisualStyleBackColor = true;
             this.cmdExit.Click += new System.EventHandler(this.cmdExit_Click);
             // 
-            // label1
+            // lblName
             // 
-            this.label1.Location = new System.Drawing.Point(259, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 23);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Name (max 10 chars)";
+            this.lblName.Location = new System.Drawing.Point(259, 33);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(112, 23);
+            this.lblName.TabIndex = 2;
+            this.lblName.Text = "Name (max 10 chars)";
             // 
             // txtName
             // 
@@ -83,13 +83,13 @@
             this.txtName.Size = new System.Drawing.Size(249, 20);
             this.txtName.TabIndex = 3;
             // 
-            // label2
+            // lblPassword1
             // 
-            this.label2.Location = new System.Drawing.Point(259, 99);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 23);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Password (max 10 chars)";
+            this.lblPassword1.Location = new System.Drawing.Point(259, 99);
+            this.lblPassword1.Name = "lblPassword1";
+            this.lblPassword1.Size = new System.Drawing.Size(133, 23);
+            this.lblPassword1.TabIndex = 4;
+            this.lblPassword1.Text = "Password (max 10 chars)";
             // 
             // txtPassword1
             // 
@@ -99,13 +99,13 @@
             this.txtPassword1.Size = new System.Drawing.Size(249, 20);
             this.txtPassword1.TabIndex = 5;
             // 
-            // label3
+            // lblPassword2
             // 
-            this.label3.Location = new System.Drawing.Point(259, 168);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 23);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Repeat Password";
+            this.lblPassword2.Location = new System.Drawing.Point(259, 168);
+            this.lblPassword2.Name = "lblPassword2";
+            this.lblPassword2.Size = new System.Drawing.Size(96, 23);
+            this.lblPassword2.TabIndex = 6;
+            this.lblPassword2.Text = "Repeat Password";
             // 
             // txtPassword2
             // 
@@ -241,11 +241,11 @@
             this.Controls.Add(this.cmdModify);
             this.Controls.Add(this.cmdAdd);
             this.Controls.Add(this.txtPassword2);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblPassword2);
             this.Controls.Add(this.txtPassword1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblPassword1);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblName);
             this.Controls.Add(this.cmdExit);
             this.Controls.Add(this.lstUsers);
             this.MaximizeBox = false;
@@ -262,23 +262,23 @@
         #endregion
 
         private System.Windows.Forms.ListBox lstUsers;
-        private System.Windows.Forms.Button cmdExit;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPassword1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtPassword2;
-        private System.Windows.Forms.Button cmdAdd;
-        private System.Windows.Forms.Button cmdModify;
-        private System.Windows.Forms.Button cmdDelete;
-        private System.Windows.Forms.CheckBox chkAuto;
-        private System.Windows.Forms.CheckBox chkManual;
-        private System.Windows.Forms.CheckBox chkPrograms;
-        private System.Windows.Forms.CheckBox chkLog;
-        private System.Windows.Forms.CheckBox chkSetup;
-        private System.Windows.Forms.CheckBox chkUtilities;
-        private System.Windows.Forms.CheckBox chkUserManagement;
         private System.Windows.Forms.TextBox txtID;
+        internal System.Windows.Forms.Label lblName;
+        internal System.Windows.Forms.Label lblPassword1;
+        internal System.Windows.Forms.Label lblPassword2;
+        internal System.Windows.Forms.Button cmdAdd;
+        internal System.Windows.Forms.Button cmdModify;
+        internal System.Windows.Forms.Button cmdDelete;
+        internal System.Windows.Forms.Button cmdExit;
+        internal System.Windows.Forms.CheckBox chkAuto;
+        internal System.Windows.Forms.CheckBox chkManual;
+        internal System.Windows.Forms.CheckBox chkPrograms;
+        internal System.Windows.Forms.CheckBox chkLog;
+        internal System.Windows.Forms.CheckBox chkSetup;
+        internal System.Windows.Forms.CheckBox chkUtilities;
+        internal System.Windows.Forms.CheckBox chkUserManagement;
     }
 }
