@@ -31,8 +31,14 @@ namespace CxTitan
         public static Form loginPageReturn;// Login form return
         public static ConnectPage objConnectPage = new ConnectPage();
         public static MagazinePage objMagazinePage = new MagazinePage();
-        public static Main objMain = new Main();        
-        public static JanusManual objJanusManual = new JanusManual();//public static Form JanusManualPageReturn;// Janus Manual page
+        public static Main objMain = new Main();// Main Page
+        public static JanusAutomatic objJanusAutomatic = new JanusAutomatic();// Automatic page
+        public static JanusManual objJanusManual = new JanusManual();// Janus Manual page
+        public static Programs objPrograms = new Programs();// Programs page
+        public static Log objLog = new Log();// Log page
+        public static Setup objSetup = new Setup();// Setup page
+        public static Utilities objUtilities = new Utilities();// Utilities page
+        public static UsersPage objUsersPage = new UsersPage();// Users page
 
         // Show Splash
         public static void ShowSplash()

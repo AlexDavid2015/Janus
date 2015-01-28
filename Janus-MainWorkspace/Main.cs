@@ -22,7 +22,8 @@ namespace CxTitan
 
         private void cmdAuto_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            SystemGlobals.objJanusAutomatic.Show();
         }
 
         private void cmdManual_Click(object sender, EventArgs e)
@@ -53,8 +54,9 @@ namespace CxTitan
         private void cmdUsers_Click(object sender, EventArgs e)
         {
             this.Hide();
-            UsersPage usersPage = new UsersPage();
-            usersPage.Show();
+            //UsersPage usersPage = new UsersPage();
+            //usersPage.Show();
+            SystemGlobals.objUsersPage.Show();
         }
 
         public void MainUI_AccessLevels()
@@ -88,6 +90,30 @@ namespace CxTitan
             Main_Buttons[4] = cmdSetup;
             Main_Buttons[5] = cmdUtilities;
             Main_Buttons[6] = cmdUsers;
+        }
+
+        private void cmdPrograms_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SystemGlobals.objPrograms.Show();
+        }
+
+        private void cmdLog_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SystemGlobals.objLog.Show();
+        }
+
+        private void cmdSetup_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SystemGlobals.objSetup.Show();
+        }
+
+        private void cmdUtilities_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SystemGlobals.objUtilities.Show();
         }
     }
 }

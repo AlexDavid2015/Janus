@@ -1,6 +1,6 @@
 ﻿namespace CxTitan
 {
-    partial class JanusAutomatic
+    partial class Utilities
     {
         /// <summary>
         /// Required designer variable.
@@ -33,26 +33,26 @@
             // 
             // cmdExit
             // 
-            this.cmdExit.Location = new System.Drawing.Point(943, 574);
+            this.cmdExit.Location = new System.Drawing.Point(688, 463);
             this.cmdExit.Name = "cmdExit";
             this.cmdExit.Size = new System.Drawing.Size(75, 75);
-            this.cmdExit.TabIndex = 5;
+            this.cmdExit.TabIndex = 8;
             this.cmdExit.Text = "Exit";
             this.cmdExit.UseVisualStyleBackColor = true;
             this.cmdExit.Click += new System.EventHandler(this.cmdExit_Click);
             // 
-            // JanusAutomatic
+            // Utilities
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 729);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.ControlBox = false;
             this.Controls.Add(this.cmdExit);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "JanusAutomatic";
+            this.Name = "Utilities";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "JanusAutomatic";
+            this.Text = "Utilities";
             this.ResumeLayout(false);
 
         }

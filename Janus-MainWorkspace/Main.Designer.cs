@@ -97,6 +97,7 @@
             this.cmdPrograms.TabIndex = 5;
             this.cmdPrograms.Text = "Programs";
             this.cmdPrograms.UseVisualStyleBackColor = true;
+            this.cmdPrograms.Click += new System.EventHandler(this.cmdPrograms_Click);
             // 
             // cmdLog
             // 
@@ -106,6 +107,7 @@
             this.cmdLog.TabIndex = 6;
             this.cmdLog.Text = "Log";
             this.cmdLog.UseVisualStyleBackColor = true;
+            this.cmdLog.Click += new System.EventHandler(this.cmdLog_Click);
             // 
             // cmdSetup
             // 
@@ -115,6 +117,7 @@
             this.cmdSetup.TabIndex = 7;
             this.cmdSetup.Text = "Setup";
             this.cmdSetup.UseVisualStyleBackColor = true;
+            this.cmdSetup.Click += new System.EventHandler(this.cmdSetup_Click);
             // 
             // cmdUtilities
             // 
@@ -124,6 +127,7 @@
             this.cmdUtilities.TabIndex = 8;
             this.cmdUtilities.Text = "Utilities";
             this.cmdUtilities.UseVisualStyleBackColor = true;
+            this.cmdUtilities.Click += new System.EventHandler(this.cmdUtilities_Click);
             // 
             // Main
             // 

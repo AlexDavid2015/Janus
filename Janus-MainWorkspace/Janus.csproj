@@ -151,6 +151,12 @@
     <Compile Include="JanusManual.Designer.cs">
       <DependentUpon>JanusManual.cs</DependentUpon>
     </Compile>
+    <Compile Include="Log.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Log.Designer.cs">
+      <DependentUpon>Log.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,12 @@
     <Compile Include="UsersPage.Designer.cs">
       <DependentUpon>UsersPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilities.Designer.cs">
+      <DependentUpon>Utilities.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="5028FormSafetySetting.resx">
       <DependentUpon>5028FormSafetySetting.cs</DependentUpon>
     </EmbeddedResource>
@@ -219,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="JanusManual.resx">
       <DependentUpon>JanusManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Log.resx">
+      <DependentUpon>Log.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
@@ -253,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UsersPage.resx">
       <DependentUpon>UsersPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities.resx">
+      <DependentUpon>Utilities.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="AvantechDataSet.xsc">
       <DependentUpon>AvantechDataSet.xsd</DependentUpon>

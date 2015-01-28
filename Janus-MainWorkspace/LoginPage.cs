@@ -216,7 +216,20 @@ namespace CxTitan
                         SystemGlobals.objMain.cmdShutDown.Text = dRow["ItemMain8"].ToString();
 
                         // User Page
-
+                        SystemGlobals.objUsersPage.lblName.Text = dRow["ItemUsers0"].ToString();
+                        SystemGlobals.objUsersPage.lblPassword1.Text = dRow["ItemUsers1"].ToString();
+                        SystemGlobals.objUsersPage.lblPassword2.Text = dRow["ItemUsers2"].ToString();
+                        SystemGlobals.objUsersPage.cmdAdd.Text = dRow["ItemUsers3"].ToString();
+                        SystemGlobals.objUsersPage.cmdModify.Text = dRow["ItemUsers4"].ToString();
+                        SystemGlobals.objUsersPage.cmdDelete.Text = dRow["ItemUsers5"].ToString();
+                        SystemGlobals.objUsersPage.cmdExit.Text = dRow["ItemUsers6"].ToString();
+                        SystemGlobals.objUsersPage.chkAuto.Text = dRow["ItemUsers7"].ToString();
+                        SystemGlobals.objUsersPage.chkManual.Text = dRow["ItemUsers8"].ToString();
+                        SystemGlobals.objUsersPage.chkPrograms.Text = dRow["ItemUsers9"].ToString();
+                        SystemGlobals.objUsersPage.chkLog.Text = dRow["ItemUsers10"].ToString();
+                        SystemGlobals.objUsersPage.chkSetup.Text = dRow["ItemUsers11"].ToString();
+                        SystemGlobals.objUsersPage.chkUtilities.Text = dRow["ItemUsers12"].ToString();
+                        SystemGlobals.objUsersPage.chkUserManagement.Text = dRow["ItemUsers13"].ToString();
                         //// Connection Page
                         //SystemGlobals.objConnectPage.cmdConnect.Text = dRow["Item3"].ToString();
 

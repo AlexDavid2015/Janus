@@ -16,5 +16,11 @@ namespace CxTitan
         {
             InitializeComponent();
         }
+
+        private void cmdExit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SystemGlobals.objMain.Show();
+        }
     }
 }

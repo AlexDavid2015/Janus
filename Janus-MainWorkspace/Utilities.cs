@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CxTitan
 {
-    public partial class JanusAutomatic : Form
+    public partial class Utilities : Form
     {
-        public JanusAutomatic()
+        public Utilities()
         {
             InitializeComponent();
         }

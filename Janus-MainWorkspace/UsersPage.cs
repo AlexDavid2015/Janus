@@ -24,8 +24,9 @@ namespace CxTitan
 
         private void cmdExit_Click(object sender, EventArgs e)
         {
-            this.Close();
-            this.Dispose();
+            //this.Close();
+            //this.Dispose();
+            this.Hide();
             SystemGlobals.objMain.Show();
         }
 
