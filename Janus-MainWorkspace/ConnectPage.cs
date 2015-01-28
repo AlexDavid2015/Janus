@@ -3992,6 +3992,12 @@ namespace CxTitan
                 }
             }
         }
+
+        private void cmdCouplerInformation_Click(object sender, EventArgs e)
+        {
+            CouplerInformation couplerInformation = new CouplerInformation();
+            couplerInformation.ShowDialog();
+        }
     }
 }
 

@@ -83,6 +83,7 @@
             this.lblAIErr = new System.Windows.Forms.Label();
             this.Label9 = new System.Windows.Forms.Label();
             this.Panel1 = new System.Windows.Forms.Panel();
+            this.cmdCouplerInformation = new System.Windows.Forms.Button();
             this.cmdSystemToDefault = new System.Windows.Forms.Button();
             this.cmdSystemSettings = new System.Windows.Forms.Button();
             this.gbAOSafetyFunction = new System.Windows.Forms.GroupBox();
@@ -821,6 +822,7 @@
             // Panel1
             // 
             this.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Panel1.Controls.Add(this.cmdCouplerInformation);
             this.Panel1.Controls.Add(this.cmdSystemToDefault);
             this.Panel1.Controls.Add(this.cmdSystemSettings);
             this.Panel1.Controls.Add(this.gbAOSafetyFunction);
@@ -837,11 +839,21 @@
             this.Panel1.Size = new System.Drawing.Size(1244, 931);
             this.Panel1.TabIndex = 89;
             // 
+            // cmdCouplerInformation
+            // 
+            this.cmdCouplerInformation.Location = new System.Drawing.Point(1032, 387);
+            this.cmdCouplerInformation.Name = "cmdCouplerInformation";
+            this.cmdCouplerInformation.Size = new System.Drawing.Size(185, 57);
+            this.cmdCouplerInformation.TabIndex = 143;
+            this.cmdCouplerInformation.Text = "Coupler Information";
+            this.cmdCouplerInformation.UseVisualStyleBackColor = true;
+            this.cmdCouplerInformation.Click += new System.EventHandler(this.cmdCouplerInformation_Click);
+            // 
             // cmdSystemToDefault
             // 
-            this.cmdSystemToDefault.Location = new System.Drawing.Point(1032, 397);
+            this.cmdSystemToDefault.Location = new System.Drawing.Point(1032, 319);
             this.cmdSystemToDefault.Name = "cmdSystemToDefault";
-            this.cmdSystemToDefault.Size = new System.Drawing.Size(183, 71);
+            this.cmdSystemToDefault.Size = new System.Drawing.Size(185, 57);
             this.cmdSystemToDefault.TabIndex = 142;
             this.cmdSystemToDefault.Text = "System Restore to Default";
             this.cmdSystemToDefault.UseVisualStyleBackColor = true;
@@ -849,9 +861,9 @@
             // 
             // cmdSystemSettings
             // 
-            this.cmdSystemSettings.Location = new System.Drawing.Point(1032, 295);
+            this.cmdSystemSettings.Location = new System.Drawing.Point(1032, 253);
             this.cmdSystemSettings.Name = "cmdSystemSettings";
-            this.cmdSystemSettings.Size = new System.Drawing.Size(183, 71);
+            this.cmdSystemSettings.Size = new System.Drawing.Size(185, 57);
             this.cmdSystemSettings.TabIndex = 23;
             this.cmdSystemSettings.Text = "System Settings";
             this.cmdSystemSettings.UseVisualStyleBackColor = true;
@@ -3101,5 +3113,6 @@
         internal AvantechDataSet AvantechDataSet;
         internal AvantechDataSetTableAdapters.AvantechTableAdapter AvantechTableAdapter;
         internal System.Windows.Forms.Timer OutputTimer;
+        internal System.Windows.Forms.Button cmdCouplerInformation;
     }
 }
