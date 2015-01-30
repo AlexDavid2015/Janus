@@ -22,5 +22,50 @@ namespace CxTitan
             this.Hide();
             SystemGlobals.objMain.Show();
         }
+
+        private void cmdNew_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdModify_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdPairingProgramProduct_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdDownload_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdFind_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdExport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdImport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Programs_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
