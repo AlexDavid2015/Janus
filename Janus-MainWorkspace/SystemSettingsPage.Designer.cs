@@ -32,7 +32,7 @@
             this.cmdExit = new System.Windows.Forms.Button();
             this.gpbSystemSettings = new System.Windows.Forms.GroupBox();
             this.txtDIO_DOindex = new System.Windows.Forms.TextBox();
-            this.AvantechDataSet = new CxTitan.AvantechDataSet();
+            this.SystemSettingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtDIO_DIindex = new System.Windows.Forms.TextBox();
             this.txtDISlotNum = new System.Windows.Forms.TextBox();
             this.txtDIOSlotNum = new System.Windows.Forms.TextBox();
@@ -57,11 +57,11 @@
             this.lblScanTime = new System.Windows.Forms.Label();
             this.lblIP = new System.Windows.Forms.Label();
             this.cmdSave = new System.Windows.Forms.Button();
-            this.AvantechTableAdapter = new CxTitan.AvantechDataSetTableAdapters.AvantechTableAdapter();
-            this.SystemSettingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.JanusDataSet = new CxTitan.JanusDataSet();
+            this.AvantechTableAdapter = new CxTitan.JanusDataSetTableAdapters.AvantechTableAdapter();
             this.gpbSystemSettings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AvantechDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SystemSettingsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JanusDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // cmdExit
@@ -116,10 +116,10 @@
             this.txtDIO_DOindex.Size = new System.Drawing.Size(94, 20);
             this.txtDIO_DOindex.TabIndex = 136;
             // 
-            // AvantechDataSet
+            // SystemSettingsBindingSource
             // 
-            this.AvantechDataSet.DataSetName = "AvantechDataSet";
-            this.AvantechDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.SystemSettingsBindingSource.DataMember = "Avantech";
+            this.SystemSettingsBindingSource.DataSource = this.JanusDataSet;
             // 
             // txtDIO_DIindex
             // 
@@ -316,14 +316,14 @@
             this.cmdSave.UseVisualStyleBackColor = true;
             this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
             // 
+            // JanusDataSet
+            // 
+            this.JanusDataSet.DataSetName = "JanusDataSet";
+            this.JanusDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // AvantechTableAdapter
             // 
             this.AvantechTableAdapter.ClearBeforeFill = true;
-            // 
-            // SystemSettingsBindingSource
-            // 
-            this.SystemSettingsBindingSource.DataMember = "Avantech";
-            this.SystemSettingsBindingSource.DataSource = this.AvantechDataSet;
             // 
             // SystemSettingsPage
             // 
@@ -342,8 +342,8 @@
             this.Load += new System.EventHandler(this.SystemSettingsPage_Load);
             this.gpbSystemSettings.ResumeLayout(false);
             this.gpbSystemSettings.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AvantechDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SystemSettingsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JanusDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -365,8 +365,6 @@
         internal System.Windows.Forms.Label lblDIO_DIindex;
         internal System.Windows.Forms.Label lblDIO_DOindex;
         internal System.Windows.Forms.Button cmdSave;
-        internal AvantechDataSet AvantechDataSet;
-        internal AvantechDataSetTableAdapters.AvantechTableAdapter AvantechTableAdapter;
         internal System.Windows.Forms.TextBox txtIP;
         internal System.Windows.Forms.TextBox txtScanTime;
         internal System.Windows.Forms.TextBox txtConnectionTimeOut;
@@ -379,6 +377,8 @@
         protected internal System.Windows.Forms.TextBox txtDISlotNum;
         internal System.Windows.Forms.TextBox txtDIO_DIindex;
         internal System.Windows.Forms.TextBox txtDIO_DOindex;
-        private System.Windows.Forms.BindingSource SystemSettingsBindingSource;
+        internal JanusDataSet JanusDataSet;
+        internal System.Windows.Forms.BindingSource SystemSettingsBindingSource;
+        internal JanusDataSetTableAdapters.AvantechTableAdapter AvantechTableAdapter;
     }
 }

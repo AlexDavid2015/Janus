@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CxTitan.AvantechDataSetTableAdapters;
+//using CxTitan.AvantechDataSetTableAdapters;
+using CxTitan.JanusDataSetTableAdapters;
 
 namespace CxTitan
 {
@@ -42,7 +43,7 @@ namespace CxTitan
 
         private void SystemSettingsPage_Load(object sender, EventArgs e)
         {
-            AvantechTableAdapter.Fill(AvantechDataSet.Avantech);
+            AvantechTableAdapter.Fill(JanusDataSet.Avantech);
             if (SystemGlobals.CurrentUser.Level != 127)// 255 or 127 is the full control user, so only full control user can use SystemSettings page and modify settings
             {
                 gpbSystemSettings.Enabled = false;

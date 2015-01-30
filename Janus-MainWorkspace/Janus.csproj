@@ -151,6 +151,11 @@
     <Compile Include="JanusAutomatic.Designer.cs">
       <DependentUpon>JanusAutomatic.cs</DependentUpon>
     </Compile>
+    <Compile Include="JanusDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JanusDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="JanusManual.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +296,17 @@
     </None>
     <None Include="AvantechDataSet.xss">
       <DependentUpon>AvantechDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="JanusDataSet.xsc">
+      <DependentUpon>JanusDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="JanusDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JanusDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JanusDataSet.xss">
+      <DependentUpon>JanusDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

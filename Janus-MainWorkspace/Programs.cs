@@ -65,7 +65,8 @@ namespace CxTitan
 
         private void Programs_Load(object sender, EventArgs e)
         {
-
+            // TODO: This line of code loads data into the 'JanusDataSet.recipes' table. You can move, or remove it, as needed.
+            this.recipesTableAdapter.Fill(this.JanusDataSet.recipes);
         }
     }
 }

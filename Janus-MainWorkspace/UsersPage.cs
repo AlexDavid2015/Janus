@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CxTitan.AvantechDataSetTableAdapters;
+using CxTitan.JanusDataSetTableAdapters;
 
 namespace CxTitan
 {
@@ -159,9 +159,9 @@ namespace CxTitan
             {
                 try
                 {
-                    //UsersAobj.Update(txtName.Text, txtPassword1.Text, Convert.ToInt16(totalPermissionLevel), Convert.ToInt32(txtID.Text));
-                    UpdateUsers(txtName.Text, txtPassword1.Text, Convert.ToInt16(totalPermissionLevel),
-                        Convert.ToInt32(txtID.Text));
+                    UsersAobj.UpdateUsers_id(txtName.Text, txtPassword1.Text, Convert.ToInt16(totalPermissionLevel), Convert.ToInt32(txtID.Text));
+                    //UpdateUsers(txtName.Text, txtPassword1.Text, Convert.ToInt16(totalPermissionLevel),
+                    //    Convert.ToInt32(txtID.Text));
                     MessageBox.Show(strNewUserModified);
                 }
                 catch (Exception ex)
@@ -209,6 +209,7 @@ namespace CxTitan
 
         private void cmdDelete_Click(object sender, EventArgs e)
         {
+            string strUserDeleted = string.Format("User \"{0}\" has been deleted!", txtName.Text);
             if (lstUsers.Text == "op")
             {
 	            MessageBox.Show("This user cannot be deleted or modified!");
@@ -227,6 +228,7 @@ namespace CxTitan
                     try
                     {
                         UsersAobj.DeleteUsers_name(lstUsers.SelectedItem.ToString());
+                        MessageBox.Show(strUserDeleted);
                     }
                     catch (Exception ex)
                     {

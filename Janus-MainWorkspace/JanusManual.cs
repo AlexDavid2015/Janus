@@ -8,13 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CxTitan.AvantechDataSetTableAdapters;
 
 namespace CxTitan
 {
     public partial class JanusManual : Form
     {
-        LanguageTableAdapter LanguageTableAobj = new LanguageTableAdapter();
         public JanusManual()
         {
             InitializeComponent();
