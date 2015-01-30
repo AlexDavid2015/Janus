@@ -47,6 +47,25 @@ namespace CxTitan
             {
                 this.Close();
                 this.Dispose();
+
+                /// Disable Coupler Avantech modules
+                // Disable Threads
+                if (SystemGlobals.objConnectPage.MainThread.IsBusy)
+                {
+                    SystemGlobals.objConnectPage.MainThread.CancelAsync();
+                }
+                Avantech.MainThreadEnabled = false;
+                SystemGlobals.objConnectPage.OutputTimer.Enabled = false;
+                Avantech.bModbusConnected = false;
+
+                // Disconnect IO modules
+                AvantechDIs.FreeResource();
+                AvantechDOs.FreeResource();
+                AvantechAOs.FreeResource();
+                AvantechAIs.FreeResource();
+                AvantechDIOs.FreeResource();
+                /// Disable Coupler Avantech modules
+                
                 System.Environment.Exit(1);
             }
         }

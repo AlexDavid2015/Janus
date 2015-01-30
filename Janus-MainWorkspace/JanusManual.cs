@@ -34,21 +34,21 @@ namespace CxTitan
 
         private void cmdExit_Click(object sender, EventArgs e)
         {
-            // Disable Threads
-            if (SystemGlobals.objConnectPage.MainThread.IsBusy)
-            {
-                SystemGlobals.objConnectPage.MainThread.CancelAsync();
-            }
-            Avantech.MainThreadEnabled = false;
-            SystemGlobals.objConnectPage.OutputTimer.Enabled = false;
-            Avantech.bModbusConnected = false;
+            //// Disable Threads
+            //if (SystemGlobals.objConnectPage.MainThread.IsBusy)
+            //{
+            //    SystemGlobals.objConnectPage.MainThread.CancelAsync();
+            //}
+            //Avantech.MainThreadEnabled = false;
+            //SystemGlobals.objConnectPage.OutputTimer.Enabled = false;
+            //Avantech.bModbusConnected = false;
 
-            // Disconnect IO modules
-            AvantechDIs.FreeResource();
-            AvantechDOs.FreeResource();
-            AvantechAOs.FreeResource();
-            AvantechAIs.FreeResource();
-            AvantechDIOs.FreeResource();
+            //// Disconnect IO modules
+            //AvantechDIs.FreeResource();
+            //AvantechDOs.FreeResource();
+            //AvantechAOs.FreeResource();
+            //AvantechAIs.FreeResource();
+            //AvantechDIOs.FreeResource();
 
             //System.Environment.Exit(0);
             this.Hide();
