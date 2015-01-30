@@ -120,15 +120,6 @@
     <Compile Include="Avantech.cs" />
     <Compile Include="AvantechAIs.cs" />
     <Compile Include="AvantechAOs.cs" />
-    <Compile Include="AvantechDataSet.cs">
-      <DependentUpon>AvantechDataSet.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="AvantechDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AvantechDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="AvantechDIOs.cs" />
     <Compile Include="AvantechDIs.cs" />
     <Compile Include="AvantechDOs.cs" />
@@ -286,17 +277,6 @@
     <EmbeddedResource Include="Utilities.resx">
       <DependentUpon>Utilities.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="AvantechDataSet.xsc">
-      <DependentUpon>AvantechDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="AvantechDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>AvantechDataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="AvantechDataSet.xss">
-      <DependentUpon>AvantechDataSet.xsd</DependentUpon>
-    </None>
     <None Include="JanusDataSet.xsc">
       <DependentUpon>JanusDataSet.xsd</DependentUpon>
     </None>

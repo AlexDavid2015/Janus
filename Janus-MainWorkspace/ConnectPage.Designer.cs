@@ -274,8 +274,6 @@
             this.MainThread = new System.ComponentModel.BackgroundWorker();
             this.BGWConnect = new System.ComponentModel.BackgroundWorker();
             this.OutputTimer = new System.Windows.Forms.Timer(this.components);
-            this.AvantechDataSet = new CxTitan.AvantechDataSet();
-            this.AvantechTableAdapter = new CxTitan.AvantechDataSetTableAdapters.AvantechTableAdapter();
             this.gbDI.SuspendLayout();
             this.Panel1.SuspendLayout();
             this.gbAOSafetyFunction.SuspendLayout();
@@ -295,7 +293,6 @@
             this.gbAI.SuspendLayout();
             this.gpbAISettings.SuspendLayout();
             this.Connection.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AvantechDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // gbDI
@@ -2811,16 +2808,6 @@
             this.OutputTimer.Interval = 500;
             this.OutputTimer.Tick += new System.EventHandler(this.OutputTimer_Tick);
             // 
-            // AvantechDataSet
-            // 
-            this.AvantechDataSet.DataSetName = "AvantechDataSet";
-            this.AvantechDataSet.Locale = new System.Globalization.CultureInfo("en-SG");
-            this.AvantechDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // AvantechTableAdapter
-            // 
-            this.AvantechTableAdapter.ClearBeforeFill = true;
-            // 
             // ConnectPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2860,7 +2847,6 @@
             this.gpbAISettings.ResumeLayout(false);
             this.Connection.ResumeLayout(false);
             this.Connection.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AvantechDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3110,8 +3096,6 @@
         private System.Windows.Forms.CheckBox chbxAI_2Range;
         internal System.Windows.Forms.Button cmdSystemSettings;
         internal System.Windows.Forms.Button cmdSystemToDefault;
-        internal AvantechDataSet AvantechDataSet;
-        internal AvantechDataSetTableAdapters.AvantechTableAdapter AvantechTableAdapter;
         internal System.Windows.Forms.Timer OutputTimer;
         internal System.Windows.Forms.Button cmdCouplerInformation;
     }
