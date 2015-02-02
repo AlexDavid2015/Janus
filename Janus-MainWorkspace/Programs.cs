@@ -8,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CxTitan.JanusDataSetTableAdapters;
 
 namespace CxTitan
 {
     public partial class Programs : Form
     {
+        recipesTableAdapter recipeTableAobj = new recipesTableAdapter();
         public Programs()
         {
             InitializeComponent();
@@ -26,12 +28,119 @@ namespace CxTitan
 
         private void cmdNew_Click(object sender, EventArgs e)
         {
+            txtDescription.Text = "";
+            txtPressure.Text = "";
+            txtRFPower.Text = "";
+            txtRFTime.Text = "";
+            txtGas1.Text = "";
+            txtGas2.Text = "";
+            txtTTP.Text = "";
+            txtTune.Text = "50";
+            txtLoad.Text = "50";
+            txtTopOffset.Text = "";
+            txtBottomOffset.Text = "";
+            txtNumOfSubstrates.Text = "";
+            txtLength.Text = "";
+            txtPickOffset.Text = "";
+            txtMagOffset.Text = "";
+            txtBias.Text = "0";// need to assign txtBias to be 0 here as later there will be null empty check
 
+            txtManualTuner.Text = "";
+            chkManualTuner.Checked = false;
+            chkLock.Checked = false;
+            BindingNavigatorPositionItem.Text = "Insert new values. then press Add";
+            cmdModify.Text = "Add";
+            cmdNew.Enabled = false;
+            cmdDownload.Enabled = false;
+            cmdFind.Enabled = false;
+            cmdDelete.Enabled = false;
+            BindingNavigatorMoveFirstItem.Enabled = false;
+            BindingNavigatorMoveLastItem.Enabled = false;
+            BindingNavigatorMoveNextItem.Enabled = false;
+            BindingNavigatorMovePreviousItem.Enabled = false;
+        }
+
+        public void AddMod()
+        {
+            if (string.IsNullOrEmpty(txtGas1.Text))
+            {
+                txtGas1.Text = "2";
+            }
+            if (string.IsNullOrEmpty(txtGas2.Text))
+            {
+                txtGas2.Text = "2";
+            }
+            if (txtDescription.Text == "")
+            {
+                cmdModify.Text = "Modify";
+                BindingNavigatorPositionItem.Text = "Couldn't add program";
+                MessageBox.Show("Cannot add new program. Check program entries. This program will be deleted", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                recipeTableAobj.DeleteRecipe_description(txtDescription.Text);
+                this.recipesTableAdapter.Fill(this.JanusDataSet.recipes);
+
+                cmdDownload.Enabled = true;// Download
+                cmdFind.Enabled = true;
+                cmdDelete.Enabled = true;
+                BindingNavigatorMoveFirstItem.Enabled = true;
+                BindingNavigatorMoveLastItem.Enabled = true;
+                BindingNavigatorMoveNextItem.Enabled = true;
+                BindingNavigatorMovePreviousItem.Enabled = true;
+                return;
+            }
+            switch (cmdModify.Text)
+            {
+                case "Add":
+                    BindingNavigatorPositionItem.Text = "Program added";
+                    if (string.IsNullOrEmpty(txtPressure.Text) || string.IsNullOrEmpty(txtRFPower.Text) || string.IsNullOrEmpty(txtDescription.Text) || string.IsNullOrEmpty(txtGas1.Text) 
+                    || string.IsNullOrEmpty(txtGas2.Text) || string.IsNullOrEmpty(txtTTP.Text) || string.IsNullOrEmpty(txtTune.Text) || string.IsNullOrEmpty(txtLoad.Text) 
+                    || string.IsNullOrEmpty(txtBias.Text) || string.IsNullOrEmpty(txtTopOffset.Text) || string.IsNullOrEmpty(txtBottomOffset.Text) || string.IsNullOrEmpty(txtNumOfSubstrates.Text) 
+                    || string.IsNullOrEmpty(txtLength.Text) || string.IsNullOrEmpty(txtPickOffset.Text) || string.IsNullOrEmpty(txtMagOffset.Text))
+                    {
+                        if (txtDescription.Text != "")// but other fields are empty only RName is not empty
+                        {
+                            MessageBox.Show("Attention! Program added with all values set to 0 (zero). This program will be deleted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            recipeTableAobj.DeleteRecipe_description(txtDescription.Text);
+                            this.recipesTableAdapter.Fill(this.JanusDataSet.recipes);
+                        }
+                    }
+                    else
+                    {
+                        recipeTableAobj.InsertRecipe(txtDescription.Text, Convert.ToDouble(txtPressure.Text), Convert.ToInt16(txtRFPower.Text), Convert.ToDouble(txtRFTime.Text), Convert.ToInt16(txtGas1.Text),
+                        Convert.ToInt16(txtGas2.Text), Convert.ToInt16(txtBias.Text), Convert.ToDouble(txtTune.Text), Convert.ToDouble(txtLoad.Text), Convert.ToInt16(txtTTP.Text), chkManualTuner.Checked,
+                        Convert.ToDouble(txtManualTuner.Text), Convert.ToDouble(txtTopOffset.Text), Convert.ToDouble(txtBottomOffset.Text), Convert.ToInt32(txtNumOfSubstrates.Text), chkLock.Checked,
+                        Convert.ToInt32(txtLength.Text), Convert.ToDouble(txtPickOffset.Text), Convert.ToDouble(txtMagOffset.Text));
+                        this.recipesTableAdapter.Fill(this.JanusDataSet.recipes);
+                    }
+                    cmdModify.Text = "Modify";
+                    cmdDownload.Enabled = true;// Download
+                    cmdFind.Enabled = true;
+                    cmdDelete.Enabled = true;
+                    BindingNavigatorMoveFirstItem.Enabled = true;
+                    BindingNavigatorMoveLastItem.Enabled = true;
+                    BindingNavigatorMoveNextItem.Enabled = true;
+                    BindingNavigatorMovePreviousItem.Enabled = true;
+                    break;
+                case "Modify":
+                    //RecipeTableAobj.UpdateRECIPE_ID(RName.Text, Convert.ToDouble(RPressure.Text), Convert.ToInt32(RPower.Text), Convert.ToInt32(RTime.Text), Convert.ToInt32(RG1V.Text),
+                    //    Convert.ToInt32(RG2V.Text), Convert.ToDouble(RTTP.Text), Convert.ToDouble(RTUNE.Text), Convert.ToDouble(RLOAD.Text), Convert.ToDouble(RBIAS.Text), Convert.ToDouble(txtManualTuner.Text),
+                    //    Convert.ToDouble(RTO.Text), Convert.ToDouble(RBO.Text), Convert.ToInt32(RNOS.Text), chkLock.Checked, Convert.ToDouble(RLEN.Text), Convert.ToDouble(RPO.Text), Convert.ToDouble(RSO.Text), 
+                    //    chkManualTuner.Checked, Convert.ToInt32(txtID.Text));// update based on ID
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void cmdModify_Click(object sender, EventArgs e)
         {
+            try
+            {
+                AddMod();
+            }
+            catch (Exception ex)
+            {
 
+            }
         }
 
         private void cmdDelete_Click(object sender, EventArgs e)

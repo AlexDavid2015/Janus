@@ -236,6 +236,7 @@
             this.txtBias.ReadOnly = true;
             this.txtBias.Size = new System.Drawing.Size(118, 20);
             this.txtBias.TabIndex = 65;
+            this.txtBias.Visible = false;
             this.txtBias.Click += new System.EventHandler(this.txtBias_Click);
             // 
             // txtRFTime
@@ -387,6 +388,7 @@
             this.lblBias.Size = new System.Drawing.Size(85, 13);
             this.lblBias.TabIndex = 48;
             this.lblBias.Text = "Bias";
+            this.lblBias.Visible = false;
             // 
             // lblRFTime
             // 

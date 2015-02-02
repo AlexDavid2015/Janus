@@ -7123,13 +7123,43 @@ SELECT id, description, pressure, rfpower, rftime, gas1, gas2, Bias, tune, [load
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id, description, pressure, rfpower, rftime, gas1, gas2, Bias, tune, [load]" +
                 ", ttp, mton, mttime, top_offset, bottom_offset, number_substrates, locked, lengt" +
                 "h, poffset, MagOffset FROM dbo.recipes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "DELETE FROM recipes\r\nWHERE (description = @description)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@description", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"INSERT INTO recipes
+                         (description, pressure, rfpower, rftime, gas1, gas2, Bias, tune, [load], ttp, mton, mttime, top_offset, bottom_offset, number_substrates, locked, length, poffset, MagOffset)
+VALUES        (@description,@pressure,@rfpower,@rftime,@gas1,@gas2,@Bias,@tune,@load,@ttp,@mton,@mttime,@top_offset,@bottom_offset,@number_substrates,@locked,@length,@poffset,@MagOffset);";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@description", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pressure", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "pressure", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rfpower", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 0, 0, "rfpower", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rftime", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "rftime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@gas1", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 0, 0, "gas1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@gas2", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 0, 0, "gas2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Bias", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 0, 0, "Bias", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tune", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tune", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@load", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "load", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ttp", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 0, 0, "ttp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mton", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "mton", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mttime", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "mttime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@top_offset", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "top_offset", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bottom_offset", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "bottom_offset", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@number_substrates", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "number_substrates", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@locked", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "locked", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@length", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "length", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@poffset", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "poffset", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MagOffset", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "MagOffset", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7907,6 +7937,191 @@ SELECT id, description, pressure, rfpower, rftime, gas1, gas2, Bias, tune, [load
                     global::System.Nullable<double> Original_poffset, 
                     global::System.Nullable<double> Original_MagOffset) {
             return this.Update(description, pressure, rfpower, rftime, gas1, gas2, Bias, tune, load, ttp, mton, mttime, top_offset, bottom_offset, number_substrates, locked, length, poffset, MagOffset, Original_id, Original_description, Original_pressure, Original_rfpower, Original_rftime, Original_gas1, Original_gas2, Original_Bias, Original_tune, Original_load, Original_ttp, Original_mton, Original_mttime, Original_top_offset, Original_bottom_offset, Original_number_substrates, Original_locked, Original_length, Original_poffset, Original_MagOffset, Original_id);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteRecipe_description(string description) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((description == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(description));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertRecipe(
+                    string description, 
+                    global::System.Nullable<double> pressure, 
+                    global::System.Nullable<short> rfpower, 
+                    global::System.Nullable<double> rftime, 
+                    global::System.Nullable<short> gas1, 
+                    global::System.Nullable<short> gas2, 
+                    global::System.Nullable<short> Bias, 
+                    global::System.Nullable<double> tune, 
+                    global::System.Nullable<double> load, 
+                    global::System.Nullable<short> ttp, 
+                    global::System.Nullable<bool> mton, 
+                    global::System.Nullable<double> mttime, 
+                    global::System.Nullable<double> top_offset, 
+                    global::System.Nullable<double> bottom_offset, 
+                    global::System.Nullable<int> number_substrates, 
+                    global::System.Nullable<bool> locked, 
+                    global::System.Nullable<int> length, 
+                    global::System.Nullable<double> poffset, 
+                    global::System.Nullable<double> MagOffset) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((description == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(description));
+            }
+            if ((pressure.HasValue == true)) {
+                command.Parameters[1].Value = ((double)(pressure.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((rfpower.HasValue == true)) {
+                command.Parameters[2].Value = ((short)(rfpower.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((rftime.HasValue == true)) {
+                command.Parameters[3].Value = ((double)(rftime.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((gas1.HasValue == true)) {
+                command.Parameters[4].Value = ((short)(gas1.Value));
+            }
+            else {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((gas2.HasValue == true)) {
+                command.Parameters[5].Value = ((short)(gas2.Value));
+            }
+            else {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Bias.HasValue == true)) {
+                command.Parameters[6].Value = ((short)(Bias.Value));
+            }
+            else {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((tune.HasValue == true)) {
+                command.Parameters[7].Value = ((double)(tune.Value));
+            }
+            else {
+                command.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((load.HasValue == true)) {
+                command.Parameters[8].Value = ((double)(load.Value));
+            }
+            else {
+                command.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((ttp.HasValue == true)) {
+                command.Parameters[9].Value = ((short)(ttp.Value));
+            }
+            else {
+                command.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((mton.HasValue == true)) {
+                command.Parameters[10].Value = ((bool)(mton.Value));
+            }
+            else {
+                command.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((mttime.HasValue == true)) {
+                command.Parameters[11].Value = ((double)(mttime.Value));
+            }
+            else {
+                command.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((top_offset.HasValue == true)) {
+                command.Parameters[12].Value = ((double)(top_offset.Value));
+            }
+            else {
+                command.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((bottom_offset.HasValue == true)) {
+                command.Parameters[13].Value = ((double)(bottom_offset.Value));
+            }
+            else {
+                command.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((number_substrates.HasValue == true)) {
+                command.Parameters[14].Value = ((int)(number_substrates.Value));
+            }
+            else {
+                command.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((locked.HasValue == true)) {
+                command.Parameters[15].Value = ((bool)(locked.Value));
+            }
+            else {
+                command.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((length.HasValue == true)) {
+                command.Parameters[16].Value = ((int)(length.Value));
+            }
+            else {
+                command.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((poffset.HasValue == true)) {
+                command.Parameters[17].Value = ((double)(poffset.Value));
+            }
+            else {
+                command.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((MagOffset.HasValue == true)) {
+                command.Parameters[18].Value = ((double)(MagOffset.Value));
+            }
+            else {
+                command.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
