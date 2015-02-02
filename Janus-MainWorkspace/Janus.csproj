@@ -136,6 +136,12 @@
     <Compile Include="CouplerInformation.Designer.cs">
       <DependentUpon>CouplerInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Input.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Input.Designer.cs">
+      <DependentUpon>Input.cs</DependentUpon>
+    </Compile>
     <Compile Include="JanusAutomatic.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CouplerInformation.resx">
       <DependentUpon>CouplerInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Input.resx">
+      <DependentUpon>Input.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JanusAutomatic.resx">
       <DependentUpon>JanusAutomatic.cs</DependentUpon>

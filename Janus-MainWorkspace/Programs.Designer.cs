@@ -92,6 +92,7 @@
             this.BindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.BindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.recipesTableAdapter = new CxTitan.JanusDataSetTableAdapters.recipesTableAdapter();
+            this.chkLock = new System.Windows.Forms.CheckBox();
             this.gpbProgramPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.recipesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.JanusDataSet)).BeginInit();
@@ -165,6 +166,7 @@
             this.txtMagOffset.ReadOnly = true;
             this.txtMagOffset.Size = new System.Drawing.Size(118, 20);
             this.txtMagOffset.TabIndex = 71;
+            this.txtMagOffset.Click += new System.EventHandler(this.txtMagOffset_Click);
             // 
             // recipesBindingSource
             // 
@@ -184,6 +186,7 @@
             this.txtPickOffset.ReadOnly = true;
             this.txtPickOffset.Size = new System.Drawing.Size(118, 20);
             this.txtPickOffset.TabIndex = 70;
+            this.txtPickOffset.Click += new System.EventHandler(this.txtPickOffset_Click);
             // 
             // txtBottomOffset
             // 
@@ -193,6 +196,7 @@
             this.txtBottomOffset.ReadOnly = true;
             this.txtBottomOffset.Size = new System.Drawing.Size(118, 20);
             this.txtBottomOffset.TabIndex = 69;
+            this.txtBottomOffset.Click += new System.EventHandler(this.txtBottomOffset_Click);
             // 
             // txtManualTuner
             // 
@@ -202,6 +206,7 @@
             this.txtManualTuner.ReadOnly = true;
             this.txtManualTuner.Size = new System.Drawing.Size(118, 20);
             this.txtManualTuner.TabIndex = 68;
+            this.txtManualTuner.Click += new System.EventHandler(this.txtManualTuner_Click);
             // 
             // txtLoad
             // 
@@ -211,6 +216,7 @@
             this.txtLoad.ReadOnly = true;
             this.txtLoad.Size = new System.Drawing.Size(118, 20);
             this.txtLoad.TabIndex = 67;
+            this.txtLoad.Click += new System.EventHandler(this.txtLoad_Click);
             // 
             // txtTune
             // 
@@ -220,6 +226,7 @@
             this.txtTune.ReadOnly = true;
             this.txtTune.Size = new System.Drawing.Size(118, 20);
             this.txtTune.TabIndex = 66;
+            this.txtTune.Click += new System.EventHandler(this.txtTune_Click);
             // 
             // txtBias
             // 
@@ -229,6 +236,7 @@
             this.txtBias.ReadOnly = true;
             this.txtBias.Size = new System.Drawing.Size(118, 20);
             this.txtBias.TabIndex = 65;
+            this.txtBias.Click += new System.EventHandler(this.txtBias_Click);
             // 
             // txtRFTime
             // 
@@ -238,6 +246,7 @@
             this.txtRFTime.ReadOnly = true;
             this.txtRFTime.Size = new System.Drawing.Size(118, 20);
             this.txtRFTime.TabIndex = 64;
+            this.txtRFTime.Click += new System.EventHandler(this.txtRFTime_Click);
             // 
             // txtRFPower
             // 
@@ -247,6 +256,7 @@
             this.txtRFPower.ReadOnly = true;
             this.txtRFPower.Size = new System.Drawing.Size(118, 20);
             this.txtRFPower.TabIndex = 63;
+            this.txtRFPower.Click += new System.EventHandler(this.txtRFPower_Click);
             // 
             // txtLength
             // 
@@ -256,6 +266,7 @@
             this.txtLength.ReadOnly = true;
             this.txtLength.Size = new System.Drawing.Size(119, 20);
             this.txtLength.TabIndex = 62;
+            this.txtLength.Click += new System.EventHandler(this.txtLength_Click);
             // 
             // txtNumOfSubstrates
             // 
@@ -265,6 +276,7 @@
             this.txtNumOfSubstrates.ReadOnly = true;
             this.txtNumOfSubstrates.Size = new System.Drawing.Size(119, 20);
             this.txtNumOfSubstrates.TabIndex = 61;
+            this.txtNumOfSubstrates.Click += new System.EventHandler(this.txtNumOfSubstrates_Click);
             // 
             // txtTopOffset
             // 
@@ -274,6 +286,7 @@
             this.txtTopOffset.ReadOnly = true;
             this.txtTopOffset.Size = new System.Drawing.Size(119, 20);
             this.txtTopOffset.TabIndex = 60;
+            this.txtTopOffset.Click += new System.EventHandler(this.txtTopOffset_Click);
             // 
             // txtTTP
             // 
@@ -283,6 +296,7 @@
             this.txtTTP.ReadOnly = true;
             this.txtTTP.Size = new System.Drawing.Size(119, 20);
             this.txtTTP.TabIndex = 59;
+            this.txtTTP.Click += new System.EventHandler(this.txtTTP_Click);
             // 
             // txtGas3
             // 
@@ -292,6 +306,7 @@
             this.txtGas3.Size = new System.Drawing.Size(118, 20);
             this.txtGas3.TabIndex = 58;
             this.txtGas3.Visible = false;
+            this.txtGas3.Click += new System.EventHandler(this.txtGas3_Click);
             // 
             // txtGas2
             // 
@@ -301,6 +316,7 @@
             this.txtGas2.ReadOnly = true;
             this.txtGas2.Size = new System.Drawing.Size(119, 20);
             this.txtGas2.TabIndex = 57;
+            this.txtGas2.Click += new System.EventHandler(this.txtGas2_Click);
             // 
             // txtGas1
             // 
@@ -310,6 +326,7 @@
             this.txtGas1.ReadOnly = true;
             this.txtGas1.Size = new System.Drawing.Size(119, 20);
             this.txtGas1.TabIndex = 56;
+            this.txtGas1.Click += new System.EventHandler(this.txtGas1_Click);
             // 
             // chkManualTuner
             // 
@@ -395,6 +412,7 @@
             this.txtPressure.ReadOnly = true;
             this.txtPressure.Size = new System.Drawing.Size(118, 20);
             this.txtPressure.TabIndex = 45;
+            this.txtPressure.Click += new System.EventHandler(this.txtPressure_Click);
             // 
             // lblLength
             // 
@@ -488,6 +506,7 @@
             this.txtDescription.ReadOnly = true;
             this.txtDescription.Size = new System.Drawing.Size(432, 20);
             this.txtDescription.TabIndex = 17;
+            this.txtDescription.Click += new System.EventHandler(this.txtDescription_Click);
             // 
             // txtFind
             // 
@@ -506,6 +525,7 @@
             this.lstFind.Name = "lstFind";
             this.lstFind.Size = new System.Drawing.Size(212, 364);
             this.lstFind.TabIndex = 76;
+            this.lstFind.SelectedIndexChanged += new System.EventHandler(this.lstFind_SelectedIndexChanged);
             // 
             // cmdFind
             // 
@@ -718,6 +738,17 @@
             // 
             this.recipesTableAdapter.ClearBeforeFill = true;
             // 
+            // chkLock
+            // 
+            this.chkLock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkLock.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.chkLock.Location = new System.Drawing.Point(527, 444);
+            this.chkLock.Name = "chkLock";
+            this.chkLock.Size = new System.Drawing.Size(98, 17);
+            this.chkLock.TabIndex = 86;
+            this.chkLock.Text = "Lock Recipe";
+            this.chkLock.UseVisualStyleBackColor = false;
+            // 
             // Programs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -725,6 +756,7 @@
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.ClientSize = new System.Drawing.Size(892, 680);
             this.ControlBox = false;
+            this.Controls.Add(this.chkLock);
             this.Controls.Add(this.BindingNavigator1);
             this.Controls.Add(this.cmdPairingProgramProduct);
             this.Controls.Add(this.cmdDownload);
@@ -820,5 +852,6 @@
         internal System.Windows.Forms.BindingSource recipesBindingSource;
         internal JanusDataSet JanusDataSet;
         internal JanusDataSetTableAdapters.recipesTableAdapter recipesTableAdapter;
+        internal System.Windows.Forms.CheckBox chkLock;
     }
 }
