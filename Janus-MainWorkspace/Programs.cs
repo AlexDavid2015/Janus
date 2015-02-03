@@ -125,6 +125,10 @@ namespace CxTitan
                     //    Convert.ToInt32(RG2V.Text), Convert.ToDouble(RTTP.Text), Convert.ToDouble(RTUNE.Text), Convert.ToDouble(RLOAD.Text), Convert.ToDouble(RBIAS.Text), Convert.ToDouble(txtManualTuner.Text),
                     //    Convert.ToDouble(RTO.Text), Convert.ToDouble(RBO.Text), Convert.ToInt32(RNOS.Text), chkLock.Checked, Convert.ToDouble(RLEN.Text), Convert.ToDouble(RPO.Text), Convert.ToDouble(RSO.Text), 
                     //    chkManualTuner.Checked, Convert.ToInt32(txtID.Text));// update based on ID
+                    recipeTableAobj.UpdateRecipe_id(txtDescription.Text, Convert.ToDouble(txtPressure.Text), Convert.ToInt16(txtRFPower.Text), Convert.ToDouble(txtRFTime.Text), Convert.ToInt16(txtGas1.Text),
+                        Convert.ToInt16(txtGas2.Text), Convert.ToInt16(txtBias.Text), Convert.ToDouble(txtTune.Text), Convert.ToDouble(txtLoad.Text), Convert.ToInt16(txtTTP.Text), chkManualTuner.Checked,
+                        Convert.ToDouble(txtManualTuner.Text), Convert.ToDouble(txtTopOffset.Text), Convert.ToDouble(txtBottomOffset.Text), Convert.ToInt32(txtNumOfSubstrates.Text), chkLock.Checked,
+                        Convert.ToInt32(txtLength.Text), Convert.ToDouble(txtPickOffset.Text), Convert.ToDouble(txtMagOffset.Text), Convert.ToInt32(lblID.Text));
                     break;
                 default:
                     break;
@@ -145,7 +149,21 @@ namespace CxTitan
 
         private void cmdDelete_Click(object sender, EventArgs e)
         {
-
+            if (recipeTableAobj.SelectCounts() < 2)
+            {
+                MessageBox.Show("The Database cannot be empty. This record cannot be deleted. To delete this record, creat a new one first.");
+            }
+            if (MessageBox.Show("Are you sure to Delete this record? You cannot UNDO this action.", "Attention!",
+                    MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                recipeTableAobj.DeleteRecipe_description(txtDescription.Text);
+                this.recipesTableAdapter.Fill(this.JanusDataSet.recipes);
+                lstFind.Items.Clear();
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void cmdPairingProgramProduct_Click(object sender, EventArgs e)
@@ -471,6 +489,18 @@ namespace CxTitan
             objInput.ShowDialog();
             txtMagOffset.Text = SystemGlobals.InputVal;
             SystemGlobals.InputVal = "";
+        }
+
+        private void chkLock_Click(object sender, EventArgs e)
+        {
+            if (chkLock.Checked)
+            {
+                gpbProgramPanel.Enabled = false;
+            }
+            else
+            {
+                gpbProgramPanel.Enabled = true;
+            }
         }
     }
 }

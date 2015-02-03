@@ -32,9 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Programs));
             this.cmdExit = new System.Windows.Forms.Button();
             this.gpbProgramPanel = new System.Windows.Forms.GroupBox();
-            this.txtMagOffset = new System.Windows.Forms.TextBox();
+            this.lblID = new System.Windows.Forms.Label();
             this.recipesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.JanusDataSet = new CxTitan.JanusDataSet();
+            this.txtMagOffset = new System.Windows.Forms.TextBox();
             this.txtPickOffset = new System.Windows.Forms.TextBox();
             this.txtBottomOffset = new System.Windows.Forms.TextBox();
             this.txtManualTuner = new System.Windows.Forms.TextBox();
@@ -68,7 +69,6 @@
             this.lblGas2 = new System.Windows.Forms.Label();
             this.lblGas1 = new System.Windows.Forms.Label();
             this.lblPressure = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.lblDescription = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtFind = new System.Windows.Forms.TextBox();
@@ -113,6 +113,7 @@
             // 
             // gpbProgramPanel
             // 
+            this.gpbProgramPanel.Controls.Add(this.lblID);
             this.gpbProgramPanel.Controls.Add(this.txtMagOffset);
             this.gpbProgramPanel.Controls.Add(this.txtPickOffset);
             this.gpbProgramPanel.Controls.Add(this.txtBottomOffset);
@@ -147,7 +148,6 @@
             this.gpbProgramPanel.Controls.Add(this.lblGas2);
             this.gpbProgramPanel.Controls.Add(this.lblGas1);
             this.gpbProgramPanel.Controls.Add(this.lblPressure);
-            this.gpbProgramPanel.Controls.Add(this.txtID);
             this.gpbProgramPanel.Controls.Add(this.lblDescription);
             this.gpbProgramPanel.Controls.Add(this.txtDescription);
             this.gpbProgramPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -158,15 +158,14 @@
             this.gpbProgramPanel.TabStop = false;
             this.gpbProgramPanel.Text = "Program Panel";
             // 
-            // txtMagOffset
+            // lblID
             // 
-            this.txtMagOffset.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.recipesBindingSource, "MagOffset", true));
-            this.txtMagOffset.Location = new System.Drawing.Point(419, 385);
-            this.txtMagOffset.Name = "txtMagOffset";
-            this.txtMagOffset.ReadOnly = true;
-            this.txtMagOffset.Size = new System.Drawing.Size(118, 20);
-            this.txtMagOffset.TabIndex = 71;
-            this.txtMagOffset.Click += new System.EventHandler(this.txtMagOffset_Click);
+            this.lblID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.recipesBindingSource, "id", true));
+            this.lblID.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.lblID.Location = new System.Drawing.Point(549, 16);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(48, 13);
+            this.lblID.TabIndex = 72;
             // 
             // recipesBindingSource
             // 
@@ -177,6 +176,16 @@
             // 
             this.JanusDataSet.DataSetName = "JanusDataSet";
             this.JanusDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // txtMagOffset
+            // 
+            this.txtMagOffset.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.recipesBindingSource, "MagOffset", true));
+            this.txtMagOffset.Location = new System.Drawing.Point(419, 385);
+            this.txtMagOffset.Name = "txtMagOffset";
+            this.txtMagOffset.ReadOnly = true;
+            this.txtMagOffset.Size = new System.Drawing.Size(118, 20);
+            this.txtMagOffset.TabIndex = 71;
+            this.txtMagOffset.Click += new System.EventHandler(this.txtMagOffset_Click);
             // 
             // txtPickOffset
             // 
@@ -236,7 +245,6 @@
             this.txtBias.ReadOnly = true;
             this.txtBias.Size = new System.Drawing.Size(118, 20);
             this.txtBias.TabIndex = 65;
-            this.txtBias.Visible = false;
             this.txtBias.Click += new System.EventHandler(this.txtBias_Click);
             // 
             // txtRFTime
@@ -388,7 +396,6 @@
             this.lblBias.Size = new System.Drawing.Size(85, 13);
             this.lblBias.TabIndex = 48;
             this.lblBias.Text = "Bias";
-            this.lblBias.Visible = false;
             // 
             // lblRFTime
             // 
@@ -480,17 +487,6 @@
             this.lblPressure.Size = new System.Drawing.Size(85, 13);
             this.lblPressure.TabIndex = 37;
             this.lblPressure.Text = "Pressure (mbar)";
-            // 
-            // txtID
-            // 
-            this.txtID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.recipesBindingSource, "id", true));
-            this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(549, 10);
-            this.txtID.Name = "txtID";
-            this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(48, 20);
-            this.txtID.TabIndex = 36;
-            this.txtID.Visible = false;
             // 
             // lblDescription
             // 
@@ -750,6 +746,7 @@
             this.chkLock.TabIndex = 86;
             this.chkLock.Text = "Lock Recipe";
             this.chkLock.UseVisualStyleBackColor = false;
+            this.chkLock.Click += new System.EventHandler(this.chkLock_Click);
             // 
             // Programs
             // 
@@ -806,7 +803,6 @@
         internal System.Windows.Forms.Button cmdPairingProgramProduct;
         internal System.Windows.Forms.Label lblDescription;
         internal System.Windows.Forms.TextBox txtDescription;
-        internal System.Windows.Forms.TextBox txtID;
         internal System.Windows.Forms.Label lblPressure;
         internal System.Windows.Forms.Label lblGas2;
         internal System.Windows.Forms.Label lblGas1;
@@ -855,5 +851,6 @@
         internal JanusDataSet JanusDataSet;
         internal JanusDataSetTableAdapters.recipesTableAdapter recipesTableAdapter;
         internal System.Windows.Forms.CheckBox chkLock;
+        internal System.Windows.Forms.Label lblID;
     }
 }
