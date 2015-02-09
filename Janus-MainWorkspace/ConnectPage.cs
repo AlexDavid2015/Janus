@@ -3142,6 +3142,13 @@ namespace CxTitan
                         for (int i = 0; i < usRanges.Length; i++)
                         {
                             usRanges[i] = AnalogOutput.GetRangeCode2Byte(cbxAORange.SelectedItem.ToString());
+                            //// Set Channel value to 0 to be safe first when change range  (Disable this for purpose use only!!!)
+                            //if (!AvantechAOs.m_adamSocket.AnalogOutput().SetCurrentValue(AvantechAOs.m_idxID, i, AvantechAOs.m_usRanges[i], 0))
+                            //{
+                            //    //RefreshAnalogOutputPanel(fHigh, fLow, fVal, idx);// refresh special index of analog output panel
+                            //    MessageBox.Show("Set channel default value 0 failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
+                            //    return;
+                            //}
                         }
                     }
                     else// only some of them selected
@@ -3156,6 +3163,13 @@ namespace CxTitan
                             if (AOChkRanges[i].Checked) // means that it is selected, otherwise skip it
                             {
                                 usRanges[i] = AnalogOutput.GetRangeCode2Byte(cbxAORange.SelectedItem.ToString());
+                                //// Set Channel value to 0 to be safe first when change range  (Disable this for purpose use only !!!)
+                                //if (!AvantechAOs.m_adamSocket.AnalogOutput().SetCurrentValue(AvantechAOs.m_idxID, i, AvantechAOs.m_usRanges[i], 0))
+                                //{
+                                //    //RefreshAnalogOutputPanel(fHigh, fLow, fVal, idx);// refresh special index of analog output panel
+                                //    MessageBox.Show("Set channel default value 0 failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
+                                //    return;
+                                //}
                             }
                         }
                     }
