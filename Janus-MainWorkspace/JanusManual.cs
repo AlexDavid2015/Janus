@@ -61,6 +61,31 @@ namespace CxTitan
             //LanguageInitialize();// load default language and update UI
         }
 
+        private void cmdBridge_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdChamberTrack_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdLIFT_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdPusherGripperAssy_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdLeadFrameExtractor_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //public void SetAIRangeComboBox(string[] strRanges)
         //{
         //    cbxAIRange.BeginUpdate();

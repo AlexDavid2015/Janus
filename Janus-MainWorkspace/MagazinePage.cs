@@ -17,7 +17,7 @@ namespace CxTitan
             InitializeComponent();
         }
 
-        private void cmdExit_Click(object sender, EventArgs e)
+        private void cmdClose_Click(object sender, EventArgs e)
         {
             this.Hide();
             SystemGlobals.objJanusManual.Show();//SystemGlobals.JanusManualPageReturn.Show();//System.Environment.Exit(0);
