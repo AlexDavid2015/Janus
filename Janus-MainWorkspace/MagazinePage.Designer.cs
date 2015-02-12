@@ -70,18 +70,18 @@
             this.lblDI1Val = new System.Windows.Forms.Label();
             this.lblDI1 = new System.Windows.Forms.Label();
             this.gpbControl = new System.Windows.Forms.GroupBox();
-            this.cmdHomeLimitSwitchPlus = new System.Windows.Forms.Button();
-            this.cmdHomeLimitSwitchMinus = new System.Windows.Forms.Button();
-            this.cmdImmediateStop = new System.Windows.Forms.Button();
-            this.cmdRampStop = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.cmdJogPlus = new System.Windows.Forms.Button();
-            this.cmdJogMinus = new System.Windows.Forms.Button();
-            this.cmdMoveToZero = new System.Windows.Forms.Button();
-            this.cmdMagCLOSE = new System.Windows.Forms.Button();
-            this.cmdMagOPEN = new System.Windows.Forms.Button();
-            this.cmdMagHOME = new System.Windows.Forms.Button();
+            this.cmdSingHomeLimitSwitchPlus = new System.Windows.Forms.Button();
+            this.cmdSingHomeLimitSwitchMinus = new System.Windows.Forms.Button();
+            this.cmdSingImmediateStop = new System.Windows.Forms.Button();
+            this.cmdSingRampStop = new System.Windows.Forms.Button();
+            this.cmdSingJogPlusFast = new System.Windows.Forms.Button();
+            this.cmdSingJogMinusFast = new System.Windows.Forms.Button();
+            this.cmdSingJogPlus = new System.Windows.Forms.Button();
+            this.cmdSingJogMinus = new System.Windows.Forms.Button();
+            this.cmdSingMoveToZero = new System.Windows.Forms.Button();
+            this.cmdSingMagCLOSE = new System.Windows.Forms.Button();
+            this.cmdSingMagOPEN = new System.Windows.Forms.Button();
+            this.cmdSingMagHOME = new System.Windows.Forms.Button();
             this.cmdSetPulsePos = new System.Windows.Forms.Button();
             this.cmdSetEncoderPos = new System.Windows.Forms.Button();
             this.cmdINC = new System.Windows.Forms.Button();
@@ -143,14 +143,26 @@
             this.lblSyncCfg = new System.Windows.Forms.Label();
             this.chbxSyncOutputEnableDO2 = new System.Windows.Forms.CheckBox();
             this.gpbCommunication = new System.Windows.Forms.GroupBox();
-            this.lblPort = new System.Windows.Forms.Label();
-            this.lblDeviceID = new System.Windows.Forms.Label();
             this.cbxDeviceID = new System.Windows.Forms.ComboBox();
+            this.lblDeviceID = new System.Windows.Forms.Label();
+            this.lblPort = new System.Windows.Forms.Label();
             this.cmdTerminal = new System.Windows.Forms.Button();
             this.cmdSetup = new System.Windows.Forms.Button();
             this.cmdFileOpen = new System.Windows.Forms.Button();
             this.cmdFileSave = new System.Windows.Forms.Button();
             this.cmdFileNew = new System.Windows.Forms.Button();
+            this.cmdMultiMagHOME = new System.Windows.Forms.Button();
+            this.cmdMultiJogMinus = new System.Windows.Forms.Button();
+            this.cmdMultiJogMinusFast = new System.Windows.Forms.Button();
+            this.cmdMultiImmediateStop = new System.Windows.Forms.Button();
+            this.cmdMultiMagOPEN = new System.Windows.Forms.Button();
+            this.cmdMultiJogPlus = new System.Windows.Forms.Button();
+            this.cmdMultiJogPlusFast = new System.Windows.Forms.Button();
+            this.cmdMultiHomeLimitSwitchMinus = new System.Windows.Forms.Button();
+            this.cmdMultiMagCLOSE = new System.Windows.Forms.Button();
+            this.cmdMultiMoveToZero = new System.Windows.Forms.Button();
+            this.cmdMultiRampStop = new System.Windows.Forms.Button();
+            this.cmdMultiHomeLimitSwitchPlus = new System.Windows.Forms.Button();
             this.gpbStatus.SuspendLayout();
             this.gpbDIOStatus.SuspendLayout();
             this.gpbControl.SuspendLayout();
@@ -566,18 +578,30 @@
             // 
             // gpbControl
             // 
-            this.gpbControl.Controls.Add(this.cmdHomeLimitSwitchPlus);
-            this.gpbControl.Controls.Add(this.cmdHomeLimitSwitchMinus);
-            this.gpbControl.Controls.Add(this.cmdImmediateStop);
-            this.gpbControl.Controls.Add(this.cmdRampStop);
-            this.gpbControl.Controls.Add(this.button2);
-            this.gpbControl.Controls.Add(this.button1);
-            this.gpbControl.Controls.Add(this.cmdJogPlus);
-            this.gpbControl.Controls.Add(this.cmdJogMinus);
-            this.gpbControl.Controls.Add(this.cmdMoveToZero);
-            this.gpbControl.Controls.Add(this.cmdMagCLOSE);
-            this.gpbControl.Controls.Add(this.cmdMagOPEN);
-            this.gpbControl.Controls.Add(this.cmdMagHOME);
+            this.gpbControl.Controls.Add(this.cmdMultiHomeLimitSwitchPlus);
+            this.gpbControl.Controls.Add(this.cmdMultiRampStop);
+            this.gpbControl.Controls.Add(this.cmdMultiMoveToZero);
+            this.gpbControl.Controls.Add(this.cmdMultiMagCLOSE);
+            this.gpbControl.Controls.Add(this.cmdMultiHomeLimitSwitchMinus);
+            this.gpbControl.Controls.Add(this.cmdMultiJogPlusFast);
+            this.gpbControl.Controls.Add(this.cmdMultiJogPlus);
+            this.gpbControl.Controls.Add(this.cmdMultiMagOPEN);
+            this.gpbControl.Controls.Add(this.cmdMultiImmediateStop);
+            this.gpbControl.Controls.Add(this.cmdMultiJogMinusFast);
+            this.gpbControl.Controls.Add(this.cmdMultiJogMinus);
+            this.gpbControl.Controls.Add(this.cmdMultiMagHOME);
+            this.gpbControl.Controls.Add(this.cmdSingHomeLimitSwitchPlus);
+            this.gpbControl.Controls.Add(this.cmdSingHomeLimitSwitchMinus);
+            this.gpbControl.Controls.Add(this.cmdSingImmediateStop);
+            this.gpbControl.Controls.Add(this.cmdSingRampStop);
+            this.gpbControl.Controls.Add(this.cmdSingJogPlusFast);
+            this.gpbControl.Controls.Add(this.cmdSingJogMinusFast);
+            this.gpbControl.Controls.Add(this.cmdSingJogPlus);
+            this.gpbControl.Controls.Add(this.cmdSingJogMinus);
+            this.gpbControl.Controls.Add(this.cmdSingMoveToZero);
+            this.gpbControl.Controls.Add(this.cmdSingMagCLOSE);
+            this.gpbControl.Controls.Add(this.cmdSingMagOPEN);
+            this.gpbControl.Controls.Add(this.cmdSingMagHOME);
             this.gpbControl.Controls.Add(this.cmdSetPulsePos);
             this.gpbControl.Controls.Add(this.cmdSetEncoderPos);
             this.gpbControl.Controls.Add(this.cmdINC);
@@ -603,120 +627,120 @@
             this.gpbControl.TabStop = false;
             this.gpbControl.Text = "Magazine Motor Control";
             // 
-            // cmdHomeLimitSwitchPlus
+            // cmdSingHomeLimitSwitchPlus
             // 
-            this.cmdHomeLimitSwitchPlus.Location = new System.Drawing.Point(407, 201);
-            this.cmdHomeLimitSwitchPlus.Name = "cmdHomeLimitSwitchPlus";
-            this.cmdHomeLimitSwitchPlus.Size = new System.Drawing.Size(56, 50);
-            this.cmdHomeLimitSwitchPlus.TabIndex = 86;
-            this.cmdHomeLimitSwitchPlus.Text = "L+";
-            this.cmdHomeLimitSwitchPlus.UseVisualStyleBackColor = true;
+            this.cmdSingHomeLimitSwitchPlus.Location = new System.Drawing.Point(407, 112);
+            this.cmdSingHomeLimitSwitchPlus.Name = "cmdSingHomeLimitSwitchPlus";
+            this.cmdSingHomeLimitSwitchPlus.Size = new System.Drawing.Size(60, 25);
+            this.cmdSingHomeLimitSwitchPlus.TabIndex = 86;
+            this.cmdSingHomeLimitSwitchPlus.Text = "L+";
+            this.cmdSingHomeLimitSwitchPlus.UseVisualStyleBackColor = true;
             // 
-            // cmdHomeLimitSwitchMinus
+            // cmdSingHomeLimitSwitchMinus
             // 
-            this.cmdHomeLimitSwitchMinus.Location = new System.Drawing.Point(336, 201);
-            this.cmdHomeLimitSwitchMinus.Name = "cmdHomeLimitSwitchMinus";
-            this.cmdHomeLimitSwitchMinus.Size = new System.Drawing.Size(56, 50);
-            this.cmdHomeLimitSwitchMinus.TabIndex = 85;
-            this.cmdHomeLimitSwitchMinus.Text = "L-";
-            this.cmdHomeLimitSwitchMinus.UseVisualStyleBackColor = true;
+            this.cmdSingHomeLimitSwitchMinus.Location = new System.Drawing.Point(336, 112);
+            this.cmdSingHomeLimitSwitchMinus.Name = "cmdSingHomeLimitSwitchMinus";
+            this.cmdSingHomeLimitSwitchMinus.Size = new System.Drawing.Size(60, 25);
+            this.cmdSingHomeLimitSwitchMinus.TabIndex = 85;
+            this.cmdSingHomeLimitSwitchMinus.Text = "L-";
+            this.cmdSingHomeLimitSwitchMinus.UseVisualStyleBackColor = true;
             // 
-            // cmdImmediateStop
+            // cmdSingImmediateStop
             // 
-            this.cmdImmediateStop.Location = new System.Drawing.Point(265, 200);
-            this.cmdImmediateStop.Name = "cmdImmediateStop";
-            this.cmdImmediateStop.Size = new System.Drawing.Size(56, 50);
-            this.cmdImmediateStop.TabIndex = 84;
-            this.cmdImmediateStop.Text = "ISTOP";
-            this.cmdImmediateStop.UseVisualStyleBackColor = true;
+            this.cmdSingImmediateStop.Location = new System.Drawing.Point(265, 112);
+            this.cmdSingImmediateStop.Name = "cmdSingImmediateStop";
+            this.cmdSingImmediateStop.Size = new System.Drawing.Size(60, 25);
+            this.cmdSingImmediateStop.TabIndex = 84;
+            this.cmdSingImmediateStop.Text = "ISTOP";
+            this.cmdSingImmediateStop.UseVisualStyleBackColor = true;
             // 
-            // cmdRampStop
+            // cmdSingRampStop
             // 
-            this.cmdRampStop.Location = new System.Drawing.Point(407, 142);
-            this.cmdRampStop.Name = "cmdRampStop";
-            this.cmdRampStop.Size = new System.Drawing.Size(56, 50);
-            this.cmdRampStop.TabIndex = 83;
-            this.cmdRampStop.Text = "STOP";
-            this.cmdRampStop.UseVisualStyleBackColor = true;
+            this.cmdSingRampStop.Location = new System.Drawing.Point(407, 82);
+            this.cmdSingRampStop.Name = "cmdSingRampStop";
+            this.cmdSingRampStop.Size = new System.Drawing.Size(60, 25);
+            this.cmdSingRampStop.TabIndex = 83;
+            this.cmdSingRampStop.Text = "STOP";
+            this.cmdSingRampStop.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // cmdSingJogPlusFast
             // 
-            this.button2.Location = new System.Drawing.Point(336, 142);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(56, 50);
-            this.button2.TabIndex = 82;
-            this.button2.Text = "JOG+ FAST";
-            this.button2.UseVisualStyleBackColor = true;
+            this.cmdSingJogPlusFast.Location = new System.Drawing.Point(336, 82);
+            this.cmdSingJogPlusFast.Name = "cmdSingJogPlusFast";
+            this.cmdSingJogPlusFast.Size = new System.Drawing.Size(60, 25);
+            this.cmdSingJogPlusFast.TabIndex = 82;
+            this.cmdSingJogPlusFast.Text = "JOG++";
+            this.cmdSingJogPlusFast.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // cmdSingJogMinusFast
             // 
-            this.button1.Location = new System.Drawing.Point(265, 142);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 50);
-            this.button1.TabIndex = 81;
-            this.button1.Text = "JOG- FAST";
-            this.button1.UseVisualStyleBackColor = true;
+            this.cmdSingJogMinusFast.Location = new System.Drawing.Point(265, 82);
+            this.cmdSingJogMinusFast.Name = "cmdSingJogMinusFast";
+            this.cmdSingJogMinusFast.Size = new System.Drawing.Size(60, 25);
+            this.cmdSingJogMinusFast.TabIndex = 81;
+            this.cmdSingJogMinusFast.Text = "JOG--";
+            this.cmdSingJogMinusFast.UseVisualStyleBackColor = true;
             // 
-            // cmdJogPlus
+            // cmdSingJogPlus
             // 
-            this.cmdJogPlus.Location = new System.Drawing.Point(336, 83);
-            this.cmdJogPlus.Name = "cmdJogPlus";
-            this.cmdJogPlus.Size = new System.Drawing.Size(56, 50);
-            this.cmdJogPlus.TabIndex = 80;
-            this.cmdJogPlus.Text = "JOG+";
-            this.cmdJogPlus.UseVisualStyleBackColor = true;
+            this.cmdSingJogPlus.Location = new System.Drawing.Point(336, 52);
+            this.cmdSingJogPlus.Name = "cmdSingJogPlus";
+            this.cmdSingJogPlus.Size = new System.Drawing.Size(60, 25);
+            this.cmdSingJogPlus.TabIndex = 80;
+            this.cmdSingJogPlus.Text = "JOG+";
+            this.cmdSingJogPlus.UseVisualStyleBackColor = true;
             // 
-            // cmdJogMinus
+            // cmdSingJogMinus
             // 
-            this.cmdJogMinus.Location = new System.Drawing.Point(265, 83);
-            this.cmdJogMinus.Name = "cmdJogMinus";
-            this.cmdJogMinus.Size = new System.Drawing.Size(56, 50);
-            this.cmdJogMinus.TabIndex = 79;
-            this.cmdJogMinus.Text = "JOG-";
-            this.cmdJogMinus.UseVisualStyleBackColor = true;
+            this.cmdSingJogMinus.Location = new System.Drawing.Point(265, 52);
+            this.cmdSingJogMinus.Name = "cmdSingJogMinus";
+            this.cmdSingJogMinus.Size = new System.Drawing.Size(60, 25);
+            this.cmdSingJogMinus.TabIndex = 79;
+            this.cmdSingJogMinus.Text = "JOG-";
+            this.cmdSingJogMinus.UseVisualStyleBackColor = true;
             // 
-            // cmdMoveToZero
+            // cmdSingMoveToZero
             // 
-            this.cmdMoveToZero.Location = new System.Drawing.Point(407, 83);
-            this.cmdMoveToZero.Name = "cmdMoveToZero";
-            this.cmdMoveToZero.Size = new System.Drawing.Size(56, 50);
-            this.cmdMoveToZero.TabIndex = 78;
-            this.cmdMoveToZero.Text = "MOVE TO ZERO";
-            this.cmdMoveToZero.UseVisualStyleBackColor = true;
+            this.cmdSingMoveToZero.Location = new System.Drawing.Point(407, 52);
+            this.cmdSingMoveToZero.Name = "cmdSingMoveToZero";
+            this.cmdSingMoveToZero.Size = new System.Drawing.Size(60, 25);
+            this.cmdSingMoveToZero.TabIndex = 78;
+            this.cmdSingMoveToZero.Text = "->0";
+            this.cmdSingMoveToZero.UseVisualStyleBackColor = true;
             // 
-            // cmdMagCLOSE
+            // cmdSingMagCLOSE
             // 
-            this.cmdMagCLOSE.Location = new System.Drawing.Point(407, 25);
-            this.cmdMagCLOSE.Name = "cmdMagCLOSE";
-            this.cmdMagCLOSE.Size = new System.Drawing.Size(56, 50);
-            this.cmdMagCLOSE.TabIndex = 77;
-            this.cmdMagCLOSE.Text = "CLOSE";
-            this.cmdMagCLOSE.UseVisualStyleBackColor = true;
+            this.cmdSingMagCLOSE.Location = new System.Drawing.Point(407, 22);
+            this.cmdSingMagCLOSE.Name = "cmdSingMagCLOSE";
+            this.cmdSingMagCLOSE.Size = new System.Drawing.Size(60, 25);
+            this.cmdSingMagCLOSE.TabIndex = 77;
+            this.cmdSingMagCLOSE.Text = "CLOSE";
+            this.cmdSingMagCLOSE.UseVisualStyleBackColor = true;
             // 
-            // cmdMagOPEN
+            // cmdSingMagOPEN
             // 
-            this.cmdMagOPEN.Location = new System.Drawing.Point(336, 25);
-            this.cmdMagOPEN.Name = "cmdMagOPEN";
-            this.cmdMagOPEN.Size = new System.Drawing.Size(56, 50);
-            this.cmdMagOPEN.TabIndex = 76;
-            this.cmdMagOPEN.Text = "OPEN";
-            this.cmdMagOPEN.UseVisualStyleBackColor = true;
+            this.cmdSingMagOPEN.Location = new System.Drawing.Point(336, 22);
+            this.cmdSingMagOPEN.Name = "cmdSingMagOPEN";
+            this.cmdSingMagOPEN.Size = new System.Drawing.Size(60, 25);
+            this.cmdSingMagOPEN.TabIndex = 76;
+            this.cmdSingMagOPEN.Text = "OPEN";
+            this.cmdSingMagOPEN.UseVisualStyleBackColor = true;
             // 
-            // cmdMagHOME
+            // cmdSingMagHOME
             // 
-            this.cmdMagHOME.Location = new System.Drawing.Point(265, 25);
-            this.cmdMagHOME.Name = "cmdMagHOME";
-            this.cmdMagHOME.Size = new System.Drawing.Size(56, 50);
-            this.cmdMagHOME.TabIndex = 75;
-            this.cmdMagHOME.Text = "HOME";
-            this.cmdMagHOME.UseVisualStyleBackColor = true;
+            this.cmdSingMagHOME.Location = new System.Drawing.Point(265, 22);
+            this.cmdSingMagHOME.Name = "cmdSingMagHOME";
+            this.cmdSingMagHOME.Size = new System.Drawing.Size(60, 25);
+            this.cmdSingMagHOME.TabIndex = 75;
+            this.cmdSingMagHOME.Text = "HOME";
+            this.cmdSingMagHOME.UseVisualStyleBackColor = true;
             // 
             // cmdSetPulsePos
             // 
             this.cmdSetPulsePos.BackColor = System.Drawing.Color.Gainsboro;
             this.cmdSetPulsePos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSetPulsePos.ForeColor = System.Drawing.Color.Black;
-            this.cmdSetPulsePos.Location = new System.Drawing.Point(208, 225);
+            this.cmdSetPulsePos.Location = new System.Drawing.Point(208, 234);
             this.cmdSetPulsePos.Name = "cmdSetPulsePos";
             this.cmdSetPulsePos.Size = new System.Drawing.Size(38, 25);
             this.cmdSetPulsePos.TabIndex = 74;
@@ -729,7 +753,7 @@
             this.cmdSetEncoderPos.BackColor = System.Drawing.Color.Gainsboro;
             this.cmdSetEncoderPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSetEncoderPos.ForeColor = System.Drawing.Color.Black;
-            this.cmdSetEncoderPos.Location = new System.Drawing.Point(164, 225);
+            this.cmdSetEncoderPos.Location = new System.Drawing.Point(164, 234);
             this.cmdSetEncoderPos.Name = "cmdSetEncoderPos";
             this.cmdSetEncoderPos.Size = new System.Drawing.Size(38, 25);
             this.cmdSetEncoderPos.TabIndex = 73;
@@ -742,7 +766,7 @@
             this.cmdINC.BackColor = System.Drawing.Color.Gainsboro;
             this.cmdINC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdINC.ForeColor = System.Drawing.Color.Black;
-            this.cmdINC.Location = new System.Drawing.Point(93, 225);
+            this.cmdINC.Location = new System.Drawing.Point(93, 234);
             this.cmdINC.Name = "cmdINC";
             this.cmdINC.Size = new System.Drawing.Size(56, 25);
             this.cmdINC.TabIndex = 72;
@@ -755,7 +779,7 @@
             this.cmdABS.BackColor = System.Drawing.Color.Gainsboro;
             this.cmdABS.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdABS.ForeColor = System.Drawing.Color.Black;
-            this.cmdABS.Location = new System.Drawing.Point(21, 225);
+            this.cmdABS.Location = new System.Drawing.Point(21, 234);
             this.cmdABS.Name = "cmdABS";
             this.cmdABS.Size = new System.Drawing.Size(56, 25);
             this.cmdABS.TabIndex = 71;
@@ -768,7 +792,7 @@
             this.cmdTX.BackColor = System.Drawing.Color.Gainsboro;
             this.cmdTX.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdTX.ForeColor = System.Drawing.Color.Black;
-            this.cmdTX.Location = new System.Drawing.Point(164, 194);
+            this.cmdTX.Location = new System.Drawing.Point(164, 203);
             this.cmdTX.Name = "cmdTX";
             this.cmdTX.Size = new System.Drawing.Size(82, 25);
             this.cmdTX.TabIndex = 70;
@@ -781,7 +805,7 @@
             this.cmdTRAP.BackColor = System.Drawing.Color.Gainsboro;
             this.cmdTRAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdTRAP.ForeColor = System.Drawing.Color.Black;
-            this.cmdTRAP.Location = new System.Drawing.Point(93, 194);
+            this.cmdTRAP.Location = new System.Drawing.Point(93, 203);
             this.cmdTRAP.Name = "cmdTRAP";
             this.cmdTRAP.Size = new System.Drawing.Size(56, 25);
             this.cmdTRAP.TabIndex = 69;
@@ -794,7 +818,7 @@
             this.cmdSCV.BackColor = System.Drawing.Color.Gainsboro;
             this.cmdSCV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSCV.ForeColor = System.Drawing.Color.Black;
-            this.cmdSCV.Location = new System.Drawing.Point(21, 194);
+            this.cmdSCV.Location = new System.Drawing.Point(21, 203);
             this.cmdSCV.Name = "cmdSCV";
             this.cmdSCV.Size = new System.Drawing.Size(56, 25);
             this.cmdSCV.TabIndex = 68;
@@ -804,7 +828,7 @@
             // 
             // chbxMagMotorControlEnable
             // 
-            this.chbxMagMotorControlEnable.Location = new System.Drawing.Point(21, 168);
+            this.chbxMagMotorControlEnable.Location = new System.Drawing.Point(21, 174);
             this.chbxMagMotorControlEnable.Name = "chbxMagMotorControlEnable";
             this.chbxMagMotorControlEnable.Size = new System.Drawing.Size(64, 26);
             this.chbxMagMotorControlEnable.TabIndex = 67;
@@ -1309,16 +1333,13 @@
             this.gpbCommunication.TabStop = false;
             this.gpbCommunication.Text = "Communication";
             // 
-            // lblPort
+            // cbxDeviceID
             // 
-            this.lblPort.BackColor = System.Drawing.Color.Gray;
-            this.lblPort.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPort.Location = new System.Drawing.Point(15, 16);
-            this.lblPort.Name = "lblPort";
-            this.lblPort.Size = new System.Drawing.Size(132, 20);
-            this.lblPort.TabIndex = 76;
-            this.lblPort.Text = "Invalid Port";
-            this.lblPort.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbxDeviceID.FormattingEnabled = true;
+            this.cbxDeviceID.Location = new System.Drawing.Point(79, 43);
+            this.cbxDeviceID.Name = "cbxDeviceID";
+            this.cbxDeviceID.Size = new System.Drawing.Size(68, 21);
+            this.cbxDeviceID.TabIndex = 93;
             // 
             // lblDeviceID
             // 
@@ -1329,13 +1350,16 @@
             this.lblDeviceID.TabIndex = 76;
             this.lblDeviceID.Text = "Device ID";
             // 
-            // cbxDeviceID
+            // lblPort
             // 
-            this.cbxDeviceID.FormattingEnabled = true;
-            this.cbxDeviceID.Location = new System.Drawing.Point(79, 43);
-            this.cbxDeviceID.Name = "cbxDeviceID";
-            this.cbxDeviceID.Size = new System.Drawing.Size(68, 21);
-            this.cbxDeviceID.TabIndex = 93;
+            this.lblPort.BackColor = System.Drawing.Color.Gray;
+            this.lblPort.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblPort.Location = new System.Drawing.Point(15, 16);
+            this.lblPort.Name = "lblPort";
+            this.lblPort.Size = new System.Drawing.Size(132, 20);
+            this.lblPort.TabIndex = 76;
+            this.lblPort.Text = "Invalid Port";
+            this.lblPort.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cmdTerminal
             // 
@@ -1381,6 +1405,126 @@
             this.cmdFileNew.TabIndex = 105;
             this.cmdFileNew.Text = "New";
             this.cmdFileNew.UseVisualStyleBackColor = true;
+            // 
+            // cmdMultiMagHOME
+            // 
+            this.cmdMultiMagHOME.BackColor = System.Drawing.Color.DarkGray;
+            this.cmdMultiMagHOME.Location = new System.Drawing.Point(265, 142);
+            this.cmdMultiMagHOME.Name = "cmdMultiMagHOME";
+            this.cmdMultiMagHOME.Size = new System.Drawing.Size(60, 25);
+            this.cmdMultiMagHOME.TabIndex = 87;
+            this.cmdMultiMagHOME.Text = "GHOME";
+            this.cmdMultiMagHOME.UseVisualStyleBackColor = false;
+            // 
+            // cmdMultiJogMinus
+            // 
+            this.cmdMultiJogMinus.BackColor = System.Drawing.Color.DarkGray;
+            this.cmdMultiJogMinus.Location = new System.Drawing.Point(265, 172);
+            this.cmdMultiJogMinus.Name = "cmdMultiJogMinus";
+            this.cmdMultiJogMinus.Size = new System.Drawing.Size(60, 25);
+            this.cmdMultiJogMinus.TabIndex = 88;
+            this.cmdMultiJogMinus.Text = "GJOG-";
+            this.cmdMultiJogMinus.UseVisualStyleBackColor = false;
+            // 
+            // cmdMultiJogMinusFast
+            // 
+            this.cmdMultiJogMinusFast.BackColor = System.Drawing.Color.DarkGray;
+            this.cmdMultiJogMinusFast.Location = new System.Drawing.Point(265, 203);
+            this.cmdMultiJogMinusFast.Name = "cmdMultiJogMinusFast";
+            this.cmdMultiJogMinusFast.Size = new System.Drawing.Size(60, 25);
+            this.cmdMultiJogMinusFast.TabIndex = 89;
+            this.cmdMultiJogMinusFast.Text = "GJOG--";
+            this.cmdMultiJogMinusFast.UseVisualStyleBackColor = false;
+            // 
+            // cmdMultiImmediateStop
+            // 
+            this.cmdMultiImmediateStop.BackColor = System.Drawing.Color.DarkGray;
+            this.cmdMultiImmediateStop.Location = new System.Drawing.Point(265, 234);
+            this.cmdMultiImmediateStop.Name = "cmdMultiImmediateStop";
+            this.cmdMultiImmediateStop.Size = new System.Drawing.Size(60, 25);
+            this.cmdMultiImmediateStop.TabIndex = 90;
+            this.cmdMultiImmediateStop.Text = "GISTOP";
+            this.cmdMultiImmediateStop.UseVisualStyleBackColor = false;
+            // 
+            // cmdMultiMagOPEN
+            // 
+            this.cmdMultiMagOPEN.BackColor = System.Drawing.Color.DarkGray;
+            this.cmdMultiMagOPEN.Location = new System.Drawing.Point(336, 142);
+            this.cmdMultiMagOPEN.Name = "cmdMultiMagOPEN";
+            this.cmdMultiMagOPEN.Size = new System.Drawing.Size(60, 25);
+            this.cmdMultiMagOPEN.TabIndex = 91;
+            this.cmdMultiMagOPEN.Text = "GOPEN";
+            this.cmdMultiMagOPEN.UseVisualStyleBackColor = false;
+            // 
+            // cmdMultiJogPlus
+            // 
+            this.cmdMultiJogPlus.BackColor = System.Drawing.Color.DarkGray;
+            this.cmdMultiJogPlus.Location = new System.Drawing.Point(336, 172);
+            this.cmdMultiJogPlus.Name = "cmdMultiJogPlus";
+            this.cmdMultiJogPlus.Size = new System.Drawing.Size(60, 25);
+            this.cmdMultiJogPlus.TabIndex = 92;
+            this.cmdMultiJogPlus.Text = "GJOG+";
+            this.cmdMultiJogPlus.UseVisualStyleBackColor = false;
+            // 
+            // cmdMultiJogPlusFast
+            // 
+            this.cmdMultiJogPlusFast.BackColor = System.Drawing.Color.DarkGray;
+            this.cmdMultiJogPlusFast.Location = new System.Drawing.Point(336, 203);
+            this.cmdMultiJogPlusFast.Name = "cmdMultiJogPlusFast";
+            this.cmdMultiJogPlusFast.Size = new System.Drawing.Size(60, 25);
+            this.cmdMultiJogPlusFast.TabIndex = 93;
+            this.cmdMultiJogPlusFast.Text = "GJOG++";
+            this.cmdMultiJogPlusFast.UseVisualStyleBackColor = false;
+            // 
+            // cmdMultiHomeLimitSwitchMinus
+            // 
+            this.cmdMultiHomeLimitSwitchMinus.BackColor = System.Drawing.Color.DarkGray;
+            this.cmdMultiHomeLimitSwitchMinus.Location = new System.Drawing.Point(336, 234);
+            this.cmdMultiHomeLimitSwitchMinus.Name = "cmdMultiHomeLimitSwitchMinus";
+            this.cmdMultiHomeLimitSwitchMinus.Size = new System.Drawing.Size(60, 25);
+            this.cmdMultiHomeLimitSwitchMinus.TabIndex = 94;
+            this.cmdMultiHomeLimitSwitchMinus.Text = "GL-";
+            this.cmdMultiHomeLimitSwitchMinus.UseVisualStyleBackColor = false;
+            // 
+            // cmdMultiMagCLOSE
+            // 
+            this.cmdMultiMagCLOSE.BackColor = System.Drawing.Color.DarkGray;
+            this.cmdMultiMagCLOSE.Location = new System.Drawing.Point(407, 142);
+            this.cmdMultiMagCLOSE.Name = "cmdMultiMagCLOSE";
+            this.cmdMultiMagCLOSE.Size = new System.Drawing.Size(60, 25);
+            this.cmdMultiMagCLOSE.TabIndex = 95;
+            this.cmdMultiMagCLOSE.Text = "GCLOSE";
+            this.cmdMultiMagCLOSE.UseVisualStyleBackColor = false;
+            // 
+            // cmdMultiMoveToZero
+            // 
+            this.cmdMultiMoveToZero.BackColor = System.Drawing.Color.DarkGray;
+            this.cmdMultiMoveToZero.Location = new System.Drawing.Point(407, 172);
+            this.cmdMultiMoveToZero.Name = "cmdMultiMoveToZero";
+            this.cmdMultiMoveToZero.Size = new System.Drawing.Size(60, 25);
+            this.cmdMultiMoveToZero.TabIndex = 96;
+            this.cmdMultiMoveToZero.Text = "G->0";
+            this.cmdMultiMoveToZero.UseVisualStyleBackColor = false;
+            // 
+            // cmdMultiRampStop
+            // 
+            this.cmdMultiRampStop.BackColor = System.Drawing.Color.DarkGray;
+            this.cmdMultiRampStop.Location = new System.Drawing.Point(407, 203);
+            this.cmdMultiRampStop.Name = "cmdMultiRampStop";
+            this.cmdMultiRampStop.Size = new System.Drawing.Size(60, 25);
+            this.cmdMultiRampStop.TabIndex = 97;
+            this.cmdMultiRampStop.Text = "GSTOP";
+            this.cmdMultiRampStop.UseVisualStyleBackColor = false;
+            // 
+            // cmdMultiHomeLimitSwitchPlus
+            // 
+            this.cmdMultiHomeLimitSwitchPlus.BackColor = System.Drawing.Color.DarkGray;
+            this.cmdMultiHomeLimitSwitchPlus.Location = new System.Drawing.Point(407, 234);
+            this.cmdMultiHomeLimitSwitchPlus.Name = "cmdMultiHomeLimitSwitchPlus";
+            this.cmdMultiHomeLimitSwitchPlus.Size = new System.Drawing.Size(60, 25);
+            this.cmdMultiHomeLimitSwitchPlus.TabIndex = 98;
+            this.cmdMultiHomeLimitSwitchPlus.Text = "GL+";
+            this.cmdMultiHomeLimitSwitchPlus.UseVisualStyleBackColor = false;
             // 
             // MagazinePage
             // 
@@ -1493,18 +1637,18 @@
         internal System.Windows.Forms.Button cmdINC;
         internal System.Windows.Forms.Button cmdSetEncoderPos;
         internal System.Windows.Forms.Button cmdSetPulsePos;
-        internal System.Windows.Forms.Button cmdMagHOME;
-        internal System.Windows.Forms.Button cmdMagOPEN;
-        internal System.Windows.Forms.Button cmdMagCLOSE;
-        internal System.Windows.Forms.Button cmdMoveToZero;
-        internal System.Windows.Forms.Button cmdJogMinus;
-        internal System.Windows.Forms.Button cmdJogPlus;
-        internal System.Windows.Forms.Button button1;
-        internal System.Windows.Forms.Button button2;
-        internal System.Windows.Forms.Button cmdImmediateStop;
-        internal System.Windows.Forms.Button cmdRampStop;
-        internal System.Windows.Forms.Button cmdHomeLimitSwitchMinus;
-        internal System.Windows.Forms.Button cmdHomeLimitSwitchPlus;
+        internal System.Windows.Forms.Button cmdSingMagHOME;
+        internal System.Windows.Forms.Button cmdSingMagOPEN;
+        internal System.Windows.Forms.Button cmdSingMagCLOSE;
+        internal System.Windows.Forms.Button cmdSingMoveToZero;
+        internal System.Windows.Forms.Button cmdSingJogMinus;
+        internal System.Windows.Forms.Button cmdSingJogPlus;
+        internal System.Windows.Forms.Button cmdSingJogMinusFast;
+        internal System.Windows.Forms.Button cmdSingJogPlusFast;
+        internal System.Windows.Forms.Button cmdSingImmediateStop;
+        internal System.Windows.Forms.Button cmdSingRampStop;
+        internal System.Windows.Forms.Button cmdSingHomeLimitSwitchMinus;
+        internal System.Windows.Forms.Button cmdSingHomeLimitSwitchPlus;
         internal System.Windows.Forms.GroupBox gpbProgramControl;
         internal System.Windows.Forms.Button cmdSingleRun;
         internal System.Windows.Forms.Button cmdSingleStop;
@@ -1556,5 +1700,17 @@
         internal System.Windows.Forms.Button cmdFileOpen;
         internal System.Windows.Forms.Button cmdFileSave;
         internal System.Windows.Forms.Button cmdFileNew;
+        internal System.Windows.Forms.Button cmdMultiImmediateStop;
+        internal System.Windows.Forms.Button cmdMultiJogMinusFast;
+        internal System.Windows.Forms.Button cmdMultiJogMinus;
+        internal System.Windows.Forms.Button cmdMultiMagHOME;
+        internal System.Windows.Forms.Button cmdMultiMagOPEN;
+        internal System.Windows.Forms.Button cmdMultiJogPlus;
+        internal System.Windows.Forms.Button cmdMultiJogPlusFast;
+        internal System.Windows.Forms.Button cmdMultiHomeLimitSwitchMinus;
+        internal System.Windows.Forms.Button cmdMultiMagCLOSE;
+        internal System.Windows.Forms.Button cmdMultiMoveToZero;
+        internal System.Windows.Forms.Button cmdMultiRampStop;
+        internal System.Windows.Forms.Button cmdMultiHomeLimitSwitchPlus;
     }
 }
