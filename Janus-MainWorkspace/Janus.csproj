@@ -83,6 +83,10 @@
     <Reference Include="KnobControl">
       <HintPath>.\KnobControl.dll</HintPath>
     </Reference>
+    <Reference Include="Performax, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Performax.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />

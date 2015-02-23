@@ -27,6 +27,17 @@ namespace CxTitan
         public static int DIO_DIindex = 0;
         public static int DIO_DOindex = 1;
 
+        // Motor Device Type
+        public enum MotorDeviceType
+        {
+            MAGAZINE = 0,
+            BRIDGE = 1,
+            CHAMBER_TRACK = 2,
+            LIFT = 3,
+            PUSHER_GRIPPER_ASSEMBLY = 4,
+            LEAD_FRAME_EXTRACTOR = 5
+        }
+
         #region // UI related     
         public static Form loginPageReturn;// Login form return
         public static ConnectPage objConnectPage = new ConnectPage();
