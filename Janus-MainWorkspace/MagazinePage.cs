@@ -45,6 +45,21 @@ namespace CxTitan
             //{
             //    MessageBox.Show("No Pump Device Found", "Get Device List Error");
             //}
+
+            uint lpNumDevices = 0;
+            MotorControls.fnPerformaxComGetNumDevices(ref lpNumDevices);
+
+            //MotorControls.fnPerformaxComGetProductString()
+
+            uint dwReadTimeout = 5000;
+            uint dwWriteTimeout = 5000;
+            MotorControls.fnPerformaxComSetTimeouts(dwReadTimeout, dwWriteTimeout);
+
+            IntPtr ptr = new IntPtr(0);
+            bool bOpen;
+            bOpen = MotorControls.fnPerformaxComOpen(4, ref ptr);
+
+
         }
 
         private void cmdSingMagCLOSE_Click(object sender, EventArgs e)
