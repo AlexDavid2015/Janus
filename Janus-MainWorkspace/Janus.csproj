@@ -181,6 +181,12 @@
     <Compile Include="MagazinePage.Designer.cs">
       <DependentUpon>MagazinePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="MagSetupPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MagSetupPage.Designer.cs">
+      <DependentUpon>MagSetupPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +220,12 @@
     </Compile>
     <Compile Include="SystemSettingsPage.Designer.cs">
       <DependentUpon>SystemSettingsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MagTerminalPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MagTerminalPage.Designer.cs">
+      <DependentUpon>MagTerminalPage.cs</DependentUpon>
     </Compile>
     <Compile Include="UsersPage.cs">
       <SubType>Form</SubType>
@@ -260,6 +272,9 @@
     <EmbeddedResource Include="MagazinePage.resx">
       <DependentUpon>MagazinePage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MagSetupPage.resx">
+      <DependentUpon>MagSetupPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SystemSettingsPage.resx">
       <DependentUpon>SystemSettingsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MagTerminalPage.resx">
+      <DependentUpon>MagTerminalPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsersPage.resx">
       <DependentUpon>UsersPage.cs</DependentUpon>

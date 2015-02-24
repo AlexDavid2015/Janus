@@ -229,7 +229,7 @@
             // 
             this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(117, 219);
+            this.label1.Location = new System.Drawing.Point(145, 219);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(19, 16);
             this.label1.TabIndex = 57;
@@ -237,7 +237,7 @@
             // lblHomeInput
             // 
             this.lblHomeInput.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblHomeInput.Location = new System.Drawing.Point(100, 220);
+            this.lblHomeInput.Location = new System.Drawing.Point(123, 220);
             this.lblHomeInput.Name = "lblHomeInput";
             this.lblHomeInput.Size = new System.Drawing.Size(21, 13);
             this.lblHomeInput.TabIndex = 56;
@@ -315,7 +315,7 @@
             // lblPosLInput
             // 
             this.lblPosLInput.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPosLInput.Location = new System.Drawing.Point(177, 220);
+            this.lblPosLInput.Location = new System.Drawing.Point(213, 220);
             this.lblPosLInput.Name = "lblPosLInput";
             this.lblPosLInput.Size = new System.Drawing.Size(21, 13);
             this.lblPosLInput.TabIndex = 17;
@@ -324,7 +324,7 @@
             // lblPosLim
             // 
             this.lblPosLim.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblPosLim.Location = new System.Drawing.Point(199, 219);
+            this.lblPosLim.Location = new System.Drawing.Point(238, 219);
             this.lblPosLim.Name = "lblPosLim";
             this.lblPosLim.Size = new System.Drawing.Size(18, 16);
             this.lblPosLim.TabIndex = 16;
@@ -341,7 +341,7 @@
             // lblNegLInput
             // 
             this.lblNegLInput.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblNegLInput.Location = new System.Drawing.Point(18, 220);
+            this.lblNegLInput.Location = new System.Drawing.Point(14, 220);
             this.lblNegLInput.Name = "lblNegLInput";
             this.lblNegLInput.Size = new System.Drawing.Size(21, 13);
             this.lblNegLInput.TabIndex = 13;
@@ -755,6 +755,7 @@
             this.cmdSingHomeLimitSwitchPlus.TabIndex = 86;
             this.cmdSingHomeLimitSwitchPlus.Text = "L+";
             this.cmdSingHomeLimitSwitchPlus.UseVisualStyleBackColor = true;
+            this.cmdSingHomeLimitSwitchPlus.Click += new System.EventHandler(this.cmdSingHomeLimitSwitchPlus_Click);
             // 
             // cmdSingHomeLimitSwitchMinus
             // 
@@ -764,6 +765,7 @@
             this.cmdSingHomeLimitSwitchMinus.TabIndex = 85;
             this.cmdSingHomeLimitSwitchMinus.Text = "L-";
             this.cmdSingHomeLimitSwitchMinus.UseVisualStyleBackColor = true;
+            this.cmdSingHomeLimitSwitchMinus.Click += new System.EventHandler(this.cmdSingHomeLimitSwitchMinus_Click);
             // 
             // cmdSingImmediateStop
             // 
@@ -773,6 +775,7 @@
             this.cmdSingImmediateStop.TabIndex = 84;
             this.cmdSingImmediateStop.Text = "ISTOP";
             this.cmdSingImmediateStop.UseVisualStyleBackColor = true;
+            this.cmdSingImmediateStop.Click += new System.EventHandler(this.cmdSingImmediateStop_Click);
             // 
             // cmdSingRampStop
             // 
@@ -782,6 +785,7 @@
             this.cmdSingRampStop.TabIndex = 83;
             this.cmdSingRampStop.Text = "STOP";
             this.cmdSingRampStop.UseVisualStyleBackColor = true;
+            this.cmdSingRampStop.Click += new System.EventHandler(this.cmdSingRampStop_Click);
             // 
             // cmdSingJogPlusFast
             // 
@@ -791,6 +795,7 @@
             this.cmdSingJogPlusFast.TabIndex = 82;
             this.cmdSingJogPlusFast.Text = "JOG++";
             this.cmdSingJogPlusFast.UseVisualStyleBackColor = true;
+            this.cmdSingJogPlusFast.Click += new System.EventHandler(this.cmdSingJogPlusFast_Click);
             // 
             // cmdSingJogMinusFast
             // 
@@ -800,6 +805,7 @@
             this.cmdSingJogMinusFast.TabIndex = 81;
             this.cmdSingJogMinusFast.Text = "JOG--";
             this.cmdSingJogMinusFast.UseVisualStyleBackColor = true;
+            this.cmdSingJogMinusFast.Click += new System.EventHandler(this.cmdSingJogMinusFast_Click);
             // 
             // cmdSingJogPlus
             // 
@@ -849,6 +855,7 @@
             this.cmdSingMagOPEN.TabIndex = 76;
             this.cmdSingMagOPEN.Text = "OPEN";
             this.cmdSingMagOPEN.UseVisualStyleBackColor = true;
+            this.cmdSingMagOPEN.Click += new System.EventHandler(this.cmdSingMagOPEN_Click);
             // 
             // cmdSingMagHOME
             // 
@@ -1212,6 +1219,7 @@
             this.cmdClearCodeSpace.TabIndex = 100;
             this.cmdClearCodeSpace.Text = "Clear Code Space";
             this.cmdClearCodeSpace.UseVisualStyleBackColor = true;
+            this.cmdClearCodeSpace.Click += new System.EventHandler(this.cmdClearCodeSpace_Click);
             // 
             // gpbGroupMotion
             // 
@@ -1494,6 +1502,7 @@
             this.cmdTerminal.TabIndex = 101;
             this.cmdTerminal.Text = "Terminal";
             this.cmdTerminal.UseVisualStyleBackColor = true;
+            this.cmdTerminal.Click += new System.EventHandler(this.cmdTerminal_Click);
             // 
             // cmdSetup
             // 
@@ -1503,6 +1512,7 @@
             this.cmdSetup.TabIndex = 102;
             this.cmdSetup.Text = "Setup";
             this.cmdSetup.UseVisualStyleBackColor = true;
+            this.cmdSetup.Click += new System.EventHandler(this.cmdSetup_Click);
             // 
             // cmdFileOpen
             // 
@@ -1512,6 +1522,7 @@
             this.cmdFileOpen.TabIndex = 103;
             this.cmdFileOpen.Text = "Open";
             this.cmdFileOpen.UseVisualStyleBackColor = true;
+            this.cmdFileOpen.Click += new System.EventHandler(this.cmdFileOpen_Click);
             // 
             // cmdFileSave
             // 
@@ -1521,6 +1532,7 @@
             this.cmdFileSave.TabIndex = 104;
             this.cmdFileSave.Text = "Save";
             this.cmdFileSave.UseVisualStyleBackColor = true;
+            this.cmdFileSave.Click += new System.EventHandler(this.cmdFileSave_Click);
             // 
             // cmdFileNew
             // 
@@ -1530,6 +1542,7 @@
             this.cmdFileNew.TabIndex = 105;
             this.cmdFileNew.Text = "New";
             this.cmdFileNew.UseVisualStyleBackColor = true;
+            this.cmdFileNew.Click += new System.EventHandler(this.cmdFileNew_Click);
             // 
             // MagazinePage
             // 
