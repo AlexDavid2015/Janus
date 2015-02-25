@@ -29,36 +29,65 @@
         private void InitializeComponent()
         {
             this.gpbPolarity = new System.Windows.Forms.GroupBox();
+            this.gpbPolarityEnable = new System.Windows.Forms.GroupBox();
+            this.radioButton14 = new System.Windows.Forms.RadioButton();
+            this.radioButton15 = new System.Windows.Forms.RadioButton();
+            this.gpbSAErr = new System.Windows.Forms.GroupBox();
+            this.radioButton12 = new System.Windows.Forms.RadioButton();
+            this.radioButton13 = new System.Windows.Forms.RadioButton();
+            this.gpbInput = new System.Windows.Forms.GroupBox();
+            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.radioButton11 = new System.Windows.Forms.RadioButton();
+            this.gpbOutput = new System.Windows.Forms.GroupBox();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.gpbAlarm = new System.Windows.Forms.GroupBox();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.gpbInPos = new System.Windows.Forms.GroupBox();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.gpbLatch = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.gpbLimit = new System.Windows.Forms.GroupBox();
+            this.radLimitLow = new System.Windows.Forms.RadioButton();
+            this.radLimitHigh = new System.Windows.Forms.RadioButton();
+            this.gpbHome = new System.Windows.Forms.GroupBox();
+            this.radHomeLow = new System.Windows.Forms.RadioButton();
+            this.radHomeHigh = new System.Windows.Forms.RadioButton();
+            this.gpbDir = new System.Windows.Forms.GroupBox();
+            this.radDirCW = new System.Windows.Forms.RadioButton();
+            this.radDirCCW = new System.Windows.Forms.RadioButton();
+            this.lblEnable = new System.Windows.Forms.Label();
+            this.lblSAErr = new System.Windows.Forms.Label();
+            this.lblInput = new System.Windows.Forms.Label();
+            this.lblOutput = new System.Windows.Forms.Label();
+            this.lblAlarm = new System.Windows.Forms.Label();
+            this.lblInPos = new System.Windows.Forms.Label();
+            this.lblLatch = new System.Windows.Forms.Label();
+            this.lblLimit = new System.Windows.Forms.Label();
+            this.lblHome = new System.Windows.Forms.Label();
+            this.cmdDir = new System.Windows.Forms.Label();
             this.gpbSetupPara = new System.Windows.Forms.GroupBox();
-            this.gpbCommunicatinSetup = new System.Windows.Forms.GroupBox();
-            this.combxBaudRate = new System.Windows.Forms.ComboBox();
-            this.txtTimeOutCounter = new System.Windows.Forms.TextBox();
-            this.lblTimeOutCounter = new System.Windows.Forms.Label();
-            this.lblDeviceID = new System.Windows.Forms.Label();
-            this.lblBaudRate = new System.Windows.Forms.Label();
-            this.chbxSyncOutputEnableDO2 = new System.Windows.Forms.CheckBox();
-            this.combxDeviceID = new System.Windows.Forms.ComboBox();
-            this.gpbRSCommunication = new System.Windows.Forms.GroupBox();
-            this.chbAutoResponse = new System.Windows.Forms.CheckBox();
-            this.lblMS = new System.Windows.Forms.Label();
-            this.radRS485 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.gpbMiscSettings = new System.Windows.Forms.GroupBox();
-            this.chbxEnableDecel = new System.Windows.Forms.CheckBox();
-            this.chbxIERR = new System.Windows.Forms.CheckBox();
-            this.chbxAutoRun0 = new System.Windows.Forms.CheckBox();
-            this.chbxAutoRun1 = new System.Windows.Forms.CheckBox();
-            this.chbxAlmLnp = new System.Windows.Forms.CheckBox();
-            this.chbxRZ = new System.Windows.Forms.CheckBox();
-            this.lblEOBoot = new System.Windows.Forms.Label();
-            this.lblDOBoot = new System.Windows.Forms.Label();
-            this.lblLCA = new System.Windows.Forms.Label();
-            this.lblHCA = new System.Windows.Forms.Label();
-            this.txtEOBoot = new System.Windows.Forms.TextBox();
-            this.txtDOBoot = new System.Windows.Forms.TextBox();
-            this.txtLCA = new System.Windows.Forms.TextBox();
-            this.txtHCA = new System.Windows.Forms.TextBox();
+            this.cmdClose = new System.Windows.Forms.Button();
+            this.cmdStore = new System.Windows.Forms.Button();
+            this.cmdDown = new System.Windows.Forms.Button();
+            this.cmdUpload = new System.Windows.Forms.Button();
+            this.cmdSave = new System.Windows.Forms.Button();
+            this.cmdOpen = new System.Windows.Forms.Button();
+            this.gpbDriverCurrent = new System.Windows.Forms.GroupBox();
+            this.lblTimeMS = new System.Windows.Forms.Label();
+            this.lblIdleMA = new System.Windows.Forms.Label();
+            this.lblRunMA = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTime = new System.Windows.Forms.TextBox();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.txtRun = new System.Windows.Forms.TextBox();
+            this.lblIdle = new System.Windows.Forms.Label();
+            this.lblRun = new System.Windows.Forms.Label();
             this.gpbStepNLoopControl = new System.Windows.Forms.GroupBox();
+            this.txtMaxAttempt = new System.Windows.Forms.TextBox();
             this.txtErrorRange = new System.Windows.Forms.TextBox();
             this.lblErrorRange = new System.Windows.Forms.Label();
             this.txtIdleTol = new System.Windows.Forms.TextBox();
@@ -67,39 +96,496 @@
             this.lblTolerance = new System.Windows.Forms.Label();
             this.lblMaxAttempt = new System.Windows.Forms.Label();
             this.chbxStepNLoopControlEnable = new System.Windows.Forms.CheckBox();
-            this.txtMaxAttempt = new System.Windows.Forms.TextBox();
-            this.gpbDriverCurrent = new System.Windows.Forms.GroupBox();
-            this.txtTime = new System.Windows.Forms.TextBox();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.txtRun = new System.Windows.Forms.TextBox();
-            this.lblIdle = new System.Windows.Forms.Label();
-            this.lblRun = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblRunMA = new System.Windows.Forms.Label();
-            this.lblIdleMA = new System.Windows.Forms.Label();
-            this.lblTimeMS = new System.Windows.Forms.Label();
-            this.cmdOpen = new System.Windows.Forms.Button();
-            this.cmdSave = new System.Windows.Forms.Button();
-            this.cmdUpload = new System.Windows.Forms.Button();
-            this.cmdDown = new System.Windows.Forms.Button();
-            this.cmdStore = new System.Windows.Forms.Button();
-            this.cmdClose = new System.Windows.Forms.Button();
+            this.gpbMiscSettings = new System.Windows.Forms.GroupBox();
+            this.txtHCA = new System.Windows.Forms.TextBox();
+            this.txtLCA = new System.Windows.Forms.TextBox();
+            this.txtDOBoot = new System.Windows.Forms.TextBox();
+            this.txtEOBoot = new System.Windows.Forms.TextBox();
+            this.lblHCA = new System.Windows.Forms.Label();
+            this.lblLCA = new System.Windows.Forms.Label();
+            this.lblDOBoot = new System.Windows.Forms.Label();
+            this.lblEOBoot = new System.Windows.Forms.Label();
+            this.chbxRZ = new System.Windows.Forms.CheckBox();
+            this.chbxAlmLnp = new System.Windows.Forms.CheckBox();
+            this.chbxAutoRun1 = new System.Windows.Forms.CheckBox();
+            this.chbxAutoRun0 = new System.Windows.Forms.CheckBox();
+            this.chbxIERR = new System.Windows.Forms.CheckBox();
+            this.chbxEnableDecel = new System.Windows.Forms.CheckBox();
+            this.gpbCommunicatinSetup = new System.Windows.Forms.GroupBox();
+            this.lblMS = new System.Windows.Forms.Label();
+            this.chbAutoResponse = new System.Windows.Forms.CheckBox();
+            this.gpbRSCommunication = new System.Windows.Forms.GroupBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radRS485 = new System.Windows.Forms.RadioButton();
+            this.combxDeviceID = new System.Windows.Forms.ComboBox();
+            this.combxBaudRate = new System.Windows.Forms.ComboBox();
+            this.txtTimeOutCounter = new System.Windows.Forms.TextBox();
+            this.lblTimeOutCounter = new System.Windows.Forms.Label();
+            this.lblDeviceID = new System.Windows.Forms.Label();
+            this.lblBaudRate = new System.Windows.Forms.Label();
+            this.chbxSyncOutputEnableDO2 = new System.Windows.Forms.CheckBox();
+            this.gpbPolarity.SuspendLayout();
+            this.gpbPolarityEnable.SuspendLayout();
+            this.gpbSAErr.SuspendLayout();
+            this.gpbInput.SuspendLayout();
+            this.gpbOutput.SuspendLayout();
+            this.gpbAlarm.SuspendLayout();
+            this.gpbInPos.SuspendLayout();
+            this.gpbLatch.SuspendLayout();
+            this.gpbLimit.SuspendLayout();
+            this.gpbHome.SuspendLayout();
+            this.gpbDir.SuspendLayout();
             this.gpbSetupPara.SuspendLayout();
+            this.gpbDriverCurrent.SuspendLayout();
+            this.gpbStepNLoopControl.SuspendLayout();
+            this.gpbMiscSettings.SuspendLayout();
             this.gpbCommunicatinSetup.SuspendLayout();
             this.gpbRSCommunication.SuspendLayout();
-            this.gpbMiscSettings.SuspendLayout();
-            this.gpbStepNLoopControl.SuspendLayout();
-            this.gpbDriverCurrent.SuspendLayout();
             this.SuspendLayout();
             // 
             // gpbPolarity
             // 
+            this.gpbPolarity.Controls.Add(this.gpbPolarityEnable);
+            this.gpbPolarity.Controls.Add(this.gpbSAErr);
+            this.gpbPolarity.Controls.Add(this.gpbInput);
+            this.gpbPolarity.Controls.Add(this.gpbOutput);
+            this.gpbPolarity.Controls.Add(this.gpbAlarm);
+            this.gpbPolarity.Controls.Add(this.gpbInPos);
+            this.gpbPolarity.Controls.Add(this.gpbLatch);
+            this.gpbPolarity.Controls.Add(this.gpbLimit);
+            this.gpbPolarity.Controls.Add(this.gpbHome);
+            this.gpbPolarity.Controls.Add(this.gpbDir);
+            this.gpbPolarity.Controls.Add(this.lblEnable);
+            this.gpbPolarity.Controls.Add(this.lblSAErr);
+            this.gpbPolarity.Controls.Add(this.lblInput);
+            this.gpbPolarity.Controls.Add(this.lblOutput);
+            this.gpbPolarity.Controls.Add(this.lblAlarm);
+            this.gpbPolarity.Controls.Add(this.lblInPos);
+            this.gpbPolarity.Controls.Add(this.lblLatch);
+            this.gpbPolarity.Controls.Add(this.lblLimit);
+            this.gpbPolarity.Controls.Add(this.lblHome);
+            this.gpbPolarity.Controls.Add(this.cmdDir);
             this.gpbPolarity.Location = new System.Drawing.Point(6, 10);
             this.gpbPolarity.Name = "gpbPolarity";
             this.gpbPolarity.Size = new System.Drawing.Size(283, 338);
             this.gpbPolarity.TabIndex = 77;
             this.gpbPolarity.TabStop = false;
             this.gpbPolarity.Text = "Polarity";
+            // 
+            // gpbPolarityEnable
+            // 
+            this.gpbPolarityEnable.Controls.Add(this.radioButton14);
+            this.gpbPolarityEnable.Controls.Add(this.radioButton15);
+            this.gpbPolarityEnable.Enabled = false;
+            this.gpbPolarityEnable.Location = new System.Drawing.Point(106, 294);
+            this.gpbPolarityEnable.Name = "gpbPolarityEnable";
+            this.gpbPolarityEnable.Size = new System.Drawing.Size(156, 30);
+            this.gpbPolarityEnable.TabIndex = 104;
+            this.gpbPolarityEnable.TabStop = false;
+            // 
+            // radioButton14
+            // 
+            this.radioButton14.AutoSize = true;
+            this.radioButton14.Location = new System.Drawing.Point(89, 9);
+            this.radioButton14.Name = "radioButton14";
+            this.radioButton14.Size = new System.Drawing.Size(45, 17);
+            this.radioButton14.TabIndex = 1;
+            this.radioButton14.TabStop = true;
+            this.radioButton14.Text = "Low";
+            this.radioButton14.UseVisualStyleBackColor = true;
+            // 
+            // radioButton15
+            // 
+            this.radioButton15.AutoSize = true;
+            this.radioButton15.Location = new System.Drawing.Point(6, 9);
+            this.radioButton15.Name = "radioButton15";
+            this.radioButton15.Size = new System.Drawing.Size(47, 17);
+            this.radioButton15.TabIndex = 0;
+            this.radioButton15.TabStop = true;
+            this.radioButton15.Text = "High";
+            this.radioButton15.UseVisualStyleBackColor = true;
+            // 
+            // gpbSAErr
+            // 
+            this.gpbSAErr.Controls.Add(this.radioButton12);
+            this.gpbSAErr.Controls.Add(this.radioButton13);
+            this.gpbSAErr.Enabled = false;
+            this.gpbSAErr.Location = new System.Drawing.Point(106, 263);
+            this.gpbSAErr.Name = "gpbSAErr";
+            this.gpbSAErr.Size = new System.Drawing.Size(156, 30);
+            this.gpbSAErr.TabIndex = 103;
+            this.gpbSAErr.TabStop = false;
+            // 
+            // radioButton12
+            // 
+            this.radioButton12.AutoSize = true;
+            this.radioButton12.Location = new System.Drawing.Point(89, 9);
+            this.radioButton12.Name = "radioButton12";
+            this.radioButton12.Size = new System.Drawing.Size(45, 17);
+            this.radioButton12.TabIndex = 1;
+            this.radioButton12.TabStop = true;
+            this.radioButton12.Text = "Low";
+            this.radioButton12.UseVisualStyleBackColor = true;
+            // 
+            // radioButton13
+            // 
+            this.radioButton13.AutoSize = true;
+            this.radioButton13.Location = new System.Drawing.Point(6, 9);
+            this.radioButton13.Name = "radioButton13";
+            this.radioButton13.Size = new System.Drawing.Size(47, 17);
+            this.radioButton13.TabIndex = 0;
+            this.radioButton13.TabStop = true;
+            this.radioButton13.Text = "High";
+            this.radioButton13.UseVisualStyleBackColor = true;
+            // 
+            // gpbInput
+            // 
+            this.gpbInput.Controls.Add(this.radioButton10);
+            this.gpbInput.Controls.Add(this.radioButton11);
+            this.gpbInput.Enabled = false;
+            this.gpbInput.Location = new System.Drawing.Point(106, 233);
+            this.gpbInput.Name = "gpbInput";
+            this.gpbInput.Size = new System.Drawing.Size(156, 30);
+            this.gpbInput.TabIndex = 102;
+            this.gpbInput.TabStop = false;
+            // 
+            // radioButton10
+            // 
+            this.radioButton10.AutoSize = true;
+            this.radioButton10.Location = new System.Drawing.Point(89, 9);
+            this.radioButton10.Name = "radioButton10";
+            this.radioButton10.Size = new System.Drawing.Size(45, 17);
+            this.radioButton10.TabIndex = 1;
+            this.radioButton10.TabStop = true;
+            this.radioButton10.Text = "Low";
+            this.radioButton10.UseVisualStyleBackColor = true;
+            // 
+            // radioButton11
+            // 
+            this.radioButton11.AutoSize = true;
+            this.radioButton11.Location = new System.Drawing.Point(6, 9);
+            this.radioButton11.Name = "radioButton11";
+            this.radioButton11.Size = new System.Drawing.Size(47, 17);
+            this.radioButton11.TabIndex = 0;
+            this.radioButton11.TabStop = true;
+            this.radioButton11.Text = "High";
+            this.radioButton11.UseVisualStyleBackColor = true;
+            // 
+            // gpbOutput
+            // 
+            this.gpbOutput.Controls.Add(this.radioButton8);
+            this.gpbOutput.Controls.Add(this.radioButton9);
+            this.gpbOutput.Enabled = false;
+            this.gpbOutput.Location = new System.Drawing.Point(106, 202);
+            this.gpbOutput.Name = "gpbOutput";
+            this.gpbOutput.Size = new System.Drawing.Size(156, 30);
+            this.gpbOutput.TabIndex = 101;
+            this.gpbOutput.TabStop = false;
+            // 
+            // radioButton8
+            // 
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.Location = new System.Drawing.Point(89, 9);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(45, 17);
+            this.radioButton8.TabIndex = 1;
+            this.radioButton8.TabStop = true;
+            this.radioButton8.Text = "Low";
+            this.radioButton8.UseVisualStyleBackColor = true;
+            // 
+            // radioButton9
+            // 
+            this.radioButton9.AutoSize = true;
+            this.radioButton9.Location = new System.Drawing.Point(6, 9);
+            this.radioButton9.Name = "radioButton9";
+            this.radioButton9.Size = new System.Drawing.Size(47, 17);
+            this.radioButton9.TabIndex = 0;
+            this.radioButton9.TabStop = true;
+            this.radioButton9.Text = "High";
+            this.radioButton9.UseVisualStyleBackColor = true;
+            // 
+            // gpbAlarm
+            // 
+            this.gpbAlarm.Controls.Add(this.radioButton6);
+            this.gpbAlarm.Controls.Add(this.radioButton7);
+            this.gpbAlarm.Enabled = false;
+            this.gpbAlarm.Location = new System.Drawing.Point(106, 171);
+            this.gpbAlarm.Name = "gpbAlarm";
+            this.gpbAlarm.Size = new System.Drawing.Size(156, 30);
+            this.gpbAlarm.TabIndex = 100;
+            this.gpbAlarm.TabStop = false;
+            // 
+            // radioButton6
+            // 
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Location = new System.Drawing.Point(89, 9);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(45, 17);
+            this.radioButton6.TabIndex = 1;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.Text = "Low";
+            this.radioButton6.UseVisualStyleBackColor = true;
+            // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Location = new System.Drawing.Point(6, 9);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(47, 17);
+            this.radioButton7.TabIndex = 0;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.Text = "High";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            // 
+            // gpbInPos
+            // 
+            this.gpbInPos.Controls.Add(this.radioButton4);
+            this.gpbInPos.Controls.Add(this.radioButton5);
+            this.gpbInPos.Location = new System.Drawing.Point(106, 140);
+            this.gpbInPos.Name = "gpbInPos";
+            this.gpbInPos.Size = new System.Drawing.Size(156, 30);
+            this.gpbInPos.TabIndex = 99;
+            this.gpbInPos.TabStop = false;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(89, 9);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(45, 17);
+            this.radioButton4.TabIndex = 1;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Low";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(6, 9);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(47, 17);
+            this.radioButton5.TabIndex = 0;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "High";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // gpbLatch
+            // 
+            this.gpbLatch.Controls.Add(this.radioButton2);
+            this.gpbLatch.Controls.Add(this.radioButton3);
+            this.gpbLatch.Location = new System.Drawing.Point(106, 108);
+            this.gpbLatch.Name = "gpbLatch";
+            this.gpbLatch.Size = new System.Drawing.Size(156, 30);
+            this.gpbLatch.TabIndex = 98;
+            this.gpbLatch.TabStop = false;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(89, 9);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(45, 17);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Low";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(6, 9);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(47, 17);
+            this.radioButton3.TabIndex = 0;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "High";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // gpbLimit
+            // 
+            this.gpbLimit.Controls.Add(this.radLimitLow);
+            this.gpbLimit.Controls.Add(this.radLimitHigh);
+            this.gpbLimit.Location = new System.Drawing.Point(106, 77);
+            this.gpbLimit.Name = "gpbLimit";
+            this.gpbLimit.Size = new System.Drawing.Size(156, 30);
+            this.gpbLimit.TabIndex = 97;
+            this.gpbLimit.TabStop = false;
+            // 
+            // radLimitLow
+            // 
+            this.radLimitLow.AutoSize = true;
+            this.radLimitLow.Location = new System.Drawing.Point(89, 9);
+            this.radLimitLow.Name = "radLimitLow";
+            this.radLimitLow.Size = new System.Drawing.Size(45, 17);
+            this.radLimitLow.TabIndex = 1;
+            this.radLimitLow.TabStop = true;
+            this.radLimitLow.Text = "Low";
+            this.radLimitLow.UseVisualStyleBackColor = true;
+            // 
+            // radLimitHigh
+            // 
+            this.radLimitHigh.AutoSize = true;
+            this.radLimitHigh.Location = new System.Drawing.Point(6, 9);
+            this.radLimitHigh.Name = "radLimitHigh";
+            this.radLimitHigh.Size = new System.Drawing.Size(47, 17);
+            this.radLimitHigh.TabIndex = 0;
+            this.radLimitHigh.TabStop = true;
+            this.radLimitHigh.Text = "High";
+            this.radLimitHigh.UseVisualStyleBackColor = true;
+            // 
+            // gpbHome
+            // 
+            this.gpbHome.Controls.Add(this.radHomeLow);
+            this.gpbHome.Controls.Add(this.radHomeHigh);
+            this.gpbHome.Location = new System.Drawing.Point(106, 46);
+            this.gpbHome.Name = "gpbHome";
+            this.gpbHome.Size = new System.Drawing.Size(156, 30);
+            this.gpbHome.TabIndex = 96;
+            this.gpbHome.TabStop = false;
+            // 
+            // radHomeLow
+            // 
+            this.radHomeLow.AutoSize = true;
+            this.radHomeLow.Location = new System.Drawing.Point(89, 9);
+            this.radHomeLow.Name = "radHomeLow";
+            this.radHomeLow.Size = new System.Drawing.Size(45, 17);
+            this.radHomeLow.TabIndex = 1;
+            this.radHomeLow.TabStop = true;
+            this.radHomeLow.Text = "Low";
+            this.radHomeLow.UseVisualStyleBackColor = true;
+            // 
+            // radHomeHigh
+            // 
+            this.radHomeHigh.AutoSize = true;
+            this.radHomeHigh.Location = new System.Drawing.Point(6, 9);
+            this.radHomeHigh.Name = "radHomeHigh";
+            this.radHomeHigh.Size = new System.Drawing.Size(47, 17);
+            this.radHomeHigh.TabIndex = 0;
+            this.radHomeHigh.TabStop = true;
+            this.radHomeHigh.Text = "High";
+            this.radHomeHigh.UseVisualStyleBackColor = true;
+            // 
+            // gpbDir
+            // 
+            this.gpbDir.Controls.Add(this.radDirCW);
+            this.gpbDir.Controls.Add(this.radDirCCW);
+            this.gpbDir.Location = new System.Drawing.Point(106, 15);
+            this.gpbDir.Name = "gpbDir";
+            this.gpbDir.Size = new System.Drawing.Size(156, 30);
+            this.gpbDir.TabIndex = 95;
+            this.gpbDir.TabStop = false;
+            // 
+            // radDirCW
+            // 
+            this.radDirCW.AutoSize = true;
+            this.radDirCW.Location = new System.Drawing.Point(89, 9);
+            this.radDirCW.Name = "radDirCW";
+            this.radDirCW.Size = new System.Drawing.Size(43, 17);
+            this.radDirCW.TabIndex = 1;
+            this.radDirCW.TabStop = true;
+            this.radDirCW.Text = "CW";
+            this.radDirCW.UseVisualStyleBackColor = true;
+            // 
+            // radDirCCW
+            // 
+            this.radDirCCW.AutoSize = true;
+            this.radDirCCW.Location = new System.Drawing.Point(6, 9);
+            this.radDirCCW.Name = "radDirCCW";
+            this.radDirCCW.Size = new System.Drawing.Size(50, 17);
+            this.radDirCCW.TabIndex = 0;
+            this.radDirCCW.TabStop = true;
+            this.radDirCCW.Text = "CCW";
+            this.radDirCCW.UseVisualStyleBackColor = true;
+            // 
+            // lblEnable
+            // 
+            this.lblEnable.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblEnable.Location = new System.Drawing.Point(18, 305);
+            this.lblEnable.Name = "lblEnable";
+            this.lblEnable.Size = new System.Drawing.Size(42, 13);
+            this.lblEnable.TabIndex = 86;
+            this.lblEnable.Text = "Enable";
+            // 
+            // lblSAErr
+            // 
+            this.lblSAErr.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblSAErr.Location = new System.Drawing.Point(18, 274);
+            this.lblSAErr.Name = "lblSAErr";
+            this.lblSAErr.Size = new System.Drawing.Size(42, 13);
+            this.lblSAErr.TabIndex = 85;
+            this.lblSAErr.Text = "SA-Err";
+            // 
+            // lblInput
+            // 
+            this.lblInput.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblInput.Location = new System.Drawing.Point(18, 244);
+            this.lblInput.Name = "lblInput";
+            this.lblInput.Size = new System.Drawing.Size(42, 13);
+            this.lblInput.TabIndex = 84;
+            this.lblInput.Text = "Input";
+            // 
+            // lblOutput
+            // 
+            this.lblOutput.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblOutput.Location = new System.Drawing.Point(18, 213);
+            this.lblOutput.Name = "lblOutput";
+            this.lblOutput.Size = new System.Drawing.Size(42, 13);
+            this.lblOutput.TabIndex = 83;
+            this.lblOutput.Text = "Output";
+            // 
+            // lblAlarm
+            // 
+            this.lblAlarm.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblAlarm.Location = new System.Drawing.Point(18, 182);
+            this.lblAlarm.Name = "lblAlarm";
+            this.lblAlarm.Size = new System.Drawing.Size(42, 13);
+            this.lblAlarm.TabIndex = 82;
+            this.lblAlarm.Text = "Alarm";
+            // 
+            // lblInPos
+            // 
+            this.lblInPos.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblInPos.Location = new System.Drawing.Point(18, 152);
+            this.lblInPos.Name = "lblInPos";
+            this.lblInPos.Size = new System.Drawing.Size(42, 13);
+            this.lblInPos.TabIndex = 81;
+            this.lblInPos.Text = "In Pos";
+            // 
+            // lblLatch
+            // 
+            this.lblLatch.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblLatch.Location = new System.Drawing.Point(18, 119);
+            this.lblLatch.Name = "lblLatch";
+            this.lblLatch.Size = new System.Drawing.Size(42, 13);
+            this.lblLatch.TabIndex = 80;
+            this.lblLatch.Text = "Latch";
+            // 
+            // lblLimit
+            // 
+            this.lblLimit.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblLimit.Location = new System.Drawing.Point(18, 88);
+            this.lblLimit.Name = "lblLimit";
+            this.lblLimit.Size = new System.Drawing.Size(42, 13);
+            this.lblLimit.TabIndex = 79;
+            this.lblLimit.Text = "Limit";
+            // 
+            // lblHome
+            // 
+            this.lblHome.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblHome.Location = new System.Drawing.Point(18, 57);
+            this.lblHome.Name = "lblHome";
+            this.lblHome.Size = new System.Drawing.Size(42, 13);
+            this.lblHome.TabIndex = 78;
+            this.lblHome.Text = "Home";
+            // 
+            // cmdDir
+            // 
+            this.cmdDir.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cmdDir.Location = new System.Drawing.Point(18, 26);
+            this.cmdDir.Name = "cmdDir";
+            this.cmdDir.Size = new System.Drawing.Size(33, 13);
+            this.cmdDir.TabIndex = 77;
+            this.cmdDir.Text = "Dir";
             // 
             // gpbSetupPara
             // 
@@ -120,279 +606,157 @@
             this.gpbSetupPara.TabIndex = 92;
             this.gpbSetupPara.TabStop = false;
             // 
-            // gpbCommunicatinSetup
+            // cmdClose
             // 
-            this.gpbCommunicatinSetup.Controls.Add(this.lblMS);
-            this.gpbCommunicatinSetup.Controls.Add(this.chbAutoResponse);
-            this.gpbCommunicatinSetup.Controls.Add(this.gpbRSCommunication);
-            this.gpbCommunicatinSetup.Controls.Add(this.combxDeviceID);
-            this.gpbCommunicatinSetup.Controls.Add(this.combxBaudRate);
-            this.gpbCommunicatinSetup.Controls.Add(this.txtTimeOutCounter);
-            this.gpbCommunicatinSetup.Controls.Add(this.lblTimeOutCounter);
-            this.gpbCommunicatinSetup.Controls.Add(this.lblDeviceID);
-            this.gpbCommunicatinSetup.Controls.Add(this.lblBaudRate);
-            this.gpbCommunicatinSetup.Controls.Add(this.chbxSyncOutputEnableDO2);
-            this.gpbCommunicatinSetup.Location = new System.Drawing.Point(309, 10);
-            this.gpbCommunicatinSetup.Name = "gpbCommunicatinSetup";
-            this.gpbCommunicatinSetup.Size = new System.Drawing.Size(250, 186);
-            this.gpbCommunicatinSetup.TabIndex = 93;
-            this.gpbCommunicatinSetup.TabStop = false;
-            this.gpbCommunicatinSetup.Text = "Communication Setup";
+            this.cmdClose.Location = new System.Drawing.Point(463, 577);
+            this.cmdClose.Name = "cmdClose";
+            this.cmdClose.Size = new System.Drawing.Size(93, 65);
+            this.cmdClose.TabIndex = 109;
+            this.cmdClose.Text = "Close";
+            this.cmdClose.UseVisualStyleBackColor = true;
+            this.cmdClose.Click += new System.EventHandler(this.cmdClose_Click);
             // 
-            // combxBaudRate
+            // cmdStore
             // 
-            this.combxBaudRate.FormattingEnabled = true;
-            this.combxBaudRate.Location = new System.Drawing.Point(131, 85);
-            this.combxBaudRate.Name = "combxBaudRate";
-            this.combxBaudRate.Size = new System.Drawing.Size(99, 21);
-            this.combxBaudRate.TabIndex = 92;
+            this.cmdStore.Location = new System.Drawing.Point(353, 577);
+            this.cmdStore.Name = "cmdStore";
+            this.cmdStore.Size = new System.Drawing.Size(70, 65);
+            this.cmdStore.TabIndex = 108;
+            this.cmdStore.Text = "Store";
+            this.cmdStore.UseVisualStyleBackColor = true;
             // 
-            // txtTimeOutCounter
+            // cmdDown
             // 
-            this.txtTimeOutCounter.Enabled = false;
-            this.txtTimeOutCounter.Location = new System.Drawing.Point(131, 157);
-            this.txtTimeOutCounter.Name = "txtTimeOutCounter";
-            this.txtTimeOutCounter.ReadOnly = true;
-            this.txtTimeOutCounter.Size = new System.Drawing.Size(60, 20);
-            this.txtTimeOutCounter.TabIndex = 91;
-            this.txtTimeOutCounter.Text = "0";
+            this.cmdDown.Location = new System.Drawing.Point(265, 577);
+            this.cmdDown.Name = "cmdDown";
+            this.cmdDown.Size = new System.Drawing.Size(70, 65);
+            this.cmdDown.TabIndex = 107;
+            this.cmdDown.Text = "Down";
+            this.cmdDown.UseVisualStyleBackColor = true;
             // 
-            // lblTimeOutCounter
+            // cmdUpload
             // 
-            this.lblTimeOutCounter.Location = new System.Drawing.Point(10, 160);
-            this.lblTimeOutCounter.Name = "lblTimeOutCounter";
-            this.lblTimeOutCounter.Size = new System.Drawing.Size(98, 17);
-            this.lblTimeOutCounter.TabIndex = 90;
-            this.lblTimeOutCounter.Text = "Time-out Counter";
+            this.cmdUpload.Location = new System.Drawing.Point(178, 577);
+            this.cmdUpload.Name = "cmdUpload";
+            this.cmdUpload.Size = new System.Drawing.Size(70, 65);
+            this.cmdUpload.TabIndex = 106;
+            this.cmdUpload.Text = "Upload";
+            this.cmdUpload.UseVisualStyleBackColor = true;
             // 
-            // lblDeviceID
+            // cmdSave
             // 
-            this.lblDeviceID.Location = new System.Drawing.Point(10, 123);
-            this.lblDeviceID.Name = "lblDeviceID";
-            this.lblDeviceID.Size = new System.Drawing.Size(71, 17);
-            this.lblDeviceID.TabIndex = 59;
-            this.lblDeviceID.Text = "Device ID";
+            this.cmdSave.Location = new System.Drawing.Point(92, 577);
+            this.cmdSave.Name = "cmdSave";
+            this.cmdSave.Size = new System.Drawing.Size(70, 65);
+            this.cmdSave.TabIndex = 105;
+            this.cmdSave.Text = "Save";
+            this.cmdSave.UseVisualStyleBackColor = true;
             // 
-            // lblBaudRate
+            // cmdOpen
             // 
-            this.lblBaudRate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblBaudRate.Location = new System.Drawing.Point(10, 88);
-            this.lblBaudRate.Name = "lblBaudRate";
-            this.lblBaudRate.Size = new System.Drawing.Size(71, 13);
-            this.lblBaudRate.TabIndex = 76;
-            this.lblBaudRate.Text = "Baud Rate";
+            this.cmdOpen.Location = new System.Drawing.Point(6, 577);
+            this.cmdOpen.Name = "cmdOpen";
+            this.cmdOpen.Size = new System.Drawing.Size(70, 65);
+            this.cmdOpen.TabIndex = 104;
+            this.cmdOpen.Text = "Open";
+            this.cmdOpen.UseVisualStyleBackColor = true;
             // 
-            // chbxSyncOutputEnableDO2
+            // gpbDriverCurrent
             // 
-            this.chbxSyncOutputEnableDO2.Location = new System.Drawing.Point(131, 19);
-            this.chbxSyncOutputEnableDO2.Name = "chbxSyncOutputEnableDO2";
-            this.chbxSyncOutputEnableDO2.Size = new System.Drawing.Size(81, 26);
-            this.chbxSyncOutputEnableDO2.TabIndex = 87;
-            this.chbxSyncOutputEnableDO2.Text = "Append ID";
+            this.gpbDriverCurrent.Controls.Add(this.lblTimeMS);
+            this.gpbDriverCurrent.Controls.Add(this.lblIdleMA);
+            this.gpbDriverCurrent.Controls.Add(this.lblRunMA);
+            this.gpbDriverCurrent.Controls.Add(this.textBox1);
+            this.gpbDriverCurrent.Controls.Add(this.txtTime);
+            this.gpbDriverCurrent.Controls.Add(this.lblTime);
+            this.gpbDriverCurrent.Controls.Add(this.txtRun);
+            this.gpbDriverCurrent.Controls.Add(this.lblIdle);
+            this.gpbDriverCurrent.Controls.Add(this.lblRun);
+            this.gpbDriverCurrent.Location = new System.Drawing.Point(328, 364);
+            this.gpbDriverCurrent.Name = "gpbDriverCurrent";
+            this.gpbDriverCurrent.Size = new System.Drawing.Size(228, 189);
+            this.gpbDriverCurrent.TabIndex = 96;
+            this.gpbDriverCurrent.TabStop = false;
+            this.gpbDriverCurrent.Text = "Driver Current";
             // 
-            // combxDeviceID
+            // lblTimeMS
             // 
-            this.combxDeviceID.FormattingEnabled = true;
-            this.combxDeviceID.Location = new System.Drawing.Point(131, 119);
-            this.combxDeviceID.Name = "combxDeviceID";
-            this.combxDeviceID.Size = new System.Drawing.Size(60, 21);
-            this.combxDeviceID.TabIndex = 93;
+            this.lblTimeMS.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTimeMS.Location = new System.Drawing.Point(149, 136);
+            this.lblTimeMS.Name = "lblTimeMS";
+            this.lblTimeMS.Size = new System.Drawing.Size(33, 13);
+            this.lblTimeMS.TabIndex = 95;
+            this.lblTimeMS.Text = "mA";
             // 
-            // gpbRSCommunication
+            // lblIdleMA
             // 
-            this.gpbRSCommunication.Controls.Add(this.radioButton1);
-            this.gpbRSCommunication.Controls.Add(this.radRS485);
-            this.gpbRSCommunication.Location = new System.Drawing.Point(13, 15);
-            this.gpbRSCommunication.Name = "gpbRSCommunication";
-            this.gpbRSCommunication.Size = new System.Drawing.Size(95, 57);
-            this.gpbRSCommunication.TabIndex = 94;
-            this.gpbRSCommunication.TabStop = false;
+            this.lblIdleMA.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblIdleMA.Location = new System.Drawing.Point(149, 90);
+            this.lblIdleMA.Name = "lblIdleMA";
+            this.lblIdleMA.Size = new System.Drawing.Size(33, 13);
+            this.lblIdleMA.TabIndex = 94;
+            this.lblIdleMA.Text = "mA";
             // 
-            // chbAutoResponse
+            // lblRunMA
             // 
-            this.chbAutoResponse.Location = new System.Drawing.Point(131, 50);
-            this.chbAutoResponse.Name = "chbAutoResponse";
-            this.chbAutoResponse.Size = new System.Drawing.Size(99, 26);
-            this.chbAutoResponse.TabIndex = 95;
-            this.chbAutoResponse.Text = "Auto Response";
+            this.lblRunMA.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblRunMA.Location = new System.Drawing.Point(149, 44);
+            this.lblRunMA.Name = "lblRunMA";
+            this.lblRunMA.Size = new System.Drawing.Size(33, 13);
+            this.lblRunMA.TabIndex = 93;
+            this.lblRunMA.Text = "mA";
             // 
-            // lblMS
+            // textBox1
             // 
-            this.lblMS.Location = new System.Drawing.Point(197, 160);
-            this.lblMS.Name = "lblMS";
-            this.lblMS.Size = new System.Drawing.Size(33, 17);
-            this.lblMS.TabIndex = 96;
-            this.lblMS.Text = "ms";
+            this.textBox1.Location = new System.Drawing.Point(78, 87);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(65, 20);
+            this.textBox1.TabIndex = 92;
+            this.textBox1.Text = "0";
             // 
-            // radRS485
+            // txtTime
             // 
-            this.radRS485.AutoSize = true;
-            this.radRS485.Location = new System.Drawing.Point(6, 9);
-            this.radRS485.Name = "radRS485";
-            this.radRS485.Size = new System.Drawing.Size(61, 17);
-            this.radRS485.TabIndex = 0;
-            this.radRS485.TabStop = true;
-            this.radRS485.Text = "RS-485";
-            this.radRS485.UseVisualStyleBackColor = true;
+            this.txtTime.Location = new System.Drawing.Point(78, 133);
+            this.txtTime.Name = "txtTime";
+            this.txtTime.ReadOnly = true;
+            this.txtTime.Size = new System.Drawing.Size(65, 20);
+            this.txtTime.TabIndex = 91;
+            this.txtTime.Text = "0";
             // 
-            // radioButton1
+            // lblTime
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 31);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(61, 17);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "RS-232";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.lblTime.Location = new System.Drawing.Point(39, 136);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(33, 17);
+            this.lblTime.TabIndex = 90;
+            this.lblTime.Text = "Time";
             // 
-            // gpbMiscSettings
+            // txtRun
             // 
-            this.gpbMiscSettings.Controls.Add(this.txtHCA);
-            this.gpbMiscSettings.Controls.Add(this.txtLCA);
-            this.gpbMiscSettings.Controls.Add(this.txtDOBoot);
-            this.gpbMiscSettings.Controls.Add(this.txtEOBoot);
-            this.gpbMiscSettings.Controls.Add(this.lblHCA);
-            this.gpbMiscSettings.Controls.Add(this.lblLCA);
-            this.gpbMiscSettings.Controls.Add(this.lblDOBoot);
-            this.gpbMiscSettings.Controls.Add(this.lblEOBoot);
-            this.gpbMiscSettings.Controls.Add(this.chbxRZ);
-            this.gpbMiscSettings.Controls.Add(this.chbxAlmLnp);
-            this.gpbMiscSettings.Controls.Add(this.chbxAutoRun1);
-            this.gpbMiscSettings.Controls.Add(this.chbxAutoRun0);
-            this.gpbMiscSettings.Controls.Add(this.chbxIERR);
-            this.gpbMiscSettings.Controls.Add(this.chbxEnableDecel);
-            this.gpbMiscSettings.Location = new System.Drawing.Point(309, 202);
-            this.gpbMiscSettings.Name = "gpbMiscSettings";
-            this.gpbMiscSettings.Size = new System.Drawing.Size(250, 146);
-            this.gpbMiscSettings.TabIndex = 94;
-            this.gpbMiscSettings.TabStop = false;
-            this.gpbMiscSettings.Text = "Misc Settings";
+            this.txtRun.Location = new System.Drawing.Point(78, 41);
+            this.txtRun.Name = "txtRun";
+            this.txtRun.ReadOnly = true;
+            this.txtRun.Size = new System.Drawing.Size(65, 20);
+            this.txtRun.TabIndex = 59;
+            this.txtRun.Text = "0";
             // 
-            // chbxEnableDecel
+            // lblIdle
             // 
-            this.chbxEnableDecel.Enabled = false;
-            this.chbxEnableDecel.Location = new System.Drawing.Point(21, 25);
-            this.chbxEnableDecel.Name = "chbxEnableDecel";
-            this.chbxEnableDecel.Size = new System.Drawing.Size(95, 17);
-            this.chbxEnableDecel.TabIndex = 87;
-            this.chbxEnableDecel.Text = "Enable Decel";
+            this.lblIdle.Location = new System.Drawing.Point(39, 90);
+            this.lblIdle.Name = "lblIdle";
+            this.lblIdle.Size = new System.Drawing.Size(33, 17);
+            this.lblIdle.TabIndex = 59;
+            this.lblIdle.Text = "Idle";
             // 
-            // chbxIERR
+            // lblRun
             // 
-            this.chbxIERR.Enabled = false;
-            this.chbxIERR.Location = new System.Drawing.Point(166, 25);
-            this.chbxIERR.Name = "chbxIERR";
-            this.chbxIERR.Size = new System.Drawing.Size(64, 17);
-            this.chbxIERR.TabIndex = 88;
-            this.chbxIERR.Text = "IERR";
-            // 
-            // chbxAutoRun0
-            // 
-            this.chbxAutoRun0.Enabled = false;
-            this.chbxAutoRun0.Location = new System.Drawing.Point(21, 48);
-            this.chbxAutoRun0.Name = "chbxAutoRun0";
-            this.chbxAutoRun0.Size = new System.Drawing.Size(95, 17);
-            this.chbxAutoRun0.TabIndex = 89;
-            this.chbxAutoRun0.Text = "Auto Run 0";
-            // 
-            // chbxAutoRun1
-            // 
-            this.chbxAutoRun1.Enabled = false;
-            this.chbxAutoRun1.Location = new System.Drawing.Point(21, 71);
-            this.chbxAutoRun1.Name = "chbxAutoRun1";
-            this.chbxAutoRun1.Size = new System.Drawing.Size(95, 17);
-            this.chbxAutoRun1.TabIndex = 90;
-            this.chbxAutoRun1.Text = "Auto Run 1";
-            // 
-            // chbxAlmLnp
-            // 
-            this.chbxAlmLnp.Enabled = false;
-            this.chbxAlmLnp.Location = new System.Drawing.Point(166, 48);
-            this.chbxAlmLnp.Name = "chbxAlmLnp";
-            this.chbxAlmLnp.Size = new System.Drawing.Size(64, 17);
-            this.chbxAlmLnp.TabIndex = 91;
-            this.chbxAlmLnp.Text = "Alm/Inp";
-            // 
-            // chbxRZ
-            // 
-            this.chbxRZ.Enabled = false;
-            this.chbxRZ.Location = new System.Drawing.Point(166, 71);
-            this.chbxRZ.Name = "chbxRZ";
-            this.chbxRZ.Size = new System.Drawing.Size(64, 17);
-            this.chbxRZ.TabIndex = 92;
-            this.chbxRZ.Text = "RZ";
-            // 
-            // lblEOBoot
-            // 
-            this.lblEOBoot.Location = new System.Drawing.Point(18, 95);
-            this.lblEOBoot.Name = "lblEOBoot";
-            this.lblEOBoot.Size = new System.Drawing.Size(52, 17);
-            this.lblEOBoot.TabIndex = 97;
-            this.lblEOBoot.Text = "EO Boot";
-            // 
-            // lblDOBoot
-            // 
-            this.lblDOBoot.Location = new System.Drawing.Point(18, 120);
-            this.lblDOBoot.Name = "lblDOBoot";
-            this.lblDOBoot.Size = new System.Drawing.Size(52, 17);
-            this.lblDOBoot.TabIndex = 98;
-            this.lblDOBoot.Text = "DO Boot";
-            // 
-            // lblLCA
-            // 
-            this.lblLCA.Location = new System.Drawing.Point(140, 95);
-            this.lblLCA.Name = "lblLCA";
-            this.lblLCA.Size = new System.Drawing.Size(35, 17);
-            this.lblLCA.TabIndex = 99;
-            this.lblLCA.Text = "LCA";
-            // 
-            // lblHCA
-            // 
-            this.lblHCA.Location = new System.Drawing.Point(140, 120);
-            this.lblHCA.Name = "lblHCA";
-            this.lblHCA.Size = new System.Drawing.Size(35, 17);
-            this.lblHCA.TabIndex = 100;
-            this.lblHCA.Text = "HCA";
-            // 
-            // txtEOBoot
-            // 
-            this.txtEOBoot.Enabled = false;
-            this.txtEOBoot.Location = new System.Drawing.Point(76, 92);
-            this.txtEOBoot.Name = "txtEOBoot";
-            this.txtEOBoot.ReadOnly = true;
-            this.txtEOBoot.Size = new System.Drawing.Size(25, 20);
-            this.txtEOBoot.TabIndex = 97;
-            this.txtEOBoot.Text = "0";
-            // 
-            // txtDOBoot
-            // 
-            this.txtDOBoot.Enabled = false;
-            this.txtDOBoot.Location = new System.Drawing.Point(76, 117);
-            this.txtDOBoot.Name = "txtDOBoot";
-            this.txtDOBoot.ReadOnly = true;
-            this.txtDOBoot.Size = new System.Drawing.Size(25, 20);
-            this.txtDOBoot.TabIndex = 101;
-            this.txtDOBoot.Text = "0";
-            // 
-            // txtLCA
-            // 
-            this.txtLCA.Location = new System.Drawing.Point(181, 92);
-            this.txtLCA.Name = "txtLCA";
-            this.txtLCA.ReadOnly = true;
-            this.txtLCA.Size = new System.Drawing.Size(49, 20);
-            this.txtLCA.TabIndex = 102;
-            this.txtLCA.Text = "300";
-            // 
-            // txtHCA
-            // 
-            this.txtHCA.Enabled = false;
-            this.txtHCA.Location = new System.Drawing.Point(181, 117);
-            this.txtHCA.Name = "txtHCA";
-            this.txtHCA.ReadOnly = true;
-            this.txtHCA.Size = new System.Drawing.Size(49, 20);
-            this.txtHCA.TabIndex = 103;
-            this.txtHCA.Text = "300";
+            this.lblRun.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblRun.Location = new System.Drawing.Point(39, 44);
+            this.lblRun.Name = "lblRun";
+            this.lblRun.Size = new System.Drawing.Size(33, 13);
+            this.lblRun.TabIndex = 76;
+            this.lblRun.Text = "Run";
             // 
             // gpbStepNLoopControl
             // 
@@ -411,6 +775,15 @@
             this.gpbStepNLoopControl.TabIndex = 95;
             this.gpbStepNLoopControl.TabStop = false;
             this.gpbStepNLoopControl.Text = "Step N Loop Control";
+            // 
+            // txtMaxAttempt
+            // 
+            this.txtMaxAttempt.Location = new System.Drawing.Point(163, 56);
+            this.txtMaxAttempt.Name = "txtMaxAttempt";
+            this.txtMaxAttempt.ReadOnly = true;
+            this.txtMaxAttempt.Size = new System.Drawing.Size(99, 20);
+            this.txtMaxAttempt.TabIndex = 92;
+            this.txtMaxAttempt.Text = "1";
             // 
             // txtErrorRange
             // 
@@ -480,166 +853,279 @@
             this.chbxStepNLoopControlEnable.TabIndex = 87;
             this.chbxStepNLoopControlEnable.Text = "Enable";
             // 
-            // txtMaxAttempt
+            // gpbMiscSettings
             // 
-            this.txtMaxAttempt.Location = new System.Drawing.Point(163, 56);
-            this.txtMaxAttempt.Name = "txtMaxAttempt";
-            this.txtMaxAttempt.ReadOnly = true;
-            this.txtMaxAttempt.Size = new System.Drawing.Size(99, 20);
-            this.txtMaxAttempt.TabIndex = 92;
-            this.txtMaxAttempt.Text = "1";
+            this.gpbMiscSettings.Controls.Add(this.txtHCA);
+            this.gpbMiscSettings.Controls.Add(this.txtLCA);
+            this.gpbMiscSettings.Controls.Add(this.txtDOBoot);
+            this.gpbMiscSettings.Controls.Add(this.txtEOBoot);
+            this.gpbMiscSettings.Controls.Add(this.lblHCA);
+            this.gpbMiscSettings.Controls.Add(this.lblLCA);
+            this.gpbMiscSettings.Controls.Add(this.lblDOBoot);
+            this.gpbMiscSettings.Controls.Add(this.lblEOBoot);
+            this.gpbMiscSettings.Controls.Add(this.chbxRZ);
+            this.gpbMiscSettings.Controls.Add(this.chbxAlmLnp);
+            this.gpbMiscSettings.Controls.Add(this.chbxAutoRun1);
+            this.gpbMiscSettings.Controls.Add(this.chbxAutoRun0);
+            this.gpbMiscSettings.Controls.Add(this.chbxIERR);
+            this.gpbMiscSettings.Controls.Add(this.chbxEnableDecel);
+            this.gpbMiscSettings.Location = new System.Drawing.Point(309, 202);
+            this.gpbMiscSettings.Name = "gpbMiscSettings";
+            this.gpbMiscSettings.Size = new System.Drawing.Size(250, 146);
+            this.gpbMiscSettings.TabIndex = 94;
+            this.gpbMiscSettings.TabStop = false;
+            this.gpbMiscSettings.Text = "Misc Settings";
             // 
-            // gpbDriverCurrent
+            // txtHCA
             // 
-            this.gpbDriverCurrent.Controls.Add(this.lblTimeMS);
-            this.gpbDriverCurrent.Controls.Add(this.lblIdleMA);
-            this.gpbDriverCurrent.Controls.Add(this.lblRunMA);
-            this.gpbDriverCurrent.Controls.Add(this.textBox1);
-            this.gpbDriverCurrent.Controls.Add(this.txtTime);
-            this.gpbDriverCurrent.Controls.Add(this.lblTime);
-            this.gpbDriverCurrent.Controls.Add(this.txtRun);
-            this.gpbDriverCurrent.Controls.Add(this.lblIdle);
-            this.gpbDriverCurrent.Controls.Add(this.lblRun);
-            this.gpbDriverCurrent.Location = new System.Drawing.Point(328, 364);
-            this.gpbDriverCurrent.Name = "gpbDriverCurrent";
-            this.gpbDriverCurrent.Size = new System.Drawing.Size(228, 189);
-            this.gpbDriverCurrent.TabIndex = 96;
-            this.gpbDriverCurrent.TabStop = false;
-            this.gpbDriverCurrent.Text = "Driver Current";
+            this.txtHCA.Enabled = false;
+            this.txtHCA.Location = new System.Drawing.Point(181, 117);
+            this.txtHCA.Name = "txtHCA";
+            this.txtHCA.ReadOnly = true;
+            this.txtHCA.Size = new System.Drawing.Size(49, 20);
+            this.txtHCA.TabIndex = 103;
+            this.txtHCA.Text = "300";
             // 
-            // txtTime
+            // txtLCA
             // 
-            this.txtTime.Location = new System.Drawing.Point(78, 133);
-            this.txtTime.Name = "txtTime";
-            this.txtTime.ReadOnly = true;
-            this.txtTime.Size = new System.Drawing.Size(65, 20);
-            this.txtTime.TabIndex = 91;
-            this.txtTime.Text = "0";
+            this.txtLCA.Location = new System.Drawing.Point(181, 92);
+            this.txtLCA.Name = "txtLCA";
+            this.txtLCA.ReadOnly = true;
+            this.txtLCA.Size = new System.Drawing.Size(49, 20);
+            this.txtLCA.TabIndex = 102;
+            this.txtLCA.Text = "300";
             // 
-            // lblTime
+            // txtDOBoot
             // 
-            this.lblTime.Location = new System.Drawing.Point(39, 136);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(33, 17);
-            this.lblTime.TabIndex = 90;
-            this.lblTime.Text = "Time";
+            this.txtDOBoot.Enabled = false;
+            this.txtDOBoot.Location = new System.Drawing.Point(76, 117);
+            this.txtDOBoot.Name = "txtDOBoot";
+            this.txtDOBoot.ReadOnly = true;
+            this.txtDOBoot.Size = new System.Drawing.Size(25, 20);
+            this.txtDOBoot.TabIndex = 101;
+            this.txtDOBoot.Text = "0";
             // 
-            // txtRun
+            // txtEOBoot
             // 
-            this.txtRun.Location = new System.Drawing.Point(78, 41);
-            this.txtRun.Name = "txtRun";
-            this.txtRun.ReadOnly = true;
-            this.txtRun.Size = new System.Drawing.Size(65, 20);
-            this.txtRun.TabIndex = 59;
-            this.txtRun.Text = "0";
+            this.txtEOBoot.Enabled = false;
+            this.txtEOBoot.Location = new System.Drawing.Point(76, 92);
+            this.txtEOBoot.Name = "txtEOBoot";
+            this.txtEOBoot.ReadOnly = true;
+            this.txtEOBoot.Size = new System.Drawing.Size(25, 20);
+            this.txtEOBoot.TabIndex = 97;
+            this.txtEOBoot.Text = "0";
             // 
-            // lblIdle
+            // lblHCA
             // 
-            this.lblIdle.Location = new System.Drawing.Point(39, 90);
-            this.lblIdle.Name = "lblIdle";
-            this.lblIdle.Size = new System.Drawing.Size(33, 17);
-            this.lblIdle.TabIndex = 59;
-            this.lblIdle.Text = "Idle";
+            this.lblHCA.Location = new System.Drawing.Point(140, 120);
+            this.lblHCA.Name = "lblHCA";
+            this.lblHCA.Size = new System.Drawing.Size(35, 17);
+            this.lblHCA.TabIndex = 100;
+            this.lblHCA.Text = "HCA";
             // 
-            // lblRun
+            // lblLCA
             // 
-            this.lblRun.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblRun.Location = new System.Drawing.Point(39, 44);
-            this.lblRun.Name = "lblRun";
-            this.lblRun.Size = new System.Drawing.Size(33, 13);
-            this.lblRun.TabIndex = 76;
-            this.lblRun.Text = "Run";
+            this.lblLCA.Location = new System.Drawing.Point(140, 95);
+            this.lblLCA.Name = "lblLCA";
+            this.lblLCA.Size = new System.Drawing.Size(35, 17);
+            this.lblLCA.TabIndex = 99;
+            this.lblLCA.Text = "LCA";
             // 
-            // textBox1
+            // lblDOBoot
             // 
-            this.textBox1.Location = new System.Drawing.Point(78, 87);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(65, 20);
-            this.textBox1.TabIndex = 92;
-            this.textBox1.Text = "0";
+            this.lblDOBoot.Location = new System.Drawing.Point(18, 120);
+            this.lblDOBoot.Name = "lblDOBoot";
+            this.lblDOBoot.Size = new System.Drawing.Size(52, 17);
+            this.lblDOBoot.TabIndex = 98;
+            this.lblDOBoot.Text = "DO Boot";
             // 
-            // lblRunMA
+            // lblEOBoot
             // 
-            this.lblRunMA.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblRunMA.Location = new System.Drawing.Point(149, 44);
-            this.lblRunMA.Name = "lblRunMA";
-            this.lblRunMA.Size = new System.Drawing.Size(33, 13);
-            this.lblRunMA.TabIndex = 93;
-            this.lblRunMA.Text = "mA";
+            this.lblEOBoot.Location = new System.Drawing.Point(18, 95);
+            this.lblEOBoot.Name = "lblEOBoot";
+            this.lblEOBoot.Size = new System.Drawing.Size(52, 17);
+            this.lblEOBoot.TabIndex = 97;
+            this.lblEOBoot.Text = "EO Boot";
             // 
-            // lblIdleMA
+            // chbxRZ
             // 
-            this.lblIdleMA.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblIdleMA.Location = new System.Drawing.Point(149, 90);
-            this.lblIdleMA.Name = "lblIdleMA";
-            this.lblIdleMA.Size = new System.Drawing.Size(33, 13);
-            this.lblIdleMA.TabIndex = 94;
-            this.lblIdleMA.Text = "mA";
+            this.chbxRZ.Enabled = false;
+            this.chbxRZ.Location = new System.Drawing.Point(166, 71);
+            this.chbxRZ.Name = "chbxRZ";
+            this.chbxRZ.Size = new System.Drawing.Size(64, 17);
+            this.chbxRZ.TabIndex = 92;
+            this.chbxRZ.Text = "RZ";
             // 
-            // lblTimeMS
+            // chbxAlmLnp
             // 
-            this.lblTimeMS.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTimeMS.Location = new System.Drawing.Point(149, 136);
-            this.lblTimeMS.Name = "lblTimeMS";
-            this.lblTimeMS.Size = new System.Drawing.Size(33, 13);
-            this.lblTimeMS.TabIndex = 95;
-            this.lblTimeMS.Text = "mA";
+            this.chbxAlmLnp.Enabled = false;
+            this.chbxAlmLnp.Location = new System.Drawing.Point(166, 48);
+            this.chbxAlmLnp.Name = "chbxAlmLnp";
+            this.chbxAlmLnp.Size = new System.Drawing.Size(64, 17);
+            this.chbxAlmLnp.TabIndex = 91;
+            this.chbxAlmLnp.Text = "Alm/Inp";
             // 
-            // cmdOpen
+            // chbxAutoRun1
             // 
-            this.cmdOpen.Location = new System.Drawing.Point(6, 577);
-            this.cmdOpen.Name = "cmdOpen";
-            this.cmdOpen.Size = new System.Drawing.Size(70, 65);
-            this.cmdOpen.TabIndex = 104;
-            this.cmdOpen.Text = "Open";
-            this.cmdOpen.UseVisualStyleBackColor = true;
+            this.chbxAutoRun1.Enabled = false;
+            this.chbxAutoRun1.Location = new System.Drawing.Point(21, 71);
+            this.chbxAutoRun1.Name = "chbxAutoRun1";
+            this.chbxAutoRun1.Size = new System.Drawing.Size(95, 17);
+            this.chbxAutoRun1.TabIndex = 90;
+            this.chbxAutoRun1.Text = "Auto Run 1";
             // 
-            // cmdSave
+            // chbxAutoRun0
             // 
-            this.cmdSave.Location = new System.Drawing.Point(92, 577);
-            this.cmdSave.Name = "cmdSave";
-            this.cmdSave.Size = new System.Drawing.Size(70, 65);
-            this.cmdSave.TabIndex = 105;
-            this.cmdSave.Text = "Save";
-            this.cmdSave.UseVisualStyleBackColor = true;
+            this.chbxAutoRun0.Enabled = false;
+            this.chbxAutoRun0.Location = new System.Drawing.Point(21, 48);
+            this.chbxAutoRun0.Name = "chbxAutoRun0";
+            this.chbxAutoRun0.Size = new System.Drawing.Size(95, 17);
+            this.chbxAutoRun0.TabIndex = 89;
+            this.chbxAutoRun0.Text = "Auto Run 0";
             // 
-            // cmdUpload
+            // chbxIERR
             // 
-            this.cmdUpload.Location = new System.Drawing.Point(178, 577);
-            this.cmdUpload.Name = "cmdUpload";
-            this.cmdUpload.Size = new System.Drawing.Size(70, 65);
-            this.cmdUpload.TabIndex = 106;
-            this.cmdUpload.Text = "Upload";
-            this.cmdUpload.UseVisualStyleBackColor = true;
+            this.chbxIERR.Enabled = false;
+            this.chbxIERR.Location = new System.Drawing.Point(166, 25);
+            this.chbxIERR.Name = "chbxIERR";
+            this.chbxIERR.Size = new System.Drawing.Size(64, 17);
+            this.chbxIERR.TabIndex = 88;
+            this.chbxIERR.Text = "IERR";
             // 
-            // cmdDown
+            // chbxEnableDecel
             // 
-            this.cmdDown.Location = new System.Drawing.Point(265, 577);
-            this.cmdDown.Name = "cmdDown";
-            this.cmdDown.Size = new System.Drawing.Size(70, 65);
-            this.cmdDown.TabIndex = 107;
-            this.cmdDown.Text = "Down";
-            this.cmdDown.UseVisualStyleBackColor = true;
+            this.chbxEnableDecel.Enabled = false;
+            this.chbxEnableDecel.Location = new System.Drawing.Point(21, 25);
+            this.chbxEnableDecel.Name = "chbxEnableDecel";
+            this.chbxEnableDecel.Size = new System.Drawing.Size(95, 17);
+            this.chbxEnableDecel.TabIndex = 87;
+            this.chbxEnableDecel.Text = "Enable Decel";
             // 
-            // cmdStore
+            // gpbCommunicatinSetup
             // 
-            this.cmdStore.Location = new System.Drawing.Point(353, 577);
-            this.cmdStore.Name = "cmdStore";
-            this.cmdStore.Size = new System.Drawing.Size(70, 65);
-            this.cmdStore.TabIndex = 108;
-            this.cmdStore.Text = "Store";
-            this.cmdStore.UseVisualStyleBackColor = true;
+            this.gpbCommunicatinSetup.Controls.Add(this.lblMS);
+            this.gpbCommunicatinSetup.Controls.Add(this.chbAutoResponse);
+            this.gpbCommunicatinSetup.Controls.Add(this.gpbRSCommunication);
+            this.gpbCommunicatinSetup.Controls.Add(this.combxDeviceID);
+            this.gpbCommunicatinSetup.Controls.Add(this.combxBaudRate);
+            this.gpbCommunicatinSetup.Controls.Add(this.txtTimeOutCounter);
+            this.gpbCommunicatinSetup.Controls.Add(this.lblTimeOutCounter);
+            this.gpbCommunicatinSetup.Controls.Add(this.lblDeviceID);
+            this.gpbCommunicatinSetup.Controls.Add(this.lblBaudRate);
+            this.gpbCommunicatinSetup.Controls.Add(this.chbxSyncOutputEnableDO2);
+            this.gpbCommunicatinSetup.Location = new System.Drawing.Point(309, 10);
+            this.gpbCommunicatinSetup.Name = "gpbCommunicatinSetup";
+            this.gpbCommunicatinSetup.Size = new System.Drawing.Size(250, 186);
+            this.gpbCommunicatinSetup.TabIndex = 93;
+            this.gpbCommunicatinSetup.TabStop = false;
+            this.gpbCommunicatinSetup.Text = "Communication Setup";
             // 
-            // cmdClose
+            // lblMS
             // 
-            this.cmdClose.Location = new System.Drawing.Point(463, 577);
-            this.cmdClose.Name = "cmdClose";
-            this.cmdClose.Size = new System.Drawing.Size(93, 65);
-            this.cmdClose.TabIndex = 109;
-            this.cmdClose.Text = "Close";
-            this.cmdClose.UseVisualStyleBackColor = true;
-            this.cmdClose.Click += new System.EventHandler(this.cmdClose_Click);
+            this.lblMS.Location = new System.Drawing.Point(197, 160);
+            this.lblMS.Name = "lblMS";
+            this.lblMS.Size = new System.Drawing.Size(33, 17);
+            this.lblMS.TabIndex = 96;
+            this.lblMS.Text = "ms";
+            // 
+            // chbAutoResponse
+            // 
+            this.chbAutoResponse.Location = new System.Drawing.Point(131, 50);
+            this.chbAutoResponse.Name = "chbAutoResponse";
+            this.chbAutoResponse.Size = new System.Drawing.Size(99, 26);
+            this.chbAutoResponse.TabIndex = 95;
+            this.chbAutoResponse.Text = "Auto Response";
+            // 
+            // gpbRSCommunication
+            // 
+            this.gpbRSCommunication.Controls.Add(this.radioButton1);
+            this.gpbRSCommunication.Controls.Add(this.radRS485);
+            this.gpbRSCommunication.Location = new System.Drawing.Point(13, 15);
+            this.gpbRSCommunication.Name = "gpbRSCommunication";
+            this.gpbRSCommunication.Size = new System.Drawing.Size(95, 57);
+            this.gpbRSCommunication.TabIndex = 94;
+            this.gpbRSCommunication.TabStop = false;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(6, 31);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(61, 17);
+            this.radioButton1.TabIndex = 1;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "RS-232";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radRS485
+            // 
+            this.radRS485.AutoSize = true;
+            this.radRS485.Location = new System.Drawing.Point(6, 9);
+            this.radRS485.Name = "radRS485";
+            this.radRS485.Size = new System.Drawing.Size(61, 17);
+            this.radRS485.TabIndex = 0;
+            this.radRS485.TabStop = true;
+            this.radRS485.Text = "RS-485";
+            this.radRS485.UseVisualStyleBackColor = true;
+            // 
+            // combxDeviceID
+            // 
+            this.combxDeviceID.FormattingEnabled = true;
+            this.combxDeviceID.Location = new System.Drawing.Point(131, 119);
+            this.combxDeviceID.Name = "combxDeviceID";
+            this.combxDeviceID.Size = new System.Drawing.Size(60, 21);
+            this.combxDeviceID.TabIndex = 93;
+            // 
+            // combxBaudRate
+            // 
+            this.combxBaudRate.FormattingEnabled = true;
+            this.combxBaudRate.Location = new System.Drawing.Point(131, 85);
+            this.combxBaudRate.Name = "combxBaudRate";
+            this.combxBaudRate.Size = new System.Drawing.Size(99, 21);
+            this.combxBaudRate.TabIndex = 92;
+            // 
+            // txtTimeOutCounter
+            // 
+            this.txtTimeOutCounter.Enabled = false;
+            this.txtTimeOutCounter.Location = new System.Drawing.Point(131, 157);
+            this.txtTimeOutCounter.Name = "txtTimeOutCounter";
+            this.txtTimeOutCounter.ReadOnly = true;
+            this.txtTimeOutCounter.Size = new System.Drawing.Size(60, 20);
+            this.txtTimeOutCounter.TabIndex = 91;
+            this.txtTimeOutCounter.Text = "0";
+            // 
+            // lblTimeOutCounter
+            // 
+            this.lblTimeOutCounter.Location = new System.Drawing.Point(10, 160);
+            this.lblTimeOutCounter.Name = "lblTimeOutCounter";
+            this.lblTimeOutCounter.Size = new System.Drawing.Size(98, 17);
+            this.lblTimeOutCounter.TabIndex = 90;
+            this.lblTimeOutCounter.Text = "Time-out Counter";
+            // 
+            // lblDeviceID
+            // 
+            this.lblDeviceID.Location = new System.Drawing.Point(10, 123);
+            this.lblDeviceID.Name = "lblDeviceID";
+            this.lblDeviceID.Size = new System.Drawing.Size(71, 17);
+            this.lblDeviceID.TabIndex = 59;
+            this.lblDeviceID.Text = "Device ID";
+            // 
+            // lblBaudRate
+            // 
+            this.lblBaudRate.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblBaudRate.Location = new System.Drawing.Point(10, 88);
+            this.lblBaudRate.Name = "lblBaudRate";
+            this.lblBaudRate.Size = new System.Drawing.Size(71, 13);
+            this.lblBaudRate.TabIndex = 76;
+            this.lblBaudRate.Text = "Baud Rate";
+            // 
+            // chbxSyncOutputEnableDO2
+            // 
+            this.chbxSyncOutputEnableDO2.Location = new System.Drawing.Point(131, 19);
+            this.chbxSyncOutputEnableDO2.Name = "chbxSyncOutputEnableDO2";
+            this.chbxSyncOutputEnableDO2.Size = new System.Drawing.Size(81, 26);
+            this.chbxSyncOutputEnableDO2.TabIndex = 87;
+            this.chbxSyncOutputEnableDO2.Text = "Append ID";
             // 
             // MagSetupPage
             // 
@@ -650,18 +1136,40 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MagSetupPage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MagSetupPage";
+            this.gpbPolarity.ResumeLayout(false);
+            this.gpbPolarityEnable.ResumeLayout(false);
+            this.gpbPolarityEnable.PerformLayout();
+            this.gpbSAErr.ResumeLayout(false);
+            this.gpbSAErr.PerformLayout();
+            this.gpbInput.ResumeLayout(false);
+            this.gpbInput.PerformLayout();
+            this.gpbOutput.ResumeLayout(false);
+            this.gpbOutput.PerformLayout();
+            this.gpbAlarm.ResumeLayout(false);
+            this.gpbAlarm.PerformLayout();
+            this.gpbInPos.ResumeLayout(false);
+            this.gpbInPos.PerformLayout();
+            this.gpbLatch.ResumeLayout(false);
+            this.gpbLatch.PerformLayout();
+            this.gpbLimit.ResumeLayout(false);
+            this.gpbLimit.PerformLayout();
+            this.gpbHome.ResumeLayout(false);
+            this.gpbHome.PerformLayout();
+            this.gpbDir.ResumeLayout(false);
+            this.gpbDir.PerformLayout();
             this.gpbSetupPara.ResumeLayout(false);
+            this.gpbDriverCurrent.ResumeLayout(false);
+            this.gpbDriverCurrent.PerformLayout();
+            this.gpbStepNLoopControl.ResumeLayout(false);
+            this.gpbStepNLoopControl.PerformLayout();
+            this.gpbMiscSettings.ResumeLayout(false);
+            this.gpbMiscSettings.PerformLayout();
             this.gpbCommunicatinSetup.ResumeLayout(false);
             this.gpbCommunicatinSetup.PerformLayout();
             this.gpbRSCommunication.ResumeLayout(false);
             this.gpbRSCommunication.PerformLayout();
-            this.gpbMiscSettings.ResumeLayout(false);
-            this.gpbMiscSettings.PerformLayout();
-            this.gpbStepNLoopControl.ResumeLayout(false);
-            this.gpbStepNLoopControl.PerformLayout();
-            this.gpbDriverCurrent.ResumeLayout(false);
-            this.gpbDriverCurrent.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -724,5 +1232,45 @@
         internal System.Windows.Forms.Button cmdDown;
         internal System.Windows.Forms.Button cmdStore;
         internal System.Windows.Forms.Button cmdClose;
+        private System.Windows.Forms.Label cmdDir;
+        private System.Windows.Forms.Label lblHome;
+        private System.Windows.Forms.Label lblLatch;
+        private System.Windows.Forms.Label lblLimit;
+        private System.Windows.Forms.Label lblOutput;
+        private System.Windows.Forms.Label lblAlarm;
+        private System.Windows.Forms.Label lblInPos;
+        private System.Windows.Forms.Label lblInput;
+        private System.Windows.Forms.Label lblSAErr;
+        private System.Windows.Forms.Label lblEnable;
+        private System.Windows.Forms.GroupBox gpbDir;
+        private System.Windows.Forms.RadioButton radDirCW;
+        private System.Windows.Forms.RadioButton radDirCCW;
+        private System.Windows.Forms.GroupBox gpbHome;
+        private System.Windows.Forms.RadioButton radHomeLow;
+        private System.Windows.Forms.RadioButton radHomeHigh;
+        private System.Windows.Forms.GroupBox gpbLimit;
+        private System.Windows.Forms.RadioButton radLimitLow;
+        private System.Windows.Forms.RadioButton radLimitHigh;
+        private System.Windows.Forms.GroupBox gpbLatch;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.GroupBox gpbAlarm;
+        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.GroupBox gpbInPos;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.GroupBox gpbOutput;
+        private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.RadioButton radioButton9;
+        private System.Windows.Forms.GroupBox gpbInput;
+        private System.Windows.Forms.RadioButton radioButton10;
+        private System.Windows.Forms.RadioButton radioButton11;
+        private System.Windows.Forms.GroupBox gpbSAErr;
+        private System.Windows.Forms.RadioButton radioButton12;
+        private System.Windows.Forms.RadioButton radioButton13;
+        private System.Windows.Forms.GroupBox gpbPolarityEnable;
+        private System.Windows.Forms.RadioButton radioButton14;
+        private System.Windows.Forms.RadioButton radioButton15;
     }
 }

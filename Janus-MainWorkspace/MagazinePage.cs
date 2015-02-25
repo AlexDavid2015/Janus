@@ -47,6 +47,27 @@ namespace CxTitan
             //    MessageBox.Show("No Pump Device Found", "Get Device List Error");
             //}
 
+
+            // Device ID(combox)
+            string[] strDeviceIDs = new string[10];// 0 to 9, maximum is 9 Magazines
+            for (int i = 0; i < strDeviceIDs.Length; i++)
+            {
+                strDeviceIDs[i] = i.ToString();
+            }
+            SetDeviceIDComboBox(strDeviceIDs);
+
+            // Sync Cfg(combox)
+            string[] strSyncCfgs = new string[3];
+            strSyncCfgs[0] = "<";
+            strSyncCfgs[1] = "=";
+            strSyncCfgs[2] = ">";
+            SetSyncCfgComboBox(strSyncCfgs);
+            cbxSyncCfg.SelectedIndex = 1;// to point to "="
+
+
+
+
+            // Motor Initialize Part
             uint lpNumDevices = 0;
             MotorControls.fnPerformaxComGetNumDevices(ref lpNumDevices);
 
@@ -59,8 +80,31 @@ namespace CxTitan
             IntPtr ptr = new IntPtr(0);
             bool bOpen;
             bOpen = MotorControls.fnPerformaxComOpen(4, ref ptr);
+            // End of Motor Initialize Part
+        }
 
+        public void SetDeviceIDComboBox(string[] strDeviceIDs)
+        {
+            cbxDeviceID.BeginUpdate();
+            cbxDeviceID.Items.Clear();
+            for (int i = 0; i < strDeviceIDs.Length; i++)
+                cbxDeviceID.Items.Add(strDeviceIDs[i]);
 
+            if (cbxDeviceID.Items.Count > 0)
+                cbxDeviceID.SelectedIndex = 0;
+            cbxDeviceID.EndUpdate();
+        }
+
+        public void SetSyncCfgComboBox(string[] strSyncCfgs)
+        {
+            cbxSyncCfg.BeginUpdate();
+            cbxSyncCfg.Items.Clear();
+            for (int i = 0; i < strSyncCfgs.Length; i++)
+                cbxSyncCfg.Items.Add(strSyncCfgs[i]);
+
+            if (cbxSyncCfg.Items.Count > 0)
+                cbxSyncCfg.SelectedIndex = 0;
+            cbxSyncCfg.EndUpdate();
         }
 
         private void cmdSingMagCLOSE_Click(object sender, EventArgs e)
@@ -86,13 +130,13 @@ namespace CxTitan
         private void cmdTerminal_Click(object sender, EventArgs e)
         {
             MagTerminalPage terminalPage = new MagTerminalPage();
-            terminalPage.Show();
+            terminalPage.ShowDialog();
         }
 
         private void cmdSetup_Click(object sender, EventArgs e)
         {
             MagSetupPage setupPage = new MagSetupPage();
-            setupPage.Show();
+            setupPage.ShowDialog();
         }
 
         private void cmdFileOpen_Click(object sender, EventArgs e)
@@ -163,6 +207,12 @@ namespace CxTitan
         private void cmdSingHomeLimitSwitchPlus_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmdVariables_Click(object sender, EventArgs e)
+        {
+            MagVariablesPage magVariablesPage = new MagVariablesPage();
+            magVariablesPage.ShowDialog();
         }
     }
 }

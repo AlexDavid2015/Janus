@@ -1174,6 +1174,7 @@
             this.cmdVariables.TabIndex = 95;
             this.cmdVariables.Text = "Variables";
             this.cmdVariables.UseVisualStyleBackColor = true;
+            this.cmdVariables.Click += new System.EventHandler(this.cmdVariables_Click);
             // 
             // cmdCompile
             // 
@@ -1210,6 +1211,7 @@
             this.cmdView.TabIndex = 99;
             this.cmdView.Text = "View";
             this.cmdView.UseVisualStyleBackColor = true;
+            this.cmdView.Visible = false;
             // 
             // cmdClearCodeSpace
             // 
@@ -1396,6 +1398,7 @@
             // 
             // cbxSyncCfg
             // 
+            this.cbxSyncCfg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSyncCfg.FormattingEnabled = true;
             this.cbxSyncCfg.Location = new System.Drawing.Point(103, 62);
             this.cbxSyncCfg.Name = "cbxSyncCfg";
@@ -1468,6 +1471,7 @@
             // 
             // cbxDeviceID
             // 
+            this.cbxDeviceID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDeviceID.FormattingEnabled = true;
             this.cbxDeviceID.Location = new System.Drawing.Point(79, 43);
             this.cbxDeviceID.Name = "cbxDeviceID";
