@@ -68,6 +68,7 @@
             this.txtCommand.Name = "txtCommand";
             this.txtCommand.Size = new System.Drawing.Size(170, 20);
             this.txtCommand.TabIndex = 95;
+            this.txtCommand.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCommand_KeyPress);
             // 
             // cmdSave
             // 
@@ -89,7 +90,7 @@
             this.cmdClose.UseVisualStyleBackColor = true;
             this.cmdClose.Click += new System.EventHandler(this.cmdClose_Click);
             // 
-            // TerminalPage
+            // MagTerminalPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -102,7 +103,7 @@
             this.Controls.Add(this.textBox3);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "TerminalPage";
+            this.Name = "MagTerminalPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TerminalPage";
             this.ResumeLayout(false);

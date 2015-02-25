@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Performax;
@@ -34,6 +35,8 @@ namespace CxTitan
         private void cmdSingMoveToZero_Click(object sender, EventArgs e)
         {
             //MotorControls.SendReceive("PX=0");
+            Thread.Sleep(200);
+            MotorControls.oHyperTerminalAdapter.Write("@01X0\r");
         }
 
         private void MagazinePage_Load(object sender, EventArgs e)
@@ -49,10 +52,10 @@ namespace CxTitan
 
 
             // Device ID(combox)
-            string[] strDeviceIDs = new string[10];// 0 to 9, maximum is 9 Magazines
+            string[] strDeviceIDs = new string[16];// 0 to 15, maximum is 15 Magazines
             for (int i = 0; i < strDeviceIDs.Length; i++)
             {
-                strDeviceIDs[i] = i.ToString();
+                strDeviceIDs[i] = i.ToString();// from COM0 to COM15
             }
             SetDeviceIDComboBox(strDeviceIDs);
 
@@ -66,21 +69,38 @@ namespace CxTitan
 
 
 
+            // Serial port connected and motion intialize
+            if (MotorControls.oHyperTerminalAdapter.Connect())
+            {
+                lblPort.Text = "Successful";
+                lblPort.BackColor = Color.Green;
+            }
+            else
+            {
+                lblPort.Text = "Error";
+                lblPort.BackColor = Color.Red;
+            }
+            cbxDeviceID.SelectedIndex = MotorControls.oHyperTerminalAdapter.COMID;
 
-            // Motor Initialize Part
-            uint lpNumDevices = 0;
-            MotorControls.fnPerformaxComGetNumDevices(ref lpNumDevices);
 
-            //MotorControls.fnPerformaxComGetProductString()
 
-            uint dwReadTimeout = 5000;
-            uint dwWriteTimeout = 5000;
-            MotorControls.fnPerformaxComSetTimeouts(dwReadTimeout, dwWriteTimeout);
 
-            IntPtr ptr = new IntPtr(0);
-            bool bOpen;
-            bOpen = MotorControls.fnPerformaxComOpen(4, ref ptr);
-            // End of Motor Initialize Part
+
+
+            //// Motor Initialize Part
+            //uint lpNumDevices = 0;
+            //MotorControls.fnPerformaxComGetNumDevices(ref lpNumDevices);
+
+            ////MotorControls.fnPerformaxComGetProductString()
+
+            //uint dwReadTimeout = 5000;
+            //uint dwWriteTimeout = 5000;
+            //MotorControls.fnPerformaxComSetTimeouts(dwReadTimeout, dwWriteTimeout);
+
+            //IntPtr ptr = new IntPtr(0);
+            //bool bOpen;
+            //bOpen = MotorControls.fnPerformaxComOpen(4, ref ptr);
+            //// End of Motor Initialize Part
         }
 
         public void SetDeviceIDComboBox(string[] strDeviceIDs)
@@ -114,12 +134,14 @@ namespace CxTitan
 
         private void cmdSingJogMinus_Click(object sender, EventArgs e)
         {
-
+            Thread.Sleep(200);
+            MotorControls.oHyperTerminalAdapter.Write("@01J-\r");
         }
 
         private void cmdSingJogPlus_Click(object sender, EventArgs e)
         {
-
+            Thread.Sleep(200);
+            MotorControls.oHyperTerminalAdapter.Write("@01J+\r");
         }
 
         private void cmdClearCodeSpace_Click(object sender, EventArgs e)
@@ -191,28 +213,38 @@ namespace CxTitan
 
         private void cmdSingRampStop_Click(object sender, EventArgs e)
         {
-
+            Thread.Sleep(200);
+            MotorControls.oHyperTerminalAdapter.Write("@01STOP\r");
         }
 
         private void cmdSingImmediateStop_Click(object sender, EventArgs e)
         {
-
+            Thread.Sleep(200);
+            MotorControls.oHyperTerminalAdapter.Write("@01ABORT\r");
         }
 
         private void cmdSingHomeLimitSwitchMinus_Click(object sender, EventArgs e)
         {
-
+            Thread.Sleep(200);
+            MotorControls.oHyperTerminalAdapter.Write("@01L-\r");
         }
 
         private void cmdSingHomeLimitSwitchPlus_Click(object sender, EventArgs e)
         {
-
+            Thread.Sleep(200);
+            MotorControls.oHyperTerminalAdapter.Write("@01L+\r");
         }
 
         private void cmdVariables_Click(object sender, EventArgs e)
         {
             MagVariablesPage magVariablesPage = new MagVariablesPage();
             magVariablesPage.ShowDialog();
+        }
+
+        private void cmdClearError_Click(object sender, EventArgs e)
+        {
+            Thread.Sleep(200);
+            MotorControls.oHyperTerminalAdapter.Write("@01CLR\r");
         }
     }
 }

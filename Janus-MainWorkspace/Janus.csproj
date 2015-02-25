@@ -140,6 +140,7 @@
     <Compile Include="CouplerInformation.Designer.cs">
       <DependentUpon>CouplerInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="HyperTerminalAdapter.cs" />
     <Compile Include="Input.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -10,19 +10,22 @@ namespace CxTitan
 {
     public static class MotorControls
     {
-        const string DLL_Path = "D:\\JanusProjects\\Repos\\Janus-MainWorkspace\\bin\\Debug\\PerformaxCom.dll";
-        [DllImport(DLL_Path)]
-        public static extern bool fnPerformaxComOpen(uint dwDeviceNum, ref IntPtr pHandle);
+        public static HyperTerminalAdapter oHyperTerminalAdapter = new HyperTerminalAdapter();
 
-        [DllImport(DLL_Path)]
-        public static extern bool fnPerformaxComGetNumDevices(ref uint lpNumDevices);
+        //const string DLL_Path = "D:\\JanusProjects\\Repos\\Janus-MainWorkspace\\bin\\Debug\\PerformaxCom.dll";
+        //[DllImport(DLL_Path)]
+        //public static extern bool fnPerformaxComOpen(uint dwDeviceNum, ref IntPtr pHandle);
 
-        [DllImport(DLL_Path)]
-        public static extern bool fnPerformaxComSetTimeouts(uint dwReadTimeout, uint dwWriteTimeout);
+        //[DllImport(DLL_Path)]
+        //public static extern bool fnPerformaxComGetNumDevices(ref uint lpNumDevices);
 
-        [DllImport(DLL_Path)]
-        public static extern bool fnPerformaxComGetProductString(uint dwNumDevices, ref IntPtr lpDeviceString,
-            uint dwOptions);
+        //[DllImport(DLL_Path)]
+        //public static extern bool fnPerformaxComSetTimeouts(uint dwReadTimeout, uint dwWriteTimeout);
+
+        //[DllImport(DLL_Path)]
+        //public static extern bool fnPerformaxComGetProductString(uint dwNumDevices, ref IntPtr lpDeviceString,
+        //    uint dwOptions);
+
 
         //private static string sdeviceStr;
         //public static bool bRunMode = false, bComStatus, bUpdatePar, bparChanged, bAutoHoming, bMoving;

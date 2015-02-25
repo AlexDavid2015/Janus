@@ -223,7 +223,7 @@
             this.cmdClearError.TabIndex = 58;
             this.cmdClearError.Text = "C";
             this.cmdClearError.UseVisualStyleBackColor = false;
-            this.cmdClearError.Visible = false;
+            this.cmdClearError.Click += new System.EventHandler(this.cmdClearError_Click);
             // 
             // label1
             // 
@@ -270,7 +270,6 @@
             this.cmdResetPulse.TabIndex = 53;
             this.cmdResetPulse.Text = "R";
             this.cmdResetPulse.UseVisualStyleBackColor = false;
-            this.cmdResetPulse.Visible = false;
             // 
             // txtCurrent
             // 
