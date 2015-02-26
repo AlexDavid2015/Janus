@@ -79,27 +79,27 @@
             this.cmdMultiHomeLimitSwitchPlus = new System.Windows.Forms.Button();
             this.cmdMultiRampStop = new System.Windows.Forms.Button();
             this.cmdMultiMoveToZero = new System.Windows.Forms.Button();
-            this.cmdMultiMagCLOSE = new System.Windows.Forms.Button();
+            this.cmdMultiMagHomePlus = new System.Windows.Forms.Button();
             this.cmdMultiHomeLimitSwitchMinus = new System.Windows.Forms.Button();
-            this.cmdMultiJogPlusFast = new System.Windows.Forms.Button();
+            this.cmdMultiMagHomeLowSpeedPlus = new System.Windows.Forms.Button();
             this.cmdMultiJogPlus = new System.Windows.Forms.Button();
-            this.cmdMultiMagOPEN = new System.Windows.Forms.Button();
+            this.cmdMultiMagHomeMinus = new System.Windows.Forms.Button();
             this.cmdMultiImmediateStop = new System.Windows.Forms.Button();
-            this.cmdMultiJogMinusFast = new System.Windows.Forms.Button();
+            this.cmdMultiMagHomeLowSpeedMinus = new System.Windows.Forms.Button();
             this.cmdMultiJogMinus = new System.Windows.Forms.Button();
-            this.cmdMultiMagHOME = new System.Windows.Forms.Button();
+            this.cmdMultiMagABS = new System.Windows.Forms.Button();
             this.cmdSingHomeLimitSwitchPlus = new System.Windows.Forms.Button();
             this.cmdSingHomeLimitSwitchMinus = new System.Windows.Forms.Button();
             this.cmdSingImmediateStop = new System.Windows.Forms.Button();
             this.cmdSingRampStop = new System.Windows.Forms.Button();
-            this.cmdSingJogPlusFast = new System.Windows.Forms.Button();
-            this.cmdSingJogMinusFast = new System.Windows.Forms.Button();
+            this.cmdSingMagHomeLowSpeedPlus = new System.Windows.Forms.Button();
+            this.cmdSingMagHomeLowSpeedMinus = new System.Windows.Forms.Button();
             this.cmdSingJogPlus = new System.Windows.Forms.Button();
             this.cmdSingJogMinus = new System.Windows.Forms.Button();
             this.cmdSingMoveToZero = new System.Windows.Forms.Button();
-            this.cmdSingMagCLOSE = new System.Windows.Forms.Button();
-            this.cmdSingMagOPEN = new System.Windows.Forms.Button();
-            this.cmdSingMagHOME = new System.Windows.Forms.Button();
+            this.cmdSingMagHomePlus = new System.Windows.Forms.Button();
+            this.cmdSingMagHomeMinus = new System.Windows.Forms.Button();
+            this.cmdSingMagABS = new System.Windows.Forms.Button();
             this.cmdSetPulsePos = new System.Windows.Forms.Button();
             this.cmdSetEncoderPos = new System.Windows.Forms.Button();
             this.cmdINC = new System.Windows.Forms.Button();
@@ -108,16 +108,16 @@
             this.cmdTRAP = new System.Windows.Forms.Button();
             this.cmdSCV = new System.Windows.Forms.Button();
             this.chbxMagMotorControlEnable = new System.Windows.Forms.CheckBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDecel = new System.Windows.Forms.TextBox();
+            this.lblDecel = new System.Windows.Forms.Label();
+            this.txtAccel = new System.Windows.Forms.TextBox();
             this.lblAccel = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtLowSpeed = new System.Windows.Forms.TextBox();
+            this.txtHighSpeed = new System.Windows.Forms.TextBox();
             this.txtRefPos = new System.Windows.Forms.TextBox();
             this.lblLowSpeed = new System.Windows.Forms.Label();
             this.lblHighSpeed = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblPos = new System.Windows.Forms.Label();
             this.gpbProgramControl = new System.Windows.Forms.GroupBox();
             this.cmdXThread = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -638,27 +638,27 @@
             this.gpbControl.Controls.Add(this.cmdMultiHomeLimitSwitchPlus);
             this.gpbControl.Controls.Add(this.cmdMultiRampStop);
             this.gpbControl.Controls.Add(this.cmdMultiMoveToZero);
-            this.gpbControl.Controls.Add(this.cmdMultiMagCLOSE);
+            this.gpbControl.Controls.Add(this.cmdMultiMagHomePlus);
             this.gpbControl.Controls.Add(this.cmdMultiHomeLimitSwitchMinus);
-            this.gpbControl.Controls.Add(this.cmdMultiJogPlusFast);
+            this.gpbControl.Controls.Add(this.cmdMultiMagHomeLowSpeedPlus);
             this.gpbControl.Controls.Add(this.cmdMultiJogPlus);
-            this.gpbControl.Controls.Add(this.cmdMultiMagOPEN);
+            this.gpbControl.Controls.Add(this.cmdMultiMagHomeMinus);
             this.gpbControl.Controls.Add(this.cmdMultiImmediateStop);
-            this.gpbControl.Controls.Add(this.cmdMultiJogMinusFast);
+            this.gpbControl.Controls.Add(this.cmdMultiMagHomeLowSpeedMinus);
             this.gpbControl.Controls.Add(this.cmdMultiJogMinus);
-            this.gpbControl.Controls.Add(this.cmdMultiMagHOME);
+            this.gpbControl.Controls.Add(this.cmdMultiMagABS);
             this.gpbControl.Controls.Add(this.cmdSingHomeLimitSwitchPlus);
             this.gpbControl.Controls.Add(this.cmdSingHomeLimitSwitchMinus);
             this.gpbControl.Controls.Add(this.cmdSingImmediateStop);
             this.gpbControl.Controls.Add(this.cmdSingRampStop);
-            this.gpbControl.Controls.Add(this.cmdSingJogPlusFast);
-            this.gpbControl.Controls.Add(this.cmdSingJogMinusFast);
+            this.gpbControl.Controls.Add(this.cmdSingMagHomeLowSpeedPlus);
+            this.gpbControl.Controls.Add(this.cmdSingMagHomeLowSpeedMinus);
             this.gpbControl.Controls.Add(this.cmdSingJogPlus);
             this.gpbControl.Controls.Add(this.cmdSingJogMinus);
             this.gpbControl.Controls.Add(this.cmdSingMoveToZero);
-            this.gpbControl.Controls.Add(this.cmdSingMagCLOSE);
-            this.gpbControl.Controls.Add(this.cmdSingMagOPEN);
-            this.gpbControl.Controls.Add(this.cmdSingMagHOME);
+            this.gpbControl.Controls.Add(this.cmdSingMagHomePlus);
+            this.gpbControl.Controls.Add(this.cmdSingMagHomeMinus);
+            this.gpbControl.Controls.Add(this.cmdSingMagABS);
             this.gpbControl.Controls.Add(this.cmdSetPulsePos);
             this.gpbControl.Controls.Add(this.cmdSetEncoderPos);
             this.gpbControl.Controls.Add(this.cmdINC);
@@ -667,16 +667,16 @@
             this.gpbControl.Controls.Add(this.cmdTRAP);
             this.gpbControl.Controls.Add(this.cmdSCV);
             this.gpbControl.Controls.Add(this.chbxMagMotorControlEnable);
-            this.gpbControl.Controls.Add(this.textBox2);
-            this.gpbControl.Controls.Add(this.label2);
-            this.gpbControl.Controls.Add(this.textBox1);
+            this.gpbControl.Controls.Add(this.txtDecel);
+            this.gpbControl.Controls.Add(this.lblDecel);
+            this.gpbControl.Controls.Add(this.txtAccel);
             this.gpbControl.Controls.Add(this.lblAccel);
-            this.gpbControl.Controls.Add(this.textBox4);
-            this.gpbControl.Controls.Add(this.textBox5);
+            this.gpbControl.Controls.Add(this.txtLowSpeed);
+            this.gpbControl.Controls.Add(this.txtHighSpeed);
             this.gpbControl.Controls.Add(this.txtRefPos);
             this.gpbControl.Controls.Add(this.lblLowSpeed);
             this.gpbControl.Controls.Add(this.lblHighSpeed);
-            this.gpbControl.Controls.Add(this.label13);
+            this.gpbControl.Controls.Add(this.lblPos);
             this.gpbControl.Location = new System.Drawing.Point(322, 12);
             this.gpbControl.Name = "gpbControl";
             this.gpbControl.Size = new System.Drawing.Size(479, 268);
@@ -714,15 +714,15 @@
             this.cmdMultiMoveToZero.Text = "G->0";
             this.cmdMultiMoveToZero.UseVisualStyleBackColor = false;
             // 
-            // cmdMultiMagCLOSE
+            // cmdMultiMagHomePlus
             // 
-            this.cmdMultiMagCLOSE.BackColor = System.Drawing.Color.DarkGray;
-            this.cmdMultiMagCLOSE.Location = new System.Drawing.Point(407, 142);
-            this.cmdMultiMagCLOSE.Name = "cmdMultiMagCLOSE";
-            this.cmdMultiMagCLOSE.Size = new System.Drawing.Size(60, 25);
-            this.cmdMultiMagCLOSE.TabIndex = 95;
-            this.cmdMultiMagCLOSE.Text = "GCLOSE";
-            this.cmdMultiMagCLOSE.UseVisualStyleBackColor = false;
+            this.cmdMultiMagHomePlus.BackColor = System.Drawing.Color.DarkGray;
+            this.cmdMultiMagHomePlus.Location = new System.Drawing.Point(407, 142);
+            this.cmdMultiMagHomePlus.Name = "cmdMultiMagHomePlus";
+            this.cmdMultiMagHomePlus.Size = new System.Drawing.Size(60, 25);
+            this.cmdMultiMagHomePlus.TabIndex = 95;
+            this.cmdMultiMagHomePlus.Text = "GH+";
+            this.cmdMultiMagHomePlus.UseVisualStyleBackColor = false;
             // 
             // cmdMultiHomeLimitSwitchMinus
             // 
@@ -734,15 +734,15 @@
             this.cmdMultiHomeLimitSwitchMinus.Text = "GL-";
             this.cmdMultiHomeLimitSwitchMinus.UseVisualStyleBackColor = false;
             // 
-            // cmdMultiJogPlusFast
+            // cmdMultiMagHomeLowSpeedPlus
             // 
-            this.cmdMultiJogPlusFast.BackColor = System.Drawing.Color.DarkGray;
-            this.cmdMultiJogPlusFast.Location = new System.Drawing.Point(336, 203);
-            this.cmdMultiJogPlusFast.Name = "cmdMultiJogPlusFast";
-            this.cmdMultiJogPlusFast.Size = new System.Drawing.Size(60, 25);
-            this.cmdMultiJogPlusFast.TabIndex = 93;
-            this.cmdMultiJogPlusFast.Text = "GJOG++";
-            this.cmdMultiJogPlusFast.UseVisualStyleBackColor = false;
+            this.cmdMultiMagHomeLowSpeedPlus.BackColor = System.Drawing.Color.DarkGray;
+            this.cmdMultiMagHomeLowSpeedPlus.Location = new System.Drawing.Point(336, 203);
+            this.cmdMultiMagHomeLowSpeedPlus.Name = "cmdMultiMagHomeLowSpeedPlus";
+            this.cmdMultiMagHomeLowSpeedPlus.Size = new System.Drawing.Size(60, 25);
+            this.cmdMultiMagHomeLowSpeedPlus.TabIndex = 93;
+            this.cmdMultiMagHomeLowSpeedPlus.Text = "GHL+";
+            this.cmdMultiMagHomeLowSpeedPlus.UseVisualStyleBackColor = false;
             // 
             // cmdMultiJogPlus
             // 
@@ -754,15 +754,15 @@
             this.cmdMultiJogPlus.Text = "GJOG+";
             this.cmdMultiJogPlus.UseVisualStyleBackColor = false;
             // 
-            // cmdMultiMagOPEN
+            // cmdMultiMagHomeMinus
             // 
-            this.cmdMultiMagOPEN.BackColor = System.Drawing.Color.DarkGray;
-            this.cmdMultiMagOPEN.Location = new System.Drawing.Point(336, 142);
-            this.cmdMultiMagOPEN.Name = "cmdMultiMagOPEN";
-            this.cmdMultiMagOPEN.Size = new System.Drawing.Size(60, 25);
-            this.cmdMultiMagOPEN.TabIndex = 91;
-            this.cmdMultiMagOPEN.Text = "GOPEN";
-            this.cmdMultiMagOPEN.UseVisualStyleBackColor = false;
+            this.cmdMultiMagHomeMinus.BackColor = System.Drawing.Color.DarkGray;
+            this.cmdMultiMagHomeMinus.Location = new System.Drawing.Point(336, 142);
+            this.cmdMultiMagHomeMinus.Name = "cmdMultiMagHomeMinus";
+            this.cmdMultiMagHomeMinus.Size = new System.Drawing.Size(60, 25);
+            this.cmdMultiMagHomeMinus.TabIndex = 91;
+            this.cmdMultiMagHomeMinus.Text = "GH-";
+            this.cmdMultiMagHomeMinus.UseVisualStyleBackColor = false;
             // 
             // cmdMultiImmediateStop
             // 
@@ -774,15 +774,15 @@
             this.cmdMultiImmediateStop.Text = "GISTOP";
             this.cmdMultiImmediateStop.UseVisualStyleBackColor = false;
             // 
-            // cmdMultiJogMinusFast
+            // cmdMultiMagHomeLowSpeedMinus
             // 
-            this.cmdMultiJogMinusFast.BackColor = System.Drawing.Color.DarkGray;
-            this.cmdMultiJogMinusFast.Location = new System.Drawing.Point(265, 203);
-            this.cmdMultiJogMinusFast.Name = "cmdMultiJogMinusFast";
-            this.cmdMultiJogMinusFast.Size = new System.Drawing.Size(60, 25);
-            this.cmdMultiJogMinusFast.TabIndex = 89;
-            this.cmdMultiJogMinusFast.Text = "GJOG--";
-            this.cmdMultiJogMinusFast.UseVisualStyleBackColor = false;
+            this.cmdMultiMagHomeLowSpeedMinus.BackColor = System.Drawing.Color.DarkGray;
+            this.cmdMultiMagHomeLowSpeedMinus.Location = new System.Drawing.Point(265, 203);
+            this.cmdMultiMagHomeLowSpeedMinus.Name = "cmdMultiMagHomeLowSpeedMinus";
+            this.cmdMultiMagHomeLowSpeedMinus.Size = new System.Drawing.Size(60, 25);
+            this.cmdMultiMagHomeLowSpeedMinus.TabIndex = 89;
+            this.cmdMultiMagHomeLowSpeedMinus.Text = "GHL-";
+            this.cmdMultiMagHomeLowSpeedMinus.UseVisualStyleBackColor = false;
             // 
             // cmdMultiJogMinus
             // 
@@ -794,15 +794,15 @@
             this.cmdMultiJogMinus.Text = "GJOG-";
             this.cmdMultiJogMinus.UseVisualStyleBackColor = false;
             // 
-            // cmdMultiMagHOME
+            // cmdMultiMagABS
             // 
-            this.cmdMultiMagHOME.BackColor = System.Drawing.Color.DarkGray;
-            this.cmdMultiMagHOME.Location = new System.Drawing.Point(265, 142);
-            this.cmdMultiMagHOME.Name = "cmdMultiMagHOME";
-            this.cmdMultiMagHOME.Size = new System.Drawing.Size(60, 25);
-            this.cmdMultiMagHOME.TabIndex = 87;
-            this.cmdMultiMagHOME.Text = "GHOME";
-            this.cmdMultiMagHOME.UseVisualStyleBackColor = false;
+            this.cmdMultiMagABS.BackColor = System.Drawing.Color.DarkGray;
+            this.cmdMultiMagABS.Location = new System.Drawing.Point(265, 142);
+            this.cmdMultiMagABS.Name = "cmdMultiMagABS";
+            this.cmdMultiMagABS.Size = new System.Drawing.Size(60, 25);
+            this.cmdMultiMagABS.TabIndex = 87;
+            this.cmdMultiMagABS.Text = "GABS";
+            this.cmdMultiMagABS.UseVisualStyleBackColor = false;
             // 
             // cmdSingHomeLimitSwitchPlus
             // 
@@ -844,25 +844,25 @@
             this.cmdSingRampStop.UseVisualStyleBackColor = true;
             this.cmdSingRampStop.Click += new System.EventHandler(this.cmdSingRampStop_Click);
             // 
-            // cmdSingJogPlusFast
+            // cmdSingMagHomeLowSpeedPlus
             // 
-            this.cmdSingJogPlusFast.Location = new System.Drawing.Point(336, 82);
-            this.cmdSingJogPlusFast.Name = "cmdSingJogPlusFast";
-            this.cmdSingJogPlusFast.Size = new System.Drawing.Size(60, 25);
-            this.cmdSingJogPlusFast.TabIndex = 82;
-            this.cmdSingJogPlusFast.Text = "JOG++";
-            this.cmdSingJogPlusFast.UseVisualStyleBackColor = true;
-            this.cmdSingJogPlusFast.Click += new System.EventHandler(this.cmdSingJogPlusFast_Click);
+            this.cmdSingMagHomeLowSpeedPlus.Location = new System.Drawing.Point(336, 82);
+            this.cmdSingMagHomeLowSpeedPlus.Name = "cmdSingMagHomeLowSpeedPlus";
+            this.cmdSingMagHomeLowSpeedPlus.Size = new System.Drawing.Size(60, 25);
+            this.cmdSingMagHomeLowSpeedPlus.TabIndex = 82;
+            this.cmdSingMagHomeLowSpeedPlus.Text = "HL+";
+            this.cmdSingMagHomeLowSpeedPlus.UseVisualStyleBackColor = true;
+            this.cmdSingMagHomeLowSpeedPlus.Click += new System.EventHandler(this.cmdSingMagHomeLowSpeedPlus_Click);
             // 
-            // cmdSingJogMinusFast
+            // cmdSingMagHomeLowSpeedMinus
             // 
-            this.cmdSingJogMinusFast.Location = new System.Drawing.Point(265, 82);
-            this.cmdSingJogMinusFast.Name = "cmdSingJogMinusFast";
-            this.cmdSingJogMinusFast.Size = new System.Drawing.Size(60, 25);
-            this.cmdSingJogMinusFast.TabIndex = 81;
-            this.cmdSingJogMinusFast.Text = "JOG--";
-            this.cmdSingJogMinusFast.UseVisualStyleBackColor = true;
-            this.cmdSingJogMinusFast.Click += new System.EventHandler(this.cmdSingJogMinusFast_Click);
+            this.cmdSingMagHomeLowSpeedMinus.Location = new System.Drawing.Point(265, 82);
+            this.cmdSingMagHomeLowSpeedMinus.Name = "cmdSingMagHomeLowSpeedMinus";
+            this.cmdSingMagHomeLowSpeedMinus.Size = new System.Drawing.Size(60, 25);
+            this.cmdSingMagHomeLowSpeedMinus.TabIndex = 81;
+            this.cmdSingMagHomeLowSpeedMinus.Text = "HL-";
+            this.cmdSingMagHomeLowSpeedMinus.UseVisualStyleBackColor = true;
+            this.cmdSingMagHomeLowSpeedMinus.Click += new System.EventHandler(this.cmdSingMagHomeLowSpeedMinus_Click);
             // 
             // cmdSingJogPlus
             // 
@@ -894,35 +894,35 @@
             this.cmdSingMoveToZero.UseVisualStyleBackColor = true;
             this.cmdSingMoveToZero.Click += new System.EventHandler(this.cmdSingMoveToZero_Click);
             // 
-            // cmdSingMagCLOSE
+            // cmdSingMagHomePlus
             // 
-            this.cmdSingMagCLOSE.Location = new System.Drawing.Point(407, 22);
-            this.cmdSingMagCLOSE.Name = "cmdSingMagCLOSE";
-            this.cmdSingMagCLOSE.Size = new System.Drawing.Size(60, 25);
-            this.cmdSingMagCLOSE.TabIndex = 77;
-            this.cmdSingMagCLOSE.Text = "CLOSE";
-            this.cmdSingMagCLOSE.UseVisualStyleBackColor = true;
-            this.cmdSingMagCLOSE.Click += new System.EventHandler(this.cmdSingMagCLOSE_Click);
+            this.cmdSingMagHomePlus.Location = new System.Drawing.Point(407, 22);
+            this.cmdSingMagHomePlus.Name = "cmdSingMagHomePlus";
+            this.cmdSingMagHomePlus.Size = new System.Drawing.Size(60, 25);
+            this.cmdSingMagHomePlus.TabIndex = 77;
+            this.cmdSingMagHomePlus.Text = "H+";
+            this.cmdSingMagHomePlus.UseVisualStyleBackColor = true;
+            this.cmdSingMagHomePlus.Click += new System.EventHandler(this.cmdSingMagHomePlus_Click);
             // 
-            // cmdSingMagOPEN
+            // cmdSingMagHomeMinus
             // 
-            this.cmdSingMagOPEN.Location = new System.Drawing.Point(336, 22);
-            this.cmdSingMagOPEN.Name = "cmdSingMagOPEN";
-            this.cmdSingMagOPEN.Size = new System.Drawing.Size(60, 25);
-            this.cmdSingMagOPEN.TabIndex = 76;
-            this.cmdSingMagOPEN.Text = "OPEN";
-            this.cmdSingMagOPEN.UseVisualStyleBackColor = true;
-            this.cmdSingMagOPEN.Click += new System.EventHandler(this.cmdSingMagOPEN_Click);
+            this.cmdSingMagHomeMinus.Location = new System.Drawing.Point(336, 22);
+            this.cmdSingMagHomeMinus.Name = "cmdSingMagHomeMinus";
+            this.cmdSingMagHomeMinus.Size = new System.Drawing.Size(60, 25);
+            this.cmdSingMagHomeMinus.TabIndex = 76;
+            this.cmdSingMagHomeMinus.Text = "H-";
+            this.cmdSingMagHomeMinus.UseVisualStyleBackColor = true;
+            this.cmdSingMagHomeMinus.Click += new System.EventHandler(this.cmdSingMagHomeMinus_Click);
             // 
-            // cmdSingMagHOME
+            // cmdSingMagABS
             // 
-            this.cmdSingMagHOME.Location = new System.Drawing.Point(265, 22);
-            this.cmdSingMagHOME.Name = "cmdSingMagHOME";
-            this.cmdSingMagHOME.Size = new System.Drawing.Size(60, 25);
-            this.cmdSingMagHOME.TabIndex = 75;
-            this.cmdSingMagHOME.Text = "HOME";
-            this.cmdSingMagHOME.UseVisualStyleBackColor = true;
-            this.cmdSingMagHOME.Click += new System.EventHandler(this.cmdSingMagHOME_Click);
+            this.cmdSingMagABS.Location = new System.Drawing.Point(265, 22);
+            this.cmdSingMagABS.Name = "cmdSingMagABS";
+            this.cmdSingMagABS.Size = new System.Drawing.Size(60, 25);
+            this.cmdSingMagABS.TabIndex = 75;
+            this.cmdSingMagABS.Text = "ABS";
+            this.cmdSingMagABS.UseVisualStyleBackColor = true;
+            this.cmdSingMagABS.Click += new System.EventHandler(this.cmdSingMagABS_Click);
             // 
             // cmdSetPulsePos
             // 
@@ -1023,29 +1023,29 @@
             this.chbxMagMotorControlEnable.TabIndex = 67;
             this.chbxMagMotorControlEnable.Text = "Enable";
             // 
-            // textBox2
+            // txtDecel
             // 
-            this.textBox2.Location = new System.Drawing.Point(103, 145);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(143, 20);
-            this.textBox2.TabIndex = 57;
-            this.textBox2.Text = "0";
+            this.txtDecel.Location = new System.Drawing.Point(103, 145);
+            this.txtDecel.Name = "txtDecel";
+            this.txtDecel.Size = new System.Drawing.Size(143, 20);
+            this.txtDecel.TabIndex = 57;
+            this.txtDecel.Text = "0";
             // 
-            // label2
+            // lblDecel
             // 
-            this.label2.Location = new System.Drawing.Point(18, 148);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 17);
-            this.label2.TabIndex = 56;
-            this.label2.Text = "Decel";
+            this.lblDecel.Location = new System.Drawing.Point(18, 148);
+            this.lblDecel.Name = "lblDecel";
+            this.lblDecel.Size = new System.Drawing.Size(37, 17);
+            this.lblDecel.TabIndex = 56;
+            this.lblDecel.Text = "Decel";
             // 
-            // textBox1
+            // txtAccel
             // 
-            this.textBox1.Location = new System.Drawing.Point(103, 115);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 20);
-            this.textBox1.TabIndex = 55;
-            this.textBox1.Text = "300";
+            this.txtAccel.Location = new System.Drawing.Point(103, 115);
+            this.txtAccel.Name = "txtAccel";
+            this.txtAccel.Size = new System.Drawing.Size(143, 20);
+            this.txtAccel.TabIndex = 55;
+            this.txtAccel.Text = "300";
             // 
             // lblAccel
             // 
@@ -1055,21 +1055,21 @@
             this.lblAccel.TabIndex = 54;
             this.lblAccel.Text = "Accel";
             // 
-            // textBox4
+            // txtLowSpeed
             // 
-            this.textBox4.Location = new System.Drawing.Point(103, 85);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(143, 20);
-            this.textBox4.TabIndex = 50;
-            this.textBox4.Text = "300";
+            this.txtLowSpeed.Location = new System.Drawing.Point(103, 85);
+            this.txtLowSpeed.Name = "txtLowSpeed";
+            this.txtLowSpeed.Size = new System.Drawing.Size(143, 20);
+            this.txtLowSpeed.TabIndex = 50;
+            this.txtLowSpeed.Text = "300";
             // 
-            // textBox5
+            // txtHighSpeed
             // 
-            this.textBox5.Location = new System.Drawing.Point(103, 55);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(143, 20);
-            this.textBox5.TabIndex = 49;
-            this.textBox5.Text = "1000";
+            this.txtHighSpeed.Location = new System.Drawing.Point(103, 55);
+            this.txtHighSpeed.Name = "txtHighSpeed";
+            this.txtHighSpeed.Size = new System.Drawing.Size(143, 20);
+            this.txtHighSpeed.TabIndex = 49;
+            this.txtHighSpeed.Text = "1000";
             // 
             // txtRefPos
             // 
@@ -1095,13 +1095,13 @@
             this.lblHighSpeed.TabIndex = 1;
             this.lblHighSpeed.Text = "High Speed";
             // 
-            // label13
+            // lblPos
             // 
-            this.label13.Location = new System.Drawing.Point(18, 28);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(49, 17);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Position";
+            this.lblPos.Location = new System.Drawing.Point(18, 28);
+            this.lblPos.Name = "lblPos";
+            this.lblPos.Size = new System.Drawing.Size(49, 17);
+            this.lblPos.TabIndex = 0;
+            this.lblPos.Text = "Position";
             // 
             // gpbProgramControl
             // 
@@ -1708,16 +1708,16 @@
         private System.Windows.Forms.Label lblDO2SyncVal;
         private System.Windows.Forms.Label lblDO3AlarmVal;
         internal System.Windows.Forms.GroupBox gpbControl;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAccel;
         private System.Windows.Forms.Label lblAccel;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtLowSpeed;
+        private System.Windows.Forms.TextBox txtHighSpeed;
         private System.Windows.Forms.TextBox txtRefPos;
         private System.Windows.Forms.Label lblLowSpeed;
         private System.Windows.Forms.Label lblHighSpeed;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label lblPos;
+        private System.Windows.Forms.Label lblDecel;
+        private System.Windows.Forms.TextBox txtDecel;
         private System.Windows.Forms.CheckBox chbxMagMotorControlEnable;
         internal System.Windows.Forms.Button cmdSCV;
         internal System.Windows.Forms.Button cmdTRAP;
@@ -1726,14 +1726,14 @@
         internal System.Windows.Forms.Button cmdINC;
         internal System.Windows.Forms.Button cmdSetEncoderPos;
         internal System.Windows.Forms.Button cmdSetPulsePos;
-        internal System.Windows.Forms.Button cmdSingMagHOME;
-        internal System.Windows.Forms.Button cmdSingMagOPEN;
-        internal System.Windows.Forms.Button cmdSingMagCLOSE;
+        internal System.Windows.Forms.Button cmdSingMagABS;
+        internal System.Windows.Forms.Button cmdSingMagHomeMinus;
+        internal System.Windows.Forms.Button cmdSingMagHomePlus;
         internal System.Windows.Forms.Button cmdSingMoveToZero;
         internal System.Windows.Forms.Button cmdSingJogMinus;
         internal System.Windows.Forms.Button cmdSingJogPlus;
-        internal System.Windows.Forms.Button cmdSingJogMinusFast;
-        internal System.Windows.Forms.Button cmdSingJogPlusFast;
+        internal System.Windows.Forms.Button cmdSingMagHomeLowSpeedMinus;
+        internal System.Windows.Forms.Button cmdSingMagHomeLowSpeedPlus;
         internal System.Windows.Forms.Button cmdSingImmediateStop;
         internal System.Windows.Forms.Button cmdSingRampStop;
         internal System.Windows.Forms.Button cmdSingHomeLimitSwitchMinus;
@@ -1790,14 +1790,14 @@
         internal System.Windows.Forms.Button cmdFileSave;
         internal System.Windows.Forms.Button cmdFileNew;
         internal System.Windows.Forms.Button cmdMultiImmediateStop;
-        internal System.Windows.Forms.Button cmdMultiJogMinusFast;
+        internal System.Windows.Forms.Button cmdMultiMagHomeLowSpeedMinus;
         internal System.Windows.Forms.Button cmdMultiJogMinus;
-        internal System.Windows.Forms.Button cmdMultiMagHOME;
-        internal System.Windows.Forms.Button cmdMultiMagOPEN;
+        internal System.Windows.Forms.Button cmdMultiMagABS;
+        internal System.Windows.Forms.Button cmdMultiMagHomeMinus;
         internal System.Windows.Forms.Button cmdMultiJogPlus;
-        internal System.Windows.Forms.Button cmdMultiJogPlusFast;
+        internal System.Windows.Forms.Button cmdMultiMagHomeLowSpeedPlus;
         internal System.Windows.Forms.Button cmdMultiHomeLimitSwitchMinus;
-        internal System.Windows.Forms.Button cmdMultiMagCLOSE;
+        internal System.Windows.Forms.Button cmdMultiMagHomePlus;
         internal System.Windows.Forms.Button cmdMultiMoveToZero;
         internal System.Windows.Forms.Button cmdMultiRampStop;
         internal System.Windows.Forms.Button cmdMultiHomeLimitSwitchPlus;

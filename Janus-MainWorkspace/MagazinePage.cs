@@ -27,15 +27,22 @@ namespace CxTitan
             SystemGlobals.objJanusManual.Show();//SystemGlobals.JanusManualPageReturn.Show();//System.Environment.Exit(0);
         }
 
-        private void cmdSingMagHOME_Click(object sender, EventArgs e)
+        private void cmdSingMagABS_Click(object sender, EventArgs e)// absolute position move
         {
-
+            TimerStates.Enabled = false;// disable read values from Motors
+            SetMotorSpeed();
+            SetMotorAccelDecel();
+            Thread.Sleep(100);
+            MotorControls.oHyperTerminalAdapter.Write("@01X" + txtRefPos.Text + "\r");
+            TimerStates.Enabled = true;// enable read values from Motors
         }
 
         private void cmdSingMoveToZero_Click(object sender, EventArgs e)
         {
             //MotorControls.SendReceive("PX=0");
             TimerStates.Enabled = false;// disable read values from Motors
+            SetMotorSpeed();
+            SetMotorAccelDecel();
             Thread.Sleep(100);
             MotorControls.oHyperTerminalAdapter.Write("@01X0\r");
             TimerStates.Enabled = true;// enable read values from Motors
@@ -137,16 +144,26 @@ namespace CxTitan
             cbxSyncCfg.EndUpdate();
         }
 
-        private void cmdSingMagCLOSE_Click(object sender, EventArgs e)
+        private void cmdSingMagHomePlus_Click(object sender, EventArgs e)
         {
-
+            TimerStates.Enabled = false;// disable read values from Motors
+            //SetMotorSpeedAndAcceleration();
+            SetMotorSpeed();
+            SetMotorAccelDecel();
+            Thread.Sleep(100);
+            MotorControls.oHyperTerminalAdapter.Write("@01H+\r");
+            TimerStates.Enabled = true;// enable read values from Motors
         }
 
         private void cmdSingJogMinus_Click(object sender, EventArgs e)
         {
             TimerStates.Enabled = false;// disable read values from Motors
-            Thread.Sleep(100);
-            MotorControls.oHyperTerminalAdapter.Write("@01HSPD=1500\r");// speed = 1500
+            //Thread.Sleep(100);
+            //MotorControls.oHyperTerminalAdapter.Write("@01HSPD=1500\r");// speed = 1500
+
+            //SetMotorSpeedAndAcceleration();
+            SetMotorSpeed();
+            SetMotorAccelDecel();
             Thread.Sleep(100);
             MotorControls.oHyperTerminalAdapter.Write("@01J-\r");
             TimerStates.Enabled = true;// enable read values from Motors
@@ -155,8 +172,12 @@ namespace CxTitan
         private void cmdSingJogPlus_Click(object sender, EventArgs e)
         {
             TimerStates.Enabled = false;// disable read values from Motors
-            Thread.Sleep(100);
-            MotorControls.oHyperTerminalAdapter.Write("@01HSPD=1500\r");// speed = 1500
+            //Thread.Sleep(100);
+            //MotorControls.oHyperTerminalAdapter.Write("@01HSPD=1500\r");// speed = 1500
+
+            //SetMotorSpeedAndAcceleration();
+            SetMotorSpeed();
+            SetMotorAccelDecel();
             Thread.Sleep(100);
             MotorControls.oHyperTerminalAdapter.Write("@01J+\r");
             TimerStates.Enabled = true;// enable read values from Motors
@@ -214,26 +235,125 @@ namespace CxTitan
 
         }
 
-        private void cmdSingMagOPEN_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmdSingJogMinusFast_Click(object sender, EventArgs e)
+        private void SetMotorSpeedAndAcceleration()
         {
             TimerStates.Enabled = false;// disable read values from Motors
+            // High Speed
+            Thread.Sleep(20);
+            MotorControls.oHyperTerminalAdapter.Write("@01HSPD=" + txtHighSpeed.Text + "\r");// send High speed
+
+            // Low Speed
+            Thread.Sleep(20);
+            MotorControls.oHyperTerminalAdapter.Write("@01LSPD=" + txtLowSpeed.Text + "\r");// send Low speed
+
+            // Accel
+            Thread.Sleep(20);
+            MotorControls.oHyperTerminalAdapter.Write("@01ACC=" + txtAccel.Text + "\r");// send Accel
+
+            // Decel
+            Thread.Sleep(20);
+            MotorControls.oHyperTerminalAdapter.Write("@01DEC=" + txtDecel.Text + "\r");// send Decel
+
+            TimerStates.Enabled = true;// enable read values from Motors
+        }
+
+        private void SetMotorSpeed()
+        {
+            TimerStates.Enabled = false;// disable read values from Motors
+            // High Speed
+            Thread.Sleep(20);
+            MotorControls.oHyperTerminalAdapter.Write("@01HSPD=" + txtHighSpeed.Text + "\r");// send High speed
+
+            // Low Speed
+            Thread.Sleep(20);
+            MotorControls.oHyperTerminalAdapter.Write("@01LSPD=" + txtLowSpeed.Text + "\r");// send Low speed
+            TimerStates.Enabled = true;// enable read values from Motors
+        }
+
+        private void SetMotorAccelDecel()
+        {
+            TimerStates.Enabled = false;// disable read values from Motors
+            // Accel
+            Thread.Sleep(20);
+            MotorControls.oHyperTerminalAdapter.Write("@01ACC=" + txtAccel.Text + "\r");// send Accel
+
+            // Decel
+            Thread.Sleep(20);
+            MotorControls.oHyperTerminalAdapter.Write("@01DEC=" + txtDecel.Text + "\r");// send Decel
+
+            TimerStates.Enabled = true;// enable read values from Motors
+        }
+
+        //private void SetMotorPulsePos()
+        //{
+            
+        //}
+
+        private void SetMotorHighSpeed()
+        {
+            TimerStates.Enabled = false;// disable read values from Motors
+            // High Speed
+            Thread.Sleep(20);
+            MotorControls.oHyperTerminalAdapter.Write("@01HSPD=" + txtHighSpeed.Text + "\r");// send High speed
+            TimerStates.Enabled = true;// enable read values from Motors
+        }
+
+        private void SetMotorLowSpeed()
+        {
+            TimerStates.Enabled = false;// disable read values from Motors
+            // Low Speed
+            Thread.Sleep(20);
+            MotorControls.oHyperTerminalAdapter.Write("@01LSPD=" + txtLowSpeed.Text + "\r");// send Low speed
+            TimerStates.Enabled = true;// enable read values from Motors
+        }
+
+        private void SetMotorAccel()
+        {
+            TimerStates.Enabled = false;// disable read values from Motors
+            // Accel
+            Thread.Sleep(20);
+            MotorControls.oHyperTerminalAdapter.Write("@01ACC=" + txtAccel.Text + "\r");// send Accel
+            TimerStates.Enabled = true;// enable read values from Motors
+        }
+
+        private void SetMotorDecel()
+        {
+            TimerStates.Enabled = false;// disable read values from Motors
+            // Decel
+            Thread.Sleep(20);
+            MotorControls.oHyperTerminalAdapter.Write("@01DEC=" + txtDecel.Text + "\r");// send Decel
+            TimerStates.Enabled = true;// enable read values from Motors
+        }
+
+        private void cmdSingMagHomeMinus_Click(object sender, EventArgs e)
+        {
+            TimerStates.Enabled = false;// disable read values from Motors
+            //SetMotorSpeedAndAcceleration();
+
+            SetMotorSpeed();
+            SetMotorAccelDecel();
             Thread.Sleep(100);
-            MotorControls.oHyperTerminalAdapter.Write("@01HSPD=15000\r");// speed = 15000
+            MotorControls.oHyperTerminalAdapter.Write("@01H-\r");
+            TimerStates.Enabled = true;// enable read values from Motors
+        }
+
+        private void cmdSingMagHomeLowSpeedMinus_Click(object sender, EventArgs e)
+        {
+            TimerStates.Enabled = false;// disable read values from Motors
+            //SetMotorSpeedAndAcceleration();
+            SetMotorSpeed();
+            SetMotorAccelDecel();
             Thread.Sleep(100);
             MotorControls.oHyperTerminalAdapter.Write("@01J-\r");
             TimerStates.Enabled = true;// enable read values from Motors
         }
 
-        private void cmdSingJogPlusFast_Click(object sender, EventArgs e)
+        private void cmdSingMagHomeLowSpeedPlus_Click(object sender, EventArgs e)
         {
             TimerStates.Enabled = false;// disable read values from Motors
-            Thread.Sleep(100);
-            MotorControls.oHyperTerminalAdapter.Write("@01HSPD=15000\r");// speed = 15000
+            //SetMotorSpeedAndAcceleration();
+            SetMotorSpeed();
+            SetMotorAccelDecel();
             Thread.Sleep(100);
             MotorControls.oHyperTerminalAdapter.Write("@01J+\r");
             TimerStates.Enabled = true;// enable read values from Motors
@@ -242,7 +362,8 @@ namespace CxTitan
         private void cmdSingRampStop_Click(object sender, EventArgs e)
         {
             TimerStates.Enabled = false;// disable read values from Motors
-            Thread.Sleep(100);
+            SetMotorDecel();
+            Thread.Sleep(100);            
             MotorControls.oHyperTerminalAdapter.Write("@01STOP\r");
             TimerStates.Enabled = true;// enable read values from Motors
         }
@@ -258,6 +379,8 @@ namespace CxTitan
         private void cmdSingHomeLimitSwitchMinus_Click(object sender, EventArgs e)
         {
             TimerStates.Enabled = false;// disable read values from Motors
+            SetMotorSpeed();
+            SetMotorAccelDecel();
             Thread.Sleep(100);
             MotorControls.oHyperTerminalAdapter.Write("@01L-\r");
             TimerStates.Enabled = true;// enable read values from Motors
@@ -266,6 +389,8 @@ namespace CxTitan
         private void cmdSingHomeLimitSwitchPlus_Click(object sender, EventArgs e)
         {
             TimerStates.Enabled = false;// disable read values from Motors
+            SetMotorSpeed();
+            SetMotorAccelDecel();
             Thread.Sleep(100);
             MotorControls.oHyperTerminalAdapter.Write("@01L+\r");
             TimerStates.Enabled = true;// enable read values from Motors
