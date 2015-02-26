@@ -107,18 +107,35 @@ namespace CxTitan
             } 
         } 
 
-        public string Read() 
+        public void Read(ref string strReceived) 
         { 
             try
             {
-                MotorControls.Xpos = oSerialPort.ReadLine().ToString();
-                //this.DataReceived = oSerialPort.ReadLine().ToString(); 
-                ////MessageBox.Show(this.DataReceived); 
-                return MotorControls.Xpos;
-            } 
-            catch 
+                //string strRecv = oSerialPort.ReadExisting().ToString();
+                //if(strRecv.Any(char.IsDigit))// if recv value is OK, ignore it
+                //{
+                //    //MotorControls.PulsePos = strRecv;
+                //    //MotorControls.PulsePos.Trim();
+                //    strRecv.Trim();
+                //    strReceived = strRecv;
+                //}
+                //else
+                //{
+                //    return;
+                //}
+
+                string strRecv = oSerialPort.ReadExisting().ToString();
+                if (strRecv.Contains("OK"))// if recv value is OK, ignore it
+                {
+                    //MotorControls.PulsePos = strRecv;
+                    //MotorControls.PulsePos.Trim();
+                    return;
+                }
+                strRecv.Trim();
+                strReceived = strRecv;
+            }
+            catch(Exception ex) 
             { 
-                return ""; 
             } 
         } 
     }

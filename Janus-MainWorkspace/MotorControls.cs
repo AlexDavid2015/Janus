@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
@@ -11,7 +12,57 @@ namespace CxTitan
     public static class MotorControls
     {
         public static HyperTerminalAdapter oHyperTerminalAdapter = new HyperTerminalAdapter();
-        public static string Xpos = "";
+
+        #region Status 
+        public static string PulsePos = "";
+        public static string EncoderPos = "";
+        public static string Delta = "";
+        public static string Speed = "";
+        public static string Status = "";
+        public static string StepNLoop = "";
+        public static string Mode = "";
+        public static string Current = "";
+        #endregion
+
+        public enum MotionStatus
+        {
+            IDLE = 0,
+            CONST = 1,
+            ACCEL = 3,
+            DECEL = 5,
+            MINUS_LIM_ERR = 80,
+            PLUS_LIM_ERR = 160
+        }
+
+        public enum StepNLoopControlStatus
+        {
+            Idle = 0,
+            Moving = 1,
+            Correcting = 2,
+            Stopping = 3,
+            Aborting = 4,
+            Jogging = 5,
+            Homing = 6,
+            ZHoming = 7,
+            CorrectionRangeError = 8,
+            CorrectionAttemptError = 9,
+            StallError = 10,
+            LimitError = 11,
+            Reserved = 12,
+            LimitHoming = 13
+        }
+
+        public enum MoveModeStatus
+        {
+            ABS = 0,
+            INC = 1
+        }
+        //public static string GetMotorPosition()
+        //{
+        //    oHyperTerminalAdapter.Write("@01PX\r");
+        //    Thread.Sleep(20);
+        //    oHyperTerminalAdapter.Read();
+        //}
 
         //const string DLL_Path = "D:\\JanusProjects\\Repos\\Janus-MainWorkspace\\bin\\Debug\\PerformaxCom.dll";
         //[DllImport(DLL_Path)]

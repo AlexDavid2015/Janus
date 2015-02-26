@@ -28,14 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cmdClose = new System.Windows.Forms.Button();
             this.gpbStatus = new System.Windows.Forms.GroupBox();
+            this.cmdResetPosition = new System.Windows.Forms.Button();
+            this.txtEncoder = new System.Windows.Forms.TextBox();
+            this.lblEncoder = new System.Windows.Forms.Label();
+            this.txtDelta = new System.Windows.Forms.TextBox();
+            this.lblDelta = new System.Windows.Forms.Label();
             this.cmdClearError = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblHomeInput = new System.Windows.Forms.Label();
             this.txtStepNLoop = new System.Windows.Forms.TextBox();
             this.lblStepNLoop = new System.Windows.Forms.Label();
-            this.cmdResetPulse = new System.Windows.Forms.Button();
+            this.cmdResetEncoder = new System.Windows.Forms.Button();
             this.txtCurrent = new System.Windows.Forms.TextBox();
             this.txtMode = new System.Windows.Forms.TextBox();
             this.txtStatus = new System.Windows.Forms.TextBox();
@@ -163,6 +169,7 @@
             this.cmdFileOpen = new System.Windows.Forms.Button();
             this.cmdFileSave = new System.Windows.Forms.Button();
             this.cmdFileNew = new System.Windows.Forms.Button();
+            this.TimerStates = new System.Windows.Forms.Timer(this.components);
             this.gpbStatus.SuspendLayout();
             this.gpbDIOStatus.SuspendLayout();
             this.gpbControl.SuspendLayout();
@@ -185,12 +192,17 @@
             // 
             // gpbStatus
             // 
+            this.gpbStatus.Controls.Add(this.cmdResetPosition);
+            this.gpbStatus.Controls.Add(this.txtEncoder);
+            this.gpbStatus.Controls.Add(this.lblEncoder);
+            this.gpbStatus.Controls.Add(this.txtDelta);
+            this.gpbStatus.Controls.Add(this.lblDelta);
             this.gpbStatus.Controls.Add(this.cmdClearError);
             this.gpbStatus.Controls.Add(this.label1);
             this.gpbStatus.Controls.Add(this.lblHomeInput);
             this.gpbStatus.Controls.Add(this.txtStepNLoop);
             this.gpbStatus.Controls.Add(this.lblStepNLoop);
-            this.gpbStatus.Controls.Add(this.cmdResetPulse);
+            this.gpbStatus.Controls.Add(this.cmdResetEncoder);
             this.gpbStatus.Controls.Add(this.txtCurrent);
             this.gpbStatus.Controls.Add(this.txtMode);
             this.gpbStatus.Controls.Add(this.txtStatus);
@@ -212,12 +224,57 @@
             this.gpbStatus.TabStop = false;
             this.gpbStatus.Text = "Status";
             // 
+            // cmdResetPosition
+            // 
+            this.cmdResetPosition.BackColor = System.Drawing.Color.Gainsboro;
+            this.cmdResetPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdResetPosition.ForeColor = System.Drawing.Color.Black;
+            this.cmdResetPosition.Location = new System.Drawing.Point(238, 22);
+            this.cmdResetPosition.Name = "cmdResetPosition";
+            this.cmdResetPosition.Size = new System.Drawing.Size(25, 25);
+            this.cmdResetPosition.TabIndex = 63;
+            this.cmdResetPosition.Text = "R";
+            this.cmdResetPosition.UseVisualStyleBackColor = false;
+            this.cmdResetPosition.Click += new System.EventHandler(this.cmdResetPosition_Click);
+            // 
+            // txtEncoder
+            // 
+            this.txtEncoder.Location = new System.Drawing.Point(103, 51);
+            this.txtEncoder.Name = "txtEncoder";
+            this.txtEncoder.ReadOnly = true;
+            this.txtEncoder.Size = new System.Drawing.Size(117, 20);
+            this.txtEncoder.TabIndex = 62;
+            // 
+            // lblEncoder
+            // 
+            this.lblEncoder.Location = new System.Drawing.Point(18, 54);
+            this.lblEncoder.Name = "lblEncoder";
+            this.lblEncoder.Size = new System.Drawing.Size(49, 17);
+            this.lblEncoder.TabIndex = 61;
+            this.lblEncoder.Text = "Encoder";
+            // 
+            // txtDelta
+            // 
+            this.txtDelta.Location = new System.Drawing.Point(103, 77);
+            this.txtDelta.Name = "txtDelta";
+            this.txtDelta.ReadOnly = true;
+            this.txtDelta.Size = new System.Drawing.Size(117, 20);
+            this.txtDelta.TabIndex = 60;
+            // 
+            // lblDelta
+            // 
+            this.lblDelta.Location = new System.Drawing.Point(18, 80);
+            this.lblDelta.Name = "lblDelta";
+            this.lblDelta.Size = new System.Drawing.Size(49, 17);
+            this.lblDelta.TabIndex = 59;
+            this.lblDelta.Text = "Delta";
+            // 
             // cmdClearError
             // 
             this.cmdClearError.BackColor = System.Drawing.Color.Gainsboro;
             this.cmdClearError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdClearError.ForeColor = System.Drawing.Color.Black;
-            this.cmdClearError.Location = new System.Drawing.Point(238, 112);
+            this.cmdClearError.Location = new System.Drawing.Point(238, 153);
             this.cmdClearError.Name = "cmdClearError";
             this.cmdClearError.Size = new System.Drawing.Size(25, 25);
             this.cmdClearError.TabIndex = 58;
@@ -229,7 +286,7 @@
             // 
             this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(145, 219);
+            this.label1.Location = new System.Drawing.Point(145, 243);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(19, 16);
             this.label1.TabIndex = 57;
@@ -237,7 +294,7 @@
             // lblHomeInput
             // 
             this.lblHomeInput.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblHomeInput.Location = new System.Drawing.Point(123, 220);
+            this.lblHomeInput.Location = new System.Drawing.Point(126, 244);
             this.lblHomeInput.Name = "lblHomeInput";
             this.lblHomeInput.Size = new System.Drawing.Size(21, 13);
             this.lblHomeInput.TabIndex = 56;
@@ -245,7 +302,7 @@
             // 
             // txtStepNLoop
             // 
-            this.txtStepNLoop.Location = new System.Drawing.Point(103, 115);
+            this.txtStepNLoop.Location = new System.Drawing.Point(103, 156);
             this.txtStepNLoop.Name = "txtStepNLoop";
             this.txtStepNLoop.ReadOnly = true;
             this.txtStepNLoop.Size = new System.Drawing.Size(117, 20);
@@ -253,27 +310,28 @@
             // 
             // lblStepNLoop
             // 
-            this.lblStepNLoop.Location = new System.Drawing.Point(18, 118);
+            this.lblStepNLoop.Location = new System.Drawing.Point(18, 159);
             this.lblStepNLoop.Name = "lblStepNLoop";
             this.lblStepNLoop.Size = new System.Drawing.Size(67, 17);
             this.lblStepNLoop.TabIndex = 54;
             this.lblStepNLoop.Text = "StepNLoop";
             // 
-            // cmdResetPulse
+            // cmdResetEncoder
             // 
-            this.cmdResetPulse.BackColor = System.Drawing.Color.Gainsboro;
-            this.cmdResetPulse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdResetPulse.ForeColor = System.Drawing.Color.Black;
-            this.cmdResetPulse.Location = new System.Drawing.Point(238, 21);
-            this.cmdResetPulse.Name = "cmdResetPulse";
-            this.cmdResetPulse.Size = new System.Drawing.Size(25, 25);
-            this.cmdResetPulse.TabIndex = 53;
-            this.cmdResetPulse.Text = "R";
-            this.cmdResetPulse.UseVisualStyleBackColor = false;
+            this.cmdResetEncoder.BackColor = System.Drawing.Color.Gainsboro;
+            this.cmdResetEncoder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdResetEncoder.ForeColor = System.Drawing.Color.Black;
+            this.cmdResetEncoder.Location = new System.Drawing.Point(238, 48);
+            this.cmdResetEncoder.Name = "cmdResetEncoder";
+            this.cmdResetEncoder.Size = new System.Drawing.Size(25, 25);
+            this.cmdResetEncoder.TabIndex = 53;
+            this.cmdResetEncoder.Text = "R";
+            this.cmdResetEncoder.UseVisualStyleBackColor = false;
+            this.cmdResetEncoder.Click += new System.EventHandler(this.cmdResetEncoder_Click);
             // 
             // txtCurrent
             // 
-            this.txtCurrent.Location = new System.Drawing.Point(103, 175);
+            this.txtCurrent.Location = new System.Drawing.Point(103, 210);
             this.txtCurrent.Name = "txtCurrent";
             this.txtCurrent.ReadOnly = true;
             this.txtCurrent.Size = new System.Drawing.Size(117, 20);
@@ -281,7 +339,7 @@
             // 
             // txtMode
             // 
-            this.txtMode.Location = new System.Drawing.Point(103, 145);
+            this.txtMode.Location = new System.Drawing.Point(103, 183);
             this.txtMode.Name = "txtMode";
             this.txtMode.ReadOnly = true;
             this.txtMode.Size = new System.Drawing.Size(117, 20);
@@ -289,7 +347,7 @@
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(103, 85);
+            this.txtStatus.Location = new System.Drawing.Point(103, 129);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.ReadOnly = true;
             this.txtStatus.Size = new System.Drawing.Size(117, 20);
@@ -297,7 +355,7 @@
             // 
             // txtSpeed
             // 
-            this.txtSpeed.Location = new System.Drawing.Point(103, 55);
+            this.txtSpeed.Location = new System.Drawing.Point(103, 103);
             this.txtSpeed.Name = "txtSpeed";
             this.txtSpeed.ReadOnly = true;
             this.txtSpeed.Size = new System.Drawing.Size(117, 20);
@@ -314,7 +372,7 @@
             // lblPosLInput
             // 
             this.lblPosLInput.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPosLInput.Location = new System.Drawing.Point(213, 220);
+            this.lblPosLInput.Location = new System.Drawing.Point(211, 244);
             this.lblPosLInput.Name = "lblPosLInput";
             this.lblPosLInput.Size = new System.Drawing.Size(21, 13);
             this.lblPosLInput.TabIndex = 17;
@@ -323,7 +381,7 @@
             // lblPosLim
             // 
             this.lblPosLim.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblPosLim.Location = new System.Drawing.Point(238, 219);
+            this.lblPosLim.Location = new System.Drawing.Point(238, 243);
             this.lblPosLim.Name = "lblPosLim";
             this.lblPosLim.Size = new System.Drawing.Size(18, 16);
             this.lblPosLim.TabIndex = 16;
@@ -332,7 +390,7 @@
             // 
             this.lblNegLim.BackColor = System.Drawing.SystemColors.Control;
             this.lblNegLim.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblNegLim.Location = new System.Drawing.Point(36, 219);
+            this.lblNegLim.Location = new System.Drawing.Point(36, 243);
             this.lblNegLim.Name = "lblNegLim";
             this.lblNegLim.Size = new System.Drawing.Size(19, 16);
             this.lblNegLim.TabIndex = 15;
@@ -340,7 +398,7 @@
             // lblNegLInput
             // 
             this.lblNegLInput.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblNegLInput.Location = new System.Drawing.Point(14, 220);
+            this.lblNegLInput.Location = new System.Drawing.Point(15, 244);
             this.lblNegLInput.Name = "lblNegLInput";
             this.lblNegLInput.Size = new System.Drawing.Size(21, 13);
             this.lblNegLInput.TabIndex = 13;
@@ -348,7 +406,7 @@
             // 
             // lblCurrent
             // 
-            this.lblCurrent.Location = new System.Drawing.Point(18, 178);
+            this.lblCurrent.Location = new System.Drawing.Point(18, 213);
             this.lblCurrent.Name = "lblCurrent";
             this.lblCurrent.Size = new System.Drawing.Size(49, 17);
             this.lblCurrent.TabIndex = 4;
@@ -356,7 +414,7 @@
             // 
             // lblMode
             // 
-            this.lblMode.Location = new System.Drawing.Point(18, 148);
+            this.lblMode.Location = new System.Drawing.Point(18, 187);
             this.lblMode.Name = "lblMode";
             this.lblMode.Size = new System.Drawing.Size(49, 17);
             this.lblMode.TabIndex = 3;
@@ -364,7 +422,7 @@
             // 
             // lblStatus
             // 
-            this.lblStatus.Location = new System.Drawing.Point(18, 88);
+            this.lblStatus.Location = new System.Drawing.Point(18, 132);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(49, 17);
             this.lblStatus.TabIndex = 2;
@@ -372,7 +430,7 @@
             // 
             // lblSpeed
             // 
-            this.lblSpeed.Location = new System.Drawing.Point(18, 58);
+            this.lblSpeed.Location = new System.Drawing.Point(18, 106);
             this.lblSpeed.Name = "lblSpeed";
             this.lblSpeed.Size = new System.Drawing.Size(49, 17);
             this.lblSpeed.TabIndex = 1;
@@ -1128,6 +1186,7 @@
             this.cmdSingleContinue.TabIndex = 90;
             this.cmdSingleContinue.Text = "Single Cont";
             this.cmdSingleContinue.UseVisualStyleBackColor = true;
+            this.cmdSingleContinue.Click += new System.EventHandler(this.cmdSingleContinue_Click);
             // 
             // cmdSinglePause
             // 
@@ -1137,6 +1196,7 @@
             this.cmdSinglePause.TabIndex = 89;
             this.cmdSinglePause.Text = "Single Pause";
             this.cmdSinglePause.UseVisualStyleBackColor = true;
+            this.cmdSinglePause.Click += new System.EventHandler(this.cmdSinglePause_Click);
             // 
             // cmdSingleStop
             // 
@@ -1146,6 +1206,7 @@
             this.cmdSingleStop.TabIndex = 88;
             this.cmdSingleStop.Text = "Single Stop";
             this.cmdSingleStop.UseVisualStyleBackColor = true;
+            this.cmdSingleStop.Click += new System.EventHandler(this.cmdSingleStop_Click);
             // 
             // cmdSingleRun
             // 
@@ -1155,6 +1216,7 @@
             this.cmdSingleRun.TabIndex = 87;
             this.cmdSingleRun.Text = "Single Run";
             this.cmdSingleRun.UseVisualStyleBackColor = true;
+            this.cmdSingleRun.Click += new System.EventHandler(this.cmdSingleRun_Click);
             // 
             // cmdAbout
             // 
@@ -1547,6 +1609,11 @@
             this.cmdFileNew.UseVisualStyleBackColor = true;
             this.cmdFileNew.Click += new System.EventHandler(this.cmdFileNew_Click);
             // 
+            // TimerStates
+            // 
+            this.TimerStates.Interval = 300;
+            this.TimerStates.Tick += new System.EventHandler(this.TimerStates_Tick);
+            // 
             // MagazinePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1615,7 +1682,7 @@
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.TextBox txtMode;
         private System.Windows.Forms.TextBox txtCurrent;
-        internal System.Windows.Forms.Button cmdResetPulse;
+        internal System.Windows.Forms.Button cmdResetEncoder;
         private System.Windows.Forms.Label lblStepNLoop;
         private System.Windows.Forms.TextBox txtStepNLoop;
         private System.Windows.Forms.Label lblHomeInput;
@@ -1734,5 +1801,11 @@
         internal System.Windows.Forms.Button cmdMultiMoveToZero;
         internal System.Windows.Forms.Button cmdMultiRampStop;
         internal System.Windows.Forms.Button cmdMultiHomeLimitSwitchPlus;
+        internal System.Windows.Forms.Timer TimerStates;
+        private System.Windows.Forms.Label lblDelta;
+        private System.Windows.Forms.TextBox txtDelta;
+        private System.Windows.Forms.Label lblEncoder;
+        private System.Windows.Forms.TextBox txtEncoder;
+        internal System.Windows.Forms.Button cmdResetPosition;
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtTerminalPage = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtCommand = new System.Windows.Forms.TextBox();
@@ -36,14 +36,14 @@
             this.cmdClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox3
+            // txtTerminalPage
             // 
-            this.textBox3.Location = new System.Drawing.Point(23, 12);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox3.Size = new System.Drawing.Size(268, 346);
-            this.textBox3.TabIndex = 92;
+            this.txtTerminalPage.Location = new System.Drawing.Point(23, 12);
+            this.txtTerminalPage.Multiline = true;
+            this.txtTerminalPage.Name = "txtTerminalPage";
+            this.txtTerminalPage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtTerminalPage.Size = new System.Drawing.Size(268, 346);
+            this.txtTerminalPage.TabIndex = 92;
             // 
             // lblID
             // 
@@ -100,7 +100,7 @@
             this.Controls.Add(this.txtCommand);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.lblID);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtTerminalPage);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MagTerminalPage";
@@ -113,7 +113,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtTerminalPage;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtCommand;

@@ -41,12 +41,16 @@ namespace CxTitan
                 {
                     //HyperTerminalAdapter oHyperTerminalAdapter = new HyperTerminalAdapter();
                     //oHyperTerminalAdapter.Connect();
-                    Thread.Sleep(200);
-                    MotorControls.oHyperTerminalAdapter.Write(txtCommand.Text + "\r");
-                    Thread.Sleep(500);
-                    string x = MotorControls.oHyperTerminalAdapter.Read();
+                    SystemGlobals.objMagazinePage.TimerStates.Enabled = false;// Disable TimeRecv flow
+                    string command = "@01" + txtCommand.Text + "\r";
+                    MotorControls.oHyperTerminalAdapter.Write(command);// Input pure standalone language
+                    Thread.Sleep(20);
+                    string strRecv = "";
+                    MotorControls.oHyperTerminalAdapter.Read(ref strRecv);
+                    txtTerminalPage.AppendText("> @01" + txtCommand.Text + "\r\n" + "< " + strRecv + "\n");
+                    txtCommand.Text = "";
+                    SystemGlobals.objMagazinePage.TimerStates.Enabled = true;// Enable TimeRecv flow
                     //oHyperTerminalAdapter.Disconnect();
-                    //MessageBox.Show("Result of the command was: " + x); 
                 }
             }
         }
