@@ -64,7 +64,7 @@ namespace CxTitan
                 oSerialPort.StopBits = StopBits.One; 
             } 
 
-            MessageBox.Show("Serial port" + PortName + " Configured");
+            //MessageBox.Show("Serial port" + PortName + " Configured");
         }
 
         public bool Connect() 
@@ -109,11 +109,12 @@ namespace CxTitan
 
         public string Read() 
         { 
-            try 
-            { 
-                this.DataReceived = oSerialPort.ReadLine().ToString(); 
-                MessageBox.Show(this.DataReceived); 
-                return (this.DataReceived); 
+            try
+            {
+                MotorControls.Xpos = oSerialPort.ReadLine().ToString();
+                //this.DataReceived = oSerialPort.ReadLine().ToString(); 
+                ////MessageBox.Show(this.DataReceived); 
+                return MotorControls.Xpos;
             } 
             catch 
             { 
