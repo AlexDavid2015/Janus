@@ -251,5 +251,41 @@ namespace CxTitan
                 conn.Close();
             }
         }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char) 13)
+            {
+                if (IsUserInformationCorrect())
+                {
+                    this.Hide();
+                    SystemGlobals.objMain.MainUI_AccessLevels();// update UI according to Access Levels
+                    SystemGlobals.objMain.Show();// Main page show
+                }
+                else
+                {
+                    MessageBox.Show("Wrong user information, please make sure the username and password are all correct!!");
+                    txtPassword.Focus();
+                }
+            }
+        }
+
+        private void txtUserName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                if (IsUserInformationCorrect())
+                {
+                    this.Hide();
+                    SystemGlobals.objMain.MainUI_AccessLevels();// update UI according to Access Levels
+                    SystemGlobals.objMain.Show();// Main page show
+                }
+                else
+                {
+                    MessageBox.Show("Wrong user information, please make sure the username and password are all correct!!");
+                    txtPassword.Focus();
+                }
+            }
+        }
     }
 }
