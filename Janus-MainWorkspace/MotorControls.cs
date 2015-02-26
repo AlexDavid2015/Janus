@@ -11,6 +11,7 @@ namespace CxTitan
     public static class MotorControls
     {
         public static HyperTerminalAdapter oHyperTerminalAdapter = new HyperTerminalAdapter();
+        public static string Xpos = "";
 
         //const string DLL_Path = "D:\\JanusProjects\\Repos\\Janus-MainWorkspace\\bin\\Debug\\PerformaxCom.dll";
         //[DllImport(DLL_Path)]
