@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -83,17 +84,20 @@ namespace CxTitan
             {
                 lblPort.Text = "Successful";
                 lblPort.BackColor = Color.Green;
+                // TimerStates enable
+                TimerStates.Enabled = true;
             }
             else
             {
                 lblPort.Text = "Error";
                 lblPort.BackColor = Color.Red;
+                // TimerStates disable
+                TimerStates.Enabled = false;
             }
             cbxDeviceID.SelectedIndex = MotorControls.oHyperTerminalAdapter.COMID;
 
 
-            // TimerStates enable
-            TimerStates.Enabled = true;
+
 
 
 
@@ -190,6 +194,7 @@ namespace CxTitan
 
         private void cmdTerminal_Click(object sender, EventArgs e)
         {
+            TimerStates.Enabled = false;
             MagTerminalPage terminalPage = new MagTerminalPage();
             terminalPage.ShowDialog();
         }
@@ -398,6 +403,7 @@ namespace CxTitan
 
         private void cmdVariables_Click(object sender, EventArgs e)
         {
+            TimerStates.Enabled = false;
             MagVariablesPage magVariablesPage = new MagVariablesPage();
             magVariablesPage.ShowDialog();
         }
@@ -615,6 +621,286 @@ namespace CxTitan
             Thread.Sleep(100);
             MotorControls.oHyperTerminalAdapter.Write("@01PX=0\r");
             TimerStates.Enabled = true;// enable read values from Motors
+        }
+
+        private void cmdSCV_Click(object sender, EventArgs e)
+        {
+            TimerStates.Enabled = false;// disable read values from Motors
+            Thread.Sleep(100);
+            MotorControls.oHyperTerminalAdapter.Write("@01SCV=1\r");
+            TimerStates.Enabled = true;// enable read values from Motors
+        }
+
+        private void cmdTRAP_Click(object sender, EventArgs e)
+        {
+            TimerStates.Enabled = false;// disable read values from Motors
+            Thread.Sleep(100);
+            MotorControls.oHyperTerminalAdapter.Write("@01SCV=0\r");
+            TimerStates.Enabled = true;// enable read values from Motors
+        }
+
+        private void cmdTX_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdABS_Click(object sender, EventArgs e)
+        {
+            TimerStates.Enabled = false;// disable read values from Motors
+            Thread.Sleep(100);
+            MotorControls.oHyperTerminalAdapter.Write("@01ABS\r");
+            TimerStates.Enabled = true;// enable read values from Motors
+        }
+
+        private void cmdINC_Click(object sender, EventArgs e)
+        {
+            TimerStates.Enabled = false;// disable read values from Motors
+            Thread.Sleep(100);
+            MotorControls.oHyperTerminalAdapter.Write("@01INC\r");
+            TimerStates.Enabled = true;// enable read values from Motors
+        }
+
+        private void cmdSetEncoderPos_Click(object sender, EventArgs e)
+        {
+            TimerStates.Enabled = false;// disable read values from Motors
+            Thread.Sleep(100);
+            MotorControls.oHyperTerminalAdapter.Write("@01EX" + txtRefPos.Text + "\r");
+            TimerStates.Enabled = true;// enable read values from Motors
+        }
+
+        private void cmdSetPulsePos_Click(object sender, EventArgs e)
+        {
+            TimerStates.Enabled = false;// disable read values from Motors
+            Thread.Sleep(100);
+            MotorControls.oHyperTerminalAdapter.Write("@01PX" + txtRefPos.Text + "\r");
+            TimerStates.Enabled = true;// enable read values from Motors
+        }
+
+        private void cmdCompile_Click(object sender, EventArgs e)
+        {
+            TimerStates.Enabled = false;
+            string startupPath = Environment.CurrentDirectory;
+            string curCompileDecompileSettingFile = "sa_compile_decompile_setup.txt";
+            string curCompileDecompileSettingDir = startupPath + "\\" + curCompileDecompileSettingFile;
+
+            string[] CompileDecompileSettingRows = new string[] { "MOD:DMX-K-SA-17/23", "OPE:COMPILE", "FIL:Program.prg", "VER:401BLA" };// row settings can be edit later
+            using (StreamWriter sw = new StreamWriter(curCompileDecompileSettingFile))
+            {
+                foreach (string s in CompileDecompileSettingRows)
+                {
+                    sw.WriteLine(s);
+                }
+            }
+
+            if (string.IsNullOrEmpty(txtCode.Text))
+            {
+                MessageBox.Show("Nothing to Compile!");
+            }
+            else
+            {
+                string curCompileFile = "Program.prg";
+                string curCompileDir = startupPath + "\\" + curCompileFile;
+                File.WriteAllText(curCompileFile, txtCode.Text);
+                string arg = @"user=Software-2";// just an example this can be anything
+                string command = "SA_Compile_Decompile.exe";
+                ProcessStartInfo compileProc = new ProcessStartInfo(command, arg);
+                compileProc.UseShellExecute = false;
+                compileProc.CreateNoWindow = true; // Important if you want to keep shell window hidden
+                Process.Start(compileProc).WaitForExit(); //important to add WaitForExit()
+
+                string curCompileOutFile = "CompileOut.txt";
+                string currCompileOutDir = startupPath + "\\" + curCompileOutFile;
+                string retMsg = "";// Messgebox display
+                bool IsCompileOk = true;
+                string resultString = "";
+                if (File.Exists(curCompileOutFile))
+                {
+                    string[] lines = File.ReadAllLines(curCompileOutFile);
+                    foreach (string line in lines)
+                    {
+                        // later polish it for focus the line number
+                        //if (line.Contains("Line"))
+                        //{
+                        //    resultString = Regex.Match(line, @"\d+").Value;
+                        //    txtCode.SelectionStart = line.Length - 1;// line number
+                        //    txtCode.SelectionLength = 1;
+                        //    txtCode.Focus();
+                        //}
+                        if (line.Contains("Failed Compile!"))
+                        {
+                            IsCompileOk = false;
+                        }
+                        retMsg += line + "\n";
+                    }
+                    if (!IsCompileOk)// IsCompileOk become false, only when have "Failed Compile!" display Msg, otherwise no display
+                    {
+                        MessageBox.Show(retMsg);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Done!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Can not find the File CompileOut.txt.");
+                    return;
+                }
+                //MessageBox.Show("OK");
+            }
+            TimerStates.Enabled = true;
+        }
+
+        private void cmdDownload_Click(object sender, EventArgs e)
+        {
+            TimerStates.Enabled = false;
+            MotorControls.oHyperTerminalAdapter.CloseSerialPort();// close serial port
+
+            string startupPath = Environment.CurrentDirectory;
+            // Download
+            // write some settings to sa_download_upload_setup.txt here
+            string curDownloadUploadSettingFile = "sa_download_upload_setup.txt";
+            string currDownloadUploadSettingDir = startupPath + "\\" + curDownloadUploadSettingFile;
+            string[] DownloadUploadSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "POR:5", "BAU:9600", "DEV:01", 
+                "OPE:DOWNLOAD", "FIL:CompileOut.txt", "MOD:DMX-K-SA-17/23" };// row settings can be edit later
+            using (StreamWriter sw = new StreamWriter(curDownloadUploadSettingFile))
+            {
+                foreach (string s in DownloadUploadSettingRows)
+                {
+                    sw.WriteLine(s);
+                }
+            }
+
+            string arg = @"user=Software-2";// just an example this can be anything
+            string command = "SA_Download_Upload.exe";
+            ProcessStartInfo downloadProc = new ProcessStartInfo(command, arg);
+            downloadProc.UseShellExecute = false;
+            downloadProc.CreateNoWindow = true; // Important if you want to keep shell window hidden
+            Process.Start(downloadProc).WaitForExit(); //important to add WaitForExit()
+
+            string curDownloadOutFile = "DownloadOut.txt";
+            string currDownloadOutDir = startupPath + "\\" + curDownloadOutFile;
+            string retMsg = "";// Messgebox display
+            bool IsDownloadOk = true;
+            string resultString = "";
+            if (File.Exists(curDownloadOutFile))
+            {
+                string[] lines = File.ReadAllLines(curDownloadOutFile);
+                foreach (string line in lines)
+                {
+                    if (line.Contains("DOWNLOAD FAILED!"))
+                    {
+                        IsDownloadOk = false;
+                    }
+                    retMsg += line + "\n";
+                }
+                if (!IsDownloadOk)// IsCompileOk become false, only when have "Failed Compile!" display Msg, otherwise no display
+                {
+                    MessageBox.Show(retMsg);
+                }
+                else
+                {
+                    MessageBox.Show("Done!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Can not find the File DownloadOut.txt.");
+                return;
+            }
+
+            MotorControls.oHyperTerminalAdapter.OpenSerialPort();// open serial port
+            TimerStates.Enabled = true;
+        }
+
+        private void cmdUpload_Click(object sender, EventArgs e)
+        {
+            TimerStates.Enabled = false;
+            MotorControls.oHyperTerminalAdapter.CloseSerialPort();// close serial port
+
+            string startupPath = Environment.CurrentDirectory;
+            txtCode.Clear();
+            // Upload
+            // write some settings to sa_download_upload_setup.txt here
+            //string curDownloadUploadSettingFile =
+            //    @"D:\JanusProjects\TestRunExeProcess\TestRunExeProcess\TestRunExeProcess\bin\Debug\sa_download_upload_setup.txt";
+            string curDownloadUploadSettingFile = "sa_download_upload_setup.txt";
+            string currDownloadUploadSettingDir = startupPath + "\\" + curDownloadUploadSettingFile;
+
+            string[] DownloadUploadSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "DEV:01", "POR:5", "BAU:9600", 
+                "OPE:UPLOAD", "FIL:CompileOut.txt", "MOD:DMX-K-SA-17/23" };// row settings can be edit later
+            using (StreamWriter sw = new StreamWriter(curDownloadUploadSettingFile))
+            {
+                foreach (string s in DownloadUploadSettingRows)
+                {
+                    sw.WriteLine(s);
+                }
+            }
+
+            // Decompile
+            // write some settings to sa_compile_decompile_setup.txt here
+            string curCompileDecompileSettingFile = "sa_compile_decompile_setup.txt";
+            string currCompileDecompileSettingDir = startupPath + "\\" + curCompileDecompileSettingFile;
+
+            string[] CompileDecompileSettingRows = new string[] { "MOD:DMX-K-SA-17/23", "OPE:DECOMPILE", "FIL:UploadOut.txt", "VER:401BLA" };// row settings can be edit later
+            using (StreamWriter sw = new StreamWriter(curCompileDecompileSettingFile))
+            {
+                foreach (string s in CompileDecompileSettingRows)
+                {
+                    sw.WriteLine(s);
+                }
+            }
+
+            // Run Shell
+            string arg1 = @"user=Software-2";// just an example this can be anything
+            string command1 = "SA_Download_Upload.exe";
+            ProcessStartInfo uploadProc = new ProcessStartInfo(command1, arg1);
+            uploadProc.UseShellExecute = false;
+            uploadProc.CreateNoWindow = true; // Important if you want to keep shell window hidden
+            Process.Start(uploadProc).WaitForExit(); //important to add WaitForExit()
+
+            // Compile
+            string arg2 = @"user=Software-2";// just an example this can be anything
+            string command = "SA_Compile_Decompile.exe";
+            ProcessStartInfo compileProc = new ProcessStartInfo(command, arg2);
+            compileProc.UseShellExecute = false;
+            compileProc.CreateNoWindow = true; // Important if you want to keep shell window hidden
+            Process.Start(compileProc).WaitForExit(); //important to add WaitForExit()
+
+            // Read Decompile File
+            string curDeCompileOutFile = "DecompileOut.prg";
+            string curcurDeCompileOutDir = startupPath + "\\" + curDeCompileOutFile;
+            if (File.Exists(curDeCompileOutFile))
+            {
+                string[] lines = File.ReadAllLines(curDeCompileOutFile);
+                foreach (string line in lines)
+                {
+                    txtCode.AppendText(line + "\r\n");
+                }
+            }
+            else
+            {
+                MessageBox.Show("File DecompileOut.prg does not exist.");
+                return;
+            }
+
+            MotorControls.oHyperTerminalAdapter.OpenSerialPort();// open serial port
+            TimerStates.Enabled = true;
+        }
+
+        private void chbxMagMotorControlEnable_Click(object sender, EventArgs e)
+        {
+            //if (chbxMagMotorControlEnable.Checked)
+            //{
+
+            //}
+            //else
+            //{
+                
+            //}
+
+            Thread.Sleep(100);
+            MotorControls.oHyperTerminalAdapter.Write("@01EO=" + Convert.ToInt32(chbxMagMotorControlEnable.Checked) + "\r");
         }
     }
 }

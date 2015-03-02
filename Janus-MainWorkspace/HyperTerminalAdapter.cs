@@ -85,6 +85,27 @@ namespace CxTitan
             } 
         }
 
+        public bool OpenSerialPort()
+        {
+            try
+            {
+                if (!oSerialPort.IsOpen)
+                {
+                    oSerialPort.Open();
+                    return true;
+                } // else already open
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Serial port open error \n\n" + ex);
+                return false;
+            } 
+        }
+
         public void Disconnect() 
         { 
             try{ 
@@ -93,7 +114,20 @@ namespace CxTitan
                     MessageBox.Show("Disconnected"); 
                 } //else not open 
             } catch { } 
-        } 
+        }
+
+        public void CloseSerialPort()
+        {
+            try
+            {
+                if (oSerialPort.IsOpen)
+                {
+                    oSerialPort.Close();
+                    //MessageBox.Show("Disconnected");
+                } //else not open 
+            }
+            catch { } 
+        }
 
         public void Write(string sData /* string data to write to the port */ ) 
         { 

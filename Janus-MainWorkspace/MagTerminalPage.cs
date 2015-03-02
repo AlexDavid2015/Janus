@@ -22,6 +22,7 @@ namespace CxTitan
         {
             this.Close();
             this.Dispose();
+            SystemGlobals.objMagazinePage.TimerStates.Enabled = true;
         }
 
         private void cmdSave_Click(object sender, EventArgs e)

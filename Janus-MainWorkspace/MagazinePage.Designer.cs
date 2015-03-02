@@ -124,7 +124,7 @@
             this.lblProgramControlIndex = new System.Windows.Forms.Label();
             this.txtProgramControlStatus = new System.Windows.Forms.TextBox();
             this.lblProgramControlStatus = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtCode = new System.Windows.Forms.TextBox();
             this.cmdSingleContinue = new System.Windows.Forms.Button();
             this.cmdSinglePause = new System.Windows.Forms.Button();
             this.cmdSingleStop = new System.Windows.Forms.Button();
@@ -935,7 +935,7 @@
             this.cmdSetPulsePos.TabIndex = 74;
             this.cmdSetPulsePos.Text = "SP";
             this.cmdSetPulsePos.UseVisualStyleBackColor = false;
-            this.cmdSetPulsePos.Visible = false;
+            this.cmdSetPulsePos.Click += new System.EventHandler(this.cmdSetPulsePos_Click);
             // 
             // cmdSetEncoderPos
             // 
@@ -948,7 +948,7 @@
             this.cmdSetEncoderPos.TabIndex = 73;
             this.cmdSetEncoderPos.Text = "SE";
             this.cmdSetEncoderPos.UseVisualStyleBackColor = false;
-            this.cmdSetEncoderPos.Visible = false;
+            this.cmdSetEncoderPos.Click += new System.EventHandler(this.cmdSetEncoderPos_Click);
             // 
             // cmdINC
             // 
@@ -961,7 +961,7 @@
             this.cmdINC.TabIndex = 72;
             this.cmdINC.Text = "INC";
             this.cmdINC.UseVisualStyleBackColor = false;
-            this.cmdINC.Visible = false;
+            this.cmdINC.Click += new System.EventHandler(this.cmdINC_Click);
             // 
             // cmdABS
             // 
@@ -974,7 +974,7 @@
             this.cmdABS.TabIndex = 71;
             this.cmdABS.Text = "ABS";
             this.cmdABS.UseVisualStyleBackColor = false;
-            this.cmdABS.Visible = false;
+            this.cmdABS.Click += new System.EventHandler(this.cmdABS_Click);
             // 
             // cmdTX
             // 
@@ -987,7 +987,7 @@
             this.cmdTX.TabIndex = 70;
             this.cmdTX.Text = "TX";
             this.cmdTX.UseVisualStyleBackColor = false;
-            this.cmdTX.Visible = false;
+            this.cmdTX.Click += new System.EventHandler(this.cmdTX_Click);
             // 
             // cmdTRAP
             // 
@@ -1000,7 +1000,7 @@
             this.cmdTRAP.TabIndex = 69;
             this.cmdTRAP.Text = "TRAP";
             this.cmdTRAP.UseVisualStyleBackColor = false;
-            this.cmdTRAP.Visible = false;
+            this.cmdTRAP.Click += new System.EventHandler(this.cmdTRAP_Click);
             // 
             // cmdSCV
             // 
@@ -1013,7 +1013,7 @@
             this.cmdSCV.TabIndex = 68;
             this.cmdSCV.Text = "SCV";
             this.cmdSCV.UseVisualStyleBackColor = false;
-            this.cmdSCV.Visible = false;
+            this.cmdSCV.Click += new System.EventHandler(this.cmdSCV_Click);
             // 
             // chbxMagMotorControlEnable
             // 
@@ -1022,6 +1022,7 @@
             this.chbxMagMotorControlEnable.Size = new System.Drawing.Size(64, 26);
             this.chbxMagMotorControlEnable.TabIndex = 67;
             this.chbxMagMotorControlEnable.Text = "Enable";
+            this.chbxMagMotorControlEnable.Click += new System.EventHandler(this.chbxMagMotorControlEnable_Click);
             // 
             // txtDecel
             // 
@@ -1110,7 +1111,7 @@
             this.gpbProgramControl.Controls.Add(this.lblProgramControlIndex);
             this.gpbProgramControl.Controls.Add(this.txtProgramControlStatus);
             this.gpbProgramControl.Controls.Add(this.lblProgramControlStatus);
-            this.gpbProgramControl.Controls.Add(this.textBox3);
+            this.gpbProgramControl.Controls.Add(this.txtCode);
             this.gpbProgramControl.Controls.Add(this.cmdSingleContinue);
             this.gpbProgramControl.Controls.Add(this.cmdSinglePause);
             this.gpbProgramControl.Controls.Add(this.cmdSingleStop);
@@ -1143,6 +1144,7 @@
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(44, 20);
             this.textBox6.TabIndex = 93;
+            this.textBox6.Visible = false;
             // 
             // lblProgramControlIndex
             // 
@@ -1151,6 +1153,7 @@
             this.lblProgramControlIndex.Size = new System.Drawing.Size(37, 17);
             this.lblProgramControlIndex.TabIndex = 92;
             this.lblProgramControlIndex.Text = "Index";
+            this.lblProgramControlIndex.Visible = false;
             // 
             // txtProgramControlStatus
             // 
@@ -1160,6 +1163,7 @@
             this.txtProgramControlStatus.ReadOnly = true;
             this.txtProgramControlStatus.Size = new System.Drawing.Size(44, 20);
             this.txtProgramControlStatus.TabIndex = 59;
+            this.txtProgramControlStatus.Visible = false;
             // 
             // lblProgramControlStatus
             // 
@@ -1168,15 +1172,16 @@
             this.lblProgramControlStatus.Size = new System.Drawing.Size(37, 17);
             this.lblProgramControlStatus.TabIndex = 87;
             this.lblProgramControlStatus.Text = "Status";
+            this.lblProgramControlStatus.Visible = false;
             // 
-            // textBox3
+            // txtCode
             // 
-            this.textBox3.Location = new System.Drawing.Point(16, 115);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox3.Size = new System.Drawing.Size(268, 346);
-            this.textBox3.TabIndex = 91;
+            this.txtCode.Location = new System.Drawing.Point(16, 115);
+            this.txtCode.Multiline = true;
+            this.txtCode.Name = "txtCode";
+            this.txtCode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtCode.Size = new System.Drawing.Size(268, 346);
+            this.txtCode.TabIndex = 91;
             // 
             // cmdSingleContinue
             // 
@@ -1245,6 +1250,7 @@
             this.cmdCompile.TabIndex = 96;
             this.cmdCompile.Text = "Compile";
             this.cmdCompile.UseVisualStyleBackColor = true;
+            this.cmdCompile.Click += new System.EventHandler(this.cmdCompile_Click);
             // 
             // cmdDownload
             // 
@@ -1254,6 +1260,7 @@
             this.cmdDownload.TabIndex = 97;
             this.cmdDownload.Text = "Download";
             this.cmdDownload.UseVisualStyleBackColor = true;
+            this.cmdDownload.Click += new System.EventHandler(this.cmdDownload_Click);
             // 
             // cmdUpload
             // 
@@ -1263,6 +1270,7 @@
             this.cmdUpload.TabIndex = 98;
             this.cmdUpload.Text = "Upload";
             this.cmdUpload.UseVisualStyleBackColor = true;
+            this.cmdUpload.Click += new System.EventHandler(this.cmdUpload_Click);
             // 
             // cmdView
             // 
@@ -1743,7 +1751,7 @@
         internal System.Windows.Forms.Button cmdSingleStop;
         internal System.Windows.Forms.Button cmdSinglePause;
         internal System.Windows.Forms.Button cmdSingleContinue;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtCode;
         private System.Windows.Forms.Label lblProgramControlStatus;
         private System.Windows.Forms.TextBox txtProgramControlStatus;
         private System.Windows.Forms.Label lblProgramControlIndex;

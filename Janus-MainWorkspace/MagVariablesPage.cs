@@ -21,6 +21,7 @@ namespace CxTitan
         {
             this.Close();
             this.Dispose();
+            SystemGlobals.objMagazinePage.TimerStates.Enabled = true;
         }
     }
 }
