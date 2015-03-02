@@ -434,6 +434,53 @@ namespace CxTitan
             // Program Control Status
             GetProgram0Status();
             GetProgram0Index();
+
+            // DIO status
+            GetDIOStatus();
+        }
+
+        private void GetDIOStatus()
+        {
+            // DI 1 to 6 all back color???
+
+            // DO1 InPos
+            MotorControls.oHyperTerminalAdapter.Write("@01DO1\r");
+            Thread.Sleep(20);
+            MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.DO1InPos);
+            if (Convert.ToBoolean(Convert.ToInt32(MotorControls.DO1InPos)))
+            {
+                lblDO1InPosVal.BackColor = Color.Green;
+            }
+            else
+            {
+                lblDO1InPosVal.BackColor = SystemColors.Control;
+            }
+
+            // DO2 Sync
+            MotorControls.oHyperTerminalAdapter.Write("@01DO2\r");
+            Thread.Sleep(20);
+            MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.DO2Sync);
+            if (Convert.ToBoolean(Convert.ToInt32(MotorControls.DO2Sync)))
+            {
+                lblDO2SyncVal.BackColor = Color.Blue;
+            }
+            else
+            {
+                lblDO2SyncVal.BackColor = SystemColors.Control;
+            }
+
+            // DO3 Alarm
+            MotorControls.oHyperTerminalAdapter.Write("@01DO3\r");
+            Thread.Sleep(20);
+            MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.DO3Alarm);
+            if (Convert.ToBoolean(Convert.ToInt32(MotorControls.DO3Alarm)))
+            {
+                lblDO3AlarmVal.BackColor = Color.Red;
+            }
+            else
+            {
+                lblDO3AlarmVal.BackColor = SystemColors.Control;
+            }
         }
 
         private void GetProgram0Status()// Get Program0 status
@@ -506,6 +553,9 @@ namespace CxTitan
             MotorControls.oHyperTerminalAdapter.Write("@01MST\r");
             Thread.Sleep(20);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Status);
+            // default colors
+            lblNegLim.BackColor = SystemColors.Control;
+            lblPosLim.BackColor = SystemColors.Control;
             switch (Convert.ToInt32(MotorControls.Status))
             {
                 case 0:
@@ -522,9 +572,13 @@ namespace CxTitan
                     break;
                 case 80:
                     txtStatus.Text = (MotorControls.MotionStatus.MINUS_LIM_ERR).ToString();
+                    lblNegLim.BackColor = Color.Green;
+                    lblPosLim.BackColor = SystemColors.Control;
                     break;
                 case 160:
                     txtStatus.Text = (MotorControls.MotionStatus.PLUS_LIM_ERR).ToString();
+                    lblNegLim.BackColor = SystemColors.Control;
+                    lblPosLim.BackColor = Color.Green;
                     break;
                 default:
                     break;

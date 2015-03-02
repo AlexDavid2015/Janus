@@ -31,6 +31,20 @@ namespace CxTitan
         public static string Program1Index = "";// Program1 index
         #endregion
 
+        #region DIO Status on Magazine Page
+        public static string DI1 = "";
+        public static string DI2 = "";
+        public static string DI3 = "";
+        public static string DI4 = "";
+        public static string DI5 = "";
+        public static string DI6= "";
+
+        public static string DO1InPos = "";
+        public static string DO2Sync = "";
+        public static string DO3Alarm = "";
+        #endregion
+
+
         public enum ProgramControlStatus
         {
             Idle = 0,// ?Stopped = 0,
