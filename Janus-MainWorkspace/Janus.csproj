@@ -246,6 +246,12 @@
     <Compile Include="Utilities.Designer.cs">
       <DependentUpon>Utilities.cs</DependentUpon>
     </Compile>
+    <Compile Include="XThreadPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XThreadPage.Designer.cs">
+      <DependentUpon>XThreadPage.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="5028FormSafetySetting.resx">
       <DependentUpon>5028FormSafetySetting.cs</DependentUpon>
     </EmbeddedResource>
@@ -318,6 +324,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utilities.resx">
       <DependentUpon>Utilities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XThreadPage.resx">
+      <DependentUpon>XThreadPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="JanusDataSet.xsc">
       <DependentUpon>JanusDataSet.xsd</DependentUpon>

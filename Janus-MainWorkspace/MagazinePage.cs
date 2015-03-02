@@ -201,6 +201,7 @@ namespace CxTitan
 
         private void cmdSetup_Click(object sender, EventArgs e)
         {
+            TimerStates.Enabled = false;
             MagSetupPage setupPage = new MagSetupPage();
             setupPage.ShowDialog();
         }
@@ -419,6 +420,8 @@ namespace CxTitan
         private void TimerStates_Tick(object sender, EventArgs e)
         {
             ////Thread.Sleep(200);
+            
+            // Motor Status
             GetRealTimePulsePos();
             GetRealTimeEncoderPos();
             GetRealTimeDelta();
@@ -427,6 +430,43 @@ namespace CxTitan
             GetRealTimeStepNLoopStatus();
             GetRealTimeMoveModeStatus();
             GetRealTimeDriverCurrent();
+
+            // Program Control Status
+            GetProgram0Status();
+            GetProgram0Index();
+        }
+
+        private void GetProgram0Status()// Get Program0 status
+        {
+            MotorControls.oHyperTerminalAdapter.Write("@01SASTAT[0]\r");
+            Thread.Sleep(20);
+            MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Program0Status);
+            //txtProgramControlStatus.Text = MotorControls.Program0Status;
+            switch (Convert.ToInt32(MotorControls.Program0Status))
+            {
+                case 0:
+                    txtProgramControlStatus.Text = (MotorControls.ProgramControlStatus.Idle).ToString();
+                    break;
+                case 1:
+                    txtProgramControlStatus.Text = (MotorControls.ProgramControlStatus.Running).ToString();
+                    break;
+                case 2:
+                    txtProgramControlStatus.Text = (MotorControls.ProgramControlStatus.Paused).ToString();
+                    break;
+                case 4:
+                    txtProgramControlStatus.Text = (MotorControls.ProgramControlStatus.InError).ToString();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void GetProgram0Index()
+        {
+            MotorControls.oHyperTerminalAdapter.Write("@01SPC[0]\r");
+            Thread.Sleep(20);
+            MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Program0Index);
+            txtProgramControlIndex.Text = MotorControls.Program0Index;
         }
 
         private void GetRealTimePulsePos()
@@ -550,7 +590,7 @@ namespace CxTitan
             MotorControls.oHyperTerminalAdapter.Write("@01MM\r");
             Thread.Sleep(20);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Mode);
-            switch (Convert.ToInt32(MotorControls.StepNLoop))
+            switch (Convert.ToInt32(MotorControls.Mode))
             {
                 case 0:
                     txtMode.Text = (MotorControls.MoveModeStatus.ABS).ToString();
@@ -901,6 +941,13 @@ namespace CxTitan
 
             Thread.Sleep(100);
             MotorControls.oHyperTerminalAdapter.Write("@01EO=" + Convert.ToInt32(chbxMagMotorControlEnable.Checked) + "\r");
+        }
+
+        private void cmdXThread_Click(object sender, EventArgs e)
+        {
+            TimerStates.Enabled = false;
+            XThreadPage xthreadPage = new XThreadPage();
+            xthreadPage.ShowDialog();
         }
     }
 }

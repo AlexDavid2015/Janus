@@ -120,7 +120,7 @@
             this.lblPos = new System.Windows.Forms.Label();
             this.gpbProgramControl = new System.Windows.Forms.GroupBox();
             this.cmdXThread = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtProgramControlIndex = new System.Windows.Forms.TextBox();
             this.lblProgramControlIndex = new System.Windows.Forms.Label();
             this.txtProgramControlStatus = new System.Windows.Forms.TextBox();
             this.lblProgramControlStatus = new System.Windows.Forms.Label();
@@ -1107,7 +1107,7 @@
             // gpbProgramControl
             // 
             this.gpbProgramControl.Controls.Add(this.cmdXThread);
-            this.gpbProgramControl.Controls.Add(this.textBox6);
+            this.gpbProgramControl.Controls.Add(this.txtProgramControlIndex);
             this.gpbProgramControl.Controls.Add(this.lblProgramControlIndex);
             this.gpbProgramControl.Controls.Add(this.txtProgramControlStatus);
             this.gpbProgramControl.Controls.Add(this.lblProgramControlStatus);
@@ -1134,17 +1134,16 @@
             this.cmdXThread.TabIndex = 87;
             this.cmdXThread.Text = "X-Thread";
             this.cmdXThread.UseVisualStyleBackColor = false;
-            this.cmdXThread.Visible = false;
+            this.cmdXThread.Click += new System.EventHandler(this.cmdXThread_Click);
             // 
-            // textBox6
+            // txtProgramControlIndex
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(158, 24);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(44, 20);
-            this.textBox6.TabIndex = 93;
-            this.textBox6.Visible = false;
+            this.txtProgramControlIndex.Enabled = false;
+            this.txtProgramControlIndex.Location = new System.Drawing.Point(158, 24);
+            this.txtProgramControlIndex.Name = "txtProgramControlIndex";
+            this.txtProgramControlIndex.ReadOnly = true;
+            this.txtProgramControlIndex.Size = new System.Drawing.Size(44, 20);
+            this.txtProgramControlIndex.TabIndex = 93;
             // 
             // lblProgramControlIndex
             // 
@@ -1153,7 +1152,6 @@
             this.lblProgramControlIndex.Size = new System.Drawing.Size(37, 17);
             this.lblProgramControlIndex.TabIndex = 92;
             this.lblProgramControlIndex.Text = "Index";
-            this.lblProgramControlIndex.Visible = false;
             // 
             // txtProgramControlStatus
             // 
@@ -1163,7 +1161,6 @@
             this.txtProgramControlStatus.ReadOnly = true;
             this.txtProgramControlStatus.Size = new System.Drawing.Size(44, 20);
             this.txtProgramControlStatus.TabIndex = 59;
-            this.txtProgramControlStatus.Visible = false;
             // 
             // lblProgramControlStatus
             // 
@@ -1172,7 +1169,6 @@
             this.lblProgramControlStatus.Size = new System.Drawing.Size(37, 17);
             this.lblProgramControlStatus.TabIndex = 87;
             this.lblProgramControlStatus.Text = "Status";
-            this.lblProgramControlStatus.Visible = false;
             // 
             // txtCode
             // 
@@ -1755,7 +1751,7 @@
         private System.Windows.Forms.Label lblProgramControlStatus;
         private System.Windows.Forms.TextBox txtProgramControlStatus;
         private System.Windows.Forms.Label lblProgramControlIndex;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtProgramControlIndex;
         internal System.Windows.Forms.Button cmdXThread;
         internal System.Windows.Forms.Button cmdAbout;
         internal System.Windows.Forms.Button cmdVariables;

@@ -24,6 +24,21 @@ namespace CxTitan
         public static string Current = "";
         #endregion
 
+        #region Program0 Status on Magazine Page
+        public static string Program0Status = "";// Program0 status
+        public static string Program0Index = "";// Program0 index
+        public static string Program1Status = "";// Program1 status
+        public static string Program1Index = "";// Program1 index
+        #endregion
+
+        public enum ProgramControlStatus
+        {
+            Idle = 0,// ?Stopped = 0,
+            Running = 1,
+            Paused = 2,
+            InError = 4
+        }
+
         public enum MotionStatus
         {
             IDLE = 0,
