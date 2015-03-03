@@ -1096,6 +1096,7 @@ namespace CxTitan
 
         private void cmdExpandProgram_Click(object sender, EventArgs e)
         {
+            TimerStates.Enabled = false;
             ExpandedProgramCodePage expandedProgramCodePage = new ExpandedProgramCodePage();
             expandedProgramCodePage.ShowDialog();
         }
