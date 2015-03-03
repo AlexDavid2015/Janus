@@ -140,6 +140,12 @@
     <Compile Include="CouplerInformation.Designer.cs">
       <DependentUpon>CouplerInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExpandedProgramCodePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpandedProgramCodePage.Designer.cs">
+      <DependentUpon>ExpandedProgramCodePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="HyperTerminalAdapter.cs" />
     <Compile Include="Input.cs">
       <SubType>Form</SubType>
@@ -193,6 +199,12 @@
     </Compile>
     <Compile Include="MagVariablesPage.Designer.cs">
       <DependentUpon>MagVariablesPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MagViewPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MagViewPage.Designer.cs">
+      <DependentUpon>MagViewPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -267,6 +279,9 @@
     <EmbeddedResource Include="CouplerInformation.resx">
       <DependentUpon>CouplerInformation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ExpandedProgramCodePage.resx">
+      <DependentUpon>ExpandedProgramCodePage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Input.resx">
       <DependentUpon>Input.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MagVariablesPage.resx">
       <DependentUpon>MagVariablesPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MagViewPage.resx">
+      <DependentUpon>MagViewPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

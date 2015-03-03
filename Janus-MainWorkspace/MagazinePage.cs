@@ -62,7 +62,7 @@ namespace CxTitan
 
 
             // Device ID(combox)
-            string[] strDeviceIDs = new string[16];// 0 to 15, maximum is 15 Magazines
+            string[] strDeviceIDs = new string[16];// 0 to 15, maximum is 16 Magazines
             for (int i = 0; i < strDeviceIDs.Length; i++)
             {
                 strDeviceIDs[i] = i.ToString();// from COM0 to COM15
@@ -86,6 +86,7 @@ namespace CxTitan
                 lblPort.BackColor = Color.Green;
                 // TimerStates enable
                 TimerStates.Enabled = true;
+                MotorControls.IsMotorSerialInitialized = true;
             }
             else
             {
@@ -93,6 +94,7 @@ namespace CxTitan
                 lblPort.BackColor = Color.Red;
                 // TimerStates disable
                 TimerStates.Enabled = false;
+                MotorControls.IsMotorSerialInitialized = false;
             }
             cbxDeviceID.SelectedIndex = MotorControls.oHyperTerminalAdapter.COMID;
 
@@ -194,16 +196,36 @@ namespace CxTitan
 
         private void cmdTerminal_Click(object sender, EventArgs e)
         {
-            TimerStates.Enabled = false;
-            MagTerminalPage terminalPage = new MagTerminalPage();
-            terminalPage.ShowDialog();
+            if (MotorControls.IsMotorSerialInitialized)
+            {
+                TimerStates.Enabled = false;
+                MagTerminalPage terminalPage = new MagTerminalPage();
+                terminalPage.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Communication port not open!");
+                TimerStates.Enabled = false;
+                MagTerminalPage terminalPage = new MagTerminalPage();
+                terminalPage.ShowDialog();
+            }
         }
 
         private void cmdSetup_Click(object sender, EventArgs e)
         {
-            TimerStates.Enabled = false;
-            MagSetupPage setupPage = new MagSetupPage();
-            setupPage.ShowDialog();
+            if (MotorControls.IsMotorSerialInitialized)
+            {
+                TimerStates.Enabled = false;
+                MagSetupPage setupPage = new MagSetupPage();
+                setupPage.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Communication port not open!");
+                TimerStates.Enabled = false;
+                MagSetupPage setupPage = new MagSetupPage();
+                setupPage.ShowDialog();
+            }
         }
 
         private void cmdFileOpen_Click(object sender, EventArgs e)
@@ -238,7 +260,7 @@ namespace CxTitan
 
         private void cmdFileNew_Click(object sender, EventArgs e)
         {
-
+            txtCode.Clear();
         }
 
         private void SetMotorSpeedAndAcceleration()
@@ -842,144 +864,170 @@ namespace CxTitan
                 }
                 //MessageBox.Show("OK");
             }
-            TimerStates.Enabled = true;
+            if (MotorControls.IsMotorSerialInitialized)
+            {
+                TimerStates.Enabled = true;
+            }
+            else
+            {
+                TimerStates.Enabled = false;
+            }
+            //TimerStates.Enabled = true;
         }
 
         private void cmdDownload_Click(object sender, EventArgs e)
-        {
-            TimerStates.Enabled = false;
-            MotorControls.oHyperTerminalAdapter.CloseSerialPort();// close serial port
+        {            
+            if (MotorControls.IsMotorSerialInitialized)
+            {
+                TimerStates.Enabled = false;
+                MotorControls.oHyperTerminalAdapter.CloseSerialPort();// close serial port
 
-            string startupPath = Environment.CurrentDirectory;
-            // Download
-            // write some settings to sa_download_upload_setup.txt here
-            string curDownloadUploadSettingFile = "sa_download_upload_setup.txt";
-            string currDownloadUploadSettingDir = startupPath + "\\" + curDownloadUploadSettingFile;
-            string[] DownloadUploadSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "POR:5", "BAU:9600", "DEV:01", 
+                string startupPath = Environment.CurrentDirectory;
+                // Download
+                // write some settings to sa_download_upload_setup.txt here
+                string curDownloadUploadSettingFile = "sa_download_upload_setup.txt";
+                string currDownloadUploadSettingDir = startupPath + "\\" + curDownloadUploadSettingFile;
+                string[] DownloadUploadSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "POR:5", "BAU:9600", "DEV:01", 
                 "OPE:DOWNLOAD", "FIL:CompileOut.txt", "MOD:DMX-K-SA-17/23" };// row settings can be edit later
-            using (StreamWriter sw = new StreamWriter(curDownloadUploadSettingFile))
-            {
-                foreach (string s in DownloadUploadSettingRows)
+                using (StreamWriter sw = new StreamWriter(curDownloadUploadSettingFile))
                 {
-                    sw.WriteLine(s);
-                }
-            }
-
-            string arg = @"user=Software-2";// just an example this can be anything
-            string command = "SA_Download_Upload.exe";
-            ProcessStartInfo downloadProc = new ProcessStartInfo(command, arg);
-            downloadProc.UseShellExecute = false;
-            downloadProc.CreateNoWindow = true; // Important if you want to keep shell window hidden
-            Process.Start(downloadProc).WaitForExit(); //important to add WaitForExit()
-
-            string curDownloadOutFile = "DownloadOut.txt";
-            string currDownloadOutDir = startupPath + "\\" + curDownloadOutFile;
-            string retMsg = "";// Messgebox display
-            bool IsDownloadOk = true;
-            string resultString = "";
-            if (File.Exists(curDownloadOutFile))
-            {
-                string[] lines = File.ReadAllLines(curDownloadOutFile);
-                foreach (string line in lines)
-                {
-                    if (line.Contains("DOWNLOAD FAILED!"))
+                    foreach (string s in DownloadUploadSettingRows)
                     {
-                        IsDownloadOk = false;
+                        sw.WriteLine(s);
                     }
-                    retMsg += line + "\n";
                 }
-                if (!IsDownloadOk)// IsCompileOk become false, only when have "Failed Compile!" display Msg, otherwise no display
+
+                string arg = @"user=Software-2";// just an example this can be anything
+                string command = "SA_Download_Upload.exe";
+                ProcessStartInfo downloadProc = new ProcessStartInfo(command, arg);
+                downloadProc.UseShellExecute = false;
+                downloadProc.CreateNoWindow = true; // Important if you want to keep shell window hidden
+                Process.Start(downloadProc).WaitForExit(); //important to add WaitForExit()
+
+                string curDownloadOutFile = "DownloadOut.txt";
+                string currDownloadOutDir = startupPath + "\\" + curDownloadOutFile;
+                string retMsg = "";// Messgebox display
+                bool IsDownloadOk = true;
+                string resultString = "";
+                if (File.Exists(curDownloadOutFile))
                 {
-                    MessageBox.Show(retMsg);
+                    string[] lines = File.ReadAllLines(curDownloadOutFile);
+                    foreach (string line in lines)
+                    {
+                        if (line.Contains("DOWNLOAD FAILED!"))
+                        {
+                            IsDownloadOk = false;
+                        }
+                        retMsg += line + "\n";
+                    }
+                    if (!IsDownloadOk)// IsCompileOk become false, only when have "Failed Compile!" display Msg, otherwise no display
+                    {
+                        MessageBox.Show(retMsg);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Done!");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Done!");
+                    MessageBox.Show("Can not find the File DownloadOut.txt.");
+                    return;
                 }
+
+                MotorControls.oHyperTerminalAdapter.OpenSerialPort();// open serial port
+                TimerStates.Enabled = true;
             }
             else
             {
-                MessageBox.Show("Can not find the File DownloadOut.txt.");
-                return;
+                TimerStates.Enabled = false;
+                MessageBox.Show("Communication port not open! Cannot download program to the motor!");
             }
-
-            MotorControls.oHyperTerminalAdapter.OpenSerialPort();// open serial port
-            TimerStates.Enabled = true;
+            //TimerStates.Enabled = true;
         }
 
         private void cmdUpload_Click(object sender, EventArgs e)
-        {
-            TimerStates.Enabled = false;
-            MotorControls.oHyperTerminalAdapter.CloseSerialPort();// close serial port
+        {            
+            if (MotorControls.IsMotorSerialInitialized)
+            {
+                TimerStates.Enabled = false;
+                MotorControls.oHyperTerminalAdapter.CloseSerialPort();// close serial port
 
-            string startupPath = Environment.CurrentDirectory;
-            txtCode.Clear();
-            // Upload
-            // write some settings to sa_download_upload_setup.txt here
-            //string curDownloadUploadSettingFile =
-            //    @"D:\JanusProjects\TestRunExeProcess\TestRunExeProcess\TestRunExeProcess\bin\Debug\sa_download_upload_setup.txt";
-            string curDownloadUploadSettingFile = "sa_download_upload_setup.txt";
-            string currDownloadUploadSettingDir = startupPath + "\\" + curDownloadUploadSettingFile;
+                string startupPath = Environment.CurrentDirectory;
+                txtCode.Clear();
+                // Upload
+                // write some settings to sa_download_upload_setup.txt here
+                //string curDownloadUploadSettingFile =
+                //    @"D:\JanusProjects\TestRunExeProcess\TestRunExeProcess\TestRunExeProcess\bin\Debug\sa_download_upload_setup.txt";
+                string curDownloadUploadSettingFile = "sa_download_upload_setup.txt";
+                string currDownloadUploadSettingDir = startupPath + "\\" + curDownloadUploadSettingFile;
 
-            string[] DownloadUploadSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "DEV:01", "POR:5", "BAU:9600", 
+                string[] DownloadUploadSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "DEV:01", "POR:5", "BAU:9600", 
                 "OPE:UPLOAD", "FIL:CompileOut.txt", "MOD:DMX-K-SA-17/23" };// row settings can be edit later
-            using (StreamWriter sw = new StreamWriter(curDownloadUploadSettingFile))
-            {
-                foreach (string s in DownloadUploadSettingRows)
+                using (StreamWriter sw = new StreamWriter(curDownloadUploadSettingFile))
                 {
-                    sw.WriteLine(s);
+                    foreach (string s in DownloadUploadSettingRows)
+                    {
+                        sw.WriteLine(s);
+                    }
                 }
-            }
 
-            // Decompile
-            // write some settings to sa_compile_decompile_setup.txt here
-            string curCompileDecompileSettingFile = "sa_compile_decompile_setup.txt";
-            string currCompileDecompileSettingDir = startupPath + "\\" + curCompileDecompileSettingFile;
+                // Decompile
+                // write some settings to sa_compile_decompile_setup.txt here
+                string curCompileDecompileSettingFile = "sa_compile_decompile_setup.txt";
+                string currCompileDecompileSettingDir = startupPath + "\\" + curCompileDecompileSettingFile;
 
-            string[] CompileDecompileSettingRows = new string[] { "MOD:DMX-K-SA-17/23", "OPE:DECOMPILE", "FIL:UploadOut.txt", "VER:401BLA" };// row settings can be edit later
-            using (StreamWriter sw = new StreamWriter(curCompileDecompileSettingFile))
-            {
-                foreach (string s in CompileDecompileSettingRows)
+                string[] CompileDecompileSettingRows = new string[] { "MOD:DMX-K-SA-17/23", "OPE:DECOMPILE", "FIL:UploadOut.txt", "VER:401BLA" };// row settings can be edit later
+                using (StreamWriter sw = new StreamWriter(curCompileDecompileSettingFile))
                 {
-                    sw.WriteLine(s);
+                    foreach (string s in CompileDecompileSettingRows)
+                    {
+                        sw.WriteLine(s);
+                    }
                 }
-            }
 
-            // Run Shell
-            string arg1 = @"user=Software-2";// just an example this can be anything
-            string command1 = "SA_Download_Upload.exe";
-            ProcessStartInfo uploadProc = new ProcessStartInfo(command1, arg1);
-            uploadProc.UseShellExecute = false;
-            uploadProc.CreateNoWindow = true; // Important if you want to keep shell window hidden
-            Process.Start(uploadProc).WaitForExit(); //important to add WaitForExit()
+                // Run Shell
+                string arg1 = @"user=Software-2";// just an example this can be anything
+                string command1 = "SA_Download_Upload.exe";
+                ProcessStartInfo uploadProc = new ProcessStartInfo(command1, arg1);
+                uploadProc.UseShellExecute = false;
+                uploadProc.CreateNoWindow = true; // Important if you want to keep shell window hidden
+                Process.Start(uploadProc).WaitForExit(); //important to add WaitForExit()
 
-            // Compile
-            string arg2 = @"user=Software-2";// just an example this can be anything
-            string command = "SA_Compile_Decompile.exe";
-            ProcessStartInfo compileProc = new ProcessStartInfo(command, arg2);
-            compileProc.UseShellExecute = false;
-            compileProc.CreateNoWindow = true; // Important if you want to keep shell window hidden
-            Process.Start(compileProc).WaitForExit(); //important to add WaitForExit()
+                // Compile
+                string arg2 = @"user=Software-2";// just an example this can be anything
+                string command = "SA_Compile_Decompile.exe";
+                ProcessStartInfo compileProc = new ProcessStartInfo(command, arg2);
+                compileProc.UseShellExecute = false;
+                compileProc.CreateNoWindow = true; // Important if you want to keep shell window hidden
+                Process.Start(compileProc).WaitForExit(); //important to add WaitForExit()
 
-            // Read Decompile File
-            string curDeCompileOutFile = "DecompileOut.prg";
-            string curcurDeCompileOutDir = startupPath + "\\" + curDeCompileOutFile;
-            if (File.Exists(curDeCompileOutFile))
-            {
-                string[] lines = File.ReadAllLines(curDeCompileOutFile);
-                foreach (string line in lines)
+                // Read Decompile File
+                string curDeCompileOutFile = "DecompileOut.prg";
+                string curcurDeCompileOutDir = startupPath + "\\" + curDeCompileOutFile;
+                if (File.Exists(curDeCompileOutFile))
                 {
-                    txtCode.AppendText(line + "\r\n");
+                    string[] lines = File.ReadAllLines(curDeCompileOutFile);
+                    foreach (string line in lines)
+                    {
+                        txtCode.AppendText(line + "\r\n");
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("File DecompileOut.prg does not exist.");
+                    return;
+                }
+
+                MotorControls.oHyperTerminalAdapter.OpenSerialPort();// open serial port
+                TimerStates.Enabled = true;
             }
             else
             {
-                MessageBox.Show("File DecompileOut.prg does not exist.");
-                return;
+                TimerStates.Enabled = false;
+                MessageBox.Show("Communication port not open! Cannot upload program from the motor!");
             }
-
-            MotorControls.oHyperTerminalAdapter.OpenSerialPort();// open serial port
-            TimerStates.Enabled = true;
+            //TimerStates.Enabled = true;
         }
 
         private void chbxMagMotorControlEnable_Click(object sender, EventArgs e)
@@ -999,9 +1047,28 @@ namespace CxTitan
 
         private void cmdXThread_Click(object sender, EventArgs e)
         {
-            TimerStates.Enabled = false;
-            XThreadPage xthreadPage = new XThreadPage();
-            xthreadPage.ShowDialog();
+            if (MotorControls.IsMotorSerialInitialized)
+            {
+                TimerStates.Enabled = false;
+                XThreadPage xthreadPage = new XThreadPage();
+                xthreadPage.ShowDialog();
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void cmdExpandProgram_Click(object sender, EventArgs e)
+        {
+            ExpandedProgramCodePage expandedProgramCodePage = new ExpandedProgramCodePage();
+            expandedProgramCodePage.ShowDialog();
+        }
+
+        private void cmdView_Click(object sender, EventArgs e)
+        {
+            MagViewPage magViewPage = new MagViewPage();
+            magViewPage.ShowDialog();
         }
     }
 }

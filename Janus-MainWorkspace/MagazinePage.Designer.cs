@@ -119,6 +119,8 @@
             this.lblHighSpeed = new System.Windows.Forms.Label();
             this.lblPos = new System.Windows.Forms.Label();
             this.gpbProgramControl = new System.Windows.Forms.GroupBox();
+            this.cmdExpandProgram = new System.Windows.Forms.Button();
+            this.lblTextProgram = new System.Windows.Forms.Label();
             this.cmdXThread = new System.Windows.Forms.Button();
             this.txtProgramControlIndex = new System.Windows.Forms.TextBox();
             this.lblProgramControlIndex = new System.Windows.Forms.Label();
@@ -244,6 +246,7 @@
             this.txtEncoder.ReadOnly = true;
             this.txtEncoder.Size = new System.Drawing.Size(117, 20);
             this.txtEncoder.TabIndex = 62;
+            this.txtEncoder.Text = "0";
             // 
             // lblEncoder
             // 
@@ -260,6 +263,7 @@
             this.txtDelta.ReadOnly = true;
             this.txtDelta.Size = new System.Drawing.Size(117, 20);
             this.txtDelta.TabIndex = 60;
+            this.txtDelta.Text = "0";
             // 
             // lblDelta
             // 
@@ -307,6 +311,7 @@
             this.txtStepNLoop.ReadOnly = true;
             this.txtStepNLoop.Size = new System.Drawing.Size(117, 20);
             this.txtStepNLoop.TabIndex = 55;
+            this.txtStepNLoop.Text = "0";
             // 
             // lblStepNLoop
             // 
@@ -336,6 +341,7 @@
             this.txtCurrent.ReadOnly = true;
             this.txtCurrent.Size = new System.Drawing.Size(117, 20);
             this.txtCurrent.TabIndex = 52;
+            this.txtCurrent.Text = "0";
             // 
             // txtMode
             // 
@@ -344,6 +350,7 @@
             this.txtMode.ReadOnly = true;
             this.txtMode.Size = new System.Drawing.Size(117, 20);
             this.txtMode.TabIndex = 51;
+            this.txtMode.Text = "ABS";
             // 
             // txtStatus
             // 
@@ -352,6 +359,7 @@
             this.txtStatus.ReadOnly = true;
             this.txtStatus.Size = new System.Drawing.Size(117, 20);
             this.txtStatus.TabIndex = 50;
+            this.txtStatus.Text = "0";
             // 
             // txtSpeed
             // 
@@ -360,6 +368,7 @@
             this.txtSpeed.ReadOnly = true;
             this.txtSpeed.Size = new System.Drawing.Size(117, 20);
             this.txtSpeed.TabIndex = 49;
+            this.txtSpeed.Text = "0";
             // 
             // txtPosition
             // 
@@ -368,6 +377,7 @@
             this.txtPosition.ReadOnly = true;
             this.txtPosition.Size = new System.Drawing.Size(117, 20);
             this.txtPosition.TabIndex = 48;
+            this.txtPosition.Text = "0";
             // 
             // lblPosLInput
             // 
@@ -1106,6 +1116,8 @@
             // 
             // gpbProgramControl
             // 
+            this.gpbProgramControl.Controls.Add(this.cmdExpandProgram);
+            this.gpbProgramControl.Controls.Add(this.lblTextProgram);
             this.gpbProgramControl.Controls.Add(this.cmdXThread);
             this.gpbProgramControl.Controls.Add(this.txtProgramControlIndex);
             this.gpbProgramControl.Controls.Add(this.lblProgramControlIndex);
@@ -1122,6 +1134,29 @@
             this.gpbProgramControl.TabIndex = 76;
             this.gpbProgramControl.TabStop = false;
             this.gpbProgramControl.Text = "Program Control";
+            // 
+            // cmdExpandProgram
+            // 
+            this.cmdExpandProgram.BackColor = System.Drawing.Color.Gainsboro;
+            this.cmdExpandProgram.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdExpandProgram.ForeColor = System.Drawing.Color.Black;
+            this.cmdExpandProgram.Location = new System.Drawing.Point(264, 103);
+            this.cmdExpandProgram.Name = "cmdExpandProgram";
+            this.cmdExpandProgram.Size = new System.Drawing.Size(20, 20);
+            this.cmdExpandProgram.TabIndex = 64;
+            this.cmdExpandProgram.Text = ">";
+            this.cmdExpandProgram.UseVisualStyleBackColor = false;
+            this.cmdExpandProgram.Click += new System.EventHandler(this.cmdExpandProgram_Click);
+            // 
+            // lblTextProgram
+            // 
+            this.lblTextProgram.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextProgram.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTextProgram.Location = new System.Drawing.Point(13, 106);
+            this.lblTextProgram.Name = "lblTextProgram";
+            this.lblTextProgram.Size = new System.Drawing.Size(87, 13);
+            this.lblTextProgram.TabIndex = 93;
+            this.lblTextProgram.Text = "Text Program";
             // 
             // cmdXThread
             // 
@@ -1172,16 +1207,17 @@
             // 
             // txtCode
             // 
-            this.txtCode.Location = new System.Drawing.Point(16, 115);
+            this.txtCode.Location = new System.Drawing.Point(16, 126);
             this.txtCode.Multiline = true;
             this.txtCode.Name = "txtCode";
-            this.txtCode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtCode.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtCode.Size = new System.Drawing.Size(268, 346);
             this.txtCode.TabIndex = 91;
+            this.txtCode.WordWrap = false;
             // 
             // cmdSingleContinue
             // 
-            this.cmdSingleContinue.Location = new System.Drawing.Point(228, 55);
+            this.cmdSingleContinue.Location = new System.Drawing.Point(228, 52);
             this.cmdSingleContinue.Name = "cmdSingleContinue";
             this.cmdSingleContinue.Size = new System.Drawing.Size(56, 50);
             this.cmdSingleContinue.TabIndex = 90;
@@ -1191,7 +1227,7 @@
             // 
             // cmdSinglePause
             // 
-            this.cmdSinglePause.Location = new System.Drawing.Point(158, 55);
+            this.cmdSinglePause.Location = new System.Drawing.Point(158, 52);
             this.cmdSinglePause.Name = "cmdSinglePause";
             this.cmdSinglePause.Size = new System.Drawing.Size(56, 50);
             this.cmdSinglePause.TabIndex = 89;
@@ -1201,7 +1237,7 @@
             // 
             // cmdSingleStop
             // 
-            this.cmdSingleStop.Location = new System.Drawing.Point(87, 55);
+            this.cmdSingleStop.Location = new System.Drawing.Point(87, 52);
             this.cmdSingleStop.Name = "cmdSingleStop";
             this.cmdSingleStop.Size = new System.Drawing.Size(56, 50);
             this.cmdSingleStop.TabIndex = 88;
@@ -1211,7 +1247,7 @@
             // 
             // cmdSingleRun
             // 
-            this.cmdSingleRun.Location = new System.Drawing.Point(16, 55);
+            this.cmdSingleRun.Location = new System.Drawing.Point(16, 52);
             this.cmdSingleRun.Name = "cmdSingleRun";
             this.cmdSingleRun.Size = new System.Drawing.Size(56, 50);
             this.cmdSingleRun.TabIndex = 87;
@@ -1276,7 +1312,7 @@
             this.cmdView.TabIndex = 99;
             this.cmdView.Text = "View";
             this.cmdView.UseVisualStyleBackColor = true;
-            this.cmdView.Visible = false;
+            this.cmdView.Click += new System.EventHandler(this.cmdView_Click);
             // 
             // cmdClearCodeSpace
             // 
@@ -1747,7 +1783,6 @@
         internal System.Windows.Forms.Button cmdSingleStop;
         internal System.Windows.Forms.Button cmdSinglePause;
         internal System.Windows.Forms.Button cmdSingleContinue;
-        private System.Windows.Forms.TextBox txtCode;
         private System.Windows.Forms.Label lblProgramControlStatus;
         private System.Windows.Forms.TextBox txtProgramControlStatus;
         private System.Windows.Forms.Label lblProgramControlIndex;
@@ -1811,5 +1846,8 @@
         private System.Windows.Forms.Label lblEncoder;
         private System.Windows.Forms.TextBox txtEncoder;
         internal System.Windows.Forms.Button cmdResetPosition;
+        private System.Windows.Forms.Label lblTextProgram;
+        internal System.Windows.Forms.Button cmdExpandProgram;
+        internal System.Windows.Forms.TextBox txtCode;
     }
 }
