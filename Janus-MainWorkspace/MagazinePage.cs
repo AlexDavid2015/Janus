@@ -217,7 +217,6 @@ namespace CxTitan
                 clearCodeProc.UseShellExecute = false;
                 clearCodeProc.CreateNoWindow = true; // Important if you want to keep shell window hidden
                 Process.Start(clearCodeProc).WaitForExit(); //important to add WaitForExit()
-
                 MessageBox.Show("Done!");
 
                 MotorControls.oHyperTerminalAdapter.OpenSerialPort();// open serial port
