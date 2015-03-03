@@ -186,6 +186,7 @@
             // radioButton14
             // 
             this.radioButton14.AutoSize = true;
+            this.radioButton14.Checked = true;
             this.radioButton14.Location = new System.Drawing.Point(89, 9);
             this.radioButton14.Name = "radioButton14";
             this.radioButton14.Size = new System.Drawing.Size(45, 17);
@@ -219,6 +220,7 @@
             // radioButton12
             // 
             this.radioButton12.AutoSize = true;
+            this.radioButton12.Checked = true;
             this.radioButton12.Location = new System.Drawing.Point(89, 9);
             this.radioButton12.Name = "radioButton12";
             this.radioButton12.Size = new System.Drawing.Size(45, 17);
@@ -252,6 +254,7 @@
             // radioButton10
             // 
             this.radioButton10.AutoSize = true;
+            this.radioButton10.Checked = true;
             this.radioButton10.Location = new System.Drawing.Point(89, 9);
             this.radioButton10.Name = "radioButton10";
             this.radioButton10.Size = new System.Drawing.Size(45, 17);
@@ -285,6 +288,7 @@
             // radioButton8
             // 
             this.radioButton8.AutoSize = true;
+            this.radioButton8.Checked = true;
             this.radioButton8.Location = new System.Drawing.Point(89, 9);
             this.radioButton8.Name = "radioButton8";
             this.radioButton8.Size = new System.Drawing.Size(45, 17);
@@ -308,7 +312,6 @@
             // 
             this.gpbAlarm.Controls.Add(this.radioButton6);
             this.gpbAlarm.Controls.Add(this.radioButton7);
-            this.gpbAlarm.Enabled = false;
             this.gpbAlarm.Location = new System.Drawing.Point(106, 171);
             this.gpbAlarm.Name = "gpbAlarm";
             this.gpbAlarm.Size = new System.Drawing.Size(156, 30);
@@ -318,6 +321,7 @@
             // radioButton6
             // 
             this.radioButton6.AutoSize = true;
+            this.radioButton6.Checked = true;
             this.radioButton6.Location = new System.Drawing.Point(89, 9);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(45, 17);
@@ -350,6 +354,7 @@
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
+            this.radioButton4.Checked = true;
             this.radioButton4.Location = new System.Drawing.Point(89, 9);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(45, 17);
@@ -382,6 +387,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
+            this.radioButton2.Checked = true;
             this.radioButton2.Location = new System.Drawing.Point(89, 9);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(45, 17);
@@ -414,6 +420,7 @@
             // radLimitLow
             // 
             this.radLimitLow.AutoSize = true;
+            this.radLimitLow.Checked = true;
             this.radLimitLow.Location = new System.Drawing.Point(89, 9);
             this.radLimitLow.Name = "radLimitLow";
             this.radLimitLow.Size = new System.Drawing.Size(45, 17);
@@ -446,6 +453,7 @@
             // radHomeLow
             // 
             this.radHomeLow.AutoSize = true;
+            this.radHomeLow.Checked = true;
             this.radHomeLow.Location = new System.Drawing.Point(89, 9);
             this.radHomeLow.Name = "radHomeLow";
             this.radHomeLow.Size = new System.Drawing.Size(45, 17);
@@ -478,6 +486,7 @@
             // radDirCW
             // 
             this.radDirCW.AutoSize = true;
+            this.radDirCW.Checked = true;
             this.radDirCW.Location = new System.Drawing.Point(89, 9);
             this.radDirCW.Name = "radDirCW";
             this.radDirCW.Size = new System.Drawing.Size(43, 17);
@@ -493,7 +502,6 @@
             this.radDirCCW.Name = "radDirCCW";
             this.radDirCCW.Size = new System.Drawing.Size(50, 17);
             this.radDirCCW.TabIndex = 0;
-            this.radDirCCW.TabStop = true;
             this.radDirCCW.Text = "CCW";
             this.radDirCCW.UseVisualStyleBackColor = true;
             // 
@@ -624,6 +632,7 @@
             this.cmdStore.TabIndex = 108;
             this.cmdStore.Text = "Store";
             this.cmdStore.UseVisualStyleBackColor = true;
+            this.cmdStore.Click += new System.EventHandler(this.cmdStore_Click);
             // 
             // cmdDown
             // 
@@ -633,6 +642,7 @@
             this.cmdDown.TabIndex = 107;
             this.cmdDown.Text = "Down";
             this.cmdDown.UseVisualStyleBackColor = true;
+            this.cmdDown.Click += new System.EventHandler(this.cmdDown_Click);
             // 
             // cmdUpload
             // 
@@ -642,6 +652,7 @@
             this.cmdUpload.TabIndex = 106;
             this.cmdUpload.Text = "Upload";
             this.cmdUpload.UseVisualStyleBackColor = true;
+            this.cmdUpload.Click += new System.EventHandler(this.cmdUpload_Click);
             // 
             // cmdSave
             // 
@@ -651,6 +662,7 @@
             this.cmdSave.TabIndex = 105;
             this.cmdSave.Text = "Save";
             this.cmdSave.UseVisualStyleBackColor = true;
+            this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
             // 
             // cmdOpen
             // 
@@ -660,6 +672,7 @@
             this.cmdOpen.TabIndex = 104;
             this.cmdOpen.Text = "Open";
             this.cmdOpen.UseVisualStyleBackColor = true;
+            this.cmdOpen.Click += new System.EventHandler(this.cmdOpen_Click);
             // 
             // gpbDriverCurrent
             // 
@@ -713,7 +726,7 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(65, 20);
             this.textBox1.TabIndex = 92;
-            this.textBox1.Text = "0";
+            this.textBox1.Text = "1";
             // 
             // txtTime
             // 
@@ -722,7 +735,7 @@
             this.txtTime.ReadOnly = true;
             this.txtTime.Size = new System.Drawing.Size(65, 20);
             this.txtTime.TabIndex = 91;
-            this.txtTime.Text = "0";
+            this.txtTime.Text = "1";
             // 
             // lblTime
             // 
@@ -739,7 +752,7 @@
             this.txtRun.ReadOnly = true;
             this.txtRun.Size = new System.Drawing.Size(65, 20);
             this.txtRun.TabIndex = 59;
-            this.txtRun.Text = "0";
+            this.txtRun.Text = "1";
             // 
             // lblIdle
             // 
@@ -949,7 +962,6 @@
             // 
             // chbxRZ
             // 
-            this.chbxRZ.Enabled = false;
             this.chbxRZ.Location = new System.Drawing.Point(166, 71);
             this.chbxRZ.Name = "chbxRZ";
             this.chbxRZ.Size = new System.Drawing.Size(64, 17);
@@ -958,7 +970,6 @@
             // 
             // chbxAlmLnp
             // 
-            this.chbxAlmLnp.Enabled = false;
             this.chbxAlmLnp.Location = new System.Drawing.Point(166, 48);
             this.chbxAlmLnp.Name = "chbxAlmLnp";
             this.chbxAlmLnp.Size = new System.Drawing.Size(64, 17);
@@ -976,7 +987,6 @@
             // 
             // chbxAutoRun0
             // 
-            this.chbxAutoRun0.Enabled = false;
             this.chbxAutoRun0.Location = new System.Drawing.Point(21, 48);
             this.chbxAutoRun0.Name = "chbxAutoRun0";
             this.chbxAutoRun0.Size = new System.Drawing.Size(95, 17);
@@ -1030,6 +1040,7 @@
             // 
             // chbAutoResponse
             // 
+            this.chbAutoResponse.Enabled = false;
             this.chbAutoResponse.Location = new System.Drawing.Point(131, 50);
             this.chbAutoResponse.Name = "chbAutoResponse";
             this.chbAutoResponse.Size = new System.Drawing.Size(99, 26);
@@ -1060,6 +1071,7 @@
             // radRS485
             // 
             this.radRS485.AutoSize = true;
+            this.radRS485.Checked = true;
             this.radRS485.Location = new System.Drawing.Point(6, 9);
             this.radRS485.Name = "radRS485";
             this.radRS485.Size = new System.Drawing.Size(61, 17);
@@ -1070,6 +1082,7 @@
             // 
             // combxDeviceID
             // 
+            this.combxDeviceID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combxDeviceID.FormattingEnabled = true;
             this.combxDeviceID.Location = new System.Drawing.Point(131, 119);
             this.combxDeviceID.Name = "combxDeviceID";
@@ -1078,6 +1091,7 @@
             // 
             // combxBaudRate
             // 
+            this.combxBaudRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combxBaudRate.FormattingEnabled = true;
             this.combxBaudRate.Location = new System.Drawing.Point(131, 85);
             this.combxBaudRate.Name = "combxBaudRate";
@@ -1138,6 +1152,7 @@
             this.Name = "MagSetupPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MagSetupPage";
+            this.Load += new System.EventHandler(this.MagSetupPage_Load);
             this.gpbPolarity.ResumeLayout(false);
             this.gpbPolarityEnable.ResumeLayout(false);
             this.gpbPolarityEnable.PerformLayout();
