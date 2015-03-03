@@ -90,7 +90,15 @@ namespace CxTitan
         {
             this.Close();
             this.Dispose();
-            SystemGlobals.objMagazinePage.TimerStates.Enabled = true;
+            //SystemGlobals.objMagazinePage.TimerStates.Enabled = true;
+            if (MotorControls.IsMotorSerialInitialized)
+            {
+                SystemGlobals.objMagazinePage.TimerStates.Enabled = true;
+            }
+            else
+            {
+                SystemGlobals.objMagazinePage.TimerStates.Enabled = false;
+            }
         }
 
         private void XThreadPage_Load(object sender, EventArgs e)
