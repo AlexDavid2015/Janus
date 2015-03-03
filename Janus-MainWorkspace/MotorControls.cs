@@ -12,6 +12,7 @@ namespace CxTitan
     public static class MotorControls
     {
         public static HyperTerminalAdapter oHyperTerminalAdapter = new HyperTerminalAdapter();
+        public static bool IsMotorSerialInitialized = false;
 
         #region Status 
         public static string PulsePos = "";
