@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gpbVariables = new System.Windows.Forms.GroupBox();
             this.txtCommand = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -235,6 +236,7 @@
             this.lblV1 = new System.Windows.Forms.Label();
             this.txtV0 = new System.Windows.Forms.TextBox();
             this.lblV0 = new System.Windows.Forms.Label();
+            this.TimerVariableStates = new System.Windows.Forms.Timer(this.components);
             this.gpbVariables.SuspendLayout();
             this.gpbNonVolatileVariables.SuspendLayout();
             this.gpbVolatileVariables.SuspendLayout();
@@ -260,6 +262,7 @@
             this.txtCommand.Name = "txtCommand";
             this.txtCommand.Size = new System.Drawing.Size(170, 20);
             this.txtCommand.TabIndex = 101;
+            this.txtCommand.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCommand_KeyPress);
             // 
             // txtID
             // 
@@ -404,6 +407,7 @@
             this.txtV99.Name = "txtV99";
             this.txtV99.Size = new System.Drawing.Size(71, 20);
             this.txtV99.TabIndex = 298;
+            this.txtV99.Text = "0";
             // 
             // txtV98
             // 
@@ -412,6 +416,7 @@
             this.txtV98.Name = "txtV98";
             this.txtV98.Size = new System.Drawing.Size(71, 20);
             this.txtV98.TabIndex = 297;
+            this.txtV98.Text = "0";
             // 
             // txtV97
             // 
@@ -420,6 +425,7 @@
             this.txtV97.Name = "txtV97";
             this.txtV97.Size = new System.Drawing.Size(71, 20);
             this.txtV97.TabIndex = 296;
+            this.txtV97.Text = "0";
             // 
             // txtV96
             // 
@@ -428,6 +434,7 @@
             this.txtV96.Name = "txtV96";
             this.txtV96.Size = new System.Drawing.Size(71, 20);
             this.txtV96.TabIndex = 295;
+            this.txtV96.Text = "0";
             // 
             // txtV95
             // 
@@ -436,6 +443,7 @@
             this.txtV95.Name = "txtV95";
             this.txtV95.Size = new System.Drawing.Size(71, 20);
             this.txtV95.TabIndex = 294;
+            this.txtV95.Text = "0";
             // 
             // txtV94
             // 
@@ -444,6 +452,7 @@
             this.txtV94.Name = "txtV94";
             this.txtV94.Size = new System.Drawing.Size(71, 20);
             this.txtV94.TabIndex = 293;
+            this.txtV94.Text = "0";
             // 
             // txtV93
             // 
@@ -452,6 +461,7 @@
             this.txtV93.Name = "txtV93";
             this.txtV93.Size = new System.Drawing.Size(71, 20);
             this.txtV93.TabIndex = 292;
+            this.txtV93.Text = "0";
             // 
             // txtV92
             // 
@@ -460,6 +470,7 @@
             this.txtV92.Name = "txtV92";
             this.txtV92.Size = new System.Drawing.Size(71, 20);
             this.txtV92.TabIndex = 291;
+            this.txtV92.Text = "0";
             // 
             // txtV91
             // 
@@ -468,6 +479,7 @@
             this.txtV91.Name = "txtV91";
             this.txtV91.Size = new System.Drawing.Size(71, 20);
             this.txtV91.TabIndex = 290;
+            this.txtV91.Text = "0";
             // 
             // txtV90
             // 
@@ -476,6 +488,7 @@
             this.txtV90.Name = "txtV90";
             this.txtV90.Size = new System.Drawing.Size(71, 20);
             this.txtV90.TabIndex = 289;
+            this.txtV90.Text = "0";
             // 
             // txtV89
             // 
@@ -484,6 +497,7 @@
             this.txtV89.Name = "txtV89";
             this.txtV89.Size = new System.Drawing.Size(71, 20);
             this.txtV89.TabIndex = 288;
+            this.txtV89.Text = "0";
             // 
             // txtV88
             // 
@@ -492,6 +506,7 @@
             this.txtV88.Name = "txtV88";
             this.txtV88.Size = new System.Drawing.Size(71, 20);
             this.txtV88.TabIndex = 287;
+            this.txtV88.Text = "0";
             // 
             // txtV87
             // 
@@ -500,6 +515,7 @@
             this.txtV87.Name = "txtV87";
             this.txtV87.Size = new System.Drawing.Size(71, 20);
             this.txtV87.TabIndex = 286;
+            this.txtV87.Text = "0";
             // 
             // txtV86
             // 
@@ -508,6 +524,7 @@
             this.txtV86.Name = "txtV86";
             this.txtV86.Size = new System.Drawing.Size(71, 20);
             this.txtV86.TabIndex = 285;
+            this.txtV86.Text = "0";
             // 
             // txtV85
             // 
@@ -516,6 +533,7 @@
             this.txtV85.Name = "txtV85";
             this.txtV85.Size = new System.Drawing.Size(71, 20);
             this.txtV85.TabIndex = 284;
+            this.txtV85.Text = "0";
             // 
             // txtV84
             // 
@@ -524,6 +542,7 @@
             this.txtV84.Name = "txtV84";
             this.txtV84.Size = new System.Drawing.Size(71, 20);
             this.txtV84.TabIndex = 283;
+            this.txtV84.Text = "0";
             // 
             // txtV83
             // 
@@ -532,6 +551,7 @@
             this.txtV83.Name = "txtV83";
             this.txtV83.Size = new System.Drawing.Size(71, 20);
             this.txtV83.TabIndex = 282;
+            this.txtV83.Text = "0";
             // 
             // txtV82
             // 
@@ -540,6 +560,7 @@
             this.txtV82.Name = "txtV82";
             this.txtV82.Size = new System.Drawing.Size(71, 20);
             this.txtV82.TabIndex = 281;
+            this.txtV82.Text = "0";
             // 
             // txtV81
             // 
@@ -548,6 +569,7 @@
             this.txtV81.Name = "txtV81";
             this.txtV81.Size = new System.Drawing.Size(71, 20);
             this.txtV81.TabIndex = 280;
+            this.txtV81.Text = "0";
             // 
             // txtV80
             // 
@@ -556,6 +578,7 @@
             this.txtV80.Name = "txtV80";
             this.txtV80.Size = new System.Drawing.Size(71, 20);
             this.txtV80.TabIndex = 279;
+            this.txtV80.Text = "0";
             // 
             // txtV79
             // 
@@ -564,6 +587,7 @@
             this.txtV79.Name = "txtV79";
             this.txtV79.Size = new System.Drawing.Size(71, 20);
             this.txtV79.TabIndex = 278;
+            this.txtV79.Text = "0";
             // 
             // txtV78
             // 
@@ -572,6 +596,7 @@
             this.txtV78.Name = "txtV78";
             this.txtV78.Size = new System.Drawing.Size(71, 20);
             this.txtV78.TabIndex = 277;
+            this.txtV78.Text = "0";
             // 
             // txtV77
             // 
@@ -580,6 +605,7 @@
             this.txtV77.Name = "txtV77";
             this.txtV77.Size = new System.Drawing.Size(71, 20);
             this.txtV77.TabIndex = 276;
+            this.txtV77.Text = "0";
             // 
             // txtV76
             // 
@@ -588,6 +614,7 @@
             this.txtV76.Name = "txtV76";
             this.txtV76.Size = new System.Drawing.Size(71, 20);
             this.txtV76.TabIndex = 275;
+            this.txtV76.Text = "0";
             // 
             // lblV99
             // 
@@ -812,6 +839,7 @@
             this.txtV75.Name = "txtV75";
             this.txtV75.Size = new System.Drawing.Size(71, 20);
             this.txtV75.TabIndex = 250;
+            this.txtV75.Text = "0";
             // 
             // lblV75
             // 
@@ -829,6 +857,7 @@
             this.txtV74.Name = "txtV74";
             this.txtV74.Size = new System.Drawing.Size(71, 20);
             this.txtV74.TabIndex = 248;
+            this.txtV74.Text = "0";
             // 
             // txtV73
             // 
@@ -837,6 +866,7 @@
             this.txtV73.Name = "txtV73";
             this.txtV73.Size = new System.Drawing.Size(71, 20);
             this.txtV73.TabIndex = 247;
+            this.txtV73.Text = "0";
             // 
             // txtV72
             // 
@@ -845,6 +875,7 @@
             this.txtV72.Name = "txtV72";
             this.txtV72.Size = new System.Drawing.Size(71, 20);
             this.txtV72.TabIndex = 246;
+            this.txtV72.Text = "0";
             // 
             // txtV71
             // 
@@ -853,6 +884,7 @@
             this.txtV71.Name = "txtV71";
             this.txtV71.Size = new System.Drawing.Size(71, 20);
             this.txtV71.TabIndex = 245;
+            this.txtV71.Text = "0";
             // 
             // txtV70
             // 
@@ -861,6 +893,7 @@
             this.txtV70.Name = "txtV70";
             this.txtV70.Size = new System.Drawing.Size(71, 20);
             this.txtV70.TabIndex = 244;
+            this.txtV70.Text = "0";
             // 
             // txtV69
             // 
@@ -869,6 +902,7 @@
             this.txtV69.Name = "txtV69";
             this.txtV69.Size = new System.Drawing.Size(71, 20);
             this.txtV69.TabIndex = 243;
+            this.txtV69.Text = "0";
             // 
             // txtV68
             // 
@@ -877,6 +911,7 @@
             this.txtV68.Name = "txtV68";
             this.txtV68.Size = new System.Drawing.Size(71, 20);
             this.txtV68.TabIndex = 242;
+            this.txtV68.Text = "0";
             // 
             // txtV67
             // 
@@ -885,6 +920,7 @@
             this.txtV67.Name = "txtV67";
             this.txtV67.Size = new System.Drawing.Size(71, 20);
             this.txtV67.TabIndex = 241;
+            this.txtV67.Text = "0";
             // 
             // txtV66
             // 
@@ -893,6 +929,7 @@
             this.txtV66.Name = "txtV66";
             this.txtV66.Size = new System.Drawing.Size(71, 20);
             this.txtV66.TabIndex = 240;
+            this.txtV66.Text = "0";
             // 
             // txtV65
             // 
@@ -901,6 +938,7 @@
             this.txtV65.Name = "txtV65";
             this.txtV65.Size = new System.Drawing.Size(71, 20);
             this.txtV65.TabIndex = 239;
+            this.txtV65.Text = "0";
             // 
             // txtV64
             // 
@@ -909,6 +947,7 @@
             this.txtV64.Name = "txtV64";
             this.txtV64.Size = new System.Drawing.Size(71, 20);
             this.txtV64.TabIndex = 238;
+            this.txtV64.Text = "0";
             // 
             // txtV63
             // 
@@ -917,6 +956,7 @@
             this.txtV63.Name = "txtV63";
             this.txtV63.Size = new System.Drawing.Size(71, 20);
             this.txtV63.TabIndex = 237;
+            this.txtV63.Text = "0";
             // 
             // txtV62
             // 
@@ -925,6 +965,7 @@
             this.txtV62.Name = "txtV62";
             this.txtV62.Size = new System.Drawing.Size(71, 20);
             this.txtV62.TabIndex = 236;
+            this.txtV62.Text = "0";
             // 
             // txtV61
             // 
@@ -933,6 +974,7 @@
             this.txtV61.Name = "txtV61";
             this.txtV61.Size = new System.Drawing.Size(71, 20);
             this.txtV61.TabIndex = 235;
+            this.txtV61.Text = "0";
             // 
             // txtV60
             // 
@@ -941,6 +983,7 @@
             this.txtV60.Name = "txtV60";
             this.txtV60.Size = new System.Drawing.Size(71, 20);
             this.txtV60.TabIndex = 234;
+            this.txtV60.Text = "0";
             // 
             // txtV59
             // 
@@ -949,6 +992,7 @@
             this.txtV59.Name = "txtV59";
             this.txtV59.Size = new System.Drawing.Size(71, 20);
             this.txtV59.TabIndex = 233;
+            this.txtV59.Text = "0";
             // 
             // txtV58
             // 
@@ -957,6 +1001,7 @@
             this.txtV58.Name = "txtV58";
             this.txtV58.Size = new System.Drawing.Size(71, 20);
             this.txtV58.TabIndex = 232;
+            this.txtV58.Text = "0";
             // 
             // txtV57
             // 
@@ -965,6 +1010,7 @@
             this.txtV57.Name = "txtV57";
             this.txtV57.Size = new System.Drawing.Size(71, 20);
             this.txtV57.TabIndex = 231;
+            this.txtV57.Text = "0";
             // 
             // txtV56
             // 
@@ -973,6 +1019,7 @@
             this.txtV56.Name = "txtV56";
             this.txtV56.Size = new System.Drawing.Size(71, 20);
             this.txtV56.TabIndex = 230;
+            this.txtV56.Text = "0";
             // 
             // txtV55
             // 
@@ -981,6 +1028,7 @@
             this.txtV55.Name = "txtV55";
             this.txtV55.Size = new System.Drawing.Size(71, 20);
             this.txtV55.TabIndex = 229;
+            this.txtV55.Text = "0";
             // 
             // txtV54
             // 
@@ -989,6 +1037,7 @@
             this.txtV54.Name = "txtV54";
             this.txtV54.Size = new System.Drawing.Size(71, 20);
             this.txtV54.TabIndex = 228;
+            this.txtV54.Text = "0";
             // 
             // txtV53
             // 
@@ -997,6 +1046,7 @@
             this.txtV53.Name = "txtV53";
             this.txtV53.Size = new System.Drawing.Size(71, 20);
             this.txtV53.TabIndex = 227;
+            this.txtV53.Text = "0";
             // 
             // txtV52
             // 
@@ -1005,6 +1055,7 @@
             this.txtV52.Name = "txtV52";
             this.txtV52.Size = new System.Drawing.Size(71, 20);
             this.txtV52.TabIndex = 226;
+            this.txtV52.Text = "0";
             // 
             // txtV51
             // 
@@ -1013,6 +1064,7 @@
             this.txtV51.Name = "txtV51";
             this.txtV51.Size = new System.Drawing.Size(71, 20);
             this.txtV51.TabIndex = 225;
+            this.txtV51.Text = "0";
             // 
             // lblV74
             // 
@@ -1237,6 +1289,7 @@
             this.txtV50.Name = "txtV50";
             this.txtV50.Size = new System.Drawing.Size(71, 20);
             this.txtV50.TabIndex = 200;
+            this.txtV50.Text = "0";
             // 
             // lblV50
             // 
@@ -1363,6 +1416,7 @@
             this.txtV49.Name = "txtV49";
             this.txtV49.Size = new System.Drawing.Size(71, 20);
             this.txtV49.TabIndex = 199;
+            this.txtV49.Text = "0";
             // 
             // txtV48
             // 
@@ -1371,6 +1425,7 @@
             this.txtV48.Name = "txtV48";
             this.txtV48.Size = new System.Drawing.Size(71, 20);
             this.txtV48.TabIndex = 198;
+            this.txtV48.Text = "0";
             // 
             // txtV47
             // 
@@ -1379,6 +1434,7 @@
             this.txtV47.Name = "txtV47";
             this.txtV47.Size = new System.Drawing.Size(71, 20);
             this.txtV47.TabIndex = 197;
+            this.txtV47.Text = "0";
             // 
             // txtV46
             // 
@@ -1387,6 +1443,7 @@
             this.txtV46.Name = "txtV46";
             this.txtV46.Size = new System.Drawing.Size(71, 20);
             this.txtV46.TabIndex = 196;
+            this.txtV46.Text = "0";
             // 
             // txtV45
             // 
@@ -1395,6 +1452,7 @@
             this.txtV45.Name = "txtV45";
             this.txtV45.Size = new System.Drawing.Size(71, 20);
             this.txtV45.TabIndex = 195;
+            this.txtV45.Text = "0";
             // 
             // txtV44
             // 
@@ -1403,6 +1461,7 @@
             this.txtV44.Name = "txtV44";
             this.txtV44.Size = new System.Drawing.Size(71, 20);
             this.txtV44.TabIndex = 194;
+            this.txtV44.Text = "0";
             // 
             // txtV43
             // 
@@ -1411,6 +1470,7 @@
             this.txtV43.Name = "txtV43";
             this.txtV43.Size = new System.Drawing.Size(71, 20);
             this.txtV43.TabIndex = 193;
+            this.txtV43.Text = "0";
             // 
             // txtV42
             // 
@@ -1419,6 +1479,7 @@
             this.txtV42.Name = "txtV42";
             this.txtV42.Size = new System.Drawing.Size(71, 20);
             this.txtV42.TabIndex = 192;
+            this.txtV42.Text = "0";
             // 
             // txtV41
             // 
@@ -1427,6 +1488,7 @@
             this.txtV41.Name = "txtV41";
             this.txtV41.Size = new System.Drawing.Size(71, 20);
             this.txtV41.TabIndex = 191;
+            this.txtV41.Text = "0";
             // 
             // txtV40
             // 
@@ -1435,6 +1497,7 @@
             this.txtV40.Name = "txtV40";
             this.txtV40.Size = new System.Drawing.Size(71, 20);
             this.txtV40.TabIndex = 190;
+            this.txtV40.Text = "0";
             // 
             // txtV39
             // 
@@ -1443,6 +1506,7 @@
             this.txtV39.Name = "txtV39";
             this.txtV39.Size = new System.Drawing.Size(71, 20);
             this.txtV39.TabIndex = 189;
+            this.txtV39.Text = "0";
             // 
             // txtV38
             // 
@@ -1451,6 +1515,7 @@
             this.txtV38.Name = "txtV38";
             this.txtV38.Size = new System.Drawing.Size(71, 20);
             this.txtV38.TabIndex = 188;
+            this.txtV38.Text = "0";
             // 
             // txtV37
             // 
@@ -1459,6 +1524,7 @@
             this.txtV37.Name = "txtV37";
             this.txtV37.Size = new System.Drawing.Size(71, 20);
             this.txtV37.TabIndex = 187;
+            this.txtV37.Text = "0";
             // 
             // txtV36
             // 
@@ -1467,6 +1533,7 @@
             this.txtV36.Name = "txtV36";
             this.txtV36.Size = new System.Drawing.Size(71, 20);
             this.txtV36.TabIndex = 186;
+            this.txtV36.Text = "0";
             // 
             // txtV35
             // 
@@ -1475,6 +1542,7 @@
             this.txtV35.Name = "txtV35";
             this.txtV35.Size = new System.Drawing.Size(71, 20);
             this.txtV35.TabIndex = 185;
+            this.txtV35.Text = "0";
             // 
             // txtV34
             // 
@@ -1483,6 +1551,7 @@
             this.txtV34.Name = "txtV34";
             this.txtV34.Size = new System.Drawing.Size(71, 20);
             this.txtV34.TabIndex = 184;
+            this.txtV34.Text = "0";
             // 
             // txtV33
             // 
@@ -1491,6 +1560,7 @@
             this.txtV33.Name = "txtV33";
             this.txtV33.Size = new System.Drawing.Size(71, 20);
             this.txtV33.TabIndex = 183;
+            this.txtV33.Text = "0";
             // 
             // txtV32
             // 
@@ -1499,6 +1569,7 @@
             this.txtV32.Name = "txtV32";
             this.txtV32.Size = new System.Drawing.Size(71, 20);
             this.txtV32.TabIndex = 182;
+            this.txtV32.Text = "0";
             // 
             // txtV31
             // 
@@ -1507,6 +1578,7 @@
             this.txtV31.Name = "txtV31";
             this.txtV31.Size = new System.Drawing.Size(71, 20);
             this.txtV31.TabIndex = 181;
+            this.txtV31.Text = "0";
             // 
             // txtV30
             // 
@@ -1515,6 +1587,7 @@
             this.txtV30.Name = "txtV30";
             this.txtV30.Size = new System.Drawing.Size(71, 20);
             this.txtV30.TabIndex = 180;
+            this.txtV30.Text = "0";
             // 
             // txtV29
             // 
@@ -1523,6 +1596,7 @@
             this.txtV29.Name = "txtV29";
             this.txtV29.Size = new System.Drawing.Size(71, 20);
             this.txtV29.TabIndex = 179;
+            this.txtV29.Text = "0";
             // 
             // txtV28
             // 
@@ -1531,6 +1605,7 @@
             this.txtV28.Name = "txtV28";
             this.txtV28.Size = new System.Drawing.Size(71, 20);
             this.txtV28.TabIndex = 178;
+            this.txtV28.Text = "0";
             // 
             // txtV27
             // 
@@ -1539,6 +1614,7 @@
             this.txtV27.Name = "txtV27";
             this.txtV27.Size = new System.Drawing.Size(71, 20);
             this.txtV27.TabIndex = 177;
+            this.txtV27.Text = "0";
             // 
             // txtV26
             // 
@@ -1547,6 +1623,7 @@
             this.txtV26.Name = "txtV26";
             this.txtV26.Size = new System.Drawing.Size(71, 20);
             this.txtV26.TabIndex = 176;
+            this.txtV26.Text = "0";
             // 
             // txtV25
             // 
@@ -1555,6 +1632,7 @@
             this.txtV25.Name = "txtV25";
             this.txtV25.Size = new System.Drawing.Size(71, 20);
             this.txtV25.TabIndex = 175;
+            this.txtV25.Text = "0";
             // 
             // lblV49
             // 
@@ -1788,6 +1866,7 @@
             this.txtV24.Name = "txtV24";
             this.txtV24.Size = new System.Drawing.Size(71, 20);
             this.txtV24.TabIndex = 149;
+            this.txtV24.Text = "0";
             // 
             // txtV23
             // 
@@ -1796,6 +1875,7 @@
             this.txtV23.Name = "txtV23";
             this.txtV23.Size = new System.Drawing.Size(71, 20);
             this.txtV23.TabIndex = 148;
+            this.txtV23.Text = "0";
             // 
             // txtV22
             // 
@@ -1804,6 +1884,7 @@
             this.txtV22.Name = "txtV22";
             this.txtV22.Size = new System.Drawing.Size(71, 20);
             this.txtV22.TabIndex = 147;
+            this.txtV22.Text = "0";
             // 
             // txtV21
             // 
@@ -1812,6 +1893,7 @@
             this.txtV21.Name = "txtV21";
             this.txtV21.Size = new System.Drawing.Size(71, 20);
             this.txtV21.TabIndex = 146;
+            this.txtV21.Text = "0";
             // 
             // txtV20
             // 
@@ -1820,6 +1902,7 @@
             this.txtV20.Name = "txtV20";
             this.txtV20.Size = new System.Drawing.Size(71, 20);
             this.txtV20.TabIndex = 145;
+            this.txtV20.Text = "0";
             // 
             // txtV19
             // 
@@ -1828,6 +1911,7 @@
             this.txtV19.Name = "txtV19";
             this.txtV19.Size = new System.Drawing.Size(71, 20);
             this.txtV19.TabIndex = 144;
+            this.txtV19.Text = "0";
             // 
             // txtV18
             // 
@@ -1836,6 +1920,7 @@
             this.txtV18.Name = "txtV18";
             this.txtV18.Size = new System.Drawing.Size(71, 20);
             this.txtV18.TabIndex = 143;
+            this.txtV18.Text = "0";
             // 
             // txtV17
             // 
@@ -1844,6 +1929,7 @@
             this.txtV17.Name = "txtV17";
             this.txtV17.Size = new System.Drawing.Size(71, 20);
             this.txtV17.TabIndex = 142;
+            this.txtV17.Text = "0";
             // 
             // txtV16
             // 
@@ -1852,6 +1938,7 @@
             this.txtV16.Name = "txtV16";
             this.txtV16.Size = new System.Drawing.Size(71, 20);
             this.txtV16.TabIndex = 141;
+            this.txtV16.Text = "0";
             // 
             // txtV15
             // 
@@ -1860,6 +1947,7 @@
             this.txtV15.Name = "txtV15";
             this.txtV15.Size = new System.Drawing.Size(71, 20);
             this.txtV15.TabIndex = 140;
+            this.txtV15.Text = "0";
             // 
             // txtV14
             // 
@@ -1868,6 +1956,7 @@
             this.txtV14.Name = "txtV14";
             this.txtV14.Size = new System.Drawing.Size(71, 20);
             this.txtV14.TabIndex = 139;
+            this.txtV14.Text = "0";
             // 
             // txtV13
             // 
@@ -1876,6 +1965,7 @@
             this.txtV13.Name = "txtV13";
             this.txtV13.Size = new System.Drawing.Size(71, 20);
             this.txtV13.TabIndex = 138;
+            this.txtV13.Text = "0";
             // 
             // txtV12
             // 
@@ -1884,6 +1974,7 @@
             this.txtV12.Name = "txtV12";
             this.txtV12.Size = new System.Drawing.Size(71, 20);
             this.txtV12.TabIndex = 137;
+            this.txtV12.Text = "0";
             // 
             // txtV11
             // 
@@ -1892,6 +1983,7 @@
             this.txtV11.Name = "txtV11";
             this.txtV11.Size = new System.Drawing.Size(71, 20);
             this.txtV11.TabIndex = 136;
+            this.txtV11.Text = "0";
             // 
             // txtV10
             // 
@@ -1900,6 +1992,7 @@
             this.txtV10.Name = "txtV10";
             this.txtV10.Size = new System.Drawing.Size(71, 20);
             this.txtV10.TabIndex = 135;
+            this.txtV10.Text = "0";
             // 
             // txtV9
             // 
@@ -1908,6 +2001,7 @@
             this.txtV9.Name = "txtV9";
             this.txtV9.Size = new System.Drawing.Size(71, 20);
             this.txtV9.TabIndex = 134;
+            this.txtV9.Text = "0";
             // 
             // txtV8
             // 
@@ -1916,6 +2010,7 @@
             this.txtV8.Name = "txtV8";
             this.txtV8.Size = new System.Drawing.Size(71, 20);
             this.txtV8.TabIndex = 133;
+            this.txtV8.Text = "0";
             // 
             // txtV7
             // 
@@ -1924,6 +2019,7 @@
             this.txtV7.Name = "txtV7";
             this.txtV7.Size = new System.Drawing.Size(71, 20);
             this.txtV7.TabIndex = 132;
+            this.txtV7.Text = "0";
             // 
             // txtV6
             // 
@@ -1932,6 +2028,7 @@
             this.txtV6.Name = "txtV6";
             this.txtV6.Size = new System.Drawing.Size(71, 20);
             this.txtV6.TabIndex = 131;
+            this.txtV6.Text = "0";
             // 
             // txtV5
             // 
@@ -1940,6 +2037,7 @@
             this.txtV5.Name = "txtV5";
             this.txtV5.Size = new System.Drawing.Size(71, 20);
             this.txtV5.TabIndex = 130;
+            this.txtV5.Text = "0";
             // 
             // txtV4
             // 
@@ -1948,6 +2046,7 @@
             this.txtV4.Name = "txtV4";
             this.txtV4.Size = new System.Drawing.Size(71, 20);
             this.txtV4.TabIndex = 129;
+            this.txtV4.Text = "0";
             // 
             // txtV3
             // 
@@ -1956,6 +2055,7 @@
             this.txtV3.Name = "txtV3";
             this.txtV3.Size = new System.Drawing.Size(71, 20);
             this.txtV3.TabIndex = 128;
+            this.txtV3.Text = "0";
             // 
             // txtV2
             // 
@@ -1964,6 +2064,7 @@
             this.txtV2.Name = "txtV2";
             this.txtV2.Size = new System.Drawing.Size(71, 20);
             this.txtV2.TabIndex = 127;
+            this.txtV2.Text = "0";
             // 
             // lblV24
             // 
@@ -2179,6 +2280,7 @@
             this.txtV1.Name = "txtV1";
             this.txtV1.Size = new System.Drawing.Size(71, 20);
             this.txtV1.TabIndex = 103;
+            this.txtV1.Text = "0";
             // 
             // lblV1
             // 
@@ -2196,6 +2298,7 @@
             this.txtV0.Name = "txtV0";
             this.txtV0.Size = new System.Drawing.Size(71, 20);
             this.txtV0.TabIndex = 101;
+            this.txtV0.Text = "0";
             // 
             // lblV0
             // 
@@ -2205,6 +2308,11 @@
             this.lblV0.Size = new System.Drawing.Size(25, 13);
             this.lblV0.TabIndex = 100;
             this.lblV0.Text = "V0";
+            // 
+            // TimerVariableStates
+            // 
+            this.TimerVariableStates.Interval = 500;
+            this.TimerVariableStates.Tick += new System.EventHandler(this.TimerVariableStates_Tick);
             // 
             // MagVariablesPage
             // 
@@ -2217,6 +2325,7 @@
             this.Name = "MagVariablesPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MagVariablesPage";
+            this.Load += new System.EventHandler(this.MagVariablesPage_Load);
             this.gpbVariables.ResumeLayout(false);
             this.gpbVariables.PerformLayout();
             this.gpbNonVolatileVariables.ResumeLayout(false);
@@ -2436,5 +2545,6 @@
         private System.Windows.Forms.TextBox txtV96;
         private System.Windows.Forms.TextBox txtV98;
         private System.Windows.Forms.TextBox txtV99;
+        internal System.Windows.Forms.Timer TimerVariableStates;
     }
 }
