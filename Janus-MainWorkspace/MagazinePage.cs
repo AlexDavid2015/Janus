@@ -191,7 +191,43 @@ namespace CxTitan
 
         private void cmdClearCodeSpace_Click(object sender, EventArgs e)
         {
+            if (MotorControls.IsMotorSerialInitialized)
+            {
+                TimerStates.Enabled = false;
+                MotorControls.oHyperTerminalAdapter.CloseSerialPort(); // close serial port
 
+                string startupPath = Environment.CurrentDirectory;
+                // ClearCodeSpace
+                // write some settings to sa_download_upload_setup.txt here
+                string curClearCodeSpaceSettingFile = "sa_download_upload_setup.txt";
+                string curClearCodeSpaceSettingDir = startupPath + "\\" + curClearCodeSpaceSettingFile;
+                string[] ClearCodeSpaceSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "DEV:01", "POR:5", "BAU:9600", 
+                "OPE:CLEAR", "FIL:CompileOut.txt", "MOD:DMX-K-SA-17/23" };// row settings can be edit later
+                using (StreamWriter sw = new StreamWriter(curClearCodeSpaceSettingFile))
+                {
+                    foreach (string s in ClearCodeSpaceSettingRows)
+                    {
+                        sw.WriteLine(s);
+                    }
+                }
+
+                string arg = @"user=Software-2";// just an example this can be anything
+                string command = "SA_Download_Upload.exe";
+                ProcessStartInfo clearCodeProc = new ProcessStartInfo(command, arg);
+                clearCodeProc.UseShellExecute = false;
+                clearCodeProc.CreateNoWindow = true; // Important if you want to keep shell window hidden
+                Process.Start(clearCodeProc).WaitForExit(); //important to add WaitForExit()
+
+                MessageBox.Show("Done!");
+
+                MotorControls.oHyperTerminalAdapter.OpenSerialPort();// open serial port
+                TimerStates.Enabled = true;
+            }
+            else
+            {
+                TimerStates.Enabled = false;
+                MessageBox.Show("Communication port not open! Cannot clear code space in the motor!");
+            }
         }
 
         private void cmdTerminal_Click(object sender, EventArgs e)
@@ -825,7 +861,7 @@ namespace CxTitan
                 Process.Start(compileProc).WaitForExit(); //important to add WaitForExit()
 
                 string curCompileOutFile = "CompileOut.txt";
-                string currCompileOutDir = startupPath + "\\" + curCompileOutFile;
+                string curCompileOutDir = startupPath + "\\" + curCompileOutFile;
                 string retMsg = "";// Messgebox display
                 bool IsCompileOk = true;
                 string resultString = "";
@@ -886,7 +922,7 @@ namespace CxTitan
                 // Download
                 // write some settings to sa_download_upload_setup.txt here
                 string curDownloadUploadSettingFile = "sa_download_upload_setup.txt";
-                string currDownloadUploadSettingDir = startupPath + "\\" + curDownloadUploadSettingFile;
+                string curDownloadUploadSettingDir = startupPath + "\\" + curDownloadUploadSettingFile;
                 string[] DownloadUploadSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "POR:5", "BAU:9600", "DEV:01", 
                 "OPE:DOWNLOAD", "FIL:CompileOut.txt", "MOD:DMX-K-SA-17/23" };// row settings can be edit later
                 using (StreamWriter sw = new StreamWriter(curDownloadUploadSettingFile))
@@ -905,7 +941,7 @@ namespace CxTitan
                 Process.Start(downloadProc).WaitForExit(); //important to add WaitForExit()
 
                 string curDownloadOutFile = "DownloadOut.txt";
-                string currDownloadOutDir = startupPath + "\\" + curDownloadOutFile;
+                string curDownloadOutDir = startupPath + "\\" + curDownloadOutFile;
                 string retMsg = "";// Messgebox display
                 bool IsDownloadOk = true;
                 string resultString = "";
@@ -960,7 +996,7 @@ namespace CxTitan
                 //string curDownloadUploadSettingFile =
                 //    @"D:\JanusProjects\TestRunExeProcess\TestRunExeProcess\TestRunExeProcess\bin\Debug\sa_download_upload_setup.txt";
                 string curDownloadUploadSettingFile = "sa_download_upload_setup.txt";
-                string currDownloadUploadSettingDir = startupPath + "\\" + curDownloadUploadSettingFile;
+                string curDownloadUploadSettingDir = startupPath + "\\" + curDownloadUploadSettingFile;
 
                 string[] DownloadUploadSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "DEV:01", "POR:5", "BAU:9600", 
                 "OPE:UPLOAD", "FIL:CompileOut.txt", "MOD:DMX-K-SA-17/23" };// row settings can be edit later
@@ -975,7 +1011,7 @@ namespace CxTitan
                 // Decompile
                 // write some settings to sa_compile_decompile_setup.txt here
                 string curCompileDecompileSettingFile = "sa_compile_decompile_setup.txt";
-                string currCompileDecompileSettingDir = startupPath + "\\" + curCompileDecompileSettingFile;
+                string curCompileDecompileSettingDir = startupPath + "\\" + curCompileDecompileSettingFile;
 
                 string[] CompileDecompileSettingRows = new string[] { "MOD:DMX-K-SA-17/23", "OPE:DECOMPILE", "FIL:UploadOut.txt", "VER:401BLA" };// row settings can be edit later
                 using (StreamWriter sw = new StreamWriter(curCompileDecompileSettingFile))
@@ -1004,7 +1040,7 @@ namespace CxTitan
 
                 // Read Decompile File
                 string curDeCompileOutFile = "DecompileOut.prg";
-                string curcurDeCompileOutDir = startupPath + "\\" + curDeCompileOutFile;
+                string curDeCompileOutDir = startupPath + "\\" + curDeCompileOutFile;
                 if (File.Exists(curDeCompileOutFile))
                 {
                     string[] lines = File.ReadAllLines(curDeCompileOutFile);
