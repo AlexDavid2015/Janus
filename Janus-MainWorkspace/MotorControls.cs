@@ -45,6 +45,11 @@ namespace CxTitan
         public static string DO3Alarm = "";
         #endregion
 
+        #region Product ID and Version
+        public static string ProductID = "";
+        public static string ProductVer = "";
+        #endregion
+
 
         public enum ProgramControlStatus
         {

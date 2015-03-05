@@ -87,6 +87,12 @@ namespace CxTitan
                 // TimerStates enable
                 TimerStates.Enabled = true;
                 MotorControls.IsMotorSerialInitialized = true;
+                // Device ID
+                cbxDeviceID.SelectedIndex = MotorControls.oHyperTerminalAdapter.COMID;
+
+                // Product ID and Version
+                GetProductID();
+                GetProductVersion();
             }
             else
             {
@@ -95,8 +101,9 @@ namespace CxTitan
                 // TimerStates disable
                 TimerStates.Enabled = false;
                 MotorControls.IsMotorSerialInitialized = false;
+                cbxDeviceID.SelectedIndex = 0;
             }
-            cbxDeviceID.SelectedIndex = MotorControls.oHyperTerminalAdapter.COMID;
+            
 
 
 
@@ -543,7 +550,7 @@ namespace CxTitan
         private void GetProgram0Status()// Get Program0 status
         {
             MotorControls.oHyperTerminalAdapter.Write("@01SASTAT[0]\r");
-            Thread.Sleep(20);
+            Thread.Sleep(30);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Program0Status);
             //txtProgramControlStatus.Text = MotorControls.Program0Status;
             switch (Convert.ToInt32(MotorControls.Program0Status))
@@ -568,7 +575,7 @@ namespace CxTitan
         private void GetProgram0Index()
         {
             MotorControls.oHyperTerminalAdapter.Write("@01SPC[0]\r");
-            Thread.Sleep(20);
+            Thread.Sleep(30);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Program0Index);
             txtProgramControlIndex.Text = MotorControls.Program0Index;
         }
@@ -720,6 +727,24 @@ namespace CxTitan
             Thread.Sleep(20);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Current);
             txtCurrent.Text = MotorControls.Current;
+        }
+
+        private void GetProductID()
+        {
+            MotorControls.oHyperTerminalAdapter.Write("@01ID\r");
+            Thread.Sleep(100);
+            MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.ProductID);
+            lblProductIDVal.Text = MotorControls.ProductID;
+        }
+
+        private void GetProductVersion()
+        {
+            MotorControls.oHyperTerminalAdapter.Write("@01VER\r");
+            Thread.Sleep(100);
+            MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.ProductVer);
+            //MotorControls.ProductVer.TrimStart('\r');
+            //MotorControls.ProductVer.TrimEnd('\r');
+            lblProductVerVal.Text = MotorControls.ProductVer;
         }
 
         private void cmdSingleRun_Click(object sender, EventArgs e)

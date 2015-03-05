@@ -172,6 +172,11 @@
             this.cmdFileSave = new System.Windows.Forms.Button();
             this.cmdFileNew = new System.Windows.Forms.Button();
             this.TimerStates = new System.Windows.Forms.Timer(this.components);
+            this.gpbProductInfo = new System.Windows.Forms.GroupBox();
+            this.lblProductVerVal = new System.Windows.Forms.Label();
+            this.lblProductIDVal = new System.Windows.Forms.Label();
+            this.lblProductVer = new System.Windows.Forms.Label();
+            this.lblProductID = new System.Windows.Forms.Label();
             this.gpbStatus.SuspendLayout();
             this.gpbDIOStatus.SuspendLayout();
             this.gpbControl.SuspendLayout();
@@ -180,6 +185,7 @@
             this.gpbLatch.SuspendLayout();
             this.gpbSyncOutput.SuspendLayout();
             this.gpbCommunication.SuspendLayout();
+            this.gpbProductInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmdClose
@@ -1565,7 +1571,7 @@
             this.gpbCommunication.Controls.Add(this.lblPort);
             this.gpbCommunication.Location = new System.Drawing.Point(24, 543);
             this.gpbCommunication.Name = "gpbCommunication";
-            this.gpbCommunication.Size = new System.Drawing.Size(164, 74);
+            this.gpbCommunication.Size = new System.Drawing.Size(128, 74);
             this.gpbCommunication.TabIndex = 93;
             this.gpbCommunication.TabStop = false;
             this.gpbCommunication.Text = "Communication";
@@ -1574,15 +1580,15 @@
             // 
             this.cbxDeviceID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDeviceID.FormattingEnabled = true;
-            this.cbxDeviceID.Location = new System.Drawing.Point(79, 43);
+            this.cbxDeviceID.Location = new System.Drawing.Point(64, 43);
             this.cbxDeviceID.Name = "cbxDeviceID";
-            this.cbxDeviceID.Size = new System.Drawing.Size(68, 21);
+            this.cbxDeviceID.Size = new System.Drawing.Size(56, 21);
             this.cbxDeviceID.TabIndex = 93;
             // 
             // lblDeviceID
             // 
             this.lblDeviceID.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblDeviceID.Location = new System.Drawing.Point(18, 46);
+            this.lblDeviceID.Location = new System.Drawing.Point(3, 46);
             this.lblDeviceID.Name = "lblDeviceID";
             this.lblDeviceID.Size = new System.Drawing.Size(55, 13);
             this.lblDeviceID.TabIndex = 76;
@@ -1592,9 +1598,9 @@
             // 
             this.lblPort.BackColor = System.Drawing.Color.Gray;
             this.lblPort.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPort.Location = new System.Drawing.Point(15, 16);
+            this.lblPort.Location = new System.Drawing.Point(6, 16);
             this.lblPort.Name = "lblPort";
-            this.lblPort.Size = new System.Drawing.Size(132, 20);
+            this.lblPort.Size = new System.Drawing.Size(114, 20);
             this.lblPort.TabIndex = 76;
             this.lblPort.Text = "Invalid Port";
             this.lblPort.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1654,12 +1660,62 @@
             this.TimerStates.Interval = 350;
             this.TimerStates.Tick += new System.EventHandler(this.TimerStates_Tick);
             // 
+            // gpbProductInfo
+            // 
+            this.gpbProductInfo.Controls.Add(this.lblProductVerVal);
+            this.gpbProductInfo.Controls.Add(this.lblProductIDVal);
+            this.gpbProductInfo.Controls.Add(this.lblProductVer);
+            this.gpbProductInfo.Controls.Add(this.lblProductID);
+            this.gpbProductInfo.Location = new System.Drawing.Point(158, 543);
+            this.gpbProductInfo.Name = "gpbProductInfo";
+            this.gpbProductInfo.Size = new System.Drawing.Size(147, 74);
+            this.gpbProductInfo.TabIndex = 94;
+            this.gpbProductInfo.TabStop = false;
+            this.gpbProductInfo.Text = "Product Info";
+            // 
+            // lblProductVerVal
+            // 
+            this.lblProductVerVal.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblProductVerVal.Location = new System.Drawing.Point(36, 46);
+            this.lblProductVerVal.Name = "lblProductVerVal";
+            this.lblProductVerVal.Size = new System.Drawing.Size(105, 13);
+            this.lblProductVerVal.TabIndex = 79;
+            this.lblProductVerVal.Text = "???";
+            // 
+            // lblProductIDVal
+            // 
+            this.lblProductIDVal.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblProductIDVal.Location = new System.Drawing.Point(36, 20);
+            this.lblProductIDVal.Name = "lblProductIDVal";
+            this.lblProductIDVal.Size = new System.Drawing.Size(105, 13);
+            this.lblProductIDVal.TabIndex = 78;
+            this.lblProductIDVal.Text = "???";
+            // 
+            // lblProductVer
+            // 
+            this.lblProductVer.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblProductVer.Location = new System.Drawing.Point(8, 46);
+            this.lblProductVer.Name = "lblProductVer";
+            this.lblProductVer.Size = new System.Drawing.Size(31, 13);
+            this.lblProductVer.TabIndex = 77;
+            this.lblProductVer.Text = "Ver:";
+            // 
+            // lblProductID
+            // 
+            this.lblProductID.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblProductID.Location = new System.Drawing.Point(8, 20);
+            this.lblProductID.Name = "lblProductID";
+            this.lblProductID.Size = new System.Drawing.Size(22, 13);
+            this.lblProductID.TabIndex = 76;
+            this.lblProductID.Text = "ID:";
+            // 
             // MagazinePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1224, 634);
             this.ControlBox = false;
+            this.Controls.Add(this.gpbProductInfo);
             this.Controls.Add(this.cmdFileNew);
             this.Controls.Add(this.cmdFileSave);
             this.Controls.Add(this.cmdFileOpen);
@@ -1700,6 +1756,7 @@
             this.gpbSyncOutput.ResumeLayout(false);
             this.gpbSyncOutput.PerformLayout();
             this.gpbCommunication.ResumeLayout(false);
+            this.gpbProductInfo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1849,5 +1906,10 @@
         private System.Windows.Forms.Label lblTextProgram;
         internal System.Windows.Forms.Button cmdExpandProgram;
         internal System.Windows.Forms.TextBox txtCode;
+        internal System.Windows.Forms.GroupBox gpbProductInfo;
+        private System.Windows.Forms.Label lblProductID;
+        private System.Windows.Forms.Label lblProductVer;
+        private System.Windows.Forms.Label lblProductIDVal;
+        private System.Windows.Forms.Label lblProductVerVal;
     }
 }
