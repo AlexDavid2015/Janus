@@ -50,6 +50,9 @@ namespace CxTitan
         public static string ProductVer = "";
         #endregion
 
+        #region SSPDM
+        public static string SSPDMVal = "";
+        #endregion
 
         public enum ProgramControlStatus
         {

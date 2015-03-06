@@ -177,6 +177,15 @@
             this.lblProductIDVal = new System.Windows.Forms.Label();
             this.lblProductVer = new System.Windows.Forms.Label();
             this.lblProductID = new System.Windows.Forms.Label();
+            this.gpbOnTheFlySpeed = new System.Windows.Forms.GroupBox();
+            this.txtAccelOnTheFly = new System.Windows.Forms.TextBox();
+            this.txtSpeedOnTheFly = new System.Windows.Forms.TextBox();
+            this.cmdSetSSPDAccelAndSpeed = new System.Windows.Forms.Button();
+            this.lblAccelOnTheFly = new System.Windows.Forms.Label();
+            this.lblSpeedOnTheFly = new System.Windows.Forms.Label();
+            this.cmdSetSSPDMode = new System.Windows.Forms.Button();
+            this.cbxSSPDMode = new System.Windows.Forms.ComboBox();
+            this.lblSSPDMode = new System.Windows.Forms.Label();
             this.gpbStatus.SuspendLayout();
             this.gpbDIOStatus.SuspendLayout();
             this.gpbControl.SuspendLayout();
@@ -186,6 +195,7 @@
             this.gpbSyncOutput.SuspendLayout();
             this.gpbCommunication.SuspendLayout();
             this.gpbProductInfo.SuspendLayout();
+            this.gpbOnTheFlySpeed.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmdClose
@@ -480,7 +490,7 @@
             this.gpbDIOStatus.Controls.Add(this.lblDI2);
             this.gpbDIOStatus.Controls.Add(this.lblDI1Val);
             this.gpbDIOStatus.Controls.Add(this.lblDI1);
-            this.gpbDIOStatus.Location = new System.Drawing.Point(24, 295);
+            this.gpbDIOStatus.Location = new System.Drawing.Point(24, 341);
             this.gpbDIOStatus.Name = "gpbDIOStatus";
             this.gpbDIOStatus.Size = new System.Drawing.Size(281, 221);
             this.gpbDIOStatus.TabIndex = 75;
@@ -1337,54 +1347,54 @@
             this.gpbGroupMotion.Controls.Add(this.cmdGroupPause);
             this.gpbGroupMotion.Controls.Add(this.cmdGroupRun);
             this.gpbGroupMotion.Controls.Add(this.cmdGroupStop);
-            this.gpbGroupMotion.Location = new System.Drawing.Point(821, 543);
+            this.gpbGroupMotion.Location = new System.Drawing.Point(821, 551);
             this.gpbGroupMotion.Name = "gpbGroupMotion";
-            this.gpbGroupMotion.Size = new System.Drawing.Size(376, 74);
+            this.gpbGroupMotion.Size = new System.Drawing.Size(376, 106);
             this.gpbGroupMotion.TabIndex = 76;
             this.gpbGroupMotion.TabStop = false;
             this.gpbGroupMotion.Text = "Group Motion";
             // 
             // cmdDownloadAll
             // 
-            this.cmdDownloadAll.Location = new System.Drawing.Point(305, 19);
+            this.cmdDownloadAll.Location = new System.Drawing.Point(305, 32);
             this.cmdDownloadAll.Name = "cmdDownloadAll";
-            this.cmdDownloadAll.Size = new System.Drawing.Size(65, 44);
+            this.cmdDownloadAll.Size = new System.Drawing.Size(65, 65);
             this.cmdDownloadAll.TabIndex = 92;
             this.cmdDownloadAll.Text = "DownloadAll";
             this.cmdDownloadAll.UseVisualStyleBackColor = true;
             // 
             // cmdGroupContinue
             // 
-            this.cmdGroupContinue.Location = new System.Drawing.Point(231, 19);
+            this.cmdGroupContinue.Location = new System.Drawing.Point(231, 32);
             this.cmdGroupContinue.Name = "cmdGroupContinue";
-            this.cmdGroupContinue.Size = new System.Drawing.Size(65, 44);
+            this.cmdGroupContinue.Size = new System.Drawing.Size(65, 65);
             this.cmdGroupContinue.TabIndex = 91;
             this.cmdGroupContinue.Text = "Group Cont";
             this.cmdGroupContinue.UseVisualStyleBackColor = true;
             // 
             // cmdGroupPause
             // 
-            this.cmdGroupPause.Location = new System.Drawing.Point(156, 19);
+            this.cmdGroupPause.Location = new System.Drawing.Point(156, 32);
             this.cmdGroupPause.Name = "cmdGroupPause";
-            this.cmdGroupPause.Size = new System.Drawing.Size(65, 44);
+            this.cmdGroupPause.Size = new System.Drawing.Size(65, 65);
             this.cmdGroupPause.TabIndex = 90;
             this.cmdGroupPause.Text = "Group Pause";
             this.cmdGroupPause.UseVisualStyleBackColor = true;
             // 
             // cmdGroupRun
             // 
-            this.cmdGroupRun.Location = new System.Drawing.Point(8, 19);
+            this.cmdGroupRun.Location = new System.Drawing.Point(11, 32);
             this.cmdGroupRun.Name = "cmdGroupRun";
-            this.cmdGroupRun.Size = new System.Drawing.Size(65, 44);
+            this.cmdGroupRun.Size = new System.Drawing.Size(65, 65);
             this.cmdGroupRun.TabIndex = 88;
             this.cmdGroupRun.Text = "Group Run";
             this.cmdGroupRun.UseVisualStyleBackColor = true;
             // 
             // cmdGroupStop
             // 
-            this.cmdGroupStop.Location = new System.Drawing.Point(82, 19);
+            this.cmdGroupStop.Location = new System.Drawing.Point(82, 32);
             this.cmdGroupStop.Name = "cmdGroupStop";
-            this.cmdGroupStop.Size = new System.Drawing.Size(65, 44);
+            this.cmdGroupStop.Size = new System.Drawing.Size(65, 65);
             this.cmdGroupStop.TabIndex = 89;
             this.cmdGroupStop.Text = "Group Stop";
             this.cmdGroupStop.UseVisualStyleBackColor = true;
@@ -1400,7 +1410,7 @@
             this.gpbLatch.Controls.Add(this.lblLatchInputVal);
             this.gpbLatch.Controls.Add(this.lblLatchInput);
             this.gpbLatch.Controls.Add(this.chbxLatchEnable);
-            this.gpbLatch.Location = new System.Drawing.Point(322, 295);
+            this.gpbLatch.Location = new System.Drawing.Point(322, 341);
             this.gpbLatch.Name = "gpbLatch";
             this.gpbLatch.Size = new System.Drawing.Size(228, 221);
             this.gpbLatch.TabIndex = 76;
@@ -1496,7 +1506,7 @@
             this.gpbSyncOutput.Controls.Add(this.lblSyncPos);
             this.gpbSyncOutput.Controls.Add(this.lblSyncCfg);
             this.gpbSyncOutput.Controls.Add(this.chbxSyncOutputEnableDO2);
-            this.gpbSyncOutput.Location = new System.Drawing.Point(573, 295);
+            this.gpbSyncOutput.Location = new System.Drawing.Point(573, 341);
             this.gpbSyncOutput.Name = "gpbSyncOutput";
             this.gpbSyncOutput.Size = new System.Drawing.Size(228, 221);
             this.gpbSyncOutput.TabIndex = 92;
@@ -1569,7 +1579,7 @@
             this.gpbCommunication.Controls.Add(this.cbxDeviceID);
             this.gpbCommunication.Controls.Add(this.lblDeviceID);
             this.gpbCommunication.Controls.Add(this.lblPort);
-            this.gpbCommunication.Location = new System.Drawing.Point(24, 543);
+            this.gpbCommunication.Location = new System.Drawing.Point(24, 575);
             this.gpbCommunication.Name = "gpbCommunication";
             this.gpbCommunication.Size = new System.Drawing.Size(128, 74);
             this.gpbCommunication.TabIndex = 93;
@@ -1607,9 +1617,9 @@
             // 
             // cmdTerminal
             // 
-            this.cmdTerminal.Location = new System.Drawing.Point(322, 552);
+            this.cmdTerminal.Location = new System.Drawing.Point(326, 584);
             this.cmdTerminal.Name = "cmdTerminal";
-            this.cmdTerminal.Size = new System.Drawing.Size(85, 65);
+            this.cmdTerminal.Size = new System.Drawing.Size(85, 66);
             this.cmdTerminal.TabIndex = 101;
             this.cmdTerminal.Text = "Terminal";
             this.cmdTerminal.UseVisualStyleBackColor = true;
@@ -1617,7 +1627,7 @@
             // 
             // cmdSetup
             // 
-            this.cmdSetup.Location = new System.Drawing.Point(420, 552);
+            this.cmdSetup.Location = new System.Drawing.Point(425, 584);
             this.cmdSetup.Name = "cmdSetup";
             this.cmdSetup.Size = new System.Drawing.Size(85, 65);
             this.cmdSetup.TabIndex = 102;
@@ -1627,7 +1637,7 @@
             // 
             // cmdFileOpen
             // 
-            this.cmdFileOpen.Location = new System.Drawing.Point(518, 552);
+            this.cmdFileOpen.Location = new System.Drawing.Point(523, 584);
             this.cmdFileOpen.Name = "cmdFileOpen";
             this.cmdFileOpen.Size = new System.Drawing.Size(85, 65);
             this.cmdFileOpen.TabIndex = 103;
@@ -1637,7 +1647,7 @@
             // 
             // cmdFileSave
             // 
-            this.cmdFileSave.Location = new System.Drawing.Point(617, 552);
+            this.cmdFileSave.Location = new System.Drawing.Point(620, 584);
             this.cmdFileSave.Name = "cmdFileSave";
             this.cmdFileSave.Size = new System.Drawing.Size(85, 65);
             this.cmdFileSave.TabIndex = 104;
@@ -1647,7 +1657,7 @@
             // 
             // cmdFileNew
             // 
-            this.cmdFileNew.Location = new System.Drawing.Point(716, 552);
+            this.cmdFileNew.Location = new System.Drawing.Point(716, 584);
             this.cmdFileNew.Name = "cmdFileNew";
             this.cmdFileNew.Size = new System.Drawing.Size(85, 65);
             this.cmdFileNew.TabIndex = 105;
@@ -1666,7 +1676,7 @@
             this.gpbProductInfo.Controls.Add(this.lblProductIDVal);
             this.gpbProductInfo.Controls.Add(this.lblProductVer);
             this.gpbProductInfo.Controls.Add(this.lblProductID);
-            this.gpbProductInfo.Location = new System.Drawing.Point(158, 543);
+            this.gpbProductInfo.Location = new System.Drawing.Point(158, 575);
             this.gpbProductInfo.Name = "gpbProductInfo";
             this.gpbProductInfo.Size = new System.Drawing.Size(147, 74);
             this.gpbProductInfo.TabIndex = 94;
@@ -1709,12 +1719,100 @@
             this.lblProductID.TabIndex = 76;
             this.lblProductID.Text = "ID:";
             // 
+            // gpbOnTheFlySpeed
+            // 
+            this.gpbOnTheFlySpeed.Controls.Add(this.txtAccelOnTheFly);
+            this.gpbOnTheFlySpeed.Controls.Add(this.txtSpeedOnTheFly);
+            this.gpbOnTheFlySpeed.Controls.Add(this.cmdSetSSPDAccelAndSpeed);
+            this.gpbOnTheFlySpeed.Controls.Add(this.lblAccelOnTheFly);
+            this.gpbOnTheFlySpeed.Controls.Add(this.lblSpeedOnTheFly);
+            this.gpbOnTheFlySpeed.Controls.Add(this.cmdSetSSPDMode);
+            this.gpbOnTheFlySpeed.Controls.Add(this.cbxSSPDMode);
+            this.gpbOnTheFlySpeed.Controls.Add(this.lblSSPDMode);
+            this.gpbOnTheFlySpeed.Location = new System.Drawing.Point(24, 287);
+            this.gpbOnTheFlySpeed.Name = "gpbOnTheFlySpeed";
+            this.gpbOnTheFlySpeed.Size = new System.Drawing.Size(777, 45);
+            this.gpbOnTheFlySpeed.TabIndex = 106;
+            this.gpbOnTheFlySpeed.TabStop = false;
+            this.gpbOnTheFlySpeed.Text = "On-The-Fly-Speed";
+            // 
+            // txtAccelOnTheFly
+            // 
+            this.txtAccelOnTheFly.Location = new System.Drawing.Point(506, 17);
+            this.txtAccelOnTheFly.Name = "txtAccelOnTheFly";
+            this.txtAccelOnTheFly.Size = new System.Drawing.Size(97, 20);
+            this.txtAccelOnTheFly.TabIndex = 112;
+            this.txtAccelOnTheFly.Text = "1000";
+            // 
+            // txtSpeedOnTheFly
+            // 
+            this.txtSpeedOnTheFly.Location = new System.Drawing.Point(350, 18);
+            this.txtSpeedOnTheFly.Name = "txtSpeedOnTheFly";
+            this.txtSpeedOnTheFly.Size = new System.Drawing.Size(97, 20);
+            this.txtSpeedOnTheFly.TabIndex = 111;
+            this.txtSpeedOnTheFly.Text = "1000";
+            // 
+            // cmdSetSSPDAccelAndSpeed
+            // 
+            this.cmdSetSSPDAccelAndSpeed.Location = new System.Drawing.Point(634, 16);
+            this.cmdSetSSPDAccelAndSpeed.Name = "cmdSetSSPDAccelAndSpeed";
+            this.cmdSetSSPDAccelAndSpeed.Size = new System.Drawing.Size(131, 21);
+            this.cmdSetSSPDAccelAndSpeed.TabIndex = 110;
+            this.cmdSetSSPDAccelAndSpeed.Text = "Set Accel + Speed";
+            this.cmdSetSSPDAccelAndSpeed.UseVisualStyleBackColor = true;
+            this.cmdSetSSPDAccelAndSpeed.Click += new System.EventHandler(this.cmdSetSSPDAccelAndSpeed_Click);
+            // 
+            // lblAccelOnTheFly
+            // 
+            this.lblAccelOnTheFly.Location = new System.Drawing.Point(459, 20);
+            this.lblAccelOnTheFly.Name = "lblAccelOnTheFly";
+            this.lblAccelOnTheFly.Size = new System.Drawing.Size(49, 17);
+            this.lblAccelOnTheFly.TabIndex = 109;
+            this.lblAccelOnTheFly.Text = "Accel";
+            // 
+            // lblSpeedOnTheFly
+            // 
+            this.lblSpeedOnTheFly.Location = new System.Drawing.Point(299, 20);
+            this.lblSpeedOnTheFly.Name = "lblSpeedOnTheFly";
+            this.lblSpeedOnTheFly.Size = new System.Drawing.Size(49, 17);
+            this.lblSpeedOnTheFly.TabIndex = 108;
+            this.lblSpeedOnTheFly.Text = "Speed";
+            // 
+            // cmdSetSSPDMode
+            // 
+            this.cmdSetSSPDMode.Location = new System.Drawing.Point(173, 17);
+            this.cmdSetSSPDMode.Name = "cmdSetSSPDMode";
+            this.cmdSetSSPDMode.Size = new System.Drawing.Size(105, 21);
+            this.cmdSetSSPDMode.TabIndex = 107;
+            this.cmdSetSSPDMode.Text = "Set SSPD Mode";
+            this.cmdSetSSPDMode.UseVisualStyleBackColor = true;
+            this.cmdSetSSPDMode.Click += new System.EventHandler(this.cmdSetSSPDMode_Click);
+            // 
+            // cbxSSPDMode
+            // 
+            this.cbxSSPDMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSSPDMode.FormattingEnabled = true;
+            this.cbxSSPDMode.Location = new System.Drawing.Point(85, 17);
+            this.cbxSSPDMode.Name = "cbxSSPDMode";
+            this.cbxSSPDMode.Size = new System.Drawing.Size(42, 21);
+            this.cbxSSPDMode.TabIndex = 93;
+            // 
+            // lblSSPDMode
+            // 
+            this.lblSSPDMode.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblSSPDMode.Location = new System.Drawing.Point(6, 20);
+            this.lblSSPDMode.Name = "lblSSPDMode";
+            this.lblSSPDMode.Size = new System.Drawing.Size(74, 13);
+            this.lblSSPDMode.TabIndex = 76;
+            this.lblSSPDMode.Text = "SSPD Mode";
+            // 
             // MagazinePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1224, 634);
+            this.ClientSize = new System.Drawing.Size(1224, 661);
             this.ControlBox = false;
+            this.Controls.Add(this.gpbOnTheFlySpeed);
             this.Controls.Add(this.gpbProductInfo);
             this.Controls.Add(this.cmdFileNew);
             this.Controls.Add(this.cmdFileSave);
@@ -1757,6 +1855,8 @@
             this.gpbSyncOutput.PerformLayout();
             this.gpbCommunication.ResumeLayout(false);
             this.gpbProductInfo.ResumeLayout(false);
+            this.gpbOnTheFlySpeed.ResumeLayout(false);
+            this.gpbOnTheFlySpeed.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1911,5 +2011,14 @@
         private System.Windows.Forms.Label lblProductVer;
         private System.Windows.Forms.Label lblProductIDVal;
         private System.Windows.Forms.Label lblProductVerVal;
+        internal System.Windows.Forms.GroupBox gpbOnTheFlySpeed;
+        private System.Windows.Forms.ComboBox cbxSSPDMode;
+        private System.Windows.Forms.Label lblSSPDMode;
+        internal System.Windows.Forms.Button cmdSetSSPDMode;
+        private System.Windows.Forms.Label lblSpeedOnTheFly;
+        private System.Windows.Forms.Label lblAccelOnTheFly;
+        internal System.Windows.Forms.Button cmdSetSSPDAccelAndSpeed;
+        private System.Windows.Forms.TextBox txtSpeedOnTheFly;
+        private System.Windows.Forms.TextBox txtAccelOnTheFly;
     }
 }

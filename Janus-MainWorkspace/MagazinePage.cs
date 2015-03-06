@@ -60,10 +60,10 @@ namespace CxTitan
             //    MessageBox.Show("No Pump Device Found", "Get Device List Error");
             //}
 
-
+            int i = 0;
             // Device ID(combox)
             string[] strDeviceIDs = new string[16];// 0 to 15, maximum is 16 Magazines
-            for (int i = 0; i < strDeviceIDs.Length; i++)
+            for (i = 0; i < strDeviceIDs.Length; i++)
             {
                 strDeviceIDs[i] = i.ToString();// from COM0 to COM15
             }
@@ -77,6 +77,13 @@ namespace CxTitan
             SetSyncCfgComboBox(strSyncCfgs);
             cbxSyncCfg.SelectedIndex = 1;// to point to "="
 
+            // On The Fly Speed settings
+            string[] strSSPDModes = new string[9];// 9 gears
+            for (i = 0; i < strSSPDModes.Length; i++)
+            {
+                strSSPDModes[i] = i.ToString();// 0 - 9 speed gear range
+            }
+            SetSSDPModeComboBox(strSSPDModes);
 
 
             // Serial port connected and motion intialize
@@ -143,6 +150,18 @@ namespace CxTitan
             if (cbxDeviceID.Items.Count > 0)
                 cbxDeviceID.SelectedIndex = 0;
             cbxDeviceID.EndUpdate();
+        }
+
+        public void SetSSDPModeComboBox(string[] strSSPDModes)
+        {
+            cbxSSPDMode.BeginUpdate();
+            cbxSSPDMode.Items.Clear();
+            for (int i = 0; i < strSSPDModes.Length; i++)
+                cbxSSPDMode.Items.Add(strSSPDModes[i]);
+
+            if (cbxSSPDMode.Items.Count > 0)
+                cbxSSPDMode.SelectedIndex = 0;
+            cbxSSPDMode.EndUpdate();
         }
 
         public void SetSyncCfgComboBox(string[] strSyncCfgs)
@@ -1101,8 +1120,10 @@ namespace CxTitan
                 
             //}
 
+            TimerStates.Enabled = false;// disable read values from Motors
             Thread.Sleep(100);
             MotorControls.oHyperTerminalAdapter.Write("@01EO=" + Convert.ToInt32(chbxMagMotorControlEnable.Checked) + "\r");
+            TimerStates.Enabled = true;// enable read values from Motors
         }
 
         private void cmdXThread_Click(object sender, EventArgs e)
@@ -1130,6 +1151,34 @@ namespace CxTitan
         {
             MagViewPage magViewPage = new MagViewPage();
             magViewPage.ShowDialog();
+        }
+
+        private void cmdSetSSPDMode_Click(object sender, EventArgs e)
+        {
+            TimerStates.Enabled = false;// disable read values from Motors
+            Thread.Sleep(100);
+            MotorControls.oHyperTerminalAdapter.Write("@01SSPDM=" + Convert.ToInt32(cbxSSPDMode.Text) + "\r");
+            TimerStates.Enabled = true;// enable read values from Motors
+        }
+
+        private void cmdSetSSPDAccelAndSpeed_Click(object sender, EventArgs e)
+        {
+            TimerStates.Enabled = false;// disable read values from Motors
+            MotorControls.oHyperTerminalAdapter.Write("@01SSPDM\r");
+            Thread.Sleep(50);
+            MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.SSPDMVal);
+            if (Convert.ToInt32(MotorControls.SSPDMVal) == 0)
+            {
+                MessageBox.Show("Error Setting Speed!  ?Speed out of range.");
+            }
+            else
+            {
+                Thread.Sleep(50);
+                MotorControls.oHyperTerminalAdapter.Write("@01ACC=" + txtAccelOnTheFly.Text + "\r");// send Accel
+                Thread.Sleep(50);
+                MotorControls.oHyperTerminalAdapter.Write("@01SSPD" + txtSpeedOnTheFly.Text + "\r");
+            }
+            TimerStates.Enabled = true;// enable read values from Motors
         }
     }
 }
