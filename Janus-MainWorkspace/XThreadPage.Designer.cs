@@ -254,6 +254,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(418, 263);
+            this.ControlBox = false;
             this.Controls.Add(this.cmdClose);
             this.Controls.Add(this.gpbProgramControl);
             this.MaximizeBox = false;
