@@ -15,7 +15,7 @@ namespace CxTitan
         public SerialPort oSerialPort = new SerialPort();
 
         // Allow the user to set the appropriate properties.
-        public int BaudRate = 9600;
+        public int BaudRate = 115200;
         public int DataBits = 8;
         public int ReadTimeout = 2000;
         public int WriteTimeout = 2000;

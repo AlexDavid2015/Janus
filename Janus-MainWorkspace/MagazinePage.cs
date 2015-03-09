@@ -227,7 +227,7 @@ namespace CxTitan
                 // write some settings to sa_download_upload_setup.txt here
                 string curClearCodeSpaceSettingFile = "sa_download_upload_setup.txt";
                 string curClearCodeSpaceSettingDir = startupPath + "\\" + curClearCodeSpaceSettingFile;
-                string[] ClearCodeSpaceSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "DEV:01", "POR:5", "BAU:9600", 
+                string[] ClearCodeSpaceSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "DEV:01", "POR:5", "BAU:" + MotorControls.oHyperTerminalAdapter.BaudRate.ToString(), 
                 "OPE:CLEAR", "FIL:CompileOut.txt", "MOD:DMX-K-SA-17/23" };// row settings can be edit later
                 using (StreamWriter sw = new StreamWriter(curClearCodeSpaceSettingFile))
                 {
@@ -528,7 +528,7 @@ namespace CxTitan
 
             // DO1 InPos
             MotorControls.oHyperTerminalAdapter.Write("@01DO1\r");
-            Thread.Sleep(20);
+            Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.DO1InPos);
             if (Convert.ToBoolean(Convert.ToInt32(MotorControls.DO1InPos)))
             {
@@ -541,7 +541,7 @@ namespace CxTitan
 
             // DO2 Sync
             MotorControls.oHyperTerminalAdapter.Write("@01DO2\r");
-            Thread.Sleep(20);
+            Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.DO2Sync);
             if (Convert.ToBoolean(Convert.ToInt32(MotorControls.DO2Sync)))
             {
@@ -554,7 +554,7 @@ namespace CxTitan
 
             // DO3 Alarm
             MotorControls.oHyperTerminalAdapter.Write("@01DO3\r");
-            Thread.Sleep(20);
+            Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.DO3Alarm);
             if (Convert.ToBoolean(Convert.ToInt32(MotorControls.DO3Alarm)))
             {
@@ -569,7 +569,7 @@ namespace CxTitan
         private void GetProgram0Status()// Get Program0 status
         {
             MotorControls.oHyperTerminalAdapter.Write("@01SASTAT[0]\r");
-            Thread.Sleep(30);
+            Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Program0Status);
             //txtProgramControlStatus.Text = MotorControls.Program0Status;
             switch (Convert.ToInt32(MotorControls.Program0Status))
@@ -594,7 +594,7 @@ namespace CxTitan
         private void GetProgram0Index()
         {
             MotorControls.oHyperTerminalAdapter.Write("@01SPC[0]\r");
-            Thread.Sleep(30);
+            Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Program0Index);
             txtProgramControlIndex.Text = MotorControls.Program0Index;
         }
@@ -602,7 +602,7 @@ namespace CxTitan
         private void GetRealTimePulsePos()
         {
             MotorControls.oHyperTerminalAdapter.Write("@01PX\r");
-            Thread.Sleep(20);
+            Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.PulsePos);
             txtPosition.Text = MotorControls.PulsePos;
         }
@@ -610,7 +610,7 @@ namespace CxTitan
         private void GetRealTimeEncoderPos()
         {
             MotorControls.oHyperTerminalAdapter.Write("@01EX\r");
-            Thread.Sleep(20);
+            Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.EncoderPos);
             txtEncoder.Text = MotorControls.EncoderPos;
         }
@@ -618,7 +618,7 @@ namespace CxTitan
         private void GetRealTimeDelta()
         {
             MotorControls.oHyperTerminalAdapter.Write("@01DX\r");
-            Thread.Sleep(20);
+            Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Delta);
             txtDelta.Text = MotorControls.Delta;
         }
@@ -626,7 +626,7 @@ namespace CxTitan
         private void GetRealTimeSpeed()
         {
             MotorControls.oHyperTerminalAdapter.Write("@01PS\r");
-            Thread.Sleep(20);
+            Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Speed);
             txtSpeed.Text = MotorControls.Speed;
         }
@@ -634,7 +634,7 @@ namespace CxTitan
         private void GetRealTimeMotorStatus()
         {
             MotorControls.oHyperTerminalAdapter.Write("@01MST\r");
-            Thread.Sleep(20);
+            Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Status);
             // default colors
             lblNegLim.BackColor = SystemColors.Control;
@@ -671,7 +671,7 @@ namespace CxTitan
         private void GetRealTimeStepNLoopStatus()
         {
             MotorControls.oHyperTerminalAdapter.Write("@01SLS\r");
-            Thread.Sleep(20);
+            Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.StepNLoop);
             switch (Convert.ToInt32(MotorControls.StepNLoop))
             {
@@ -725,7 +725,7 @@ namespace CxTitan
         private void GetRealTimeMoveModeStatus()
         {
             MotorControls.oHyperTerminalAdapter.Write("@01MM\r");
-            Thread.Sleep(20);
+            Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Mode);
             switch (Convert.ToInt32(MotorControls.Mode))
             {
@@ -743,7 +743,7 @@ namespace CxTitan
         private void GetRealTimeDriverCurrent()
         {
             MotorControls.oHyperTerminalAdapter.Write("@01CUR\r");
-            Thread.Sleep(20);
+            Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Current);
             txtCurrent.Text = MotorControls.Current;
         }
@@ -769,36 +769,44 @@ namespace CxTitan
         private void cmdSingleRun_Click(object sender, EventArgs e)
         {
             TimerStates.Enabled = false;// disable read values from Motors
-            Thread.Sleep(100);
+            //Thread.Sleep(100);
             MotorControls.oHyperTerminalAdapter.Write("@01SR0=1\r");
+            Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Write("@01SR1=1\r");
+            Thread.Sleep(10);
             TimerStates.Enabled = true;// enable read values from Motors
         }
 
         private void cmdSingleStop_Click(object sender, EventArgs e)
         {
             TimerStates.Enabled = false;// disable read values from Motors
-            Thread.Sleep(100);
+            //Thread.Sleep(100);
             MotorControls.oHyperTerminalAdapter.Write("@01SR0=0\r");
+            Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Write("@01SR1=0\r");
+            Thread.Sleep(10);
             TimerStates.Enabled = true;// enable read values from Motors
         }
 
         private void cmdSinglePause_Click(object sender, EventArgs e)
         {
             TimerStates.Enabled = false;// disable read values from Motors
-            Thread.Sleep(100);
+            //Thread.Sleep(100);
             MotorControls.oHyperTerminalAdapter.Write("@01SR0=2\r");
+            Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Write("@01SR1=2\r");
+            Thread.Sleep(10);
             TimerStates.Enabled = true;// enable read values from Motors
         }
 
         private void cmdSingleContinue_Click(object sender, EventArgs e)
         {
             TimerStates.Enabled = false;// disable read values from Motors
-            Thread.Sleep(100);
+            //Thread.Sleep(100);
             MotorControls.oHyperTerminalAdapter.Write("@01SR0=3\r");
+            Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Write("@01SR1=3\r");
+            Thread.Sleep(10);
             TimerStates.Enabled = true;// enable read values from Motors
         }
 
@@ -966,7 +974,7 @@ namespace CxTitan
                 // write some settings to sa_download_upload_setup.txt here
                 string curDownloadUploadSettingFile = "sa_download_upload_setup.txt";
                 string curDownloadUploadSettingDir = startupPath + "\\" + curDownloadUploadSettingFile;
-                string[] DownloadUploadSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "POR:5", "BAU:9600", "DEV:01", 
+                string[] DownloadUploadSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "POR:5", "BAU:" + MotorControls.oHyperTerminalAdapter.BaudRate.ToString(), "DEV:01", 
                 "OPE:DOWNLOAD", "FIL:CompileOut.txt", "MOD:DMX-K-SA-17/23" };// row settings can be edit later
                 using (StreamWriter sw = new StreamWriter(curDownloadUploadSettingFile))
                 {
@@ -1041,7 +1049,7 @@ namespace CxTitan
                 string curDownloadUploadSettingFile = "sa_download_upload_setup.txt";
                 string curDownloadUploadSettingDir = startupPath + "\\" + curDownloadUploadSettingFile;
 
-                string[] DownloadUploadSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "DEV:01", "POR:5", "BAU:9600", 
+                string[] DownloadUploadSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "DEV:01", "POR:5", "BAU:" + MotorControls.oHyperTerminalAdapter.BaudRate.ToString(), 
                 "OPE:UPLOAD", "FIL:CompileOut.txt", "MOD:DMX-K-SA-17/23" };// row settings can be edit later
                 using (StreamWriter sw = new StreamWriter(curDownloadUploadSettingFile))
                 {
