@@ -103,7 +103,7 @@ namespace CxTitan
                 // write some settings to sa_download_upload_setup.txt here
                 string curDownloadUploadSettingFile = "sa_download_upload_setup.txt";
                 string curDownloadUploadSettingDir = startupPath + "\\" + curDownloadUploadSettingFile;
-                string[] DownloadUploadSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "POR:5", "BAU:9600", "DEV:01", 
+                string[] DownloadUploadSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "POR:5", "BAU:" + MotorControls.oHyperTerminalAdapter.BaudRate.ToString(), "DEV:01", 
                 "OPE:DOWNLOAD", "FIL:CompileOut.txt", "MOD:DMX-K-SA-17/23" };// row settings can be edit later
                 using (StreamWriter sw = new StreamWriter(curDownloadUploadSettingFile))
                 {
@@ -174,7 +174,7 @@ namespace CxTitan
                 string curDownloadUploadSettingFile = "sa_download_upload_setup.txt";
                 string curDownloadUploadSettingDir = startupPath + "\\" + curDownloadUploadSettingFile;
 
-                string[] DownloadUploadSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "DEV:01", "POR:5", "BAU:9600", 
+                string[] DownloadUploadSettingRows = new string[] { "LIN:1275", "COM:SERIAL", "DEV:01", "POR:5", "BAU:" + MotorControls.oHyperTerminalAdapter.BaudRate.ToString(), 
                 "OPE:UPLOAD", "FIL:CompileOut.txt", "MOD:DMX-K-SA-17/23" };// row settings can be edit later
                 using (StreamWriter sw = new StreamWriter(curDownloadUploadSettingFile))
                 {
