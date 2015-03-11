@@ -1453,6 +1453,7 @@ namespace CxTitan
                         Avantech.DIEnabled = false;//timer1.Enabled = false;
                         Avantech.bModbusConnected = false;
                         MessageBox.Show("Failed more than 5 times! Please check the physical connection and MODBUS address setting!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
+                        txtConnection.Invoke((MethodInvoker)delegate { txtConnection.Text = "OffLine"; });
                     }
                     if (AvantechDIs.m_iScanCount % 50 == 0)
                         GC.Collect();
@@ -1552,6 +1553,7 @@ namespace CxTitan
                         Avantech.AIEnabled = false;//timer1.Enabled = false;
                         Avantech.bModbusConnected = false;
                         MessageBox.Show("Failed more than 5 times! Please check the physical connection and MODBUS address setting!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
+                        txtConnection.Invoke((MethodInvoker)delegate { txtConnection.Text = "OffLine"; });
                     }
                     if (AvantechAIs.m_iScanCount % 50 == 0)
                         GC.Collect();
@@ -3786,7 +3788,7 @@ namespace CxTitan
                     //OutputTimer.Enabled = false;
                     Avantech.bModbusConnected = false;
                     MessageBox.Show("Failed more than 5 times! Please check the physical connection and MODBUS address setting!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
-
+                    txtConnection.Text = "OffLine";
                 }
                 if (AvantechDOs.m_iScanCount % 50 == 0)
                     GC.Collect();
@@ -3818,6 +3820,7 @@ namespace CxTitan
                     //OutputTimer.Enabled = false;
                     Avantech.bModbusConnected = false;
                     MessageBox.Show("Failed more than 5 times! Please check the physical connection and MODBUS address setting!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
+                    txtConnection.Text = "OffLine";
                 }
                 if (AvantechAOs.m_iScanCount % 50 == 0)
                     GC.Collect();
@@ -3855,7 +3858,7 @@ namespace CxTitan
                     //OutputTimer.Enabled = false;
                     Avantech.bModbusConnected = false;
                     MessageBox.Show("Failed more than 5 times! Please check the physical connection and MODBUS address setting!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
-
+                    txtConnection.Text = "OffLine";
                 }
                 if (AvantechDIOs.m_iScanCount % 50 == 0)
                     GC.Collect();
