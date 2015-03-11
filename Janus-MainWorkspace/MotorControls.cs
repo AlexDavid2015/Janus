@@ -54,6 +54,10 @@ namespace CxTitan
         public static string SSPDMVal = "";
         #endregion
 
+        #region SCV
+        public static string SCVVal = "";
+        #endregion
+
         public enum ProgramControlStatus
         {
             Idle = 0,// ?Stopped = 0,

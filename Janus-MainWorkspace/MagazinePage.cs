@@ -37,7 +37,7 @@ namespace CxTitan
                 TimerStates.Enabled = false;// disable read values from Motors
                 SetMotorSpeed();
                 SetMotorAccelDecel();
-                Thread.Sleep(100);
+                Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@01X" + txtRefPos.Text + "\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
@@ -116,6 +116,8 @@ namespace CxTitan
                 // Product ID and Version
                 GetProductID();
                 GetProductVersion();
+                // Motor Power On or Off depending on the chbxMagMotorControlEnable 
+                SetMotorControlPowerEnable();
             }
             else
             {
@@ -200,7 +202,7 @@ namespace CxTitan
                 //SetMotorSpeedAndAcceleration();
                 SetMotorSpeed();
                 SetMotorAccelDecel();
-                Thread.Sleep(100);
+                Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@01H+\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
@@ -221,7 +223,7 @@ namespace CxTitan
                 //SetMotorSpeedAndAcceleration();
                 SetMotorSpeed();
                 SetMotorAccelDecel();
-                Thread.Sleep(100);
+                Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@01J-\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
@@ -242,7 +244,7 @@ namespace CxTitan
                 //SetMotorSpeedAndAcceleration();
                 SetMotorSpeed();
                 SetMotorAccelDecel();
-                Thread.Sleep(100);
+                Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@01J+\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
@@ -502,7 +504,7 @@ namespace CxTitan
 
                 SetMotorSpeed();
                 SetMotorAccelDecel();
-                Thread.Sleep(100);
+                Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@01H-\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
@@ -554,7 +556,7 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 SetMotorDecel();
-                Thread.Sleep(100);
+                Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@01STOP\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
@@ -896,9 +898,15 @@ namespace CxTitan
             MotorControls.oHyperTerminalAdapter.Write("@01VER\r");
             Thread.Sleep(100);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.ProductVer);
-            //MotorControls.ProductVer.TrimStart('\r');
-            //MotorControls.ProductVer.TrimEnd('\r');
             lblProductVerVal.Text = MotorControls.ProductVer;
+        }
+
+        private void SetMotorControlPowerEnable()
+        {
+            TimerStates.Enabled = false;// disable read values from Motors
+            Thread.Sleep(100);
+            MotorControls.oHyperTerminalAdapter.Write("@01EO=" + Convert.ToInt32(chbxMagMotorControlEnable.Checked) + "\r");
+            TimerStates.Enabled = true;// enable read values from Motors
         }
 
         private void cmdSingleRun_Click(object sender, EventArgs e)
@@ -1422,10 +1430,11 @@ namespace CxTitan
         {
             if (MotorControls.IsMotorSerialInitialized)
             {
-                TimerStates.Enabled = false;// disable read values from Motors
-                Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01EO=" + Convert.ToInt32(chbxMagMotorControlEnable.Checked) + "\r");
-                TimerStates.Enabled = true;// enable read values from Motors
+                //TimerStates.Enabled = false;// disable read values from Motors
+                //Thread.Sleep(100);
+                //MotorControls.oHyperTerminalAdapter.Write("@01EO=" + Convert.ToInt32(chbxMagMotorControlEnable.Checked) + "\r");
+                //TimerStates.Enabled = true;// enable read values from Motors
+                SetMotorControlPowerEnable();
             }
             else
             {
@@ -1482,7 +1491,7 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 MotorControls.oHyperTerminalAdapter.Write("@01SSPDM\r");
-                Thread.Sleep(50);
+                Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.SSPDMVal);
                 if (Convert.ToInt32(MotorControls.SSPDMVal) == 0)
                 {
@@ -1490,10 +1499,22 @@ namespace CxTitan
                 }
                 else
                 {
-                    Thread.Sleep(50);
+                    // Check SCV ON Status Value
+                    Thread.Sleep(20);
+                    MotorControls.oHyperTerminalAdapter.Write("@01SCV\r");
+                    Thread.Sleep(20);
+                    MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.SCVVal);
+
+                    Thread.Sleep(20);
                     MotorControls.oHyperTerminalAdapter.Write("@01ACC=" + txtAccelOnTheFly.Text + "\r");// send Accel
-                    Thread.Sleep(50);
+                    Thread.Sleep(20);
                     MotorControls.oHyperTerminalAdapter.Write("@01SSPD" + txtSpeedOnTheFly.Text + "\r");
+
+
+                    if (Convert.ToInt32(MotorControls.SCVVal) == 1) // if SCV ==1 , SCV is ON
+                    {
+                        MessageBox.Show("Error Setting Speed!  SCV ON");
+                    }
                 }
                 TimerStates.Enabled = true;// enable read values from Motors
             }

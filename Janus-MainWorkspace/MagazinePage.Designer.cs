@@ -1043,6 +1043,8 @@
             // 
             // chbxMagMotorControlEnable
             // 
+            this.chbxMagMotorControlEnable.Checked = true;
+            this.chbxMagMotorControlEnable.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chbxMagMotorControlEnable.Location = new System.Drawing.Point(21, 174);
             this.chbxMagMotorControlEnable.Name = "chbxMagMotorControlEnable";
             this.chbxMagMotorControlEnable.Size = new System.Drawing.Size(64, 26);
