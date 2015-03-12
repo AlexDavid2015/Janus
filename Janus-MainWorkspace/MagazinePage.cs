@@ -888,7 +888,7 @@ namespace CxTitan
         private void GetProductID()
         {
             MotorControls.oHyperTerminalAdapter.Write("@01ID\r");
-            Thread.Sleep(100);
+            Thread.Sleep(20);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.ProductID);
             lblProductIDVal.Text = MotorControls.ProductID;
         }
@@ -896,7 +896,7 @@ namespace CxTitan
         private void GetProductVersion()
         {
             MotorControls.oHyperTerminalAdapter.Write("@01VER\r");
-            Thread.Sleep(100);
+            Thread.Sleep(20);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.ProductVer);
             lblProductVerVal.Text = MotorControls.ProductVer;
         }
@@ -906,6 +906,9 @@ namespace CxTitan
             TimerStates.Enabled = false;// disable read values from Motors
             Thread.Sleep(100);
             MotorControls.oHyperTerminalAdapter.Write("@01EO=" + Convert.ToInt32(chbxMagMotorControlEnable.Checked) + "\r");
+            Thread.Sleep(20);
+            string strDummy = "";
+            MotorControls.oHyperTerminalAdapter.Read(ref strDummy);
             TimerStates.Enabled = true;// enable read values from Motors
         }
 

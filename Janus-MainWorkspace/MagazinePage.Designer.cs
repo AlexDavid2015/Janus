@@ -1669,7 +1669,7 @@
             // 
             // TimerStates
             // 
-            this.TimerStates.Interval = 200;
+            this.TimerStates.Interval = 150;
             this.TimerStates.Tick += new System.EventHandler(this.TimerStates_Tick);
             // 
             // gpbProductInfo
