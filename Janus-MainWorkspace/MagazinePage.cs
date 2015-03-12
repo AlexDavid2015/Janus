@@ -1098,8 +1098,11 @@ namespace CxTitan
             if (MotorControls.IsMotorSerialInitialized)
             {
                 TimerStates.Enabled = false;// disable read values from Motors
-                Thread.Sleep(100);
+                Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@01SCV=1\r");
+                Thread.Sleep(20);
+                string strDummy = "";
+                MotorControls.oHyperTerminalAdapter.Read(ref strDummy);
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -1113,8 +1116,11 @@ namespace CxTitan
             if (MotorControls.IsMotorSerialInitialized)
             {
                 TimerStates.Enabled = false;// disable read values from Motors
-                Thread.Sleep(100);
+                Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@01SCV=0\r");
+                Thread.Sleep(20);
+                string strDummy = "";
+                MotorControls.oHyperTerminalAdapter.Read(ref strDummy);
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
