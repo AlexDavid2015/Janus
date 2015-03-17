@@ -25,6 +25,28 @@ namespace CxTitan
         public static string Current = "";
         #endregion
 
+        #region Setup page Polarity
+        public static string PolarityVal = "";// 13 bit value(bit 0, bit 2 and bit 3 are reserved)
+        public static bool PolDirection = false;
+        public static bool PolLimit = false;
+        public static bool PolHome = false;
+        public static bool PolLatch = false;
+        public static bool PolInPosOutput = false;
+        public static bool PolAlarmOutput = false;
+        public static bool PolDigitalOutput = false;
+        public static bool PolDigitalInput = false;
+        public static bool PolSAErr = false;
+        public static bool PolEnableOutput = false;
+        #endregion
+
+        #region Setup page StepNLoop Control
+        public static bool StepNLoopEnabled = false;
+        public static int StepNLoopMaxAttemptNum = 0;
+        public static int StepNLoopToleranceValue = 0;
+        public static int StepNLoopIdleToleranceValue = 0;
+        public static int StepNLoopErrorRangeValue = 0;
+        #endregion
+
         #region Program0 Status on Magazine Page
         public static string Program0Status = "";// Program0 status
         public static string Program0Index = "";// Program0 index

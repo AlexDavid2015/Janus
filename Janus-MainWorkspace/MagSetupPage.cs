@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -51,6 +52,375 @@ namespace CxTitan
                 strDeviceIDs[i] = i.ToString();// from COM0 to COM15
             }
             SetDeviceIDComboBox(strDeviceIDs);
+
+            if (MotorControls.IsMotorSerialInitialized)
+            {
+                // Some TextBox and CheckBox Enable
+                chbAutoResponse.Enabled = true;
+                txtTimeOutCounter.Enabled = true;
+                chbxEnableDecel.Enabled = true;
+                chbxIERR.Enabled = true;
+                chbxAutoRun1.Enabled = true;
+                txtEOBoot.Enabled = true;
+                txtDOBoot.Enabled = true;
+                txtHCA.Enabled = true;
+
+                // Some GroupBox Enable
+                gpbOutput.Enabled = true;
+                gpbInput.Enabled = true;
+                gpbSAErr.Enabled = true;
+                gpbPolarityEnable.Enabled = true;
+
+                // Load Polarity in the Polarity groupbox
+                LoadPolarity();
+                // Load StepNLoop Control in the StepNLoop groupbox
+                LoadStepNLoopControl();
+                // Load Communication Setup
+                LoadCommunicationSetup();
+                // Load Misc Settings
+                LoadMiscSettings();
+                // Load Driver Current in the Driver Current groupbox
+                LoadDriverCurrent();
+            }
+            else
+            {
+                // Some TextBox and CheckBox Disable
+                chbAutoResponse.Enabled = false;
+                txtTimeOutCounter.Enabled = false;
+                chbxEnableDecel.Enabled = false;
+                chbxIERR.Enabled = false;
+                chbxAutoRun1.Enabled = false;
+                txtEOBoot.Enabled = false;
+                txtDOBoot.Enabled = false;
+                txtHCA.Enabled = false;
+ 
+                // Some GroupBox Disable
+                gpbOutput.Enabled = false;
+                gpbInput.Enabled = false;
+                gpbSAErr.Enabled = false;
+                gpbPolarityEnable.Enabled = false;
+            }
+        }
+
+        private void LoadPolarity()
+        {
+            try
+            {
+                MotorControls.oHyperTerminalAdapter.Write("@01POL\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.PolarityVal);
+                int iPolarity = Convert.ToInt32(MotorControls.PolarityVal);
+                string strBinaryPolarity = Convert.ToString(iPolarity, 2).PadLeft(16, '0');// 16-bit version
+                // Direction(bit 1), Bit in inverse direction
+                MotorControls.PolDirection = Convert.ToBoolean(Convert.ToInt32(strBinaryPolarity.Substring(14, 1)));
+                // Limit(bit 4)
+                MotorControls.PolLimit = Convert.ToBoolean(Convert.ToInt32(strBinaryPolarity.Substring(11, 1)));
+                // Home(bit 5)
+                MotorControls.PolHome = Convert.ToBoolean(Convert.ToInt32(strBinaryPolarity.Substring(10, 1)));
+                // Latch(bit 6)
+                MotorControls.PolLatch = Convert.ToBoolean(Convert.ToInt32(strBinaryPolarity.Substring(9, 1)));
+                // In Position Output(bit 7)
+                MotorControls.PolInPosOutput = Convert.ToBoolean(Convert.ToInt32(strBinaryPolarity.Substring(8, 1)));
+                // Alarm Output(bit 8)
+                MotorControls.PolAlarmOutput = Convert.ToBoolean(Convert.ToInt32(strBinaryPolarity.Substring(7, 1)));
+                // Digital Output(bit 9)
+                MotorControls.PolDigitalOutput = Convert.ToBoolean(Convert.ToInt32(strBinaryPolarity.Substring(6, 1)));
+                // Digital Input(bit 10)
+                MotorControls.PolDigitalInput = Convert.ToBoolean(Convert.ToInt32(strBinaryPolarity.Substring(5, 1)));
+                // SA Err, Jump to line 0 on error(bit 11)
+                MotorControls.PolSAErr = Convert.ToBoolean(Convert.ToInt32(strBinaryPolarity.Substring(4, 1)));
+                // Enable Output(bit 12)
+                MotorControls.PolEnableOutput = Convert.ToBoolean(Convert.ToInt32(strBinaryPolarity.Substring(3, 1)));
+
+                // Corresponding UI related
+                // Dir
+                if (MotorControls.PolDirection)
+                {
+                    radDirCCW.Checked = true;
+                }
+                else
+                {
+                    radDirCW.Checked = true;
+                }
+
+                // Home
+                if (MotorControls.PolHome)
+                {
+                    radHomeHigh.Checked = true;
+                }
+                else
+                {
+                    radHomeLow.Checked = true;
+                }
+
+                // Limit
+                if (MotorControls.PolLimit)
+                {
+                    radLimitHigh.Checked = true;
+                }
+                else
+                {
+                    radLimitLow.Checked = true;
+                }
+
+                // Latch
+                if (MotorControls.PolLatch)
+                {
+                    radLatchHigh.Checked = true;
+                }
+                else
+                {
+                    radLatchLow.Checked = true;
+                }
+
+                // In Pos Output
+                if (MotorControls.PolInPosOutput)
+                {
+                    radInPosHigh.Checked = true;
+                }
+                else
+                {
+                    radInPosLow.Checked = true;
+                }
+
+                // Alarm Output
+                if (MotorControls.PolAlarmOutput)
+                {
+                    radAlarmHigh.Checked = true;
+                }
+                else
+                {
+                    radAlarmLow.Checked = true;
+                }
+
+                // Digital Output
+                if (MotorControls.PolDigitalOutput)
+                {
+                    radDigitalOutputHigh.Checked = true;
+                }
+                else
+                {
+                    radDigitalOutputLow.Checked = true;
+                }
+
+                // Input
+                if (MotorControls.PolDigitalInput)
+                {
+                    radDigitalInputHigh.Checked = true;
+                }
+                else
+                {
+                    radDigitalInputLow.Checked = true;
+                }
+
+                // Sa Err
+                if (MotorControls.PolSAErr)
+                {
+                    radSAErrHigh.Checked = true;
+                }
+                else
+                {
+                    radSAErrLow.Checked = true;
+                }
+
+                // Enable
+                if (MotorControls.PolEnableOutput)
+                {
+                    radEnableHigh.Checked = true;
+                }
+                else
+                {
+                    radEnableLow.Checked = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("LoadPolarity Error!!!");
+            }
+        }
+
+        private void LoadStepNLoopControl()
+        {
+            try
+            {
+                string strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01SL\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                chbxStepNLoopControlEnable.Checked = Convert.ToBoolean(Convert.ToInt32(strResultValue));
+
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01SLA\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                txtMaxAttempt.Text = strResultValue;
+
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01SLT\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                txtTolerance.Text = strResultValue;
+
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01SLM\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                txtIdleTol.Text = strResultValue;
+
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01SLE\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                txtErrorRange.Text = strResultValue;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("LoadStepNLoopControl Error!!!");
+            }
+        }
+
+        private void LoadCommunicationSetup()
+        {
+            try
+            {
+                // Communication mode
+                string strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01CM\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                if (Convert.ToBoolean(Convert.ToInt32(strResultValue)))
+                {
+                    radRS485.Checked = true;
+                }
+                else
+                {
+                    radRS232.Checked = true;
+                }
+
+                // Append ID??
+
+                // AutoResponse
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01AR\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                chbAutoResponse.Checked = Convert.ToBoolean(Convert.ToInt32(strResultValue));
+
+                // BaudRate
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01DB\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                if (Convert.ToInt32(strResultValue) <= 5)
+                {
+                    combxBaudRate.SelectedIndex = Convert.ToInt32(strResultValue) - 1;
+                }
+                else
+                {
+                    MessageBox.Show("BaudRate Range error!!!");
+                }
+
+                // DeviceID
+
+                // TimeOut Counter
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("LoadCommunicationSetup Error!!!");
+            }
+        }
+
+        private void LoadMiscSettings()
+        {
+            try
+            {
+                // Enable Decel
+                string strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01EDEC\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                chbxEnableDecel.Checked = Convert.ToBoolean(Convert.ToInt32(strResultValue));
+
+                // IERR
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01IERR\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                chbxIERR.Checked = Convert.ToBoolean(Convert.ToInt32(strResultValue));
+
+                // AutoRun 0
+
+                // Alm/Inp
+
+                // AutoRun 1
+
+                // RZ
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01RZ\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                chbxRZ.Checked = Convert.ToBoolean(Convert.ToInt32(strResultValue));
+
+                // EO Boot
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01EOBOOT\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                txtEOBoot.Text = strResultValue;
+
+                // LCA
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01LCA\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                txtLCA.Text = strResultValue;
+
+                // DO Boot
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01DOBOOT\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                txtDOBoot.Text = strResultValue;
+
+                // HCA
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01HCA\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                txtHCA.Text = strResultValue;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("LoadMiscSettings Error!!!");
+            }
+        }
+
+        private void LoadDriverCurrent()
+        {
+            try
+            {
+                string strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01CURR\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                txtCurrentRun.Text = strResultValue;
+
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01CURI\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                txtCurrentIdle.Text = strResultValue;
+
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01CURT\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                txtCurrentIdleTimeSetting.Text = strResultValue;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("LoadDriverCurrent Error!!!");
+            }
         }
 
         public void SetBaudRateComboBox(string[] strBaudRates)
@@ -111,7 +481,32 @@ namespace CxTitan
         {
             if (MotorControls.IsMotorSerialInitialized)
             {
+                // Some TextBox and CheckBox Enable
+                chbAutoResponse.Enabled = true;
+                txtTimeOutCounter.Enabled = true;
+                chbxEnableDecel.Enabled = true;
+                chbxIERR.Enabled = true;
+                chbxAutoRun1.Enabled = true;
+                txtEOBoot.Enabled = true;
+                txtDOBoot.Enabled = true;
+                txtHCA.Enabled = true;
 
+                // Some GroupBox Enable
+                gpbOutput.Enabled = true;
+                gpbInput.Enabled = true;
+                gpbSAErr.Enabled = true;
+                gpbPolarityEnable.Enabled = true;
+
+                // Load Polarity in the Polarity groupbox
+                LoadPolarity();
+                // Load StepNLoop Control in the StepNLoop groupbox
+                LoadStepNLoopControl();
+                // Load Communication Setup
+                LoadCommunicationSetup();
+                // Load Misc Settings
+                LoadMiscSettings();
+                // Load Driver Current in the Driver Current groupbox
+                LoadDriverCurrent();
             }
             else
             {

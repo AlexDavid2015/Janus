@@ -30,26 +30,26 @@
         {
             this.gpbPolarity = new System.Windows.Forms.GroupBox();
             this.gpbPolarityEnable = new System.Windows.Forms.GroupBox();
-            this.radioButton14 = new System.Windows.Forms.RadioButton();
-            this.radioButton15 = new System.Windows.Forms.RadioButton();
+            this.radEnableLow = new System.Windows.Forms.RadioButton();
+            this.radEnableHigh = new System.Windows.Forms.RadioButton();
             this.gpbSAErr = new System.Windows.Forms.GroupBox();
-            this.radioButton12 = new System.Windows.Forms.RadioButton();
-            this.radioButton13 = new System.Windows.Forms.RadioButton();
+            this.radSAErrLow = new System.Windows.Forms.RadioButton();
+            this.radSAErrHigh = new System.Windows.Forms.RadioButton();
             this.gpbInput = new System.Windows.Forms.GroupBox();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
-            this.radioButton11 = new System.Windows.Forms.RadioButton();
+            this.radDigitalInputLow = new System.Windows.Forms.RadioButton();
+            this.radDigitalInputHigh = new System.Windows.Forms.RadioButton();
             this.gpbOutput = new System.Windows.Forms.GroupBox();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.radDigitalOutputLow = new System.Windows.Forms.RadioButton();
+            this.radDigitalOutputHigh = new System.Windows.Forms.RadioButton();
             this.gpbAlarm = new System.Windows.Forms.GroupBox();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radAlarmLow = new System.Windows.Forms.RadioButton();
+            this.radAlarmHigh = new System.Windows.Forms.RadioButton();
             this.gpbInPos = new System.Windows.Forms.GroupBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radInPosLow = new System.Windows.Forms.RadioButton();
+            this.radInPosHigh = new System.Windows.Forms.RadioButton();
             this.gpbLatch = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radLatchLow = new System.Windows.Forms.RadioButton();
+            this.radLatchHigh = new System.Windows.Forms.RadioButton();
             this.gpbLimit = new System.Windows.Forms.GroupBox();
             this.radLimitLow = new System.Windows.Forms.RadioButton();
             this.radLimitHigh = new System.Windows.Forms.RadioButton();
@@ -80,10 +80,10 @@
             this.lblTimeMS = new System.Windows.Forms.Label();
             this.lblIdleMA = new System.Windows.Forms.Label();
             this.lblRunMA = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtTime = new System.Windows.Forms.TextBox();
+            this.txtCurrentIdle = new System.Windows.Forms.TextBox();
+            this.txtCurrentIdleTimeSetting = new System.Windows.Forms.TextBox();
             this.lblTime = new System.Windows.Forms.Label();
-            this.txtRun = new System.Windows.Forms.TextBox();
+            this.txtCurrentRun = new System.Windows.Forms.TextBox();
             this.lblIdle = new System.Windows.Forms.Label();
             this.lblRun = new System.Windows.Forms.Label();
             this.gpbStepNLoopControl = new System.Windows.Forms.GroupBox();
@@ -115,7 +115,7 @@
             this.lblMS = new System.Windows.Forms.Label();
             this.chbAutoResponse = new System.Windows.Forms.CheckBox();
             this.gpbRSCommunication = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radRS232 = new System.Windows.Forms.RadioButton();
             this.radRS485 = new System.Windows.Forms.RadioButton();
             this.combxDeviceID = new System.Windows.Forms.ComboBox();
             this.combxBaudRate = new System.Windows.Forms.ComboBox();
@@ -174,8 +174,8 @@
             // 
             // gpbPolarityEnable
             // 
-            this.gpbPolarityEnable.Controls.Add(this.radioButton14);
-            this.gpbPolarityEnable.Controls.Add(this.radioButton15);
+            this.gpbPolarityEnable.Controls.Add(this.radEnableLow);
+            this.gpbPolarityEnable.Controls.Add(this.radEnableHigh);
             this.gpbPolarityEnable.Enabled = false;
             this.gpbPolarityEnable.Location = new System.Drawing.Point(106, 294);
             this.gpbPolarityEnable.Name = "gpbPolarityEnable";
@@ -183,33 +183,33 @@
             this.gpbPolarityEnable.TabIndex = 104;
             this.gpbPolarityEnable.TabStop = false;
             // 
-            // radioButton14
+            // radEnableLow
             // 
-            this.radioButton14.AutoSize = true;
-            this.radioButton14.Checked = true;
-            this.radioButton14.Location = new System.Drawing.Point(89, 9);
-            this.radioButton14.Name = "radioButton14";
-            this.radioButton14.Size = new System.Drawing.Size(45, 17);
-            this.radioButton14.TabIndex = 1;
-            this.radioButton14.TabStop = true;
-            this.radioButton14.Text = "Low";
-            this.radioButton14.UseVisualStyleBackColor = true;
+            this.radEnableLow.AutoSize = true;
+            this.radEnableLow.Checked = true;
+            this.radEnableLow.Location = new System.Drawing.Point(89, 9);
+            this.radEnableLow.Name = "radEnableLow";
+            this.radEnableLow.Size = new System.Drawing.Size(45, 17);
+            this.radEnableLow.TabIndex = 1;
+            this.radEnableLow.TabStop = true;
+            this.radEnableLow.Text = "Low";
+            this.radEnableLow.UseVisualStyleBackColor = true;
             // 
-            // radioButton15
+            // radEnableHigh
             // 
-            this.radioButton15.AutoSize = true;
-            this.radioButton15.Location = new System.Drawing.Point(6, 9);
-            this.radioButton15.Name = "radioButton15";
-            this.radioButton15.Size = new System.Drawing.Size(47, 17);
-            this.radioButton15.TabIndex = 0;
-            this.radioButton15.TabStop = true;
-            this.radioButton15.Text = "High";
-            this.radioButton15.UseVisualStyleBackColor = true;
+            this.radEnableHigh.AutoSize = true;
+            this.radEnableHigh.Location = new System.Drawing.Point(6, 9);
+            this.radEnableHigh.Name = "radEnableHigh";
+            this.radEnableHigh.Size = new System.Drawing.Size(47, 17);
+            this.radEnableHigh.TabIndex = 0;
+            this.radEnableHigh.TabStop = true;
+            this.radEnableHigh.Text = "High";
+            this.radEnableHigh.UseVisualStyleBackColor = true;
             // 
             // gpbSAErr
             // 
-            this.gpbSAErr.Controls.Add(this.radioButton12);
-            this.gpbSAErr.Controls.Add(this.radioButton13);
+            this.gpbSAErr.Controls.Add(this.radSAErrLow);
+            this.gpbSAErr.Controls.Add(this.radSAErrHigh);
             this.gpbSAErr.Enabled = false;
             this.gpbSAErr.Location = new System.Drawing.Point(106, 263);
             this.gpbSAErr.Name = "gpbSAErr";
@@ -217,33 +217,33 @@
             this.gpbSAErr.TabIndex = 103;
             this.gpbSAErr.TabStop = false;
             // 
-            // radioButton12
+            // radSAErrLow
             // 
-            this.radioButton12.AutoSize = true;
-            this.radioButton12.Checked = true;
-            this.radioButton12.Location = new System.Drawing.Point(89, 9);
-            this.radioButton12.Name = "radioButton12";
-            this.radioButton12.Size = new System.Drawing.Size(45, 17);
-            this.radioButton12.TabIndex = 1;
-            this.radioButton12.TabStop = true;
-            this.radioButton12.Text = "Low";
-            this.radioButton12.UseVisualStyleBackColor = true;
+            this.radSAErrLow.AutoSize = true;
+            this.radSAErrLow.Checked = true;
+            this.radSAErrLow.Location = new System.Drawing.Point(89, 9);
+            this.radSAErrLow.Name = "radSAErrLow";
+            this.radSAErrLow.Size = new System.Drawing.Size(45, 17);
+            this.radSAErrLow.TabIndex = 1;
+            this.radSAErrLow.TabStop = true;
+            this.radSAErrLow.Text = "Low";
+            this.radSAErrLow.UseVisualStyleBackColor = true;
             // 
-            // radioButton13
+            // radSAErrHigh
             // 
-            this.radioButton13.AutoSize = true;
-            this.radioButton13.Location = new System.Drawing.Point(6, 9);
-            this.radioButton13.Name = "radioButton13";
-            this.radioButton13.Size = new System.Drawing.Size(47, 17);
-            this.radioButton13.TabIndex = 0;
-            this.radioButton13.TabStop = true;
-            this.radioButton13.Text = "High";
-            this.radioButton13.UseVisualStyleBackColor = true;
+            this.radSAErrHigh.AutoSize = true;
+            this.radSAErrHigh.Location = new System.Drawing.Point(6, 9);
+            this.radSAErrHigh.Name = "radSAErrHigh";
+            this.radSAErrHigh.Size = new System.Drawing.Size(47, 17);
+            this.radSAErrHigh.TabIndex = 0;
+            this.radSAErrHigh.TabStop = true;
+            this.radSAErrHigh.Text = "High";
+            this.radSAErrHigh.UseVisualStyleBackColor = true;
             // 
             // gpbInput
             // 
-            this.gpbInput.Controls.Add(this.radioButton10);
-            this.gpbInput.Controls.Add(this.radioButton11);
+            this.gpbInput.Controls.Add(this.radDigitalInputLow);
+            this.gpbInput.Controls.Add(this.radDigitalInputHigh);
             this.gpbInput.Enabled = false;
             this.gpbInput.Location = new System.Drawing.Point(106, 233);
             this.gpbInput.Name = "gpbInput";
@@ -251,33 +251,33 @@
             this.gpbInput.TabIndex = 102;
             this.gpbInput.TabStop = false;
             // 
-            // radioButton10
+            // radDigitalInputLow
             // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Checked = true;
-            this.radioButton10.Location = new System.Drawing.Point(89, 9);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(45, 17);
-            this.radioButton10.TabIndex = 1;
-            this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "Low";
-            this.radioButton10.UseVisualStyleBackColor = true;
+            this.radDigitalInputLow.AutoSize = true;
+            this.radDigitalInputLow.Checked = true;
+            this.radDigitalInputLow.Location = new System.Drawing.Point(89, 9);
+            this.radDigitalInputLow.Name = "radDigitalInputLow";
+            this.radDigitalInputLow.Size = new System.Drawing.Size(45, 17);
+            this.radDigitalInputLow.TabIndex = 1;
+            this.radDigitalInputLow.TabStop = true;
+            this.radDigitalInputLow.Text = "Low";
+            this.radDigitalInputLow.UseVisualStyleBackColor = true;
             // 
-            // radioButton11
+            // radDigitalInputHigh
             // 
-            this.radioButton11.AutoSize = true;
-            this.radioButton11.Location = new System.Drawing.Point(6, 9);
-            this.radioButton11.Name = "radioButton11";
-            this.radioButton11.Size = new System.Drawing.Size(47, 17);
-            this.radioButton11.TabIndex = 0;
-            this.radioButton11.TabStop = true;
-            this.radioButton11.Text = "High";
-            this.radioButton11.UseVisualStyleBackColor = true;
+            this.radDigitalInputHigh.AutoSize = true;
+            this.radDigitalInputHigh.Location = new System.Drawing.Point(6, 9);
+            this.radDigitalInputHigh.Name = "radDigitalInputHigh";
+            this.radDigitalInputHigh.Size = new System.Drawing.Size(47, 17);
+            this.radDigitalInputHigh.TabIndex = 0;
+            this.radDigitalInputHigh.TabStop = true;
+            this.radDigitalInputHigh.Text = "High";
+            this.radDigitalInputHigh.UseVisualStyleBackColor = true;
             // 
             // gpbOutput
             // 
-            this.gpbOutput.Controls.Add(this.radioButton8);
-            this.gpbOutput.Controls.Add(this.radioButton9);
+            this.gpbOutput.Controls.Add(this.radDigitalOutputLow);
+            this.gpbOutput.Controls.Add(this.radDigitalOutputHigh);
             this.gpbOutput.Enabled = false;
             this.gpbOutput.Location = new System.Drawing.Point(106, 202);
             this.gpbOutput.Name = "gpbOutput";
@@ -285,127 +285,127 @@
             this.gpbOutput.TabIndex = 101;
             this.gpbOutput.TabStop = false;
             // 
-            // radioButton8
+            // radDigitalOutputLow
             // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Checked = true;
-            this.radioButton8.Location = new System.Drawing.Point(89, 9);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(45, 17);
-            this.radioButton8.TabIndex = 1;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "Low";
-            this.radioButton8.UseVisualStyleBackColor = true;
+            this.radDigitalOutputLow.AutoSize = true;
+            this.radDigitalOutputLow.Checked = true;
+            this.radDigitalOutputLow.Location = new System.Drawing.Point(89, 9);
+            this.radDigitalOutputLow.Name = "radDigitalOutputLow";
+            this.radDigitalOutputLow.Size = new System.Drawing.Size(45, 17);
+            this.radDigitalOutputLow.TabIndex = 1;
+            this.radDigitalOutputLow.TabStop = true;
+            this.radDigitalOutputLow.Text = "Low";
+            this.radDigitalOutputLow.UseVisualStyleBackColor = true;
             // 
-            // radioButton9
+            // radDigitalOutputHigh
             // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(6, 9);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(47, 17);
-            this.radioButton9.TabIndex = 0;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "High";
-            this.radioButton9.UseVisualStyleBackColor = true;
+            this.radDigitalOutputHigh.AutoSize = true;
+            this.radDigitalOutputHigh.Location = new System.Drawing.Point(6, 9);
+            this.radDigitalOutputHigh.Name = "radDigitalOutputHigh";
+            this.radDigitalOutputHigh.Size = new System.Drawing.Size(47, 17);
+            this.radDigitalOutputHigh.TabIndex = 0;
+            this.radDigitalOutputHigh.TabStop = true;
+            this.radDigitalOutputHigh.Text = "High";
+            this.radDigitalOutputHigh.UseVisualStyleBackColor = true;
             // 
             // gpbAlarm
             // 
-            this.gpbAlarm.Controls.Add(this.radioButton6);
-            this.gpbAlarm.Controls.Add(this.radioButton7);
+            this.gpbAlarm.Controls.Add(this.radAlarmLow);
+            this.gpbAlarm.Controls.Add(this.radAlarmHigh);
             this.gpbAlarm.Location = new System.Drawing.Point(106, 171);
             this.gpbAlarm.Name = "gpbAlarm";
             this.gpbAlarm.Size = new System.Drawing.Size(156, 30);
             this.gpbAlarm.TabIndex = 100;
             this.gpbAlarm.TabStop = false;
             // 
-            // radioButton6
+            // radAlarmLow
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Checked = true;
-            this.radioButton6.Location = new System.Drawing.Point(89, 9);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(45, 17);
-            this.radioButton6.TabIndex = 1;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Low";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.radAlarmLow.AutoSize = true;
+            this.radAlarmLow.Checked = true;
+            this.radAlarmLow.Location = new System.Drawing.Point(89, 9);
+            this.radAlarmLow.Name = "radAlarmLow";
+            this.radAlarmLow.Size = new System.Drawing.Size(45, 17);
+            this.radAlarmLow.TabIndex = 1;
+            this.radAlarmLow.TabStop = true;
+            this.radAlarmLow.Text = "Low";
+            this.radAlarmLow.UseVisualStyleBackColor = true;
             // 
-            // radioButton7
+            // radAlarmHigh
             // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(6, 9);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(47, 17);
-            this.radioButton7.TabIndex = 0;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "High";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.radAlarmHigh.AutoSize = true;
+            this.radAlarmHigh.Location = new System.Drawing.Point(6, 9);
+            this.radAlarmHigh.Name = "radAlarmHigh";
+            this.radAlarmHigh.Size = new System.Drawing.Size(47, 17);
+            this.radAlarmHigh.TabIndex = 0;
+            this.radAlarmHigh.TabStop = true;
+            this.radAlarmHigh.Text = "High";
+            this.radAlarmHigh.UseVisualStyleBackColor = true;
             // 
             // gpbInPos
             // 
-            this.gpbInPos.Controls.Add(this.radioButton4);
-            this.gpbInPos.Controls.Add(this.radioButton5);
+            this.gpbInPos.Controls.Add(this.radInPosLow);
+            this.gpbInPos.Controls.Add(this.radInPosHigh);
             this.gpbInPos.Location = new System.Drawing.Point(106, 140);
             this.gpbInPos.Name = "gpbInPos";
             this.gpbInPos.Size = new System.Drawing.Size(156, 30);
             this.gpbInPos.TabIndex = 99;
             this.gpbInPos.TabStop = false;
             // 
-            // radioButton4
+            // radInPosLow
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Checked = true;
-            this.radioButton4.Location = new System.Drawing.Point(89, 9);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(45, 17);
-            this.radioButton4.TabIndex = 1;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Low";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radInPosLow.AutoSize = true;
+            this.radInPosLow.Checked = true;
+            this.radInPosLow.Location = new System.Drawing.Point(89, 9);
+            this.radInPosLow.Name = "radInPosLow";
+            this.radInPosLow.Size = new System.Drawing.Size(45, 17);
+            this.radInPosLow.TabIndex = 1;
+            this.radInPosLow.TabStop = true;
+            this.radInPosLow.Text = "Low";
+            this.radInPosLow.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // radInPosHigh
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(6, 9);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(47, 17);
-            this.radioButton5.TabIndex = 0;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "High";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.radInPosHigh.AutoSize = true;
+            this.radInPosHigh.Location = new System.Drawing.Point(6, 9);
+            this.radInPosHigh.Name = "radInPosHigh";
+            this.radInPosHigh.Size = new System.Drawing.Size(47, 17);
+            this.radInPosHigh.TabIndex = 0;
+            this.radInPosHigh.TabStop = true;
+            this.radInPosHigh.Text = "High";
+            this.radInPosHigh.UseVisualStyleBackColor = true;
             // 
             // gpbLatch
             // 
-            this.gpbLatch.Controls.Add(this.radioButton2);
-            this.gpbLatch.Controls.Add(this.radioButton3);
+            this.gpbLatch.Controls.Add(this.radLatchLow);
+            this.gpbLatch.Controls.Add(this.radLatchHigh);
             this.gpbLatch.Location = new System.Drawing.Point(106, 108);
             this.gpbLatch.Name = "gpbLatch";
             this.gpbLatch.Size = new System.Drawing.Size(156, 30);
             this.gpbLatch.TabIndex = 98;
             this.gpbLatch.TabStop = false;
             // 
-            // radioButton2
+            // radLatchLow
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(89, 9);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(45, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Low";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radLatchLow.AutoSize = true;
+            this.radLatchLow.Checked = true;
+            this.radLatchLow.Location = new System.Drawing.Point(89, 9);
+            this.radLatchLow.Name = "radLatchLow";
+            this.radLatchLow.Size = new System.Drawing.Size(45, 17);
+            this.radLatchLow.TabIndex = 1;
+            this.radLatchLow.TabStop = true;
+            this.radLatchLow.Text = "Low";
+            this.radLatchLow.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // radLatchHigh
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(6, 9);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(47, 17);
-            this.radioButton3.TabIndex = 0;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "High";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radLatchHigh.AutoSize = true;
+            this.radLatchHigh.Location = new System.Drawing.Point(6, 9);
+            this.radLatchHigh.Name = "radLatchHigh";
+            this.radLatchHigh.Size = new System.Drawing.Size(47, 17);
+            this.radLatchHigh.TabIndex = 0;
+            this.radLatchHigh.TabStop = true;
+            this.radLatchHigh.Text = "High";
+            this.radLatchHigh.UseVisualStyleBackColor = true;
             // 
             // gpbLimit
             // 
@@ -679,10 +679,10 @@
             this.gpbDriverCurrent.Controls.Add(this.lblTimeMS);
             this.gpbDriverCurrent.Controls.Add(this.lblIdleMA);
             this.gpbDriverCurrent.Controls.Add(this.lblRunMA);
-            this.gpbDriverCurrent.Controls.Add(this.textBox1);
-            this.gpbDriverCurrent.Controls.Add(this.txtTime);
+            this.gpbDriverCurrent.Controls.Add(this.txtCurrentIdle);
+            this.gpbDriverCurrent.Controls.Add(this.txtCurrentIdleTimeSetting);
             this.gpbDriverCurrent.Controls.Add(this.lblTime);
-            this.gpbDriverCurrent.Controls.Add(this.txtRun);
+            this.gpbDriverCurrent.Controls.Add(this.txtCurrentRun);
             this.gpbDriverCurrent.Controls.Add(this.lblIdle);
             this.gpbDriverCurrent.Controls.Add(this.lblRun);
             this.gpbDriverCurrent.Location = new System.Drawing.Point(328, 364);
@@ -699,7 +699,7 @@
             this.lblTimeMS.Name = "lblTimeMS";
             this.lblTimeMS.Size = new System.Drawing.Size(33, 13);
             this.lblTimeMS.TabIndex = 95;
-            this.lblTimeMS.Text = "mA";
+            this.lblTimeMS.Text = "mS";
             // 
             // lblIdleMA
             // 
@@ -719,23 +719,21 @@
             this.lblRunMA.TabIndex = 93;
             this.lblRunMA.Text = "mA";
             // 
-            // textBox1
+            // txtCurrentIdle
             // 
-            this.textBox1.Location = new System.Drawing.Point(78, 87);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(65, 20);
-            this.textBox1.TabIndex = 92;
-            this.textBox1.Text = "1";
+            this.txtCurrentIdle.Location = new System.Drawing.Point(78, 87);
+            this.txtCurrentIdle.Name = "txtCurrentIdle";
+            this.txtCurrentIdle.Size = new System.Drawing.Size(65, 20);
+            this.txtCurrentIdle.TabIndex = 92;
+            this.txtCurrentIdle.Text = "1";
             // 
-            // txtTime
+            // txtCurrentIdleTimeSetting
             // 
-            this.txtTime.Location = new System.Drawing.Point(78, 133);
-            this.txtTime.Name = "txtTime";
-            this.txtTime.ReadOnly = true;
-            this.txtTime.Size = new System.Drawing.Size(65, 20);
-            this.txtTime.TabIndex = 91;
-            this.txtTime.Text = "1";
+            this.txtCurrentIdleTimeSetting.Location = new System.Drawing.Point(78, 133);
+            this.txtCurrentIdleTimeSetting.Name = "txtCurrentIdleTimeSetting";
+            this.txtCurrentIdleTimeSetting.Size = new System.Drawing.Size(65, 20);
+            this.txtCurrentIdleTimeSetting.TabIndex = 91;
+            this.txtCurrentIdleTimeSetting.Text = "1";
             // 
             // lblTime
             // 
@@ -745,14 +743,13 @@
             this.lblTime.TabIndex = 90;
             this.lblTime.Text = "Time";
             // 
-            // txtRun
+            // txtCurrentRun
             // 
-            this.txtRun.Location = new System.Drawing.Point(78, 41);
-            this.txtRun.Name = "txtRun";
-            this.txtRun.ReadOnly = true;
-            this.txtRun.Size = new System.Drawing.Size(65, 20);
-            this.txtRun.TabIndex = 59;
-            this.txtRun.Text = "1";
+            this.txtCurrentRun.Location = new System.Drawing.Point(78, 41);
+            this.txtCurrentRun.Name = "txtCurrentRun";
+            this.txtCurrentRun.Size = new System.Drawing.Size(65, 20);
+            this.txtCurrentRun.TabIndex = 59;
+            this.txtCurrentRun.Text = "1";
             // 
             // lblIdle
             // 
@@ -793,7 +790,6 @@
             // 
             this.txtMaxAttempt.Location = new System.Drawing.Point(163, 56);
             this.txtMaxAttempt.Name = "txtMaxAttempt";
-            this.txtMaxAttempt.ReadOnly = true;
             this.txtMaxAttempt.Size = new System.Drawing.Size(99, 20);
             this.txtMaxAttempt.TabIndex = 92;
             this.txtMaxAttempt.Text = "1";
@@ -802,7 +798,6 @@
             // 
             this.txtErrorRange.Location = new System.Drawing.Point(163, 156);
             this.txtErrorRange.Name = "txtErrorRange";
-            this.txtErrorRange.ReadOnly = true;
             this.txtErrorRange.Size = new System.Drawing.Size(99, 20);
             this.txtErrorRange.TabIndex = 91;
             this.txtErrorRange.Text = "1";
@@ -819,7 +814,6 @@
             // 
             this.txtIdleTol.Location = new System.Drawing.Point(163, 123);
             this.txtIdleTol.Name = "txtIdleTol";
-            this.txtIdleTol.ReadOnly = true;
             this.txtIdleTol.Size = new System.Drawing.Size(99, 20);
             this.txtIdleTol.TabIndex = 89;
             this.txtIdleTol.Text = "1";
@@ -836,7 +830,6 @@
             // 
             this.txtTolerance.Location = new System.Drawing.Point(163, 90);
             this.txtTolerance.Name = "txtTolerance";
-            this.txtTolerance.ReadOnly = true;
             this.txtTolerance.Size = new System.Drawing.Size(99, 20);
             this.txtTolerance.TabIndex = 59;
             this.txtTolerance.Text = "1";
@@ -894,7 +887,6 @@
             this.txtHCA.Enabled = false;
             this.txtHCA.Location = new System.Drawing.Point(181, 117);
             this.txtHCA.Name = "txtHCA";
-            this.txtHCA.ReadOnly = true;
             this.txtHCA.Size = new System.Drawing.Size(49, 20);
             this.txtHCA.TabIndex = 103;
             this.txtHCA.Text = "300";
@@ -903,7 +895,6 @@
             // 
             this.txtLCA.Location = new System.Drawing.Point(181, 92);
             this.txtLCA.Name = "txtLCA";
-            this.txtLCA.ReadOnly = true;
             this.txtLCA.Size = new System.Drawing.Size(49, 20);
             this.txtLCA.TabIndex = 102;
             this.txtLCA.Text = "300";
@@ -913,7 +904,6 @@
             this.txtDOBoot.Enabled = false;
             this.txtDOBoot.Location = new System.Drawing.Point(76, 117);
             this.txtDOBoot.Name = "txtDOBoot";
-            this.txtDOBoot.ReadOnly = true;
             this.txtDOBoot.Size = new System.Drawing.Size(25, 20);
             this.txtDOBoot.TabIndex = 101;
             this.txtDOBoot.Text = "0";
@@ -923,7 +913,6 @@
             this.txtEOBoot.Enabled = false;
             this.txtEOBoot.Location = new System.Drawing.Point(76, 92);
             this.txtEOBoot.Name = "txtEOBoot";
-            this.txtEOBoot.ReadOnly = true;
             this.txtEOBoot.Size = new System.Drawing.Size(25, 20);
             this.txtEOBoot.TabIndex = 97;
             this.txtEOBoot.Text = "0";
@@ -1049,7 +1038,7 @@
             // 
             // gpbRSCommunication
             // 
-            this.gpbRSCommunication.Controls.Add(this.radioButton1);
+            this.gpbRSCommunication.Controls.Add(this.radRS232);
             this.gpbRSCommunication.Controls.Add(this.radRS485);
             this.gpbRSCommunication.Location = new System.Drawing.Point(13, 15);
             this.gpbRSCommunication.Name = "gpbRSCommunication";
@@ -1057,16 +1046,16 @@
             this.gpbRSCommunication.TabIndex = 94;
             this.gpbRSCommunication.TabStop = false;
             // 
-            // radioButton1
+            // radRS232
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 31);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(61, 17);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "RS-232";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radRS232.AutoSize = true;
+            this.radRS232.Location = new System.Drawing.Point(6, 31);
+            this.radRS232.Name = "radRS232";
+            this.radRS232.Size = new System.Drawing.Size(61, 17);
+            this.radRS232.TabIndex = 1;
+            this.radRS232.TabStop = true;
+            this.radRS232.Text = "RS-232";
+            this.radRS232.UseVisualStyleBackColor = true;
             // 
             // radRS485
             // 
@@ -1103,7 +1092,6 @@
             this.txtTimeOutCounter.Enabled = false;
             this.txtTimeOutCounter.Location = new System.Drawing.Point(131, 157);
             this.txtTimeOutCounter.Name = "txtTimeOutCounter";
-            this.txtTimeOutCounter.ReadOnly = true;
             this.txtTimeOutCounter.Size = new System.Drawing.Size(60, 20);
             this.txtTimeOutCounter.TabIndex = 91;
             this.txtTimeOutCounter.Text = "0";
@@ -1205,7 +1193,7 @@
         private System.Windows.Forms.CheckBox chbAutoResponse;
         private System.Windows.Forms.Label lblMS;
         private System.Windows.Forms.RadioButton radRS485;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radRS232;
         internal System.Windows.Forms.GroupBox gpbMiscSettings;
         private System.Windows.Forms.CheckBox chbxEnableDecel;
         private System.Windows.Forms.CheckBox chbxIERR;
@@ -1232,12 +1220,12 @@
         private System.Windows.Forms.CheckBox chbxStepNLoopControlEnable;
         private System.Windows.Forms.TextBox txtMaxAttempt;
         internal System.Windows.Forms.GroupBox gpbDriverCurrent;
-        private System.Windows.Forms.TextBox txtTime;
+        private System.Windows.Forms.TextBox txtCurrentIdleTimeSetting;
         private System.Windows.Forms.Label lblTime;
-        private System.Windows.Forms.TextBox txtRun;
+        private System.Windows.Forms.TextBox txtCurrentRun;
         private System.Windows.Forms.Label lblIdle;
         private System.Windows.Forms.Label lblRun;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCurrentIdle;
         private System.Windows.Forms.Label lblRunMA;
         private System.Windows.Forms.Label lblIdleMA;
         private System.Windows.Forms.Label lblTimeMS;
@@ -1258,7 +1246,6 @@
         private System.Windows.Forms.Label lblSAErr;
         private System.Windows.Forms.Label lblEnable;
         private System.Windows.Forms.GroupBox gpbDir;
-        private System.Windows.Forms.RadioButton radDirCW;
         private System.Windows.Forms.RadioButton radDirCCW;
         private System.Windows.Forms.GroupBox gpbHome;
         private System.Windows.Forms.RadioButton radHomeLow;
@@ -1267,25 +1254,26 @@
         private System.Windows.Forms.RadioButton radLimitLow;
         private System.Windows.Forms.RadioButton radLimitHigh;
         private System.Windows.Forms.GroupBox gpbLatch;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radLatchLow;
+        private System.Windows.Forms.RadioButton radLatchHigh;
         private System.Windows.Forms.GroupBox gpbAlarm;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.RadioButton radAlarmLow;
+        private System.Windows.Forms.RadioButton radAlarmHigh;
         private System.Windows.Forms.GroupBox gpbInPos;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton radInPosLow;
+        private System.Windows.Forms.RadioButton radInPosHigh;
         private System.Windows.Forms.GroupBox gpbOutput;
-        private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.RadioButton radioButton9;
+        private System.Windows.Forms.RadioButton radDigitalOutputLow;
+        private System.Windows.Forms.RadioButton radDigitalOutputHigh;
         private System.Windows.Forms.GroupBox gpbInput;
-        private System.Windows.Forms.RadioButton radioButton10;
-        private System.Windows.Forms.RadioButton radioButton11;
+        private System.Windows.Forms.RadioButton radDigitalInputLow;
+        private System.Windows.Forms.RadioButton radDigitalInputHigh;
         private System.Windows.Forms.GroupBox gpbSAErr;
-        private System.Windows.Forms.RadioButton radioButton12;
-        private System.Windows.Forms.RadioButton radioButton13;
+        private System.Windows.Forms.RadioButton radSAErrLow;
+        private System.Windows.Forms.RadioButton radSAErrHigh;
         private System.Windows.Forms.GroupBox gpbPolarityEnable;
-        private System.Windows.Forms.RadioButton radioButton14;
-        private System.Windows.Forms.RadioButton radioButton15;
+        private System.Windows.Forms.RadioButton radEnableLow;
+        private System.Windows.Forms.RadioButton radEnableHigh;
+        private System.Windows.Forms.RadioButton radDirCW;
     }
 }
