@@ -334,7 +334,23 @@ namespace CxTitan
             fileOpenDialog.Filter = "DMX-K-SA Program Files (*.prg)|*.prg";
             fileOpenDialog.Title = "Open DMX-K-SA Program";
             fileOpenDialog.InitialDirectory = "C:\\Program Files (x86)\\Arcus Technology\\Drivemax Series\\";
-            fileOpenDialog.ShowDialog();
+            if (fileOpenDialog.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = fileOpenDialog.FileName;
+                try
+                {
+                    string[] lines = File.ReadAllLines(fileName);
+                    txtCode.Clear();
+                    foreach (string line in lines)
+                    {
+                        txtCode.AppendText(line + "\r\n");
+                    }
+                }
+                catch (IOException)
+                {
+                    MessageBox.Show("IO Exception in reading!!!");
+                }
+            }
         }
 
         private void cmdFileSave_Click(object sender, EventArgs e)
@@ -353,6 +369,10 @@ namespace CxTitan
                 if ((myStream = saveFileDialog.OpenFile()) != null)
                 {
                     // Code to write the stream goes here.
+                    StreamWriter strWriter = new StreamWriter(myStream, System.Text.Encoding.ASCII);
+                    strWriter.Write(txtCode.Text);
+                    strWriter.Flush();
+                    strWriter.Close();
                     myStream.Close();
                 }
             }
