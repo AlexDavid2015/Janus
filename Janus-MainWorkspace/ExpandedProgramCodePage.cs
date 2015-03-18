@@ -276,6 +276,7 @@ namespace CxTitan
 
         private void cmdClose_Click(object sender, EventArgs e)
         {
+            SystemGlobals.objMagazinePage.txtCode.Text = txtProgramCode.Text;
             this.Close();
             this.Dispose();
             if (MotorControls.IsMotorSerialInitialized)
