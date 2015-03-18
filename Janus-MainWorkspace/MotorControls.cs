@@ -14,7 +14,11 @@ namespace CxTitan
         public static HyperTerminalAdapter oHyperTerminalAdapter = new HyperTerminalAdapter();
         public static bool IsMotorSerialInitialized = false;
 
-        #region Status 
+        #region Device ID
+        public static int DeviceId = 0;
+        #endregion
+
+        #region Status
         public static string PulsePos = "";
         public static string EncoderPos = "";
         public static string Delta = "";
@@ -45,6 +49,12 @@ namespace CxTitan
         public static int StepNLoopToleranceValue = 0;
         public static int StepNLoopIdleToleranceValue = 0;
         public static int StepNLoopErrorRangeValue = 0;
+        #endregion
+
+        #region Setup page AutoRun Status
+        public static string AutoRunVal = "";
+        public static bool AutoRun0 = false;
+        public static bool AutoRun1 = false;
         #endregion
 
         #region Program0 Status on Magazine Page

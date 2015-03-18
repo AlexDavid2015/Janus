@@ -106,14 +106,14 @@
             this.lblDOBoot = new System.Windows.Forms.Label();
             this.lblEOBoot = new System.Windows.Forms.Label();
             this.chbxRZ = new System.Windows.Forms.CheckBox();
-            this.chbxAlmLnp = new System.Windows.Forms.CheckBox();
+            this.chbxAlmInp = new System.Windows.Forms.CheckBox();
             this.chbxAutoRun1 = new System.Windows.Forms.CheckBox();
             this.chbxAutoRun0 = new System.Windows.Forms.CheckBox();
             this.chbxIERR = new System.Windows.Forms.CheckBox();
             this.chbxEnableDecel = new System.Windows.Forms.CheckBox();
             this.gpbCommunicatinSetup = new System.Windows.Forms.GroupBox();
             this.lblMS = new System.Windows.Forms.Label();
-            this.chbAutoResponse = new System.Windows.Forms.CheckBox();
+            this.chbxAutoResponse = new System.Windows.Forms.CheckBox();
             this.gpbRSCommunication = new System.Windows.Forms.GroupBox();
             this.radRS232 = new System.Windows.Forms.RadioButton();
             this.radRS485 = new System.Windows.Forms.RadioButton();
@@ -123,7 +123,7 @@
             this.lblTimeOutCounter = new System.Windows.Forms.Label();
             this.lblDeviceID = new System.Windows.Forms.Label();
             this.lblBaudRate = new System.Windows.Forms.Label();
-            this.chbxSyncOutputEnableDO2 = new System.Windows.Forms.CheckBox();
+            this.chbxAppendID = new System.Windows.Forms.CheckBox();
             this.gpbPolarity.SuspendLayout();
             this.gpbPolarityEnable.SuspendLayout();
             this.gpbSAErr.SuspendLayout();
@@ -870,7 +870,7 @@
             this.gpbMiscSettings.Controls.Add(this.lblDOBoot);
             this.gpbMiscSettings.Controls.Add(this.lblEOBoot);
             this.gpbMiscSettings.Controls.Add(this.chbxRZ);
-            this.gpbMiscSettings.Controls.Add(this.chbxAlmLnp);
+            this.gpbMiscSettings.Controls.Add(this.chbxAlmInp);
             this.gpbMiscSettings.Controls.Add(this.chbxAutoRun1);
             this.gpbMiscSettings.Controls.Add(this.chbxAutoRun0);
             this.gpbMiscSettings.Controls.Add(this.chbxIERR);
@@ -957,13 +957,13 @@
             this.chbxRZ.TabIndex = 92;
             this.chbxRZ.Text = "RZ";
             // 
-            // chbxAlmLnp
+            // chbxAlmInp
             // 
-            this.chbxAlmLnp.Location = new System.Drawing.Point(166, 48);
-            this.chbxAlmLnp.Name = "chbxAlmLnp";
-            this.chbxAlmLnp.Size = new System.Drawing.Size(64, 17);
-            this.chbxAlmLnp.TabIndex = 91;
-            this.chbxAlmLnp.Text = "Alm/Inp";
+            this.chbxAlmInp.Location = new System.Drawing.Point(166, 48);
+            this.chbxAlmInp.Name = "chbxAlmInp";
+            this.chbxAlmInp.Size = new System.Drawing.Size(64, 17);
+            this.chbxAlmInp.TabIndex = 91;
+            this.chbxAlmInp.Text = "Alm/Inp";
             // 
             // chbxAutoRun1
             // 
@@ -1003,7 +1003,7 @@
             // gpbCommunicatinSetup
             // 
             this.gpbCommunicatinSetup.Controls.Add(this.lblMS);
-            this.gpbCommunicatinSetup.Controls.Add(this.chbAutoResponse);
+            this.gpbCommunicatinSetup.Controls.Add(this.chbxAutoResponse);
             this.gpbCommunicatinSetup.Controls.Add(this.gpbRSCommunication);
             this.gpbCommunicatinSetup.Controls.Add(this.combxDeviceID);
             this.gpbCommunicatinSetup.Controls.Add(this.combxBaudRate);
@@ -1011,7 +1011,7 @@
             this.gpbCommunicatinSetup.Controls.Add(this.lblTimeOutCounter);
             this.gpbCommunicatinSetup.Controls.Add(this.lblDeviceID);
             this.gpbCommunicatinSetup.Controls.Add(this.lblBaudRate);
-            this.gpbCommunicatinSetup.Controls.Add(this.chbxSyncOutputEnableDO2);
+            this.gpbCommunicatinSetup.Controls.Add(this.chbxAppendID);
             this.gpbCommunicatinSetup.Location = new System.Drawing.Point(309, 10);
             this.gpbCommunicatinSetup.Name = "gpbCommunicatinSetup";
             this.gpbCommunicatinSetup.Size = new System.Drawing.Size(250, 186);
@@ -1027,14 +1027,14 @@
             this.lblMS.TabIndex = 96;
             this.lblMS.Text = "ms";
             // 
-            // chbAutoResponse
+            // chbxAutoResponse
             // 
-            this.chbAutoResponse.Enabled = false;
-            this.chbAutoResponse.Location = new System.Drawing.Point(131, 50);
-            this.chbAutoResponse.Name = "chbAutoResponse";
-            this.chbAutoResponse.Size = new System.Drawing.Size(99, 26);
-            this.chbAutoResponse.TabIndex = 95;
-            this.chbAutoResponse.Text = "Auto Response";
+            this.chbxAutoResponse.Enabled = false;
+            this.chbxAutoResponse.Location = new System.Drawing.Point(131, 50);
+            this.chbxAutoResponse.Name = "chbxAutoResponse";
+            this.chbxAutoResponse.Size = new System.Drawing.Size(99, 26);
+            this.chbxAutoResponse.TabIndex = 95;
+            this.chbxAutoResponse.Text = "Auto Response";
             // 
             // gpbRSCommunication
             // 
@@ -1121,13 +1121,13 @@
             this.lblBaudRate.TabIndex = 76;
             this.lblBaudRate.Text = "Baud Rate";
             // 
-            // chbxSyncOutputEnableDO2
+            // chbxAppendID
             // 
-            this.chbxSyncOutputEnableDO2.Location = new System.Drawing.Point(131, 19);
-            this.chbxSyncOutputEnableDO2.Name = "chbxSyncOutputEnableDO2";
-            this.chbxSyncOutputEnableDO2.Size = new System.Drawing.Size(81, 26);
-            this.chbxSyncOutputEnableDO2.TabIndex = 87;
-            this.chbxSyncOutputEnableDO2.Text = "Append ID";
+            this.chbxAppendID.Location = new System.Drawing.Point(131, 19);
+            this.chbxAppendID.Name = "chbxAppendID";
+            this.chbxAppendID.Size = new System.Drawing.Size(81, 26);
+            this.chbxAppendID.TabIndex = 87;
+            this.chbxAppendID.Text = "Append ID";
             // 
             // MagSetupPage
             // 
@@ -1187,10 +1187,10 @@
         private System.Windows.Forms.Label lblTimeOutCounter;
         private System.Windows.Forms.Label lblDeviceID;
         private System.Windows.Forms.Label lblBaudRate;
-        private System.Windows.Forms.CheckBox chbxSyncOutputEnableDO2;
+        private System.Windows.Forms.CheckBox chbxAppendID;
         private System.Windows.Forms.ComboBox combxDeviceID;
         private System.Windows.Forms.GroupBox gpbRSCommunication;
-        private System.Windows.Forms.CheckBox chbAutoResponse;
+        private System.Windows.Forms.CheckBox chbxAutoResponse;
         private System.Windows.Forms.Label lblMS;
         private System.Windows.Forms.RadioButton radRS485;
         private System.Windows.Forms.RadioButton radRS232;
@@ -1199,7 +1199,7 @@
         private System.Windows.Forms.CheckBox chbxIERR;
         private System.Windows.Forms.CheckBox chbxAutoRun0;
         private System.Windows.Forms.CheckBox chbxAutoRun1;
-        private System.Windows.Forms.CheckBox chbxAlmLnp;
+        private System.Windows.Forms.CheckBox chbxAlmInp;
         private System.Windows.Forms.CheckBox chbxRZ;
         private System.Windows.Forms.Label lblEOBoot;
         private System.Windows.Forms.Label lblDOBoot;

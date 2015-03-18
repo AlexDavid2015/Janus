@@ -46,17 +46,17 @@ namespace CxTitan
             SetBaudRateComboBox(strBaudRates);
 
             // Device ID(combox)
-            string[] strDeviceIDs = new string[16];// 0 to 15, maximum is 16 Magazines
+            string[] strDeviceIDs = new string[8];// 0 to 7, maximum is 8 Magazines
             for (i = 0; i < strDeviceIDs.Length; i++)
             {
-                strDeviceIDs[i] = i.ToString();// from COM0 to COM15
+                strDeviceIDs[i] = (i + 1).ToString();// Device ID from 1 to 8, but SelectIndex from 0 to 7(so there is a mapping between them)
             }
             SetDeviceIDComboBox(strDeviceIDs);
 
             if (MotorControls.IsMotorSerialInitialized)
             {
                 // Some TextBox and CheckBox Enable
-                chbAutoResponse.Enabled = true;
+                chbxAutoResponse.Enabled = true;
                 txtTimeOutCounter.Enabled = true;
                 chbxEnableDecel.Enabled = true;
                 chbxIERR.Enabled = true;
@@ -85,7 +85,7 @@ namespace CxTitan
             else
             {
                 // Some TextBox and CheckBox Disable
-                chbAutoResponse.Enabled = false;
+                chbxAutoResponse.Enabled = false;
                 txtTimeOutCounter.Enabled = false;
                 chbxEnableDecel.Enabled = false;
                 chbxIERR.Enabled = false;
@@ -297,32 +297,57 @@ namespace CxTitan
                     radRS232.Checked = true;
                 }
 
-                // Append ID??
+                // Append ID
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01RT\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                chbxAppendID.Checked= Convert.ToBoolean(Convert.ToInt32(strResultValue));
 
                 // AutoResponse
                 strResultValue = "";
                 MotorControls.oHyperTerminalAdapter.Write("@01AR\r");
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
-                chbAutoResponse.Checked = Convert.ToBoolean(Convert.ToInt32(strResultValue));
+                chbxAutoResponse.Checked = Convert.ToBoolean(Convert.ToInt32(strResultValue));
 
                 // BaudRate
                 strResultValue = "";
                 MotorControls.oHyperTerminalAdapter.Write("@01DB\r");
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
-                if (Convert.ToInt32(strResultValue) <= 5)
+                int iBaudRate = Convert.ToInt32(strResultValue);
+                if (iBaudRate <= 5)
                 {
-                    combxBaudRate.SelectedIndex = Convert.ToInt32(strResultValue) - 1;
+                    combxBaudRate.SelectedIndex = iBaudRate - 1;
                 }
                 else
                 {
                     MessageBox.Show("BaudRate Range error!!!");
                 }
 
-                // DeviceID
+                // Device ID
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01DN\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                int iDeviceId = Convert.ToInt32(strResultValue.Substring(3));
+                if (((iDeviceId - 1) >= 0) && ((iDeviceId - 1) <= 7))// 0 to 7, maximum is 8 Magazines
+                {
+                    combxDeviceID.SelectedIndex = iDeviceId - 1;// Mapping to SelectedIndex
+                    MotorControls.DeviceId = iDeviceId;
+                }
+                else
+                {
+                    MessageBox.Show("Device ID error!!!");
+                }
 
                 // TimeOut Counter
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01TOC\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                txtTimeOutCounter.Text = strResultValue;
             }
             catch (Exception ex)
             {
@@ -348,11 +373,25 @@ namespace CxTitan
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
                 chbxIERR.Checked = Convert.ToBoolean(Convert.ToInt32(strResultValue));
 
-                // AutoRun 0
-
                 // Alm/Inp
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01EDO\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                chbxAlmInp.Checked = Convert.ToBoolean(Convert.ToInt32(strResultValue));
 
-                // AutoRun 1
+                // AutoRun 0
+                MotorControls.oHyperTerminalAdapter.Write("@01SLOAD\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.AutoRunVal);
+                int iAutoRunVal = Convert.ToInt32(MotorControls.AutoRunVal);
+                string strAutoRun = Convert.ToString(iAutoRunVal, 2).PadLeft(2, '0');// 2-bit version
+                // AutoRun 0(bit 0)
+                MotorControls.AutoRun0 = Convert.ToBoolean(Convert.ToInt32(strAutoRun.Substring(0, 1)));
+                chbxAutoRun0.Checked = MotorControls.AutoRun0;
+                // AutoRun 1(bit 1)
+                MotorControls.AutoRun1 = Convert.ToBoolean(Convert.ToInt32(strAutoRun.Substring(1, 1)));
+                chbxAutoRun1.Checked = MotorControls.AutoRun1;
 
                 // RZ
                 strResultValue = "";
@@ -399,18 +438,21 @@ namespace CxTitan
         {
             try
             {
+                // Run Current
                 string strResultValue = "";
                 MotorControls.oHyperTerminalAdapter.Write("@01CURR\r");
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
                 txtCurrentRun.Text = strResultValue;
 
+                // Idle Current
                 strResultValue = "";
                 MotorControls.oHyperTerminalAdapter.Write("@01CURI\r");
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
                 txtCurrentIdle.Text = strResultValue;
 
+                // Idle Time Setting
                 strResultValue = "";
                 MotorControls.oHyperTerminalAdapter.Write("@01CURT\r");
                 Thread.Sleep(10);
@@ -482,7 +524,7 @@ namespace CxTitan
             if (MotorControls.IsMotorSerialInitialized)
             {
                 // Some TextBox and CheckBox Enable
-                chbAutoResponse.Enabled = true;
+                chbxAutoResponse.Enabled = true;
                 txtTimeOutCounter.Enabled = true;
                 chbxEnableDecel.Enabled = true;
                 chbxIERR.Enabled = true;

@@ -78,10 +78,10 @@ namespace CxTitan
 
             int i = 0;
             // Device ID(combox)
-            string[] strDeviceIDs = new string[16];// 0 to 15, maximum is 16 Magazines
+            string[] strDeviceIDs = new string[8];// 0 to 7, maximum is 8 Magazines
             for (i = 0; i < strDeviceIDs.Length; i++)
             {
-                strDeviceIDs[i] = i.ToString();// from COM0 to COM15
+                strDeviceIDs[i] = (i + 1).ToString();// Device ID from 1 to 8, but SelectIndex from 0 to 7(so there is a mapping between them)
             }
             SetDeviceIDComboBox(strDeviceIDs);
 
@@ -111,7 +111,7 @@ namespace CxTitan
                 TimerStates.Enabled = true;
                 MotorControls.IsMotorSerialInitialized = true;
                 // Device ID
-                cbxDeviceID.SelectedIndex = MotorControls.oHyperTerminalAdapter.COMID;
+                GetDeviceID();//cbxDeviceID.SelectedIndex = MotorControls.oHyperTerminalAdapter.COMID;
 
                 // Product ID and Version
                 GetProductID();
@@ -899,6 +899,24 @@ namespace CxTitan
             Thread.Sleep(20);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.ProductVer);
             lblProductVerVal.Text = MotorControls.ProductVer;
+        }
+
+        private void GetDeviceID()
+        {
+            string strResultValue = "";
+            MotorControls.oHyperTerminalAdapter.Write("@01DN\r");
+            Thread.Sleep(10);
+            MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+            int iDeviceId = Convert.ToInt32(strResultValue.Substring(3));
+            if (((iDeviceId - 1) >= 0) && ((iDeviceId - 1) <= 7))// 0 to 7, maximum is 8 Magazines
+            {
+                cbxDeviceID.SelectedIndex = iDeviceId - 1;// Mapping to SelectedIndex
+                MotorControls.DeviceId = iDeviceId;
+            }
+            else
+            {
+                MessageBox.Show("Device ID error!!!");
+            }
         }
 
         private void SetMotorControlPowerEnable()
