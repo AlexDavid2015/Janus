@@ -3748,11 +3748,12 @@ namespace CxTitan
             double[] AOvalues = new double[iAOChannelTotal];
             string[] strAOvalues = new string[iAOChannelTotal];
 
-            bool bDIORet;
+            bool bDIO_DIRet;
             // DIO's DI Channel
             int iDIO_DIChannelTotal = AvantechDIOs.m_aConf.HwIoTotal[AvantechDIOs.m_DIidx];
             bool[] DIO_DIvalues = new bool[iDIO_DIChannelTotal];
             // DIO's DO Channel
+            bool bDIO_DORet;
             int iDIO_DOChannelTotal = AvantechDIOs.m_aConf.HwIoTotal[AvantechDIOs.m_DOidx];
             bool[] DIO_DOvalues = new bool[iDIO_DOChannelTotal];
 
@@ -3831,10 +3832,12 @@ namespace CxTitan
             if (Avantech.DIOEnabled)
             {
                 cmdNETWORK.BackColor = Color.Green;
-                bDIORet = AvantechDIOs.Refresh_DIData(ref DIO_DIvalues);//bDIORet = AvantechDIOs.RefreshData(ref DIO_DIvalues, ref DIO_DOvalues);
-                lblDIOErr.Text = bDIORet ? "0" : "-1";//lblDIOErr.Text = bDIORet ? "0" : "-1";
+                bDIO_DIRet = AvantechDIOs.Refresh_DIData(ref DIO_DIvalues);//bDIORet = AvantechDIOs.RefreshData(ref DIO_DIvalues, ref DIO_DOvalues);
+                lblDIOErr.Text = bDIO_DIRet ? "0" : "-1";//lblDIOErr.Text = bDIORet ? "0" : "-1";
+                //bDIO_DORet = AvantechDIOs.Refresh_DOData(ref DIO_DOvalues);// Add Refresh DO Data function inside timer
+                //lblDIOErr.Text = bDIO_DORet ? "0" : "-1";
                 cmdNETWORK.BackColor = Color.Gray;
-                if (bDIORet)
+                if (bDIO_DIRet)// if(bDIO_DIRet && bDIO_DORet)
                 {
                     AvantechDIOs.m_iScanCount++;
                     AvantechDIOs.m_iFailCount = 0;
