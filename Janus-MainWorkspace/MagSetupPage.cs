@@ -239,34 +239,90 @@ namespace CxTitan
             }
         }
 
+        private void SetPolarity()
+        {
+            try
+            {
+                string strInputPolRaw = "";
+                // As all the radios are in the groupbox, so it can be done like this way
+                MotorControls.PolDirection = radDirCCW.Checked;// bit 1
+                MotorControls.PolLimit = radLimitHigh.Checked;// bit 4
+                MotorControls.PolHome = radHomeHigh.Checked;// bit 5
+                MotorControls.PolLatch = radLatchHigh.Checked;// bit 6
+                MotorControls.PolInPosOutput = radInPosHigh.Checked;// bit 7
+                MotorControls.PolAlarmOutput = radAlarmHigh.Checked;// bit 8
+                MotorControls.PolDigitalOutput = radDigitalOutputHigh.Checked;// bit 9
+                MotorControls.PolDigitalInput = radDigitalInputHigh.Checked;// bit 10
+                MotorControls.PolSAErr = radSAErrHigh.Checked;// bit 11
+                MotorControls.PolEnableOutput = radEnableHigh.Checked;// bit 12
+
+                // single bit string assign
+                string strPolReserved0 = "0";
+                string strPolDir = (Convert.ToInt32(MotorControls.PolDirection)).ToString();
+                string strPolReserved2 = "0";
+                string strPolReserved3 = "0";
+                string strPolLimit = (Convert.ToInt32(MotorControls.PolLimit)).ToString();
+                string strPolHome = (Convert.ToInt32(MotorControls.PolHome)).ToString();
+                string strPolLatch = (Convert.ToInt32(MotorControls.PolLatch)).ToString();
+                string strPolInPosOutput = (Convert.ToInt32(MotorControls.PolInPosOutput)).ToString();
+                string strPolAlarmOutput = (Convert.ToInt32(MotorControls.PolAlarmOutput)).ToString();
+                string strPolDigitalOutput = (Convert.ToInt32(MotorControls.PolDigitalOutput)).ToString();
+                string strPolDigitalInput = (Convert.ToInt32(MotorControls.PolDigitalInput)).ToString();
+                string strPolSAErr = (Convert.ToInt32(MotorControls.PolSAErr)).ToString();
+                string strPolEnableOutput = (Convert.ToInt32(MotorControls.PolEnableOutput)).ToString();
+
+                // transfer to Polarity Value
+                strInputPolRaw = strPolEnableOutput + strPolSAErr + strPolDigitalInput + strPolDigitalOutput + strPolAlarmOutput + strPolInPosOutput + strPolLatch + 
+                    strPolHome + strPolLimit + strPolReserved3 + strPolReserved2 + strPolDir + strPolReserved0;
+                string strBinaryPolarity = strInputPolRaw.PadLeft(16, '0');// 16-bit version, add 0 on the left
+                int iPolarityVal = Convert.ToInt32(strBinaryPolarity);
+
+                // Set and Send Polarity Value
+                string strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01POL=" + iPolarityVal + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SetPolarity Error!!!");
+            }
+        }
+
         private void LoadStepNLoopControl()
         {
             try
             {
+                // Step N Loop Control Enable
                 string strResultValue = "";
                 MotorControls.oHyperTerminalAdapter.Write("@01SL\r");
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
                 chbxStepNLoopControlEnable.Checked = Convert.ToBoolean(Convert.ToInt32(strResultValue));
 
+                // Max Attempt
                 strResultValue = "";
                 MotorControls.oHyperTerminalAdapter.Write("@01SLA\r");
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
                 txtMaxAttempt.Text = strResultValue;
 
+                // Tolerance
                 strResultValue = "";
                 MotorControls.oHyperTerminalAdapter.Write("@01SLT\r");
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
                 txtTolerance.Text = strResultValue;
 
+                // Idle Tol
                 strResultValue = "";
                 MotorControls.oHyperTerminalAdapter.Write("@01SLM\r");
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
                 txtIdleTol.Text = strResultValue;
 
+                // Error Range
                 strResultValue = "";
                 MotorControls.oHyperTerminalAdapter.Write("@01SLE\r");
                 Thread.Sleep(10);
@@ -276,6 +332,66 @@ namespace CxTitan
             catch (Exception ex)
             {
                 MessageBox.Show("LoadStepNLoopControl Error!!!");
+            }
+        }
+
+        private void SetStepNLoopControl()
+        {
+            try
+            {
+                // Step N Loop Control Enable
+                string strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01SL=" + Convert.ToInt32(chbxStepNLoopControlEnable.Checked) + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+
+                // Max Attempt
+                strResultValue = "";
+                int parsedResult;
+                if (int.TryParse(txtMaxAttempt.Text, out parsedResult) == false)
+                {
+                    MessageBox.Show("Only Numeric Values are allowed for Max Attempt.");
+                    return;
+                }
+                MotorControls.oHyperTerminalAdapter.Write("@01SLA=" + Convert.ToInt32(txtMaxAttempt.Text) + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+
+
+                // Tolerance
+                strResultValue = "";
+                if (int.TryParse(txtTolerance.Text, out parsedResult) == false)
+                {
+                    MessageBox.Show("Only Numeric Values are allowed for Tolerance.");
+                    return;
+                }
+                MotorControls.oHyperTerminalAdapter.Write("@01SLT=" + Convert.ToInt32(txtTolerance.Text) + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+
+                // Idle Tol
+                strResultValue = "";
+                if (int.TryParse(txtIdleTol.Text, out parsedResult) == false)
+                {
+                    MessageBox.Show("Only Numeric Values are allowed for Idle Tol.");
+                }
+                MotorControls.oHyperTerminalAdapter.Write("@01SLM=" + Convert.ToInt32(txtIdleTol.Text) + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+
+                // Error Range
+                strResultValue = "";
+                if (int.TryParse(txtErrorRange.Text, out parsedResult) == false)
+                {
+                    MessageBox.Show("Only Numeric Values are allowed for Error Range.");
+                }
+                MotorControls.oHyperTerminalAdapter.Write("@01SLE=" + Convert.ToInt32(txtErrorRange.Text) + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SetStepNLoopControl Error!!!");
             }
         }
 
@@ -355,6 +471,11 @@ namespace CxTitan
             }
         }
 
+        private void SetCommunicationSetup()
+        {
+            
+        }
+
         private void LoadMiscSettings()
         {
             try
@@ -380,7 +501,7 @@ namespace CxTitan
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
                 chbxAlmInp.Checked = Convert.ToBoolean(Convert.ToInt32(strResultValue));
 
-                // AutoRun 0
+                // AutoRun
                 MotorControls.oHyperTerminalAdapter.Write("@01SLOAD\r");
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.AutoRunVal);
@@ -434,6 +555,99 @@ namespace CxTitan
             }
         }
 
+        private void SetMiscSettings()
+        {
+            try
+            {
+                // Enable Decel
+                string strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01EDEC=" + Convert.ToInt32(chbxEnableDecel.Checked) + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+
+                // IERR
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01IERR" + Convert.ToInt32(chbxIERR.Checked) + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+
+                // Alm/Inp
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01EDO" + Convert.ToInt32(chbxAlmInp.Checked) + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+
+                // AutoRun
+                strResultValue = "";
+                string strInputAutoRunRaw = "";
+                MotorControls.AutoRun0 = chbxAutoRun0.Checked;
+                MotorControls.AutoRun1 = chbxAutoRun1.Checked;
+                // single bit string assign
+                string strAutoRun0 = (Convert.ToInt32(MotorControls.AutoRun0)).ToString();
+                string strAutoRun1 = (Convert.ToInt32(MotorControls.AutoRun1)).ToString();
+                strInputAutoRunRaw = strAutoRun1 + strAutoRun0;
+                int iAutoRunVal = Convert.ToInt32(strInputAutoRunRaw);
+                MotorControls.oHyperTerminalAdapter.Write("@01SLOAD=" + iAutoRunVal + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+
+                // RZ
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01RZ=" + Convert.ToInt32(chbxRZ.Checked) + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+
+                // EO Boot
+                strResultValue = "";
+                int parsedResult;
+                if (int.TryParse(txtEOBoot.Text, out parsedResult) == false)
+                {
+                    MessageBox.Show("Only Numeric Values are allowed for EO Boot.");
+                    return;
+                }
+                MotorControls.oHyperTerminalAdapter.Write("@01EOBOOT=" + Convert.ToInt32(txtEOBoot.Text) + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+
+                // LCA
+                strResultValue = "";
+                if (int.TryParse(txtLCA.Text, out parsedResult) == false)
+                {
+                    MessageBox.Show("Only Numeric Values are allowed for LCA.");
+                    return;
+                }
+                MotorControls.oHyperTerminalAdapter.Write("@01LCA=" + Convert.ToInt32(txtLCA.Text) + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+
+                // DO Boot
+                strResultValue = "";
+                if (int.TryParse(txtDOBoot.Text, out parsedResult) == false)
+                {
+                    MessageBox.Show("Only Numeric Values are allowed for DO Boot.");
+                    return;
+                }
+                MotorControls.oHyperTerminalAdapter.Write("@01DOBOOT=" + Convert.ToInt32(txtDOBoot.Text) + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+
+                // HCA
+                strResultValue = "";
+                if (int.TryParse(txtHCA.Text, out parsedResult) == false)
+                {
+                    MessageBox.Show("Only Numeric Values are allowed for HCA.");
+                    return;
+                }
+                MotorControls.oHyperTerminalAdapter.Write("@01HCA=" + Convert.ToInt32(txtHCA.Text) + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SetMiscSettings Error!!!");
+            }
+        }
+
         private void LoadDriverCurrent()
         {
             try
@@ -462,6 +676,32 @@ namespace CxTitan
             catch (Exception ex)
             {
                 MessageBox.Show("LoadDriverCurrent Error!!!");
+            }
+        }
+
+        private void SetDriverCurrent()
+        {
+            try
+            {
+                string strResultValue = "";
+                // Run Current
+                MotorControls.oHyperTerminalAdapter.Write("@01CURR=" + txtCurrentRun.Text + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+
+                // Idle Current
+                MotorControls.oHyperTerminalAdapter.Write("@01CURI=" + txtCurrentIdle.Text + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+
+                // Idle Time Setting
+                MotorControls.oHyperTerminalAdapter.Write("@01CURT=" + txtCurrentIdleTimeSetting.Text + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SetDriverCurrent Error!!!");
             }
         }
 
@@ -560,7 +800,16 @@ namespace CxTitan
         {
             if (MotorControls.IsMotorSerialInitialized)
             {
-
+                // Set Polarity in the Polarity groupbox
+                SetPolarity();
+                // Load StepNLoop Control in the StepNLoop groupbox
+                SetStepNLoopControl();
+                // Load Communication Setup(Need to check)
+                SetCommunicationSetup();
+                // Load Misc Settings
+                SetMiscSettings();
+                // Load Driver Current in the Driver Current groupbox
+                SetDriverCurrent();
             }
             else
             {
