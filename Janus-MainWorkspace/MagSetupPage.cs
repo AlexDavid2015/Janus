@@ -275,7 +275,7 @@ namespace CxTitan
                 strInputPolRaw = strPolEnableOutput + strPolSAErr + strPolDigitalInput + strPolDigitalOutput + strPolAlarmOutput + strPolInPosOutput + strPolLatch + 
                     strPolHome + strPolLimit + strPolReserved3 + strPolReserved2 + strPolDir + strPolReserved0;
                 string strBinaryPolarity = strInputPolRaw.PadLeft(16, '0');// 16-bit version, add 0 on the left
-                int iPolarityVal = Convert.ToInt32(strBinaryPolarity);
+                int iPolarityVal = Convert.ToInt32(strBinaryPolarity, 2);
 
                 // Set and Send Polarity Value
                 string strResultValue = "";
@@ -353,7 +353,7 @@ namespace CxTitan
                     MessageBox.Show("Only Numeric Values are allowed for Max Attempt.");
                     return;
                 }
-                MotorControls.oHyperTerminalAdapter.Write("@01SLA=" + Convert.ToInt32(txtMaxAttempt.Text) + "\r");
+                MotorControls.oHyperTerminalAdapter.Write("@01SLA=" + parsedResult + "\r");// Convert.ToInt32(txtMaxAttempt.Text)
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
 
@@ -365,7 +365,7 @@ namespace CxTitan
                     MessageBox.Show("Only Numeric Values are allowed for Tolerance.");
                     return;
                 }
-                MotorControls.oHyperTerminalAdapter.Write("@01SLT=" + Convert.ToInt32(txtTolerance.Text) + "\r");
+                MotorControls.oHyperTerminalAdapter.Write("@01SLT=" + parsedResult + "\r");// Convert.ToInt32(txtTolerance.Text)
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
 
@@ -375,7 +375,7 @@ namespace CxTitan
                 {
                     MessageBox.Show("Only Numeric Values are allowed for Idle Tol.");
                 }
-                MotorControls.oHyperTerminalAdapter.Write("@01SLM=" + Convert.ToInt32(txtIdleTol.Text) + "\r");
+                MotorControls.oHyperTerminalAdapter.Write("@01SLM=" + parsedResult + "\r");// Convert.ToInt32(txtIdleTol.Text)
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
 
@@ -385,7 +385,7 @@ namespace CxTitan
                 {
                     MessageBox.Show("Only Numeric Values are allowed for Error Range.");
                 }
-                MotorControls.oHyperTerminalAdapter.Write("@01SLE=" + Convert.ToInt32(txtErrorRange.Text) + "\r");
+                MotorControls.oHyperTerminalAdapter.Write("@01SLE=" + parsedResult + "\r");// Convert.ToInt32(txtErrorRange.Text)
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
             }
@@ -507,11 +507,11 @@ namespace CxTitan
                 MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.AutoRunVal);
                 int iAutoRunVal = Convert.ToInt32(MotorControls.AutoRunVal);
                 string strAutoRun = Convert.ToString(iAutoRunVal, 2).PadLeft(2, '0');// 2-bit version
-                // AutoRun 0(bit 0)
-                MotorControls.AutoRun0 = Convert.ToBoolean(Convert.ToInt32(strAutoRun.Substring(0, 1)));
+                // AutoRun 0(bit 0), Bit in inverse direction
+                MotorControls.AutoRun0 = Convert.ToBoolean(Convert.ToInt32(strAutoRun.Substring(1, 1)));
                 chbxAutoRun0.Checked = MotorControls.AutoRun0;
                 // AutoRun 1(bit 1)
-                MotorControls.AutoRun1 = Convert.ToBoolean(Convert.ToInt32(strAutoRun.Substring(1, 1)));
+                MotorControls.AutoRun1 = Convert.ToBoolean(Convert.ToInt32(strAutoRun.Substring(0, 1)));
                 chbxAutoRun1.Checked = MotorControls.AutoRun1;
 
                 // RZ
@@ -586,7 +586,7 @@ namespace CxTitan
                 string strAutoRun0 = (Convert.ToInt32(MotorControls.AutoRun0)).ToString();
                 string strAutoRun1 = (Convert.ToInt32(MotorControls.AutoRun1)).ToString();
                 strInputAutoRunRaw = strAutoRun1 + strAutoRun0;
-                int iAutoRunVal = Convert.ToInt32(strInputAutoRunRaw);
+                int iAutoRunVal = Convert.ToInt32(strInputAutoRunRaw, 2);
                 MotorControls.oHyperTerminalAdapter.Write("@01SLOAD=" + iAutoRunVal + "\r");
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
@@ -605,7 +605,7 @@ namespace CxTitan
                     MessageBox.Show("Only Numeric Values are allowed for EO Boot.");
                     return;
                 }
-                MotorControls.oHyperTerminalAdapter.Write("@01EOBOOT=" + Convert.ToInt32(txtEOBoot.Text) + "\r");
+                MotorControls.oHyperTerminalAdapter.Write("@01EOBOOT=" + parsedResult + "\r");// Convert.ToInt32(txtEOBoot.Text) 
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
 
@@ -616,7 +616,7 @@ namespace CxTitan
                     MessageBox.Show("Only Numeric Values are allowed for LCA.");
                     return;
                 }
-                MotorControls.oHyperTerminalAdapter.Write("@01LCA=" + Convert.ToInt32(txtLCA.Text) + "\r");
+                MotorControls.oHyperTerminalAdapter.Write("@01LCA=" + parsedResult + "\r");// Convert.ToInt32(txtLCA.Text)
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
 
@@ -627,7 +627,7 @@ namespace CxTitan
                     MessageBox.Show("Only Numeric Values are allowed for DO Boot.");
                     return;
                 }
-                MotorControls.oHyperTerminalAdapter.Write("@01DOBOOT=" + Convert.ToInt32(txtDOBoot.Text) + "\r");
+                MotorControls.oHyperTerminalAdapter.Write("@01DOBOOT=" + parsedResult + "\r");// Convert.ToInt32(txtDOBoot.Text)
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
 
@@ -638,7 +638,7 @@ namespace CxTitan
                     MessageBox.Show("Only Numeric Values are allowed for HCA.");
                     return;
                 }
-                MotorControls.oHyperTerminalAdapter.Write("@01HCA=" + Convert.ToInt32(txtHCA.Text) + "\r");
+                MotorControls.oHyperTerminalAdapter.Write("@01HCA=" + parsedResult + "\r");// Convert.ToInt32(txtHCA.Text)
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
             }
@@ -685,17 +685,33 @@ namespace CxTitan
             {
                 string strResultValue = "";
                 // Run Current
-                MotorControls.oHyperTerminalAdapter.Write("@01CURR=" + txtCurrentRun.Text + "\r");
+                int parsedResult;
+                if (int.TryParse(txtCurrentRun.Text, out parsedResult) == false)
+                {
+                    MessageBox.Show("Only Numeric Values are allowed for Run Current.");
+                    return;
+                }
+                MotorControls.oHyperTerminalAdapter.Write("@01CURR=" + parsedResult + "\r");// Convert.ToInt32(txtCurrentRun.Text)
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
 
                 // Idle Current
-                MotorControls.oHyperTerminalAdapter.Write("@01CURI=" + txtCurrentIdle.Text + "\r");
+                if (int.TryParse(txtCurrentIdle.Text, out parsedResult) == false)
+                {
+                    MessageBox.Show("Only Numeric Values are allowed for Idle Current.");
+                    return;
+                }
+                MotorControls.oHyperTerminalAdapter.Write("@01CURI=" + parsedResult + "\r");// Convert.ToInt32(txtCurrentIdle.Text)
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
 
                 // Idle Time Setting
-                MotorControls.oHyperTerminalAdapter.Write("@01CURT=" + txtCurrentIdleTimeSetting.Text + "\r");
+                if (int.TryParse(txtCurrentIdleTimeSetting.Text, out parsedResult) == false)
+                {
+                    MessageBox.Show("Only Numeric Values are allowed for Idle Time Setting.");
+                    return;
+                }
+                MotorControls.oHyperTerminalAdapter.Write("@01CURT=" + parsedResult + "\r");// Convert.ToInt32(txtCurrentIdleTimeSetting.Text)
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
             }
@@ -810,6 +826,8 @@ namespace CxTitan
                 SetMiscSettings();
                 // Load Driver Current in the Driver Current groupbox
                 SetDriverCurrent();
+                // MessageBox Show
+                MessageBox.Show("Download Done!");
             }
             catch (Exception)
             {
@@ -833,7 +851,17 @@ namespace CxTitan
         {
             if (MotorControls.IsMotorSerialInitialized)
             {
+                if (MessageBox.Show("Are you sure you want to save parameters to flash?", "Store to Flash", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    //DownloadSetupSettings();
 
+                    //string strResultValue = "";
+                    //// Store settings
+                    //MotorControls.oHyperTerminalAdapter.Write("@01STORE\r");
+                    //Thread.Sleep(10);
+                    //MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+                    MessageBox.Show("Store to Flash Done!");
+                }
             }
             else
             {

@@ -660,7 +660,7 @@ namespace CxTitan
         private void TimerStates_Tick(object sender, EventArgs e)
         {
             ////Thread.Sleep(200);
-            
+
             // Motor Status
             GetRealTimePulsePos();
             GetRealTimeEncoderPos();
@@ -677,6 +677,8 @@ namespace CxTitan
 
             // DIO status
             GetDIOStatus();
+
+            //GetRealTimeMotorStatus();// Test Single
         }
 
         private void GetDIOStatus()
@@ -959,7 +961,7 @@ namespace CxTitan
                 MotorControls.oHyperTerminalAdapter.Write("@01SR0=1\r");
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Write("@01SR1=1\r");
-                Thread.Sleep(10);
+                Thread.Sleep(200);// Thread.Sleep(10);
 
                 DateTime startTime = DateTime.Now;
                 try
@@ -999,7 +1001,7 @@ namespace CxTitan
                 MotorControls.oHyperTerminalAdapter.Write("@01SR0=0\r");
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Write("@01SR1=0\r");
-                Thread.Sleep(10);
+                Thread.Sleep(200);// Thread.Sleep(10);
 
                 DateTime nowTime = DateTime.Now;
                 string strStartTime;
@@ -1041,7 +1043,7 @@ namespace CxTitan
                 MotorControls.oHyperTerminalAdapter.Write("@01SR0=2\r");
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Write("@01SR1=2\r");
-                Thread.Sleep(10);
+                Thread.Sleep(200);// Thread.Sleep(10);
 
                 DateTime nowTime = DateTime.Now;
                 string strStartTime;
@@ -1083,7 +1085,7 @@ namespace CxTitan
                 MotorControls.oHyperTerminalAdapter.Write("@01SR0=3\r");
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Write("@01SR1=3\r");
-                Thread.Sleep(10);
+                Thread.Sleep(200);// Thread.Sleep(10);
 
                 DateTime startTime = DateTime.Now;
                 try
