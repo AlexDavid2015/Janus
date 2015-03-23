@@ -796,9 +796,9 @@ namespace CxTitan
             }
         }
 
-        private void cmdDown_Click(object sender, EventArgs e)
+        private void DownloadSetupSettings()
         {
-            if (MotorControls.IsMotorSerialInitialized)
+            try
             {
                 // Set Polarity in the Polarity groupbox
                 SetPolarity();
@@ -810,6 +810,18 @@ namespace CxTitan
                 SetMiscSettings();
                 // Load Driver Current in the Driver Current groupbox
                 SetDriverCurrent();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("DownloadSetupSettings Failed!!!");
+            }
+        }
+
+        private void cmdDown_Click(object sender, EventArgs e)
+        {
+            if (MotorControls.IsMotorSerialInitialized)
+            {
+                DownloadSetupSettings();
             }
             else
             {
