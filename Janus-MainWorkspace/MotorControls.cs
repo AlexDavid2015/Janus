@@ -31,7 +31,10 @@ namespace CxTitan
 
         #region Setup page Polarity
         public static string PolarityVal = "";// 13 bit value(bit 0, bit 2 and bit 3 are reserved)
+        public static bool PolReserved0 = false;
         public static bool PolDirection = false;
+        public static bool PolReserved2 = false;
+        public static bool PolReserved3 = false;
         public static bool PolLimit = false;
         public static bool PolHome = false;
         public static bool PolLatch = false;
