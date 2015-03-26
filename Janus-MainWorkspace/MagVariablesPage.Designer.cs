@@ -237,6 +237,7 @@
             this.txtV0 = new System.Windows.Forms.TextBox();
             this.lblV0 = new System.Windows.Forms.Label();
             this.TimerVariableStates = new System.Windows.Forms.Timer(this.components);
+            this.cmdClose2 = new System.Windows.Forms.Button();
             this.gpbVariables.SuspendLayout();
             this.gpbNonVolatileVariables.SuspendLayout();
             this.gpbVolatileVariables.SuspendLayout();
@@ -2311,14 +2312,26 @@
             // 
             // TimerVariableStates
             // 
-            this.TimerVariableStates.Interval = 500;
+            this.TimerVariableStates.Interval = 1000;
             this.TimerVariableStates.Tick += new System.EventHandler(this.TimerVariableStates_Tick);
+            // 
+            // cmdClose2
+            // 
+            this.cmdClose2.Location = new System.Drawing.Point(790, 32);
+            this.cmdClose2.Name = "cmdClose2";
+            this.cmdClose2.Size = new System.Drawing.Size(87, 81);
+            this.cmdClose2.TabIndex = 99;
+            this.cmdClose2.Text = "Close";
+            this.cmdClose2.UseVisualStyleBackColor = true;
+            this.cmdClose2.Click += new System.EventHandler(this.cmdClose2_Click);
             // 
             // MagVariablesPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 921);
+            this.ClientSize = new System.Drawing.Size(889, 741);
+            this.ControlBox = false;
+            this.Controls.Add(this.cmdClose2);
             this.Controls.Add(this.gpbVariables);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -2546,5 +2559,6 @@
         private System.Windows.Forms.TextBox txtV98;
         private System.Windows.Forms.TextBox txtV99;
         internal System.Windows.Forms.Timer TimerVariableStates;
+        internal System.Windows.Forms.Button cmdClose2;
     }
 }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,7 +13,7 @@ namespace CxTitan
 {
     public partial class MagVariablesPage : Form
     {
-        TextBox[] txtVariables = new TextBox[100];
+        TextBox[] txtVariables = new TextBox[100];// 100 variables (V0 to V99)
         public MagVariablesPage()
         {
             InitializeComponent();
@@ -20,6 +21,7 @@ namespace CxTitan
 
         private void cmdClose_Click(object sender, EventArgs e)
         {
+            TimerVariableStates.Enabled = false;
             this.Close();
             this.Dispose();
             if (MotorControls.IsMotorSerialInitialized)
@@ -45,6 +47,9 @@ namespace CxTitan
                     else
                     {
                         // Add some command here
+                        SystemGlobals.objMagazinePage.TimerStates.Enabled = false; // Disable TimeRecv flow
+                        txtCommand.Text = "";
+                        SystemGlobals.objMagazinePage.TimerStates.Enabled = true; // Enable TimeRecv flow
                     }
                 }
                 else
@@ -196,9 +201,36 @@ namespace CxTitan
             txtVariables[99] = txtV99;
         }
 
+        private void GetVariableValue(int index)
+        {
+            string strResultValue = "";
+            MotorControls.oHyperTerminalAdapter.Write("@01V" + index + "\r");
+            Thread.Sleep(10);
+            MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+            txtVariables[index].Text = strResultValue;
+        }
+
         private void TimerVariableStates_Tick(object sender, EventArgs e)
         {
+            for (int i = 0; i < 100; i++)
+            {
+                GetVariableValue(i);
+            }
+        }
 
+        private void cmdClose2_Click(object sender, EventArgs e)
+        {
+            TimerVariableStates.Enabled = false;
+            this.Close();
+            this.Dispose();
+            if (MotorControls.IsMotorSerialInitialized)
+            {
+                SystemGlobals.objMagazinePage.TimerStates.Enabled = true;
+            }
+            else
+            {
+                SystemGlobals.objMagazinePage.TimerStates.Enabled = false;
+            }
         }
     }
 }
