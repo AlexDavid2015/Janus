@@ -473,7 +473,43 @@ namespace CxTitan
 
         private void SetCommunicationSetup()
         {
-            
+            try
+            {
+                // Communication method
+                string strResultValue = "";
+
+                // Append ID
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01RT=" + Convert.ToInt32(chbxAppendID.Checked) + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+
+                // Auto Response
+                strResultValue = "";
+                MotorControls.oHyperTerminalAdapter.Write("@01AR=" + Convert.ToInt32(chbxAutoResponse.Checked) + "\r");
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+
+                // Baud Rate
+
+                // Device ID
+
+                // Time-out Counter
+                strResultValue = "";
+                int parsedResult;
+                if (int.TryParse(txtTimeOutCounter.Text, out parsedResult) == false)
+                {
+                    MessageBox.Show("Only Numeric Values are allowed for Time-out Counter.");
+                    return;
+                }
+                MotorControls.oHyperTerminalAdapter.Write("@01TOC=" + parsedResult + "\r");// Convert.ToInt32(txtTimeOutCounter.Text) 
+                Thread.Sleep(10);
+                MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SetCommunicationSetup Error!!!");
+            }
         }
 
         private void LoadMiscSettings()
