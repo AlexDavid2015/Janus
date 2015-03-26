@@ -961,7 +961,7 @@ namespace CxTitan
                 MotorControls.oHyperTerminalAdapter.Write("@01SR0=1\r");
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Write("@01SR1=1\r");
-                Thread.Sleep(200);// Thread.Sleep(10);
+                Thread.Sleep(200);// Thread.Sleep(10); Thread.Sleep(200);
 
                 DateTime startTime = DateTime.Now;
                 try
@@ -978,16 +978,16 @@ namespace CxTitan
             }
             else
             {
-                DateTime startTime = DateTime.Now;
-                try
-                {
-                    magHolderTableAobj.UpdateMagStartingTime(startTime.ToString());
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("UpdateMagStartingTime failed!");
-                    return;
-                }
+                //DateTime startTime = DateTime.Now;
+                //try
+                //{
+                //    magHolderTableAobj.UpdateMagStartingTime(startTime.ToString());
+                //}
+                //catch (Exception ex)
+                //{
+                //    MessageBox.Show("UpdateMagStartingTime failed!");
+                //    return;
+                //}
                 return;
             }
         }
@@ -1001,8 +1001,11 @@ namespace CxTitan
                 MotorControls.oHyperTerminalAdapter.Write("@01SR0=0\r");
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Write("@01SR1=0\r");
-                Thread.Sleep(200);// Thread.Sleep(10);
+                Thread.Sleep(200);// Thread.Sleep(10);  Thread.Sleep(200);
+                MotorControls.oHyperTerminalAdapter.Write("@01ABORT\r");
+                Thread.Sleep(200);
 
+                // Only when pressing Stop will calculate the running time
                 DateTime nowTime = DateTime.Now;
                 string strStartTime;
                 TimeSpan runningTime;
@@ -1043,30 +1046,30 @@ namespace CxTitan
                 MotorControls.oHyperTerminalAdapter.Write("@01SR0=2\r");
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Write("@01SR1=2\r");
-                Thread.Sleep(200);// Thread.Sleep(10);
+                Thread.Sleep(200);// Thread.Sleep(10);  Thread.Sleep(200);
 
-                DateTime nowTime = DateTime.Now;
-                string strStartTime;
-                TimeSpan runningTime;
-                string elapsedRunningTime;
-                try
-                {
-                    strStartTime = magHolderTableAobj.GetMagStartingTime();
-                    DateTime startTime = DateTime.Parse(strStartTime);
-                    runningTime = nowTime - startTime;
-                    //elapsedRunningTime = String.Format("{0:00} Days:{1:00} Hours:{2:00} Minutes:{3:00}.{4:00} Seconds",
-                    //    runningTime.Days, runningTime.Hours, runningTime.Minutes, runningTime.Seconds, runningTime.Milliseconds / 10);
-                    elapsedRunningTime = String.Format("{0:%d} days {0:%h} hours {0:%m} minutes {0:%s} seconds",
-                        runningTime);
-                    magHolderTableAobj.UpdateMagRunningTime(elapsedRunningTime);
-                    string strTimeInfo = string.Format("Motor Running Program Time: {0} Since {1}", elapsedRunningTime, strStartTime);
-                    MessageBox.Show(strTimeInfo);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("GetMagStartingTime or UpdateMagRunningTime failed!");
-                    return;
-                }
+                //DateTime nowTime = DateTime.Now;// (Pause is not counted as Stop, Motor is still running)
+                //string strStartTime;
+                //TimeSpan runningTime;
+                //string elapsedRunningTime;
+                //try
+                //{
+                //    strStartTime = magHolderTableAobj.GetMagStartingTime();
+                //    DateTime startTime = DateTime.Parse(strStartTime);
+                //    runningTime = nowTime - startTime;
+                //    //elapsedRunningTime = String.Format("{0:00} Days:{1:00} Hours:{2:00} Minutes:{3:00}.{4:00} Seconds",
+                //    //    runningTime.Days, runningTime.Hours, runningTime.Minutes, runningTime.Seconds, runningTime.Milliseconds / 10);
+                //    elapsedRunningTime = String.Format("{0:%d} days {0:%h} hours {0:%m} minutes {0:%s} seconds",
+                //        runningTime);
+                //    magHolderTableAobj.UpdateMagRunningTime(elapsedRunningTime);
+                //    string strTimeInfo = string.Format("Motor Running Program Time: {0} Since {1}", elapsedRunningTime, strStartTime);
+                //    MessageBox.Show(strTimeInfo);
+                //}
+                //catch (Exception ex)
+                //{
+                //    MessageBox.Show("GetMagStartingTime or UpdateMagRunningTime failed!");
+                //    return;
+                //}
 
                 TimerStates.Enabled = true;// enable read values from Motors
             }
@@ -1085,7 +1088,7 @@ namespace CxTitan
                 MotorControls.oHyperTerminalAdapter.Write("@01SR0=3\r");
                 Thread.Sleep(10);
                 MotorControls.oHyperTerminalAdapter.Write("@01SR1=3\r");
-                Thread.Sleep(200);// Thread.Sleep(10);
+                Thread.Sleep(200);// Thread.Sleep(10); Thread.Sleep(200);
 
                 DateTime startTime = DateTime.Now;
                 try
