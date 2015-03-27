@@ -69,12 +69,12 @@ namespace CxTitan
                         //HyperTerminalAdapter oHyperTerminalAdapter = new HyperTerminalAdapter();
                         //oHyperTerminalAdapter.Connect();
                         SystemGlobals.objMagazinePage.TimerStates.Enabled = false; // Disable TimeRecv flow
-                        string command = "@01" + txtCommand.Text + "\r";
+                        string command = "@0" + MotorControls.DeviceId + txtCommand.Text + "\r";
                         MotorControls.oHyperTerminalAdapter.Write(command); // Input pure standalone language
                         Thread.Sleep(20);
                         string strRecv = "";
                         MotorControls.oHyperTerminalAdapter.Read(ref strRecv);
-                        txtTerminalPage.AppendText("> @01" + txtCommand.Text + "\r\n" + "< " + strRecv + "\n");
+                        txtTerminalPage.AppendText("> @0" + MotorControls.DeviceId + txtCommand.Text + "\r\n" + "< " + strRecv + "\n");
                         txtCommand.Text = "";
                         SystemGlobals.objMagazinePage.TimerStates.Enabled = true; // Enable TimeRecv flow
                         //oHyperTerminalAdapter.Disconnect();
@@ -83,7 +83,7 @@ namespace CxTitan
                 else// Motor Port is not open
                 {
                     string commandError = "Com Port Error";
-                    txtTerminalPage.AppendText("> @01" + txtCommand.Text + "\r\n" + "< " + commandError + "\n");
+                    txtTerminalPage.AppendText("> @0" + MotorControls.DeviceId + txtCommand.Text + "\r\n" + "< " + commandError + "\n");
                     txtCommand.Text = "";
                 }
             }

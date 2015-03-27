@@ -38,7 +38,7 @@ namespace CxTitan
                 SetMotorSpeed();
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01X" + txtRefPos.Text + "\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "X" + txtRefPos.Text + "\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -56,7 +56,7 @@ namespace CxTitan
                 SetMotorSpeed();
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01X0\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "X0\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -101,7 +101,7 @@ namespace CxTitan
             }
             SetSSDPModeComboBox(strSSPDModes);
 
-
+            TimerStates.Enabled = false;
             // Serial port connected and motion intialize
             if (MotorControls.oHyperTerminalAdapter.Connect())
             {
@@ -203,7 +203,7 @@ namespace CxTitan
                 SetMotorSpeed();
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01H+\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "H+\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -218,13 +218,12 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 //Thread.Sleep(100);
-                //MotorControls.oHyperTerminalAdapter.Write("@01HSPD=1500\r");// speed = 1500
 
                 //SetMotorSpeedAndAcceleration();
                 SetMotorSpeed();
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01J-\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "J-\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -239,13 +238,12 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 //Thread.Sleep(100);
-                //MotorControls.oHyperTerminalAdapter.Write("@01HSPD=1500\r");// speed = 1500
 
                 //SetMotorSpeedAndAcceleration();
                 SetMotorSpeed();
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01J+\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "J+\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -388,19 +386,19 @@ namespace CxTitan
             TimerStates.Enabled = false;// disable read values from Motors
             // High Speed
             Thread.Sleep(20);
-            MotorControls.oHyperTerminalAdapter.Write("@01HSPD=" + txtHighSpeed.Text + "\r");// send High speed
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "HSPD=" + txtHighSpeed.Text + "\r");// send High speed
 
             // Low Speed
             Thread.Sleep(20);
-            MotorControls.oHyperTerminalAdapter.Write("@01LSPD=" + txtLowSpeed.Text + "\r");// send Low speed
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "LSPD=" + txtLowSpeed.Text + "\r");// send Low speed
 
             // Accel
             Thread.Sleep(20);
-            MotorControls.oHyperTerminalAdapter.Write("@01ACC=" + txtAccel.Text + "\r");// send Accel
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "ACC=" + txtAccel.Text + "\r");// send Accel
 
             // Decel
             Thread.Sleep(20);
-            MotorControls.oHyperTerminalAdapter.Write("@01DEC=" + txtDecel.Text + "\r");// send Decel
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DEC=" + txtDecel.Text + "\r");// send Decel
 
             TimerStates.Enabled = true;// enable read values from Motors
         }
@@ -412,11 +410,11 @@ namespace CxTitan
                 TimerStates.Enabled = false;// disable read values from Motors
                 // High Speed
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01HSPD=" + txtHighSpeed.Text + "\r");// send High speed
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "HSPD=" + txtHighSpeed.Text + "\r");// send High speed
 
                 // Low Speed
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01LSPD=" + txtLowSpeed.Text + "\r");// send Low speed
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "LSPD=" + txtLowSpeed.Text + "\r");// send Low speed
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -432,11 +430,11 @@ namespace CxTitan
                 TimerStates.Enabled = false;// disable read values from Motors
                 // Accel
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01ACC=" + txtAccel.Text + "\r");// send Accel
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "ACC=" + txtAccel.Text + "\r");// send Accel
 
                 // Decel
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01DEC=" + txtDecel.Text + "\r");// send Decel
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DEC=" + txtDecel.Text + "\r");// send Decel
 
                 TimerStates.Enabled = true;// enable read values from Motors
             }
@@ -458,7 +456,7 @@ namespace CxTitan
                 TimerStates.Enabled = false;// disable read values from Motors
                 // High Speed
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01HSPD=" + txtHighSpeed.Text + "\r");// send High speed
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "HSPD=" + txtHighSpeed.Text + "\r");// send High speed
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -474,7 +472,7 @@ namespace CxTitan
                 TimerStates.Enabled = false;// disable read values from Motors
                 // Low Speed
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01LSPD=" + txtLowSpeed.Text + "\r");// send Low speed
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "LSPD=" + txtLowSpeed.Text + "\r");// send Low speed
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -490,7 +488,7 @@ namespace CxTitan
                 TimerStates.Enabled = false;// disable read values from Motors
                 // Accel
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01ACC=" + txtAccel.Text + "\r");// send Accel
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "ACC=" + txtAccel.Text + "\r");// send Accel
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -506,7 +504,7 @@ namespace CxTitan
                 TimerStates.Enabled = false;// disable read values from Motors
                 // Decel
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01DEC=" + txtDecel.Text + "\r");// send Decel
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DEC=" + txtDecel.Text + "\r");// send Decel
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -525,7 +523,7 @@ namespace CxTitan
                 SetMotorSpeed();
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01H-\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "H-\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -543,7 +541,7 @@ namespace CxTitan
                 SetMotorSpeed();
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01J-\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "J-\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -561,7 +559,7 @@ namespace CxTitan
                 SetMotorSpeed();
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01J+\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "J+\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -577,7 +575,7 @@ namespace CxTitan
                 TimerStates.Enabled = false;// disable read values from Motors
                 SetMotorDecel();
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01STOP\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "STOP\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -592,7 +590,7 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01ABORT\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "ABORT\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -609,7 +607,7 @@ namespace CxTitan
                 SetMotorSpeed();
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01L-\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "L-\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -626,7 +624,7 @@ namespace CxTitan
                 SetMotorSpeed();
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01L+\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "L+\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -648,7 +646,7 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01CLR\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "CLR\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -686,7 +684,7 @@ namespace CxTitan
             // DI 1 to 6 all back color???
 
             // DO1 InPos
-            MotorControls.oHyperTerminalAdapter.Write("@01DO1\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DO1\r");
             Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.DO1InPos);
             if (Convert.ToBoolean(Convert.ToInt32(MotorControls.DO1InPos)))
@@ -699,7 +697,7 @@ namespace CxTitan
             }
 
             // DO2 Sync
-            MotorControls.oHyperTerminalAdapter.Write("@01DO2\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DO2\r");
             Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.DO2Sync);
             if (Convert.ToBoolean(Convert.ToInt32(MotorControls.DO2Sync)))
@@ -712,7 +710,7 @@ namespace CxTitan
             }
 
             // DO3 Alarm
-            MotorControls.oHyperTerminalAdapter.Write("@01DO3\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DO3\r");
             Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.DO3Alarm);
             if (Convert.ToBoolean(Convert.ToInt32(MotorControls.DO3Alarm)))
@@ -727,7 +725,7 @@ namespace CxTitan
 
         private void GetProgram0Status()// Get Program0 status
         {
-            MotorControls.oHyperTerminalAdapter.Write("@01SASTAT[0]\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SASTAT[0]\r");
             Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Program0Status);
             //txtProgramControlStatus.Text = MotorControls.Program0Status;
@@ -752,7 +750,7 @@ namespace CxTitan
 
         private void GetProgram0Index()
         {
-            MotorControls.oHyperTerminalAdapter.Write("@01SPC[0]\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SPC[0]\r");
             Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Program0Index);
             txtProgramControlIndex.Text = MotorControls.Program0Index;
@@ -760,7 +758,7 @@ namespace CxTitan
 
         private void GetRealTimePulsePos()
         {
-            MotorControls.oHyperTerminalAdapter.Write("@01PX\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "PX\r");
             Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.PulsePos);
             txtPosition.Text = MotorControls.PulsePos;
@@ -768,7 +766,7 @@ namespace CxTitan
 
         private void GetRealTimeEncoderPos()
         {
-            MotorControls.oHyperTerminalAdapter.Write("@01EX\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "EX\r");
             Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.EncoderPos);
             txtEncoder.Text = MotorControls.EncoderPos;
@@ -776,7 +774,7 @@ namespace CxTitan
 
         private void GetRealTimeDelta()
         {
-            MotorControls.oHyperTerminalAdapter.Write("@01DX\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DX\r");
             Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Delta);
             txtDelta.Text = MotorControls.Delta;
@@ -784,7 +782,7 @@ namespace CxTitan
 
         private void GetRealTimeSpeed()
         {
-            MotorControls.oHyperTerminalAdapter.Write("@01PS\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "PS\r");
             Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Speed);
             txtSpeed.Text = MotorControls.Speed;
@@ -792,7 +790,7 @@ namespace CxTitan
 
         private void GetRealTimeMotorStatus()
         {
-            MotorControls.oHyperTerminalAdapter.Write("@01MST\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "MST\r");
             Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Status);
             // default colors
@@ -829,7 +827,7 @@ namespace CxTitan
 
         private void GetRealTimeStepNLoopStatus()
         {
-            MotorControls.oHyperTerminalAdapter.Write("@01SLS\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SLS\r");
             Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.StepNLoop);
             switch (Convert.ToInt32(MotorControls.StepNLoop))
@@ -883,7 +881,7 @@ namespace CxTitan
 
         private void GetRealTimeMoveModeStatus()
         {
-            MotorControls.oHyperTerminalAdapter.Write("@01MM\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "MM\r");
             Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Mode);
             switch (Convert.ToInt32(MotorControls.Mode))
@@ -901,7 +899,7 @@ namespace CxTitan
 
         private void GetRealTimeDriverCurrent()
         {
-            MotorControls.oHyperTerminalAdapter.Write("@01CUR\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "CUR\r");
             Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Current);
             txtCurrent.Text = MotorControls.Current;
@@ -909,7 +907,7 @@ namespace CxTitan
 
         private void GetProductID()
         {
-            MotorControls.oHyperTerminalAdapter.Write("@01ID\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "ID\r");
             Thread.Sleep(20);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.ProductID);
             lblProductIDVal.Text = MotorControls.ProductID;
@@ -917,7 +915,7 @@ namespace CxTitan
 
         private void GetProductVersion()
         {
-            MotorControls.oHyperTerminalAdapter.Write("@01VER\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "VER\r");
             Thread.Sleep(20);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.ProductVer);
             lblProductVerVal.Text = MotorControls.ProductVer;
@@ -926,7 +924,7 @@ namespace CxTitan
         private void GetDeviceID()
         {
             string strResultValue = "";
-            MotorControls.oHyperTerminalAdapter.Write("@01DN\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DN\r");
             Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
             int iDeviceId = Convert.ToInt32(strResultValue.Substring(3));
@@ -945,7 +943,7 @@ namespace CxTitan
         {
             TimerStates.Enabled = false;// disable read values from Motors
             Thread.Sleep(100);
-            MotorControls.oHyperTerminalAdapter.Write("@01EO=" + Convert.ToInt32(chbxMagMotorControlEnable.Checked) + "\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "EO=" + Convert.ToInt32(chbxMagMotorControlEnable.Checked) + "\r");
             Thread.Sleep(20);
             string strDummy = "";
             MotorControls.oHyperTerminalAdapter.Read(ref strDummy);
@@ -958,9 +956,9 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 //Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01SR0=1\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SR0=1\r");
                 Thread.Sleep(10);
-                MotorControls.oHyperTerminalAdapter.Write("@01SR1=1\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SR1=1\r");
                 Thread.Sleep(200);// Thread.Sleep(10); Thread.Sleep(200);
 
                 DateTime startTime = DateTime.Now;
@@ -998,11 +996,11 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 //Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01SR0=0\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SR0=0\r");
                 Thread.Sleep(10);
-                MotorControls.oHyperTerminalAdapter.Write("@01SR1=0\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SR1=0\r");
                 Thread.Sleep(200);// Thread.Sleep(10);  Thread.Sleep(200);
-                MotorControls.oHyperTerminalAdapter.Write("@01ABORT\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "ABORT\r");
                 Thread.Sleep(200);
 
                 // Only when pressing Stop will calculate the running time
@@ -1043,9 +1041,9 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 //Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01SR0=2\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SR0=2\r");
                 Thread.Sleep(10);
-                MotorControls.oHyperTerminalAdapter.Write("@01SR1=2\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SR1=2\r");
                 Thread.Sleep(200);// Thread.Sleep(10);  Thread.Sleep(200);
 
                 //DateTime nowTime = DateTime.Now;// (Pause is not counted as Stop, Motor is still running)
@@ -1085,9 +1083,9 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 //Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01SR0=3\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SR0=3\r");
                 Thread.Sleep(10);
-                MotorControls.oHyperTerminalAdapter.Write("@01SR1=3\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SR1=3\r");
                 Thread.Sleep(200);// Thread.Sleep(10); Thread.Sleep(200);
 
                 DateTime startTime = DateTime.Now;
@@ -1115,7 +1113,7 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01EX=0\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "EX=0\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -1130,7 +1128,7 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01PX=0\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "PX=0\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -1145,7 +1143,7 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01SCV=1\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SCV=1\r");
                 Thread.Sleep(20);
                 string strDummy = "";
                 MotorControls.oHyperTerminalAdapter.Read(ref strDummy);
@@ -1163,7 +1161,7 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 Thread.Sleep(20);
-                MotorControls.oHyperTerminalAdapter.Write("@01SCV=0\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SCV=0\r");
                 Thread.Sleep(20);
                 string strDummy = "";
                 MotorControls.oHyperTerminalAdapter.Read(ref strDummy);
@@ -1186,7 +1184,7 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01ABS\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "ABS\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -1201,7 +1199,7 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01INC\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "INC\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -1216,7 +1214,7 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01EX" + txtRefPos.Text + "\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "EX" + txtRefPos.Text + "\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -1231,7 +1229,7 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01PX" + txtRefPos.Text + "\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "PX" + txtRefPos.Text + "\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -1528,7 +1526,7 @@ namespace CxTitan
             {
                 TimerStates.Enabled = false;// disable read values from Motors
                 Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01SSPDM=" + Convert.ToInt32(cbxSSPDMode.Text) + "\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SSPDM=" + Convert.ToInt32(cbxSSPDMode.Text) + "\r");
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -1542,7 +1540,7 @@ namespace CxTitan
             if (MotorControls.IsMotorSerialInitialized)
             {
                 TimerStates.Enabled = false;// disable read values from Motors
-                MotorControls.oHyperTerminalAdapter.Write("@01SSPDM\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SSPDM\r");
                 Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.SSPDMVal);
                 if (Convert.ToInt32(MotorControls.SSPDMVal) == 0)
@@ -1553,14 +1551,14 @@ namespace CxTitan
                 {
                     // Check SCV ON Status Value
                     Thread.Sleep(20);
-                    MotorControls.oHyperTerminalAdapter.Write("@01SCV\r");
+                    MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SCV\r");
                     Thread.Sleep(20);
                     MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.SCVVal);
 
                     Thread.Sleep(20);
-                    MotorControls.oHyperTerminalAdapter.Write("@01ACC=" + txtAccelOnTheFly.Text + "\r");// send Accel
+                    MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "ACC=" + txtAccelOnTheFly.Text + "\r");// send Accel
                     Thread.Sleep(20);
-                    MotorControls.oHyperTerminalAdapter.Write("@01SSPD" + txtSpeedOnTheFly.Text + "\r");
+                    MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SSPD" + txtSpeedOnTheFly.Text + "\r");
 
 
                     if (Convert.ToInt32(MotorControls.SCVVal) == 1) // if SCV ==1 , SCV is ON
@@ -1573,6 +1571,43 @@ namespace CxTitan
             else
             {
                 return;
+            }
+        }
+
+        private void cbxDeviceID_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            TimerStates.Enabled = false;
+            MotorControls.DeviceId = Convert.ToInt32(cbxDeviceID.Text);
+            // Try Connect once, if cannot, pop up a error message!!
+            string strResult = "";
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "PX\r");
+            Thread.Sleep(10);
+            MotorControls.oHyperTerminalAdapter.Read(ref strResult);
+            if (string.IsNullOrEmpty(strResult))
+            {
+                string strMsg = string.Format("No Communication with the device at address 0{0}", MotorControls.DeviceId);
+                MessageBox.Show(strMsg);
+                lblPort.Text = "Error";
+                lblPort.BackColor = Color.Red;
+                // TimerStates disable
+                TimerStates.Enabled = false;
+                MotorControls.IsMotorSerialInitialized = false;
+            }
+            else
+            {
+                lblPort.Text = "Successful";
+                lblPort.BackColor = Color.Green;
+                // TimerStates enable
+                TimerStates.Enabled = true;
+                MotorControls.IsMotorSerialInitialized = true;
+                // Device ID
+                GetDeviceID();//cbxDeviceID.SelectedIndex = MotorControls.oHyperTerminalAdapter.COMID;
+
+                // Product ID and Version
+                GetProductID();
+                GetProductVersion();
+                // Motor Power On or Off depending on the chbxMagMotorControlEnable 
+                SetMotorControlPowerEnable();
             }
         }
     }

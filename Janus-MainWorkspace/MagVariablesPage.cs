@@ -204,7 +204,7 @@ namespace CxTitan
         private void GetVariableValue(int index)
         {
             string strResultValue = "";
-            MotorControls.oHyperTerminalAdapter.Write("@01V" + index + "\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "V" + index + "\r");
             Thread.Sleep(10);
             MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
             txtVariables[index].Text = strResultValue;

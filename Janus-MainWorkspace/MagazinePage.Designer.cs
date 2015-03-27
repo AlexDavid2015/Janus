@@ -1596,6 +1596,7 @@
             this.cbxDeviceID.Name = "cbxDeviceID";
             this.cbxDeviceID.Size = new System.Drawing.Size(56, 21);
             this.cbxDeviceID.TabIndex = 93;
+            this.cbxDeviceID.SelectionChangeCommitted += new System.EventHandler(this.cbxDeviceID_SelectionChangeCommitted);
             // 
             // lblDeviceID
             // 

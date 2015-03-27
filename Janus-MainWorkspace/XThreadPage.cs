@@ -24,13 +24,13 @@ namespace CxTitan
             if (radProgram0.Checked)// Run Program 0
             {
                 //Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01SR0=1\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SR0=1\r");
             }
 
             if (radProgram1.Checked)// Run Program 1
             {
                 //Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01SR1=1\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SR1=1\r");
             }
             TimerProgramControl.Enabled = true;
         }
@@ -41,13 +41,13 @@ namespace CxTitan
             if (radProgram0.Checked)// Stop Program 0
             {
                 //Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01SR0=0\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SR0=0\r");
             }
 
             if (radProgram1.Checked)// Stop Program 1
             {
                 //Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01SR1=0\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SR1=0\r");
             }
             TimerProgramControl.Enabled = true;
         }
@@ -58,13 +58,13 @@ namespace CxTitan
             if (radProgram0.Checked)// Pause Program 0
             {
                 //Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01SR0=2\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SR0=2\r");
             }
 
             if (radProgram1.Checked)// Pause Program 1
             {
                 //Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01SR1=2\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SR1=2\r");
             }
             TimerProgramControl.Enabled = true;
         }
@@ -75,13 +75,13 @@ namespace CxTitan
             if (radProgram0.Checked)// Continue Program 0
             {
                 //Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01SR0=3\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SR0=3\r");
             }
 
             if (radProgram1.Checked)// Continue Program 1
             {
                 //Thread.Sleep(100);
-                MotorControls.oHyperTerminalAdapter.Write("@01SR1=3\r");
+                MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SR1=3\r");
             }
             TimerProgramControl.Enabled = true;
         }
@@ -116,7 +116,7 @@ namespace CxTitan
 
         private void GetProgram0Status()// Get Program0 status
         {
-            MotorControls.oHyperTerminalAdapter.Write("@01SASTAT[0]\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SASTAT[0]\r");
             Thread.Sleep(20);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Program0Status);
             //txtProgram0Status.Text = MotorControls.Program0Status;
@@ -141,7 +141,7 @@ namespace CxTitan
 
         private void GetProgram1Status()// Get Program1 status
         {
-            MotorControls.oHyperTerminalAdapter.Write("@01SASTAT[1]\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SASTAT[1]\r");
             Thread.Sleep(20);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Program1Status);
             //txtProgram1Status.Text = MotorControls.Program1Status;
@@ -166,7 +166,7 @@ namespace CxTitan
 
         private void GetProgram0Index()// Get Program0 index
         {
-            MotorControls.oHyperTerminalAdapter.Write("@01SPC[0]\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SPC[0]\r");
             Thread.Sleep(20);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Program0Index);
             txtProgram0Index.Text = MotorControls.Program0Index;
@@ -174,7 +174,7 @@ namespace CxTitan
 
         private void GetProgram1Index()// Get Program1 index
         {
-            MotorControls.oHyperTerminalAdapter.Write("@01SPC[1]\r");
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "SPC[1]\r");
             Thread.Sleep(20);
             MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.Program1Index);
             txtProgram1Index.Text = MotorControls.Program1Index;

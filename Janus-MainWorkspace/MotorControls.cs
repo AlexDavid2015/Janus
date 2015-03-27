@@ -15,7 +15,7 @@ namespace CxTitan
         public static bool IsMotorSerialInitialized = false;
 
         #region Device ID
-        public static int DeviceId = 0;
+        public static int DeviceId = 1;// default is 1 when first time connected
         #endregion
 
         #region Status
