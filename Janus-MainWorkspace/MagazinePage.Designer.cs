@@ -186,6 +186,7 @@
             this.cmdSetSSPDMode = new System.Windows.Forms.Button();
             this.cbxSSPDMode = new System.Windows.Forms.ComboBox();
             this.lblSSPDMode = new System.Windows.Forms.Label();
+            this.TimerStatesSecond = new System.Windows.Forms.Timer(this.components);
             this.gpbStatus.SuspendLayout();
             this.gpbDIOStatus.SuspendLayout();
             this.gpbControl.SuspendLayout();
@@ -1670,7 +1671,7 @@
             // 
             // TimerStates
             // 
-            this.TimerStates.Interval = 250;
+            this.TimerStates.Interval = 1;
             this.TimerStates.Tick += new System.EventHandler(this.TimerStates_Tick);
             // 
             // gpbProductInfo
@@ -1808,6 +1809,11 @@
             this.lblSSPDMode.Size = new System.Drawing.Size(74, 13);
             this.lblSSPDMode.TabIndex = 76;
             this.lblSSPDMode.Text = "SSPD Mode";
+            // 
+            // TimerStatesSecond
+            // 
+            this.TimerStatesSecond.Interval = 50;
+            this.TimerStatesSecond.Tick += new System.EventHandler(this.TimerStatesSecond_Tick);
             // 
             // MagazinePage
             // 
@@ -2023,5 +2029,6 @@
         internal System.Windows.Forms.Button cmdSetSSPDAccelAndSpeed;
         private System.Windows.Forms.TextBox txtSpeedOnTheFly;
         private System.Windows.Forms.TextBox txtAccelOnTheFly;
+        internal System.Windows.Forms.Timer TimerStatesSecond;
     }
 }

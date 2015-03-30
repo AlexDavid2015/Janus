@@ -39,6 +39,7 @@ namespace CxTitan
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "X" + txtRefPos.Text + "\r");
+                Thread.Sleep(20);
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -57,6 +58,7 @@ namespace CxTitan
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "X0\r");
+                Thread.Sleep(20);
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -109,6 +111,7 @@ namespace CxTitan
                 lblPort.BackColor = Color.Green;
                 // TimerStates enable
                 TimerStates.Enabled = true;
+                TimerStatesSecond.Enabled = true;
                 MotorControls.IsMotorSerialInitialized = true;
                 // Device ID
                 GetDeviceID();//cbxDeviceID.SelectedIndex = MotorControls.oHyperTerminalAdapter.COMID;
@@ -125,6 +128,7 @@ namespace CxTitan
                 lblPort.BackColor = Color.Red;
                 // TimerStates disable
                 TimerStates.Enabled = false;
+                TimerStatesSecond.Enabled = false;
                 MotorControls.IsMotorSerialInitialized = false;
                 cbxDeviceID.SelectedIndex = 0;
             }
@@ -204,6 +208,7 @@ namespace CxTitan
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "H+\r");
+                Thread.Sleep(20);
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -224,6 +229,7 @@ namespace CxTitan
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "J-\r");
+                Thread.Sleep(20);
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -244,6 +250,7 @@ namespace CxTitan
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "J+\r");
+                Thread.Sleep(20);
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -524,6 +531,7 @@ namespace CxTitan
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "H-\r");
+                Thread.Sleep(20);
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -542,6 +550,7 @@ namespace CxTitan
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "J-\r");
+                Thread.Sleep(20);
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -560,6 +569,7 @@ namespace CxTitan
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "J+\r");
+                Thread.Sleep(20);
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -576,6 +586,7 @@ namespace CxTitan
                 SetMotorDecel();
                 Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "STOP\r");
+                Thread.Sleep(20);
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -591,6 +602,7 @@ namespace CxTitan
                 TimerStates.Enabled = false;// disable read values from Motors
                 Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "ABORT\r");
+                Thread.Sleep(20);
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -608,6 +620,7 @@ namespace CxTitan
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "L-\r");
+                Thread.Sleep(20);
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -625,6 +638,7 @@ namespace CxTitan
                 SetMotorAccelDecel();
                 Thread.Sleep(20);
                 MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "L+\r");
+                Thread.Sleep(20);
                 TimerStates.Enabled = true;// enable read values from Motors
             }
             else
@@ -659,24 +673,199 @@ namespace CxTitan
         {
             ////Thread.Sleep(200);
 
-            // Motor Status
-            GetRealTimePulsePos();
-            GetRealTimeEncoderPos();
-            GetRealTimeDelta();
-            GetRealTimeSpeed();
-            GetRealTimeMotorStatus();
-            GetRealTimeStepNLoopStatus();
-            GetRealTimeMoveModeStatus();
-            GetRealTimeDriverCurrent();
+            //// Motor Status
+            //GetRealTimePulsePos();
+            //GetRealTimeEncoderPos();
+            //GetRealTimeDelta();
+            //GetRealTimeSpeed();
+            //GetRealTimeMotorStatus();
+            //GetRealTimeStepNLoopStatus();
+            //GetRealTimeMoveModeStatus();
+            //GetRealTimeDriverCurrent();
 
-            // Program Control Status
-            GetProgram0Status();
-            GetProgram0Index();
+            //// Program Control Status
+            //GetProgram0Status();
+            //GetProgram0Index();
 
-            // DIO status
-            GetDIOStatus();
+            //// DIO status
+            //GetDIOStatus();
 
-            //GetRealTimeMotorStatus();// Test Single
+
+
+            // Test Experiment 1: Test Single
+            //GetRealTimeMotorStatus();
+
+
+            // Test Experiment 2
+            if (MotorControls.FastStatesStep == 1)
+            {
+                GetRealTimePulsePos();
+            }
+            if (MotorControls.FastStatesStep == 2)
+            {
+                GetRealTimeEncoderPos();
+            }
+            if (MotorControls.FastStatesStep == 3)
+            {
+                GetRealTimeDelta();
+            }
+            if (MotorControls.FastStatesStep == 4)
+            {
+                GetRealTimeSpeed();
+            }
+            if (MotorControls.FastStatesStep == 5)
+            {
+                GetRealTimeMotorStatus();
+            }
+            MotorControls.FastStatesStep++;
+            if (MotorControls.FastStatesStep > MotorControls.FastStatesMaxStep)
+            {
+                MotorControls.FastStatesStep = 1;
+            }
+        }
+
+        private void GetDO1()
+        {
+            // DO1 InPos
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DO1\r");
+            Thread.Sleep(10);
+            MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.DO1InPos);
+            if (Convert.ToBoolean(Convert.ToInt32(MotorControls.DO1InPos)))
+            {
+                lblDO1InPosVal.BackColor = Color.Green;
+            }
+            else
+            {
+                lblDO1InPosVal.BackColor = SystemColors.Control;
+            }
+        }
+
+        private void GetDO2()
+        {
+            // DO2 Sync
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DO2\r");
+            Thread.Sleep(10);
+            MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.DO2Sync);
+            if (Convert.ToBoolean(Convert.ToInt32(MotorControls.DO2Sync)))
+            {
+                lblDO2SyncVal.BackColor = Color.Blue;
+            }
+            else
+            {
+                lblDO2SyncVal.BackColor = SystemColors.Control;
+            }
+        }
+
+        private void GetDO3()
+        {
+            // DO3 Alarm
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DO3\r");
+            Thread.Sleep(10);
+            MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.DO3Alarm);
+            if (Convert.ToBoolean(Convert.ToInt32(MotorControls.DO3Alarm)))
+            {
+                lblDO3AlarmVal.BackColor = Color.Red;
+            }
+            else
+            {
+                lblDO3AlarmVal.BackColor = SystemColors.Control;
+            }
+        }
+
+        private void GetDI1()
+        {
+            // DI1
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DI1\r");
+            Thread.Sleep(10);
+            MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.DI1);
+            if (Convert.ToBoolean(Convert.ToInt32(MotorControls.DI1)))
+            {
+                lblDI1Val.BackColor = Color.Green;
+            }
+            else
+            {
+                lblDI1Val.BackColor = SystemColors.Control;
+            }
+        }
+
+        private void GetDI2()
+        {
+            // DI2
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DI2\r");
+            Thread.Sleep(10);
+            MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.DI2);
+            if (Convert.ToBoolean(Convert.ToInt32(MotorControls.DI2)))
+            {
+                lblDI2Val.BackColor = Color.Green;
+            }
+            else
+            {
+                lblDI2Val.BackColor = SystemColors.Control;
+            }
+        }
+
+        private void GetDI3()
+        {
+            // DI3
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DI3\r");
+            Thread.Sleep(10);
+            MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.DI3);
+            if (Convert.ToBoolean(Convert.ToInt32(MotorControls.DI3)))
+            {
+                lblDI3Val.BackColor = Color.Green;
+            }
+            else
+            {
+                lblDI3Val.BackColor = SystemColors.Control;
+            }
+        }
+
+        private void GetDI4()
+        {
+            // DI4
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DI4\r");
+            Thread.Sleep(10);
+            MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.DI4);
+            if (Convert.ToBoolean(Convert.ToInt32(MotorControls.DI4)))
+            {
+                lblDI4Val.BackColor = Color.Green;
+            }
+            else
+            {
+                lblDI4Val.BackColor = SystemColors.Control;
+            }
+        }
+
+        private void GetDI5()
+        {
+            // DI5
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DI5\r");
+            Thread.Sleep(10);
+            MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.DI5);
+            if (Convert.ToBoolean(Convert.ToInt32(MotorControls.DI5)))
+            {
+                lblDI5Val.BackColor = Color.Green;
+            }
+            else
+            {
+                lblDI5Val.BackColor = SystemColors.Control;
+            }
+        }
+
+        private void GetDI6()
+        {
+            // DI6
+            MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DI6\r");
+            Thread.Sleep(10);
+            MotorControls.oHyperTerminalAdapter.Read(ref MotorControls.DI6);
+            if (Convert.ToBoolean(Convert.ToInt32(MotorControls.DI6)))
+            {
+                lblDI6Val.BackColor = Color.Green;
+            }
+            else
+            {
+                lblDI6Val.BackColor = SystemColors.Control;
+            }
         }
 
         private void GetDIOStatus()
@@ -1608,6 +1797,83 @@ namespace CxTitan
                 GetProductVersion();
                 // Motor Power On or Off depending on the chbxMagMotorControlEnable 
                 SetMotorControlPowerEnable();
+            }
+        }
+
+        private void TimerStatesSecond_Tick(object sender, EventArgs e)
+        {
+            //GetRealTimeMotorStatus();
+            //GetRealTimeStepNLoopStatus();
+            //GetRealTimeMoveModeStatus();
+            //GetRealTimeDriverCurrent();
+            //GetProgram0Status();
+            //GetProgram0Index();
+            //GetDIOStatus();
+
+
+            if (MotorControls.FastStatesStepSecond == 1)
+            {
+                GetRealTimeStepNLoopStatus();
+            }
+            if (MotorControls.FastStatesStepSecond == 2)
+            {
+                GetRealTimeMoveModeStatus();
+            }
+            if (MotorControls.FastStatesStepSecond == 3)
+            {
+                GetRealTimeDriverCurrent();
+            }
+            if (MotorControls.FastStatesStepSecond == 4)
+            {
+                GetProgram0Status();
+            }
+            if (MotorControls.FastStatesStepSecond == 5)
+            {
+                GetProgram0Index();
+            }
+            // DO
+            if (MotorControls.FastStatesStepSecond == 6)
+            {
+                GetDO1();
+            }
+            if (MotorControls.FastStatesStepSecond == 7)
+            {
+                GetDO2();
+            }
+            if (MotorControls.FastStatesStepSecond == 8)
+            {
+                GetDO3();
+            }
+            // DI
+            //if (MotorControls.FastStatesStepSecond == 9)
+            //{
+            //    GetDI1();
+            //}
+            //if (MotorControls.FastStatesStepSecond == 10)
+            //{
+            //    GetDI2();
+            //}
+            //if (MotorControls.FastStatesStepSecond == 11)
+            //{
+            //    GetDI3();
+            //}
+            //if (MotorControls.FastStatesStepSecond == 12)
+            //{
+            //    GetDI4();
+            //}
+            //if (MotorControls.FastStatesStepSecond == 13)
+            //{
+            //    GetDI5();
+            //}
+            //if (MotorControls.FastStatesStepSecond == 14)
+            //{
+            //    GetDI6();
+            //}
+
+            MotorControls.FastStatesStepSecond++;
+            if (MotorControls.FastStatesStepSecond > MotorControls.FastStatesMaxStepSecond)
+            {
+                MotorControls.FastStatesStepSecond = 1;
             }
         }
     }

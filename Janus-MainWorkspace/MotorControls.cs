@@ -13,6 +13,13 @@ namespace CxTitan
     {
         public static HyperTerminalAdapter oHyperTerminalAdapter = new HyperTerminalAdapter();
         public static bool IsMotorSerialInitialized = false;
+        // TimerStates
+        public static int FastStatesStep = 1;
+        public static int FastStatesMaxStep = 5;
+
+        // TimerStatesSecond
+        public static int FastStatesStepSecond = 1;
+        public static int FastStatesMaxStepSecond = 8;
 
         #region Device ID
         public static int DeviceId = 1;// default is 1 when first time connected
