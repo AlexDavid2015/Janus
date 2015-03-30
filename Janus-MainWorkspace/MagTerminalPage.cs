@@ -69,12 +69,19 @@ namespace CxTitan
                         //HyperTerminalAdapter oHyperTerminalAdapter = new HyperTerminalAdapter();
                         //oHyperTerminalAdapter.Connect();
                         SystemGlobals.objMagazinePage.TimerStates.Enabled = false; // Disable TimeRecv flow
-                        string command = "@0" + MotorControls.DeviceId + txtCommand.Text + "\r";
+                        string command = "@0" + Convert.ToInt32(txtID.Text) + txtCommand.Text + "\r";
                         MotorControls.oHyperTerminalAdapter.Write(command); // Input pure standalone language
                         Thread.Sleep(20);
                         string strRecv = "";
                         MotorControls.oHyperTerminalAdapter.Read(ref strRecv);
-                        txtTerminalPage.AppendText("> @0" + MotorControls.DeviceId + txtCommand.Text + "\r\n" + "< " + strRecv + "\n");
+                        if (string.IsNullOrEmpty(strRecv))
+                        {
+                            txtTerminalPage.AppendText("> @0" + Convert.ToInt32(txtID.Text) + txtCommand.Text + "\r\n" + "<NO REPLY!" + "\n");
+                        }
+                        else
+                        {
+                            txtTerminalPage.AppendText("> @0" + Convert.ToInt32(txtID.Text) + txtCommand.Text + "\r\n" + "< " + strRecv + "\n");
+                        }
                         txtCommand.Text = "";
                         SystemGlobals.objMagazinePage.TimerStates.Enabled = true; // Enable TimeRecv flow
                         //oHyperTerminalAdapter.Disconnect();
@@ -87,6 +94,11 @@ namespace CxTitan
                     txtCommand.Text = "";
                 }
             }
+        }
+
+        private void MagTerminalPage_Load(object sender, EventArgs e)
+        {
+            txtID.Text = Convert.ToString(MotorControls.DeviceId);
         }
     }
 }

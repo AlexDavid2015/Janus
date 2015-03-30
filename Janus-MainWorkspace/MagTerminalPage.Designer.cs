@@ -106,6 +106,7 @@
             this.Name = "MagTerminalPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TerminalPage";
+            this.Load += new System.EventHandler(this.MagTerminalPage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
