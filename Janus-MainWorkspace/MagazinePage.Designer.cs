@@ -1547,7 +1547,6 @@
             // 
             this.txtSyncPos.Location = new System.Drawing.Point(103, 93);
             this.txtSyncPos.Name = "txtSyncPos";
-            this.txtSyncPos.ReadOnly = true;
             this.txtSyncPos.Size = new System.Drawing.Size(99, 20);
             this.txtSyncPos.TabIndex = 59;
             this.txtSyncPos.Text = "0";

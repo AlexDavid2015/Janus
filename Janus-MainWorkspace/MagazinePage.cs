@@ -1766,6 +1766,7 @@ namespace CxTitan
         private void cbxDeviceID_SelectionChangeCommitted(object sender, EventArgs e)
         {
             TimerStates.Enabled = false;
+            TimerStatesSecond.Enabled = false;
             MotorControls.DeviceId = Convert.ToInt32(cbxDeviceID.Text);
             // Try Connect once, if cannot, pop up a error message!!
             string strResult = "";
@@ -1778,8 +1779,11 @@ namespace CxTitan
                 MessageBox.Show(strMsg);
                 lblPort.Text = "Error";
                 lblPort.BackColor = Color.Red;
+                lblProductIDVal.Text = "???";
+                lblProductVerVal.Text = "???";
                 // TimerStates disable
                 TimerStates.Enabled = false;
+                TimerStatesSecond.Enabled = false;
                 MotorControls.IsMotorSerialInitialized = false;
             }
             else
@@ -1788,6 +1792,7 @@ namespace CxTitan
                 lblPort.BackColor = Color.Green;
                 // TimerStates enable
                 TimerStates.Enabled = true;
+                TimerStatesSecond.Enabled = true;
                 MotorControls.IsMotorSerialInitialized = true;
                 // Device ID
                 GetDeviceID();//cbxDeviceID.SelectedIndex = MotorControls.oHyperTerminalAdapter.COMID;
