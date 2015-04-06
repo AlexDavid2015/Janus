@@ -477,6 +477,10 @@ namespace CxTitan
             {
                 // Communication method
                 string strResultValue = "";
+                //// only RS485 or RS232 can be chosen, depending on the radRS485 check status
+                //MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "CM=" + Convert.ToInt32(radRS485.Checked) + "\r");
+                //Thread.Sleep(10);
+                //MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
 
                 // Append ID
                 strResultValue = "";
@@ -491,8 +495,16 @@ namespace CxTitan
                 MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
 
                 // Baud Rate
+                //strResultValue = "";
+                //MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DB=" + (combxBaudRate.SelectedIndex + 1) + "\r");
+                //Thread.Sleep(10);
+                //MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
 
                 // Device ID
+                //strResultValue = "";
+                //MotorControls.oHyperTerminalAdapter.Write("@0" + MotorControls.DeviceId + "DN=" + (combxDeviceID.SelectedIndex + 1) + "\r");
+                //Thread.Sleep(10);
+                //MotorControls.oHyperTerminalAdapter.Read(ref strResultValue);
 
                 // Time-out Counter
                 strResultValue = "";
