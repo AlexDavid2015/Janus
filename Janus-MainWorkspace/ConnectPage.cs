@@ -261,6 +261,14 @@ namespace CxTitan
 
             if (cbxAISampleRate.Items.Count > 0)
                 cbxAISampleRate.SelectedIndex = 0;
+            // check the AI Sampling rate
+            if (AvantechAIs.m_iSamplingRateIdx >= 0)
+            {
+                if (AvantechAIs.m_iSamplingRateIdx > cbxAISampleRate.Items.Count - 1)
+                    cbxAISampleRate.SelectedIndex = -1;
+                else
+                    cbxAISampleRate.SelectedIndex = AvantechAIs.m_iSamplingRateIdx;        
+            }
             cbxAISampleRate.EndUpdate();
         }
 

@@ -42,6 +42,7 @@ namespace CxTitan
         public static ushort m_usStart;
         public static ushort m_usLength;
         public static string StatusBar_IO = "";
+        public static int m_iSamplingRateIdx = 0;// for recording idx in RefreshAiSampleRate() and idx external use
         
 
         // Some Text information
@@ -286,6 +287,7 @@ namespace CxTitan
                 }
                 else
                     StatusBar_IO += "GetSampleRate Index (Err : " + idx.ToString() + ") Failed! ";//StatusBar_IO.Text += "GetSampleRate Index (Err : " + idx.ToString() + ") Failed! ";
+                m_iSamplingRateIdx = idx;
             }
             else
                 StatusBar_IO += "GetSampleRate (Err : " + m_adamSocket.Modbus().LastError.ToString() + ") Failed! ";//StatusBar_IO.Text += "GetSampleRate (Err : " + m_adamSocket.Modbus().LastError.ToString() + ") Failed! ";
